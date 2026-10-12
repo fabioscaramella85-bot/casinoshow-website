@@ -1,0 +1,976 @@
+{
+  "Shell": {
+    "skip": "Skip to content",
+    "logoLabel": "Casino Show, home page",
+    "primaryNav": "Primary navigation",
+    "footerNav": "Footer navigation",
+    "languageNav": "Language",
+    "legalTitle": "Legal",
+    "legal": "Legal information will be published in this area.",
+    "brand": "Casino-themed entertainment for events in Switzerland.",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "copyright": "© {year} Casino Show"
+  },
+  "Nav": {
+    "home": "Home",
+    "events": "Events",
+    "games": "Games & Services",
+    "gallery": "Gallery",
+    "about": "About Us",
+    "contact": "Contact",
+    "quote": "Request a Quote"
+  },
+  "Languages": {
+    "it": "Italiano",
+    "de": "Deutsch",
+    "fr": "Français",
+    "en": "English"
+  },
+  "Pages": {
+    "home": {
+      "heading": "Always a winning event",
+      "description": "Casino Show brings casino-themed entertainment to events in Switzerland, with an atmosphere shaped around the occasion."
+    },
+    "events": {
+      "heading": "A distinct experience for every event",
+      "description": "Casino Show offers casino-themed entertainment for corporate events, team building, weddings and private celebrations in Switzerland."
+    },
+    "games": {
+      "heading": "The games that light up your event",
+      "description": "Casino-themed entertainment for events in Switzerland: roulette, blackjack, poker and complementary services, confirmed in the proposal."
+    },
+    "gallery": {
+      "heading": "Our casino experience in pictures",
+      "description": "The Casino Show gallery will publish approved photographs of casino-themed events in Switzerland. No approved photograph is published yet."
+    },
+    "about": {
+      "heading": "Not only games. Experiences to live.",
+      "description": "Casino Show offers casino-themed entertainment for corporate and private events in Switzerland. It is an experience in the room, not a game for money."
+    },
+    "contact": {
+      "heading": "Let's talk about your next event",
+      "description": "For a question or an idea about Casino Show, this page shows the way. The contact form is not active yet."
+    },
+    "quote": {
+      "heading": "Tell us about your event",
+      "description": "Prepare a quote request for a Casino Show event. Sending is not active yet."
+    }
+  },
+  "Scaffold": {
+    "eyebrow": "Design foundation",
+    "darkHeading": "Dark surface",
+    "lightHeading": "Light surface",
+    "cardTitle": "Content placeholder",
+    "cardBody": "This area is reserved for future content."
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "Switzerland",
+      "support": "The thrill of the casino, the elegance of an exclusive event.",
+      "lead": "Tables, games and hosts for companies, team building, weddings and private celebrations.",
+      "eventsCta": "Discover the events",
+      "mediaLabel": "Graphic composition. Event photography will be published in this area."
+    },
+    "intro": {
+      "eyebrow": "The service",
+      "title": "The casino, brought to your event",
+      "body": "Casino Show sets up casino-themed entertainment at the venue. Guests take a seat, join the tables and share the evening. It remains an event, not an online gaming platform.",
+      "detail": "The proposal follows the room, the number of guests and the tone you want for the day or the night."
+    },
+    "events": {
+      "eyebrow": "Events",
+      "title": "A format for every occasion",
+      "description": "Four categories, one page. Each format is gathered on the Events page.",
+      "cta": "Discover the events",
+      "items": {
+        "corporate": {
+          "title": "Corporate events",
+          "body": "Client evenings, openings and business gatherings, with entertainment that still leaves room to talk."
+        },
+        "team": {
+          "title": "Team building",
+          "body": "A shared moment at the tables, so the group can join in without the stiffness of a tournament."
+        },
+        "wedding": {
+          "title": "Weddings",
+          "body": "A spell of entertainment for guests, staged with the elegance of the celebration in mind."
+        },
+        "private": {
+          "title": "Private celebrations",
+          "body": "Birthdays, anniversaries and evenings with friends, at a pace agreed with you."
+        }
+      }
+    },
+    "games": {
+      "eyebrow": "Games and services",
+      "title": "The tables of the evening",
+      "description": "A set of games for the entertainment. Which tables are included is confirmed in the proposal for your event.",
+      "cta": "Games and services",
+      "items": {
+        "roulette": {
+          "title": "Roulette",
+          "body": "The classic table, in view of the room."
+        },
+        "blackjack": {
+          "title": "Blackjack",
+          "body": "A quick game for guests who want to join a hand straight away."
+        },
+        "poker": {
+          "title": "Poker",
+          "body": "Tables for guests who prefer a longer, quieter game."
+        },
+        "dice": {
+          "title": "Dice",
+          "body": "A more immediate pace, useful beside the main tables."
+        },
+        "wheel": {
+          "title": "Wheel of Fortune",
+          "body": "A show moment, when it fits the programme of the evening."
+        },
+        "extra": {
+          "title": "Complementary services",
+          "body": "Entertainment and staging that can sit alongside the tables. The scope is set in the proposal."
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "How it works",
+      "title": "From the enquiry to the evening",
+      "steps": {
+        "tell": {
+          "title": "Tell us about your event",
+          "body": "The occasion, the venue, the guests and the atmosphere you have in mind."
+        },
+        "proposal": {
+          "title": "We design a tailored proposal",
+          "body": "We shape the games, the setup and the entertainment around your gathering."
+        },
+        "setup": {
+          "title": "We organise the setup",
+          "body": "We prepare the presence in the room and the running of the entertainment."
+        },
+        "enjoy": {
+          "title": "Your guests enjoy the experience",
+          "body": "The tables open and the event follows the pace you chose."
+        }
+      }
+    },
+    "why": {
+      "eyebrow": "Why Casino Show",
+      "title": "Presence, participation, proportion",
+      "description": "Four considerations that guide every proposal.",
+      "items": {
+        "presentation": {
+          "title": "Professional presentation",
+          "body": "The setup and the entertainment are planned for a carefully hosted event."
+        },
+        "guests": {
+          "title": "Engaging guest experiences",
+          "body": "The games invite people to join in, and still leave room for those who prefer to watch."
+        },
+        "formats": {
+          "title": "Flexible event formats",
+          "body": "Companies, groups, weddings and private celebrations share the same care, with a different programme."
+        },
+        "detail": {
+          "title": "Atmosphere and detail",
+          "body": "Tone, space and pace matter as much as the tables."
+        }
+      }
+    },
+    "gallery": {
+      "eyebrow": "Gallery",
+      "title": "The evenings, once the pictures are ready",
+      "description": "This preview is a grid reserved for real event photographs. The images are not published yet.",
+      "cta": "Go to the gallery",
+      "readyTitle": "From the evenings",
+      "readyDescription": "A selection of the approved photographs. The gallery page gathers them."
+    },
+    "final": {
+      "eyebrow": "Quote",
+      "title": "Ready to make your event special?",
+      "body": "Tell us about the occasion. The reply is a proposal shaped by the room, the guests and the tone of the evening."
+    }
+  },
+  "Events": {
+    "hero": {
+      "eyebrow": "Events",
+      "support": "From corporate gatherings to private occasions, Casino Show turns each meeting into an experience guests can join.",
+      "lead": "Casino-themed entertainment, set up at your event in Switzerland.",
+      "navLabel": "Event categories",
+      "mediaLabel": "Graphic composition. Event photography will be published in this area."
+    },
+    "overview": {
+      "eyebrow": "The occasions",
+      "title": "Four ways to bring guests together",
+      "description": "Every category stays on this page. Choose an occasion to read the detail.",
+      "items": {
+        "corporate": {
+          "title": "Corporate events",
+          "summary": "Receptions, gala dinners, company celebrations and client gatherings."
+        },
+        "team": {
+          "title": "Team building",
+          "summary": "A shared moment among colleagues, with no promise about work."
+        },
+        "weddings": {
+          "title": "Weddings",
+          "summary": "Entertainment for guests during the reception."
+        },
+        "private": {
+          "title": "Private celebrations",
+          "summary": "Birthdays, anniversaries and other private occasions."
+        }
+      }
+    },
+    "corporate": {
+      "eyebrow": "Companies",
+      "title": "A considered presence at a corporate evening",
+      "body": "For receptions, gala dinners, company celebrations, client gatherings and networking, the entertainment sits inside the programme with a measured tone. Guests take part, the room stays central and the setup follows the space available.",
+      "points": {
+        "reception": {
+          "title": "Receptions",
+          "body": "The tables accompany the welcome and still leave room to talk."
+        },
+        "gala": {
+          "title": "Gala dinners",
+          "body": "A moment of participation that fits a formal evening."
+        },
+        "celebration": {
+          "title": "Company celebrations",
+          "body": "Anniversaries and internal parties, paced to the programme."
+        },
+        "clients": {
+          "title": "Client entertainment",
+          "body": "An elegant presence for the evening, without turning it into a separate show."
+        },
+        "networking": {
+          "title": "Networking",
+          "body": "A light shared theme, while conversation between people stays central."
+        }
+      }
+    },
+    "team": {
+      "eyebrow": "Groups",
+      "title": "A shared game, not a course",
+      "body": "The tables can bring colleagues together in entertainment they join: people sit, play and change places. It is an informal moment. It is not training and it promises no effect on work.",
+      "points": {
+        "participation": {
+          "title": "Participation",
+          "body": "Those who want to play take a seat. Those who prefer to watch stay with the group."
+        },
+        "interaction": {
+          "title": "Easy conversation",
+          "body": "The game gives a simple reason to talk outside the meeting."
+        },
+        "challenge": {
+          "title": "Shared challenges",
+          "body": "The hands create a friendly contest, without the format of an imposed tournament."
+        },
+        "collaboration": {
+          "title": "Informal collaboration",
+          "body": "The tables mix people. The programme follows the length of the gathering."
+        }
+      }
+    },
+    "weddings": {
+      "eyebrow": "Reception",
+      "title": "A moment for the guests",
+      "body": "During the reception, casino-themed entertainment can give guests another passage in the celebration: elegant, open to different groups and matched to the tone of the evening.",
+      "note": "Casino Show looks after this entertainment. The wedding planning, the venue and the table service stay with the hosts.",
+      "atmosphere": {
+        "title": "Atmosphere",
+        "body": "The setup follows the elegance of the celebration and does not take over the night."
+      },
+      "guests": {
+        "title": "Guests",
+        "body": "The tables invite people to join in, including guests who have not met yet."
+      }
+    },
+    "private": {
+      "eyebrow": "Private",
+      "title": "The party, at the pace you choose",
+      "body": "Birthdays, anniversaries, private parties and other occasions can include the tables. Which games are present is confirmed in the proposal, according to the space and the number of guests.",
+      "points": {
+        "birthday": {
+          "title": "Birthdays",
+          "body": "An extra point of attention, scaled to the length of the party."
+        },
+        "anniversary": {
+          "title": "Anniversaries",
+          "body": "An interlude for guests, in the tone of the occasion."
+        },
+        "party": {
+          "title": "Private parties",
+          "body": "Evenings with friends or family, with a programme discussed together."
+        },
+        "occasion": {
+          "title": "Special occasions",
+          "body": "Other private celebrations, when the entertainment has to fit a programme already set."
+        }
+      }
+    },
+    "tailored": {
+      "eyebrow": "The proposal",
+      "title": "The format follows the event",
+      "body": "The type of gathering, the number of guests, the space, the atmosphere, the choice of games and the way the evening is hosted are set in the proposal. It is not an unlimited catalogue.",
+      "points": {
+        "type": {
+          "title": "Event type",
+          "body": "A company, a group, a wedding or a private party changes the tone."
+        },
+        "guests": {
+          "title": "Number of guests",
+          "body": "How the tables are staffed depends on how many people take part."
+        },
+        "space": {
+          "title": "Available space",
+          "body": "The room decides what can be set up."
+        },
+        "atmosphere": {
+          "title": "Desired atmosphere",
+          "body": "Formal, festive or quiet: the pace follows that."
+        },
+        "games": {
+          "title": "Suitable games",
+          "body": "The tables are chosen from those that fit the occasion."
+        },
+        "format": {
+          "title": "Entertainment format",
+          "body": "Length and hosting are fixed with the programme of the evening."
+        }
+      },
+      "gamesCta": "See games and services"
+    },
+    "final": {
+      "eyebrow": "Quote",
+      "title": "Your next event deserves something special",
+      "body": "Tell us about the occasion. The reply is a proposal shaped by the type of event, the guests and the space."
+    }
+  },
+  "Games": {
+    "hero": {
+      "eyebrow": "Games and services",
+      "support": "Roulette, blackjack, poker and other entertainment, to build a lively atmosphere and surprise your guests.",
+      "lead": "This is entertainment for events in Switzerland, not play for money.",
+      "navLabel": "Categories",
+      "mediaLabel": "Graphic composition. Photographs of the tables will be published in this area."
+    },
+    "overview": {
+      "eyebrow": "The selection",
+      "title": "Five entries, one page",
+      "description": "The tables and services described here are proposals to be confirmed. The combination that fits your event is set in the proposal.",
+      "items": {
+        "roulette": {
+          "title": "Roulette",
+          "summary": "A table that gives the room a point of focus."
+        },
+        "blackjack": {
+          "title": "Blackjack",
+          "summary": "Short hands and guests close to the table."
+        },
+        "poker": {
+          "title": "Poker",
+          "summary": "A social table, not a cash tournament."
+        },
+        "other": {
+          "title": "Other games",
+          "summary": "Dice and wheel of fortune, when they fit the programme."
+        },
+        "extras": {
+          "title": "Complementary services",
+          "summary": "Optional experiences, not included automatically."
+        }
+      }
+    },
+    "roulette": {
+      "eyebrow": "Roulette",
+      "title": "The spin that gathers the room",
+      "body": "A roulette table gives guests a place to gather, follow the motion and join the entertainment. The setup stays that of an event. It is not a station for play with money, and we do not name table models or quantities.",
+      "points": {
+        "atmosphere": {
+          "title": "Atmosphere",
+          "body": "The table becomes a meeting point without taking the whole evening alone."
+        },
+        "participation": {
+          "title": "Participation",
+          "body": "Guests follow the spin and can step into the entertainment."
+        },
+        "presentation": {
+          "title": "Presentation",
+          "body": "The presence in the room follows the space and the programme, in the proposal."
+        }
+      }
+    },
+    "blackjack": {
+      "eyebrow": "Blackjack",
+      "title": "Short hands, close conversation",
+      "body": "At an event, blackjack is a table where people sit for a few hands and stay in company. It is not a lesson, and we do not promise a fixed number of people at the table. The presence is confirmed in the proposal.",
+      "points": {
+        "interaction": {
+          "title": "Interaction",
+          "body": "Short hands keep the talk going among the people seated."
+        },
+        "atmosphere": {
+          "title": "Pace",
+          "body": "People join and leave a hand without a long commitment."
+        },
+        "guests": {
+          "title": "Guests",
+          "body": "The game is for being together, not for instruction."
+        }
+      }
+    },
+    "poker": {
+      "eyebrow": "Poker",
+      "title": "A table where people sit together",
+      "body": "The poker of this evening is a social experience: guests follow the hand, talk and share the table. It is not a cash tournament and it has no official competition structure.",
+      "points": {
+        "table": {
+          "title": "The table",
+          "body": "A gathered place, in the tone of a carefully hosted event."
+        },
+        "participation": {
+          "title": "Participation",
+          "body": "The exchange stays among the guests, at the pace of the evening."
+        },
+        "setting": {
+          "title": "Setting",
+          "body": "The format follows the event in the proposal, without a competition rulebook."
+        }
+      }
+    },
+    "other": {
+      "eyebrow": "Other games",
+      "title": "Two variations for the evening",
+      "description": "Dice and wheel of fortune can sit beside the main tables. We do not publish detailed rules, prizes or a fixed availability.",
+      "dice": {
+        "title": "Dice",
+        "body": "A more immediate pace, useful for varying the evening. Whether the table is included, and what role it has, is decided in the proposal."
+      },
+      "wheel": {
+        "title": "Wheel of Fortune",
+        "body": "A more spectacular moment, added when it fits the programme. No cash prizes. The presence is confirmed in the proposal."
+      }
+    },
+    "extras": {
+      "eyebrow": "Complementary services",
+      "title": "Experiences beside the tables",
+      "body": "The selfie mirror and the 360 experience are options apart from the games. They are not included automatically, and we do not describe equipment or quantities.",
+      "note": "The actual combination is confirmed in the proposal, according to the space and the programme.",
+      "selfie": {
+        "title": "Selfie mirror",
+        "body": "A photo moment for guests. It is considered only when it suits the evening."
+      },
+      "experience": {
+        "title": "360 experience",
+        "body": "A short visual moment around the guest. It is optional, and availability is confirmed in the proposal."
+      }
+    },
+    "choosing": {
+      "eyebrow": "The choice",
+      "title": "What guides the proposal",
+      "body": "This page has no packages and no price list. The selection follows the event.",
+      "eventsCta": "See the events",
+      "points": {
+        "type": {
+          "title": "Event type",
+          "body": "A company, a group, a wedding or a private party changes the tone."
+        },
+        "guests": {
+          "title": "Number of guests",
+          "body": "How many people take part guides the presence at the tables."
+        },
+        "space": {
+          "title": "Space",
+          "body": "The room decides what can be set up."
+        },
+        "duration": {
+          "title": "Duration",
+          "body": "The time available defines how many experiences make sense."
+        },
+        "atmosphere": {
+          "title": "Atmosphere",
+          "body": "Formal, festive or quiet: the pace follows that."
+        },
+        "selection": {
+          "title": "Games and services",
+          "body": "The choice is made from what fits, then confirmed in the proposal."
+        }
+      }
+    },
+    "final": {
+      "eyebrow": "Quote",
+      "title": "Let's shape your casino experience together",
+      "body": "Tell us about the event. The reply is a proposal of suitable games and services, with no commitment to anything that is not yet confirmed."
+    }
+  },
+  "Gallery": {
+    "hero": {
+      "eyebrow": "Gallery",
+      "support": "The atmosphere, the details and the experiences that make a Casino Show event distinctive.",
+      "lead": "Approved photographs will appear on this page. None are published at the moment.",
+      "mediaLabel": "Graphic composition, until approved photographs are available"
+    },
+    "intro": {
+      "eyebrow": "The purpose of the page",
+      "title": "Atmosphere, not an invented archive",
+      "body": "The gallery is ready to show tables, guests meeting one another and the tone of a casino-themed event. It does not assign dates, client names or stories that are not documented."
+    },
+    "empty": {
+      "eyebrow": "Selection",
+      "title": "No approved photograph",
+      "body": "A picture is added here only with a suitable file and clear rights. No stock photograph takes its place."
+    },
+    "collection": {
+      "eyebrow": "Selection",
+      "title": "The photographs",
+      "body": "Each picture can belong to more than one category. The filter shows approved photographs only."
+    },
+    "filters": {
+      "label": "Gallery categories",
+      "items": {
+        "all": "All",
+        "roulette": "Roulette",
+        "blackjack": "Blackjack",
+        "poker": "Poker",
+        "atmosphere": "Croupiers and atmosphere",
+        "corporate": "Corporate events",
+        "weddings-private": "Weddings and private events",
+        "casino-party": "Casino party",
+        "wheel-of-fortune": "Wheel of fortune",
+        "dice": "Dice",
+        "selfie-mirror": "Selfie mirror",
+        "experience-360": "360 experience"
+      }
+    },
+    "count": "{count, plural, one {# photograph} other {# photographs}}",
+    "emptyCategory": "No approved photograph in this category.",
+    "lightbox": {
+      "dialog": "Enlarged photograph",
+      "close": "Close",
+      "previous": "Previous",
+      "next": "Next",
+      "position": "{current} of {total}",
+      "credit": "Credit"
+    },
+    "final": {
+      "eyebrow": "Quote",
+      "title": "The next event worth remembering could be yours",
+      "body": "Tell us about the occasion. The proposal starts from the space, the guests and the atmosphere you want."
+    }
+  },
+  "About": {
+    "hero": {
+      "eyebrow": "About",
+      "support": "Casino Show starts from the idea of turning the appeal of the casino into entertainment to share, at corporate events and private occasions.",
+      "lead": "It is a presence meant for the room, not an online gaming platform and not a game for money.",
+      "mediaLabel": "Graphic composition, not a photograph of the activity"
+    },
+    "idea": {
+      "eyebrow": "The idea",
+      "title": "The appeal of the casino, in another form",
+      "body": "The tables, the gesture of play and the light of an evening have a particular appeal. Here that appeal becomes live entertainment: people come closer, try, comment and stay with the experience.",
+      "aside": "The energy comes from being in the room, not from a win. Taking part is the pleasure of the encounter, not a wager for money."
+    },
+    "approach": {
+      "eyebrow": "The way of working",
+      "title": "Every event has its own atmosphere",
+      "body": "A proposal takes shape from the occasion. This is not a guarantee of every operational detail, and it does not mean that Casino Show carries out every technical service itself.",
+      "points": {
+        "occasion": {
+          "title": "Understand the occasion",
+          "body": "A reception, a gala dinner, a wedding or a private party asks for a different tone."
+        },
+        "guests": {
+          "title": "Consider the guests",
+          "body": "Who joins in, who watches, and how familiar the group is with the tables, all guide the choice."
+        },
+        "space": {
+          "title": "Read the space",
+          "body": "The room, the circulation and the time available say what can fit the programme."
+        },
+        "selection": {
+          "title": "Choose suitable experiences",
+          "body": "Games and services are proposed when they suit the evening, then confirmed in the proposal."
+        },
+        "coordination": {
+          "title": "Shape the proposed entertainment",
+          "body": "Pace, presence and combination are aligned. Anything not confirmed is not treated as available."
+        }
+      }
+    },
+    "experience": {
+      "eyebrow": "The people",
+      "title": "People are at the centre",
+      "body": "The tables and the games set the scene. The experience comes from the people who sit down, from those who watch, and from the conversations that open around them.",
+      "notes": {
+        "participation": {
+          "title": "Participation",
+          "body": "An invitation to join the play, without leaving out anyone who would rather watch."
+        },
+        "conversation": {
+          "title": "Conversation",
+          "body": "The table is also a place where guests meet."
+        },
+        "discovery": {
+          "title": "Discovery",
+          "body": "For many people it is a first time close to roulette or blackjack, lived as entertainment."
+        },
+        "shared": {
+          "title": "Shared enjoyment",
+          "body": "The memory sits in the time spent together, not in a cash prize."
+        },
+        "atmosphere": {
+          "title": "Atmosphere",
+          "body": "Light, pace and care in the presentation give the evening its character."
+        }
+      }
+    },
+    "pillars": {
+      "eyebrow": "The project",
+      "title": "The details that make the difference",
+      "body": "Four kinds of attention guide the way an evening is imagined. They are not certifications, and they do not describe staff or equipment.",
+      "items": {
+        "atmosphere": {
+          "title": "Atmosphere",
+          "body": "The visual character of the experience: how the evening presents itself."
+        },
+        "participation": {
+          "title": "Participation",
+          "body": "The involvement of the guests, at a level that suits the group."
+        },
+        "flexibility": {
+          "title": "Flexibility",
+          "body": "The possibility of shaping a proposal around different contexts: a company, a team day, a gala, a wedding, a private party. These are contexts, not a list of completed work."
+        },
+        "detail": {
+          "title": "Attention to detail",
+          "body": "Care in defining the experience that is intended, before it is confirmed."
+        }
+      }
+    },
+    "explore": {
+      "eyebrow": "Next",
+      "title": "See what we can imagine for your event",
+      "body": "Three pages for orientation. None of them recounts finished projects, and none promises a combination that is already fixed.",
+      "items": {
+        "events": {
+          "title": "Events",
+          "body": "Companies, team days, gala evenings, weddings and private parties: possible contexts, not a record of completed work."
+        },
+        "games": {
+          "title": "Games and services",
+          "body": "Roulette, blackjack, poker and other experiences. The combination is confirmed in the proposal."
+        },
+        "gallery": {
+          "title": "Gallery",
+          "body": "The page is ready. Event photographs appear only after they are approved."
+        }
+      }
+    },
+    "final": {
+      "eyebrow": "Quote",
+      "title": "Tell us about your next event",
+      "body": "Write to us about the occasion, the guests and the atmosphere you are looking for. The reply is a conversation and, where it fits, a proposal."
+    }
+  },
+  "Contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "support": "Do you have a question, an idea, or would you like to know Casino Show better? The first step is simply to talk about it.",
+      "lead": "This page points the conversation. It does not publish contact details that are not yet confirmed.",
+      "mediaLabel": "Graphic composition, not a photograph of an office"
+    },
+    "paths": {
+      "label": "Ways to get in touch",
+      "quote": {
+        "title": "Do you have an event in mind?",
+        "body": "Tell us what you are organising. Together we can consider the proposal that best suits your event.",
+        "note": "The button opens the quote page. You can prepare the request, but sending is not active yet."
+      },
+      "info": {
+        "title": "Would you like to know more?",
+        "body": "For a general question or a collaboration, a direct contact will be published only once it is confirmed. There is not one at the moment.",
+        "link": "Go to the confirmed channels"
+      }
+    },
+    "channels": {
+      "eyebrow": "Channels",
+      "title": "How to reach us",
+      "empty": "Email, telephone and messages are not published yet. They will appear here only after they are confirmed.",
+      "ready": "These are the confirmed contact details.",
+      "items": {
+        "email": "Email",
+        "phone": "Telephone",
+        "whatsapp": "WhatsApp"
+      }
+    },
+    "start": {
+      "eyebrow": "The first step",
+      "title": "A conversation is where an idea starts",
+      "body": "A first exchange can include only a few points. It is guidance, not a form, and it does not set a response time.",
+      "points": {
+        "type": {
+          "title": "Type of event",
+          "body": "A company gathering, a private party, a wedding or another occasion."
+        },
+        "idea": {
+          "title": "General idea",
+          "body": "The tone you have in mind, even if it is still only a sketch."
+        },
+        "place": {
+          "title": "Approximate area",
+          "body": "The city or the area, without describing coverage that is already fixed."
+        },
+        "period": {
+          "title": "Preferred period",
+          "body": "A date, a month or a window that is still open."
+        },
+        "requests": {
+          "title": "Particular requests",
+          "body": "What matters for the guests, to be confirmed later in the proposal."
+        }
+      }
+    },
+    "final": {
+      "eyebrow": "The experiences",
+      "title": "Every great event starts with an idea",
+      "body": "The Events and Games and services pages show possible contexts and experiences. They do not replace a confirmed proposal.",
+      "items": {
+        "events": {
+          "title": "Events",
+          "body": "Companies, team days, gala evenings, weddings and private parties, as contexts rather than completed work."
+        },
+        "games": {
+          "title": "Games and services",
+          "body": "Roulette, blackjack, poker and other experiences, to be composed and confirmed in the proposal."
+        }
+      }
+    }
+  },
+  "Quote": {
+    "hero": {
+      "eyebrow": "Quote",
+      "support": "Three steps to describe the event. The proposal starts from what you describe here.",
+      "notice": "The request sending service will be available soon. What you enter stays on this page and is not transmitted.",
+      "mediaLabel": "Graphic composition, not a photograph of an event"
+    },
+    "wizard": {
+      "label": "Quote request",
+      "localeNote": "If you change language, the details entered on this page are cleared. They are not saved in the browser."
+    },
+    "progress": {
+      "label": "Request progress",
+      "event": "Event",
+      "experience": "Experience",
+      "contact": "Details"
+    },
+    "steps": {
+      "event": {
+        "title": "Let's start with your event",
+        "support": "Even if you have not decided everything yet, you can start here."
+      },
+      "experience": {
+        "title": "How do you imagine the experience?",
+        "support": "Select what interests you. The final proposal will be defined from your event."
+      },
+      "contact": {
+        "title": "Almost there",
+        "support": "Check the details of your event and add your contact details."
+      }
+    },
+    "fields": {
+      "required": "Required",
+      "optional": "Optional",
+      "eventType": {
+        "label": "Event type"
+      },
+      "location": {
+        "label": "Location",
+        "hint": "City or locality, for example Lugano, Zurich, Geneva or Locarno. A full address is not needed. The examples are not a confirmed coverage area."
+      },
+      "date": {
+        "label": "Date",
+        "hint": "If the date is already decided, choose it. A past date is not accepted.",
+        "undecided": "I have not decided the date yet"
+      },
+      "guests": {
+        "label": "Number of guests",
+        "hint": "An estimate, not a price."
+      },
+      "duration": {
+        "label": "Duration",
+        "hint": "An indication, not confirmed availability."
+      },
+      "experiences": {
+        "label": "Experiences",
+        "hint": "A selection of interest. It does not confirm that every service is available in every place, or a number of tables or staff."
+      },
+      "objective": {
+        "label": "Event objective"
+      },
+      "notes": {
+        "label": "Would you like to tell us more?",
+        "hint": "Venue, times, atmosphere, particular needs or any useful information."
+      },
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Telephone",
+      "phoneHint": "A Swiss or international number. A Swiss prefix is not required.",
+      "company": "Company",
+      "preference": "How would you prefer to be contacted",
+      "preferenceHint": "A preference, not confirmation that the channel is already active."
+    },
+    "options": {
+      "eventType": {
+        "corporate": {
+          "title": "Corporate event",
+          "body": "A work meeting, a presentation or an evening with colleagues."
+        },
+        "dinner": {
+          "title": "Corporate dinner",
+          "body": "Entertainment for the evening. The menu is not part of the proposal."
+        },
+        "wedding": {
+          "title": "Wedding",
+          "body": "A moment of entertainment, not the organisation of the wedding."
+        },
+        "private": {
+          "title": "Private celebration",
+          "body": "A birthday, an anniversary or another celebration among guests."
+        },
+        "gala": {
+          "title": "Convention or gala",
+          "body": "A formal evening, to be defined in the proposal."
+        },
+        "other": {
+          "title": "Other",
+          "body": "An occasion that does not fit the previous options."
+        }
+      },
+      "guests": {
+        "up-to-30": "Up to 30",
+        "30-60": "30–60",
+        "60-100": "60–100",
+        "100-200": "100–200",
+        "over-200": "Over 200",
+        "unsure": "Not sure yet"
+      },
+      "duration": {
+        "up-to-2": "Up to 2 hours",
+        "2-4": "2–4 hours",
+        "over-4": "Over 4 hours",
+        "unsure": "Not sure yet"
+      },
+      "experiences": {
+        "casino-party": {
+          "title": "Casino Party complete experience",
+          "body": "A request for a coordinated proposal, not a package with a price or a number of tables."
+        },
+        "roulette": {
+          "title": "Roulette",
+          "body": "In-room entertainment, with no play for money."
+        },
+        "blackjack": {
+          "title": "Blackjack",
+          "body": "A table guests can join. Lessons are not promised."
+        },
+        "poker": {
+          "title": "Poker",
+          "body": "A social table, not a cash tournament."
+        },
+        "dice": {
+          "title": "Dice",
+          "body": "To be considered in the proposal, not an automatic extra."
+        },
+        "wheel-of-fortune": {
+          "title": "Wheel of Fortune",
+          "body": "To be considered in the proposal, not an automatic extra."
+        },
+        "selfie-mirror": {
+          "title": "Selfie Mirror",
+          "body": "To be considered in the proposal, not an automatic extra."
+        },
+        "experience-360": {
+          "title": "360 Experience",
+          "body": "To be considered in the proposal, not an automatic extra."
+        },
+        "other-games": {
+          "title": "Other games",
+          "body": "Mention them in the message if you already have an idea."
+        },
+        "recommendation": {
+          "title": "Recommend an experience",
+          "body": "We start from the event and suggest a possible experience."
+        }
+      },
+      "objective": {
+        "team": "Team building",
+        "entertainment": "Entertainment",
+        "clients": "Client event",
+        "dinner": "Corporate dinner",
+        "celebration": "Celebration",
+        "other": "Other"
+      },
+      "preference": {
+        "email": "Email",
+        "phone": "Telephone",
+        "whatsapp": "WhatsApp",
+        "none": "No preference"
+      }
+    },
+    "selected": "Selected",
+    "nav": {
+      "back": "Back",
+      "next": "Continue",
+      "editEvent": "Edit the event",
+      "editExperience": "Edit the experience"
+    },
+    "summary": {
+      "title": "Summary",
+      "eventType": "Event type",
+      "location": "Location",
+      "date": "Date",
+      "guests": "Guests",
+      "duration": "Duration",
+      "experiences": "Experiences",
+      "objective": "Objective",
+      "notes": "Notes",
+      "empty": "Not provided"
+    },
+    "errors": {
+      "summary": "Check the highlighted fields before continuing.",
+      "eventType": "Choose an event type.",
+      "location": "Enter the city or locality.",
+      "locationMax": "The location is too long.",
+      "date": "Enter a date, or mark that it is not decided yet.",
+      "dateInvalid": "The date is not valid.",
+      "datePast": "Choose today or a later date.",
+      "guests": "Choose a guest range.",
+      "choice": "One of the choices is not valid.",
+      "notesMax": "The message is longer than allowed.",
+      "firstName": "Enter a first name.",
+      "lastName": "Enter a last name.",
+      "nameMax": "The name is too long.",
+      "email": "Enter a valid email address.",
+      "phone": "Enter a valid telephone number, Swiss or international.",
+      "companyMax": "The company name is too long.",
+      "preference": "Choose how you would prefer to be contacted."
+    },
+    "privacy": {
+      "title": "Privacy note",
+      "body": "The privacy note for this request is under review. It is not an approved legal text yet and it does not activate sending. Consent is not presented as the only legal basis: the basis has to be defined in a legal review."
+    },
+    "submission": {
+      "notice": "The request sending service will be available soon. The details stay on this page and are not transmitted."
+    }
+  },
+  "NotFound": {
+    "heading": "Page not found",
+    "description": "This address does not match a page on the site.",
+    "home": "Back to the home page"
+  }
+}

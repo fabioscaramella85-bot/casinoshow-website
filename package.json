@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "verify:routes": "node scripts/verify-routes.mjs"
   },
   "dependencies": {
     "next": "16.4.0",
+    "next-intl": "^4.14.9",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },

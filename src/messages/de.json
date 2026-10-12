@@ -1,0 +1,976 @@
+{
+  "Shell": {
+    "skip": "Zum Inhalt",
+    "logoLabel": "Casino Show, Startseite",
+    "primaryNav": "Hauptnavigation",
+    "footerNav": "Navigation in der Fusszeile",
+    "languageNav": "Sprache",
+    "legalTitle": "Rechtliches",
+    "legal": "Rechtliche Informationen werden in diesem Bereich veröffentlicht.",
+    "brand": "Casino-Unterhaltung für Veranstaltungen in der Schweiz.",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schliessen",
+    "copyright": "© {year} Casino Show"
+  },
+  "Nav": {
+    "home": "Startseite",
+    "events": "Events",
+    "games": "Spiele und Services",
+    "gallery": "Galerie",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "quote": "Angebot anfordern"
+  },
+  "Languages": {
+    "it": "Italiano",
+    "de": "Deutsch",
+    "fr": "Français",
+    "en": "English"
+  },
+  "Pages": {
+    "home": {
+      "heading": "Immer ein gelungenes Event",
+      "description": "Casino Show bringt Casino-Unterhaltung zu Anlässen in der Schweiz, mit einer gepflegten und auf den Anlass abgestimmten Atmosphäre."
+    },
+    "events": {
+      "heading": "Ein eigenes Erlebnis für jeden Anlass",
+      "description": "Casino Show bietet Casino-Unterhaltung für Firmenanlässe, Team-Building, Hochzeiten und private Feste in der Schweiz."
+    },
+    "games": {
+      "heading": "Die Spiele, die Ihren Anlass beleben",
+      "description": "Casino-Unterhaltung für Anlässe in der Schweiz: Roulette, Blackjack, Poker und ergänzende Services, bestätigt im Vorschlag."
+    },
+    "gallery": {
+      "heading": "Unser Casino-Erlebnis in Bildern",
+      "description": "Die Galerie von Casino Show veröffentlicht freigegebene Fotografien von Casino-Anlässen in der Schweiz. Derzeit ist noch keine Fotografie freigegeben."
+    },
+    "about": {
+      "heading": "Nicht nur Spiele. Erlebnisse zum Teilen.",
+      "description": "Casino Show bietet Casino-Unterhaltung für Firmenanlässe und private Feste in der Schweiz. Es ist ein Erlebnis im Saal, kein Spiel um Geld."
+    },
+    "contact": {
+      "heading": "Sprechen wir über Ihren nächsten Anlass",
+      "description": "Für eine Frage oder eine Idee zu Casino Show zeigt diese Seite den Weg. Das Kontaktformular ist noch nicht aktiv."
+    },
+    "quote": {
+      "heading": "Erzählen Sie uns von Ihrem Anlass",
+      "description": "Bereiten Sie eine Angebotsanfrage für einen Casino-Show-Anlass vor. Das Senden ist noch nicht aktiv."
+    }
+  },
+  "Scaffold": {
+    "eyebrow": "Gestaltungsgrundlage",
+    "darkHeading": "Dunkle Fläche",
+    "lightHeading": "Helle Fläche",
+    "cardTitle": "Platzhalter",
+    "cardBody": "Dieser Bereich ist für künftige Inhalte vorgesehen."
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "Schweiz",
+      "support": "Die Spannung eines Casinos, die Eleganz eines besonderen Anlasses.",
+      "lead": "Tische, Spiele und Animation für Firmen, Team-Building, Hochzeiten und private Feste.",
+      "eventsCta": "Events entdecken",
+      "mediaLabel": "Grafische Komposition. Die Eventfotos werden in diesem Bereich veröffentlicht."
+    },
+    "intro": {
+      "eyebrow": "Der Service",
+      "title": "Das Casino, mitten in Ihrem Anlass",
+      "body": "Casino Show richtet eine Casino-Animation am Ort Ihres Anlasses ein. Die Gäste nehmen an den Tischen Platz, spielen mit und teilen den Abend. Es bleibt ein Event, keine Online-Spielplattform.",
+      "detail": "Der Vorschlag richtet sich nach dem Raum, der Personenzahl und der Stimmung, die Sie dem Tag oder dem Abend geben möchten."
+    },
+    "events": {
+      "eyebrow": "Events",
+      "title": "Ein Format für jeden Anlass",
+      "description": "Vier Kategorien, eine Seite. Die Formate sind auf der Events-Seite gesammelt.",
+      "cta": "Events entdecken",
+      "items": {
+        "corporate": {
+          "title": "Firmenanlässe",
+          "body": "Abende mit Kundinnen und Kunden, Eröffnungen und geschäftliche Treffen, mit einer Animation, die dem Gespräch Raum lässt."
+        },
+        "team": {
+          "title": "Team-Building",
+          "body": "Ein gemeinsamer Moment an den Tischen, damit die Gruppe mitmacht, ohne ein starres Turnier."
+        },
+        "wedding": {
+          "title": "Hochzeiten",
+          "body": "Eine Unterhaltung für die Gäste, mit einem Aufbau, der zur Eleganz des Festes passt."
+        },
+        "private": {
+          "title": "Private Feste",
+          "body": "Geburtstage, Jubiläen und Abende im Freundeskreis, im Tempo, das Sie mit uns festlegen."
+        }
+      }
+    },
+    "games": {
+      "eyebrow": "Spiele und Services",
+      "title": "Die Tische des Abends",
+      "description": "Eine Auswahl für die Animation. Welche Tische dabei sind, bestätigt der Vorschlag zum jeweiligen Anlass.",
+      "cta": "Spiele und Services",
+      "items": {
+        "roulette": {
+          "title": "Roulette",
+          "body": "Der klassische Tisch, im Blickfeld des Saals."
+        },
+        "blackjack": {
+          "title": "Blackjack",
+          "body": "Ein schnelles Spiel für Gäste, die sofort einsteigen möchten."
+        },
+        "poker": {
+          "title": "Poker",
+          "body": "Tische für alle, die ein längeres, ruhigeres Spiel bevorzugen."
+        },
+        "dice": {
+          "title": "Würfel",
+          "body": "Ein direkteres Tempo, um die Haupttische abzuwechseln."
+        },
+        "wheel": {
+          "title": "Glücksrad",
+          "body": "Ein Schau-Moment, wenn er ins Programm des Abends passt."
+        },
+        "extra": {
+          "title": "Ergänzende Services",
+          "body": "Animationen und Aufbauten, die die Tische begleiten können. Der Umfang entsteht im Vorschlag."
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "So läuft es ab",
+      "title": "Von der Anfrage zum Abend",
+      "steps": {
+        "tell": {
+          "title": "Erzählen Sie uns vom Anlass",
+          "body": "Anlass, Ort, Gäste und die Stimmung, die Ihnen vorschwebt."
+        },
+        "proposal": {
+          "title": "Sie erhalten einen massgeschneiderten Vorschlag",
+          "body": "Wir setzen Spiele, Aufbau und Animation um Ihren Anlass."
+        },
+        "setup": {
+          "title": "Wir organisieren den Aufbau",
+          "body": "Wir bereiten die Präsenz im Saal und den Ablauf der Animation vor."
+        },
+        "enjoy": {
+          "title": "Die Gäste erleben den Abend",
+          "body": "Die Tische öffnen sich, und der Anlass folgt dem Rhythmus, den Sie gewählt haben."
+        }
+      }
+    },
+    "why": {
+      "eyebrow": "Warum Casino Show",
+      "title": "Präsenz, Beteiligung, Mass",
+      "description": "Vier Haltungen, die jeden Vorschlag leiten.",
+      "items": {
+        "presentation": {
+          "title": "Professionelle Präsentation",
+          "body": "Aufbau und Animation sind für einen gepflegten Anlass gedacht."
+        },
+        "guests": {
+          "title": "Gäste, die mitmachen",
+          "body": "Die Spiele laden zur Teilnahme ein und lassen Raum für alle, die lieber zuschauen."
+        },
+        "formats": {
+          "title": "Flexible Formate",
+          "body": "Firmen, Gruppen, Hochzeiten und private Feste teilen dieselbe Sorgfalt, mit einem anderen Programm."
+        },
+        "detail": {
+          "title": "Atmosphäre und Detail",
+          "body": "Ton, Raum und Rhythmus zählen ebenso wie die Tische."
+        }
+      }
+    },
+    "gallery": {
+      "eyebrow": "Galerie",
+      "title": "Die Abende, sobald die Bilder bereit sind",
+      "description": "Diese Vorschau ist ein Raster für echte Eventfotos. Die Bilder sind noch nicht veröffentlicht.",
+      "cta": "Zur Galerie",
+      "readyTitle": "Aus den Abenden",
+      "readyDescription": "Eine Auswahl der freigegebenen Fotografien. Die Galerie-Seite versammelt sie."
+    },
+    "final": {
+      "eyebrow": "Angebot",
+      "title": "Bereit, Ihren Anlass besonders zu machen?",
+      "body": "Schildern Sie uns den Anlass. Die Antwort ist ein Vorschlag zu Raum, Gästen und Ton des Abends."
+    }
+  },
+  "Events": {
+    "hero": {
+      "eyebrow": "Events",
+      "support": "Vom Firmenanlass bis zur privaten Feier macht Casino Show aus jedem Treffen eine Erfahrung, an der die Gäste teilnehmen.",
+      "lead": "Casino-Unterhaltung, aufgebaut am Ort Ihres Anlasses in der Schweiz.",
+      "navLabel": "Eventkategorien",
+      "mediaLabel": "Grafische Komposition. Die Eventfotos werden in diesem Bereich veröffentlicht."
+    },
+    "overview": {
+      "eyebrow": "Die Anlässe",
+      "title": "Vier Wege, Gäste zusammenzubringen",
+      "description": "Jede Kategorie bleibt auf dieser Seite. Wählen Sie den Anlass für die Einzelheiten.",
+      "items": {
+        "corporate": {
+          "title": "Firmenanlässe",
+          "summary": "Empfänge, Galadiners, Firmenfeiern und Abende mit Kundinnen und Kunden."
+        },
+        "team": {
+          "title": "Team-Building",
+          "summary": "Ein gemeinsamer Moment unter Kolleginnen und Kollegen, ohne Versprechen zur Arbeit."
+        },
+        "weddings": {
+          "title": "Hochzeiten",
+          "summary": "Unterhaltung für die Gäste während des Apéros oder des Festes."
+        },
+        "private": {
+          "title": "Private Feste",
+          "summary": "Geburtstage, Jubiläen und andere private Anlässe."
+        }
+      }
+    },
+    "corporate": {
+      "eyebrow": "Firmen",
+      "title": "Eine gepflegte Präsenz am Firmenanlass",
+      "body": "Bei Empfängen, Galadiners, Firmenfeiern, Kundenanlässen und Networking fügt sich die Animation ins Programm, ohne den Abend zu übernehmen. Die Gäste machen mit, der Raum bleibt im Zentrum und der Aufbau folgt dem verfügbaren Platz.",
+      "points": {
+        "reception": {
+          "title": "Empfänge",
+          "body": "Die Tische begleiten den Empfang und lassen dem Gespräch Raum."
+        },
+        "gala": {
+          "title": "Galadiners",
+          "body": "Ein Moment der Teilnahme, der zu einem formellen Abend passt."
+        },
+        "celebration": {
+          "title": "Firmenfeiern",
+          "body": "Jubiläen und interne Feste, im Tempo des Abendprogramms."
+        },
+        "clients": {
+          "title": "Kundenanlässe",
+          "body": "Eine elegante Präsenz für den Abend, ohne daraus eine eigene Show zu machen."
+        },
+        "networking": {
+          "title": "Networking",
+          "body": "Ein leichtes gemeinsames Thema, während der Austausch im Mittelpunkt bleibt."
+        }
+      }
+    },
+    "team": {
+      "eyebrow": "Gruppen",
+      "title": "Ein gemeinsames Spiel, kein Kurs",
+      "body": "Die Tische können Kolleginnen und Kollegen in einer Animation zusammenbringen: man setzt sich, spielt und wechselt den Platz. Es ist ein informeller Moment. Es ist keine Schulung und verspricht keine Wirkung auf die Arbeit.",
+      "points": {
+        "participation": {
+          "title": "Teilnahme",
+          "body": "Wer möchte, steigt ein. Wer lieber zusieht, bleibt in der Gruppe."
+        },
+        "interaction": {
+          "title": "Lockeres Miteinander",
+          "body": "Das Spiel gibt einen einfachen Anlass, ausserhalb der Sitzung ins Gespräch zu kommen."
+        },
+        "challenge": {
+          "title": "Gemeinsame Herausforderungen",
+          "body": "Die Partien schaffen einen freundlichen Vergleich, ohne ein aufgezwungenes Turnier."
+        },
+        "collaboration": {
+          "title": "Informelle Zusammenarbeit",
+          "body": "Die Tische mischen die Personen. Das Programm richtet sich nach der Dauer des Treffens."
+        }
+      }
+    },
+    "weddings": {
+      "eyebrow": "Fest",
+      "title": "Ein Moment für die Gäste",
+      "body": "Während des Festes kann eine Casino-Animation den Gästen einen anderen Abschnitt des Abends bieten: elegant, offen für verschiedene Gruppen und abgestimmt auf den Ton der Feier.",
+      "note": "Casino Show übernimmt diese Unterhaltung. Organisation der Hochzeit, Lokal und Service bleiben bei den Gastgebenden.",
+      "atmosphere": {
+        "title": "Atmosphäre",
+        "body": "Der Aufbau folgt der Eleganz des Festes und beansprucht nicht den ganzen Abend."
+      },
+      "guests": {
+        "title": "Gäste",
+        "body": "Die Tische laden zur Teilnahme ein, auch zwischen Personen, die sich noch nicht kennen."
+      }
+    },
+    "private": {
+      "eyebrow": "Privat",
+      "title": "Das Fest, im Tempo, das Sie wählen",
+      "body": "Geburtstage, Jubiläen, private Feste und andere Anlässe können die Tische aufnehmen. Welche Spiele dabei sind, bestätigt der Vorschlag nach Raum und Gästezahl.",
+      "points": {
+        "birthday": {
+          "title": "Geburtstage",
+          "body": "Ein zusätzlicher Schwerpunkt, dosiert nach der Dauer des Festes."
+        },
+        "anniversary": {
+          "title": "Jubiläen",
+          "body": "Ein Zwischenspiel für die Gäste, im Ton des Anlasses."
+        },
+        "party": {
+          "title": "Private Feste",
+          "body": "Abende mit Freundinnen und Freunden oder der Familie, mit einem gemeinsam besprochenen Programm."
+        },
+        "occasion": {
+          "title": "Besondere Anlässe",
+          "body": "Andere private Feste, wenn die Animation zu einem schon festgelegten Programm passen soll."
+        }
+      }
+    },
+    "tailored": {
+      "eyebrow": "Der Vorschlag",
+      "title": "Das Format folgt dem Anlass",
+      "body": "Art des Treffens, Anzahl der Gäste, Raum, Atmosphäre, Spielauswahl und Ablauf des Abends entstehen im Vorschlag. Es ist kein unbegrenzter Katalog.",
+      "points": {
+        "type": {
+          "title": "Art des Anlasses",
+          "body": "Firma, Gruppe, Hochzeit oder privates Fest ändern den Ton."
+        },
+        "guests": {
+          "title": "Anzahl der Gäste",
+          "body": "Die Präsenz an den Tischen hängt davon ab, wie viele Personen mitmachen."
+        },
+        "space": {
+          "title": "Verfügbarer Raum",
+          "body": "Der Saal bestimmt, was sich aufbauen lässt."
+        },
+        "atmosphere": {
+          "title": "Gewünschte Atmosphäre",
+          "body": "Formell, festlich oder zurückhaltend: das Tempo richtet sich danach."
+        },
+        "games": {
+          "title": "Spielauswahl",
+          "body": "Die Tische werden aus dem gewählt, was zum Anlass passt."
+        },
+        "format": {
+          "title": "Form der Animation",
+          "body": "Dauer und Ablauf werden mit dem Programm des Abends festgelegt."
+        }
+      },
+      "gamesCta": "Spiele und Services ansehen"
+    },
+    "final": {
+      "eyebrow": "Angebot",
+      "title": "Ihr nächster Anlass verdient etwas Besonderes",
+      "body": "Schildern Sie uns den Anlass. Die Antwort ist ein Vorschlag zu Art des Events, Gästen und Raum."
+    }
+  },
+  "Games": {
+    "hero": {
+      "eyebrow": "Spiele und Services",
+      "support": "Roulette, Blackjack, Poker und weitere Unterhaltung, um eine lebendige Atmosphäre zu schaffen und Ihre Gäste zu überraschen.",
+      "lead": "Es ist Animation für Anlässe in der Schweiz, kein Spiel um Geld.",
+      "navLabel": "Kategorien",
+      "mediaLabel": "Grafische Komposition. Die Fotos der Tische werden in diesem Bereich veröffentlicht."
+    },
+    "overview": {
+      "eyebrow": "Die Auswahl",
+      "title": "Fünf Einträge, eine Seite",
+      "description": "Die beschriebenen Tische und Services sind Vorschläge zur Bestätigung. Die passende Kombination für Ihren Anlass entsteht im Angebot.",
+      "items": {
+        "roulette": {
+          "title": "Roulette",
+          "summary": "Ein Tisch, der dem Saal einen Blickpunkt gibt."
+        },
+        "blackjack": {
+          "title": "Blackjack",
+          "summary": "Kurze Runden und Gäste nah am Tisch."
+        },
+        "poker": {
+          "title": "Poker",
+          "summary": "Ein gesellschaftlicher Tisch, kein Geldturnier."
+        },
+        "other": {
+          "title": "Weitere Spiele",
+          "summary": "Würfel und Glücksrad, wenn sie ins Programm passen."
+        },
+        "extras": {
+          "title": "Ergänzende Services",
+          "summary": "Optionale Erlebnisse, nicht automatisch dabei."
+        }
+      }
+    },
+    "roulette": {
+      "eyebrow": "Roulette",
+      "title": "Die Runde, die den Saal versammelt",
+      "body": "Ein Roulettetisch gibt den Gästen einen Ort, an dem sie zusammenkommen, die Bewegung verfolgen und an der Unterhaltung teilnehmen. Der Aufbau bleibt der eines Anlasses. Es ist keine Geldspielstation, und wir nennen keine Tischmodelle oder Stückzahlen.",
+      "points": {
+        "atmosphere": {
+          "title": "Atmosphäre",
+          "body": "Der Tisch wird zum Treffpunkt, ohne den ganzen Abend allein zu beanspruchen."
+        },
+        "participation": {
+          "title": "Teilnahme",
+          "body": "Die Gäste folgen der Runde und können in die Unterhaltung einsteigen."
+        },
+        "presentation": {
+          "title": "Präsentation",
+          "body": "Die Präsenz im Saal richtet sich nach Raum und Programm, im Vorschlag."
+        }
+      }
+    },
+    "blackjack": {
+      "eyebrow": "Blackjack",
+      "title": "Kurze Runden, nahes Gespräch",
+      "body": "Blackjack ist an einem Anlass ein Tisch, an dem man für ein paar Runden sitzt und in Gesellschaft bleibt. Es ist kein Kurs, und wir versprechen keine feste Personenzahl am Tisch. Die Präsenz bestätigt der Vorschlag.",
+      "points": {
+        "interaction": {
+          "title": "Interaktion",
+          "body": "Kurze Runden halten das Gespräch unter den Sitzenden."
+        },
+        "atmosphere": {
+          "title": "Tempo",
+          "body": "Man steigt ein und aus, ohne eine lange Bindung."
+        },
+        "guests": {
+          "title": "Gäste",
+          "body": "Das Spiel ist zum Zusammensein gedacht, nicht als Unterricht."
+        }
+      }
+    },
+    "poker": {
+      "eyebrow": "Poker",
+      "title": "Ein Tisch, an dem man gemeinsam sitzt",
+      "body": "Das Poker dieses Abends ist ein gesellschaftliches Erlebnis: man folgt der Runde, spricht und teilt den Tisch. Es ist kein Geldturnier und hat keine offizielle Wettkampfstruktur.",
+      "points": {
+        "table": {
+          "title": "Der Tisch",
+          "body": "Ein gesammelter Platz, im Ton eines gepflegten Anlasses."
+        },
+        "participation": {
+          "title": "Teilnahme",
+          "body": "Der Vergleich bleibt unter den Gästen, im Tempo des Abends."
+        },
+        "setting": {
+          "title": "Rahmen",
+          "body": "Das Format richtet sich im Vorschlag nach dem Anlass, ohne ein Wettkampfreglement."
+        }
+      }
+    },
+    "other": {
+      "eyebrow": "Weitere Spiele",
+      "title": "Zwei Variationen für den Abend",
+      "description": "Würfel und Glücksrad können die Haupttische ergänzen. Wir veröffentlichen keine detaillierten Regeln, Preise oder eine feste Verfügbarkeit.",
+      "dice": {
+        "title": "Würfel",
+        "body": "Ein unmittelbareres Tempo, um den Abend zu variieren. Ob der Tisch dabei ist und welche Rolle er hat, entscheidet der Vorschlag."
+      },
+      "wheel": {
+        "title": "Glücksrad",
+        "body": "Ein auffälligerer Moment, wenn er ins Programm passt. Keine Geldpreise. Die Präsenz bestätigt der Vorschlag."
+      }
+    },
+    "extras": {
+      "eyebrow": "Ergänzende Services",
+      "title": "Erlebnisse neben den Tischen",
+      "body": "Selfie-Spiegel und 360-Erlebnis sind Optionen neben den Spielen. Sie sind nicht automatisch enthalten, und wir beschreiben keine Geräte oder Mengen.",
+      "note": "Die tatsächliche Kombination bestätigt sich im Vorschlag, nach Raum und Programm.",
+      "selfie": {
+        "title": "Selfie-Spiegel",
+        "body": "Ein Fotomoment für die Gäste. Er wird nur geprüft, wenn er zum Abend passt."
+      },
+      "experience": {
+        "title": "360-Erlebnis",
+        "body": "Ein kurzer visueller Moment um den Gast. Er ist freiwillig, und die Verfügbarkeit bestätigt der Vorschlag."
+      }
+    },
+    "choosing": {
+      "eyebrow": "Die Wahl",
+      "title": "Was den Vorschlag leitet",
+      "body": "Auf dieser Seite gibt es keine Pakete und keine Preisliste. Die Auswahl folgt dem Anlass.",
+      "eventsCta": "Events ansehen",
+      "points": {
+        "type": {
+          "title": "Art des Anlasses",
+          "body": "Firma, Gruppe, Hochzeit oder privates Fest ändern den Ton."
+        },
+        "guests": {
+          "title": "Anzahl der Gäste",
+          "body": "Wie viele Personen mitmachen, richtet die Präsenz an den Tischen aus."
+        },
+        "space": {
+          "title": "Raum",
+          "body": "Der Saal entscheidet, was sich aufbauen lässt."
+        },
+        "duration": {
+          "title": "Dauer",
+          "body": "Die verfügbare Zeit bestimmt, wie viele Erlebnisse sinnvoll sind."
+        },
+        "atmosphere": {
+          "title": "Atmosphäre",
+          "body": "Formell, festlich oder zurückhaltend: das Tempo richtet sich danach."
+        },
+        "selection": {
+          "title": "Spiele und Services",
+          "body": "Gewählt wird aus dem, was passt, und bestätigt im Vorschlag."
+        }
+      }
+    },
+    "final": {
+      "eyebrow": "Angebot",
+      "title": "Gemeinsam gestalten wir Ihr Casino-Erlebnis",
+      "body": "Schildern Sie uns den Anlass. Die Antwort ist ein Vorschlag zu passenden Spielen und Services, ohne Zusage für das, was noch nicht bestätigt ist."
+    }
+  },
+  "Gallery": {
+    "hero": {
+      "eyebrow": "Galerie",
+      "support": "Atmosphäre, Details und Erlebnisse, die einen Casino-Show-Anlass besonders machen.",
+      "lead": "Freigegebene Fotografien erscheinen auf dieser Seite. Im Moment ist keine veröffentlicht.",
+      "mediaLabel": "Grafische Komposition, bis freigegebene Fotografien vorliegen"
+    },
+    "intro": {
+      "eyebrow": "Der Sinn der Seite",
+      "title": "Atmosphäre, kein erfundenes Archiv",
+      "body": "Die Galerie ist bereit, Tische, Begegnung unter den Gästen und den Ton eines Casino-Anlasses zu zeigen. Sie nennt keine Daten, keine Kundennamen und keine Geschichten ohne Beleg."
+    },
+    "empty": {
+      "eyebrow": "Auswahl",
+      "title": "Keine freigegebene Fotografie",
+      "body": "Ein Bild kommt hierher nur mit einer geeigneten Datei und klaren Rechten. Stockfotos nehmen diesen Platz nicht ein."
+    },
+    "collection": {
+      "eyebrow": "Auswahl",
+      "title": "Die Fotografien",
+      "body": "Jedes Bild kann zu mehreren Kategorien gehören. Der Filter zeigt nur freigegebene Fotografien."
+    },
+    "filters": {
+      "label": "Kategorien der Galerie",
+      "items": {
+        "all": "Alle",
+        "roulette": "Roulette",
+        "blackjack": "Blackjack",
+        "poker": "Poker",
+        "atmosphere": "Croupiers und Atmosphäre",
+        "corporate": "Firmenanlässe",
+        "weddings-private": "Hochzeiten und private Feste",
+        "casino-party": "Casino-Party",
+        "wheel-of-fortune": "Glücksrad",
+        "dice": "Würfel",
+        "selfie-mirror": "Selfie-Spiegel",
+        "experience-360": "360-Erlebnis"
+      }
+    },
+    "count": "{count, plural, one {# Fotografie} other {# Fotografien}}",
+    "emptyCategory": "In dieser Kategorie gibt es keine freigegebene Fotografie.",
+    "lightbox": {
+      "dialog": "Vergrösserte Fotografie",
+      "close": "Schliessen",
+      "previous": "Zurück",
+      "next": "Weiter",
+      "position": "{current} von {total}",
+      "credit": "Nachweis"
+    },
+    "final": {
+      "eyebrow": "Angebot",
+      "title": "Der nächste Anlass, an den man sich erinnert, könnte Ihrer sein",
+      "body": "Schildern Sie uns den Anlass. Der Vorschlag entsteht aus Raum, Gästen und der Atmosphäre, die Sie suchen."
+    }
+  },
+  "About": {
+    "hero": {
+      "eyebrow": "Über uns",
+      "support": "Casino Show geht von der Idee aus, den Reiz des Casinos in eine Unterhaltung zu verwandeln, die man bei Firmenanlässen und privaten Festen teilt.",
+      "lead": "Es ist eine Präsenz für den Saal, keine Online-Plattform und kein Spiel um Geld.",
+      "mediaLabel": "Grafische Komposition, keine Fotografie der Tätigkeit"
+    },
+    "idea": {
+      "eyebrow": "Die Idee",
+      "title": "Der Reiz des Casinos, in einer neuen Form",
+      "body": "Tische, die Geste des Spiels und das Licht eines Abends haben einen klaren Reiz. Hier wird daraus Live-Unterhaltung: Die Gäste kommen näher, probieren, kommentieren und bleiben bei der Erfahrung.",
+      "aside": "Die Energie kommt aus der Gegenwart im Saal, nicht aus einem Gewinn. Mitmachen ist die Freude an der Begegnung, keine Wette um Geld."
+    },
+    "approach": {
+      "eyebrow": "Die Arbeitsweise",
+      "title": "Jeder Anlass hat seine Atmosphäre",
+      "body": "Ein Vorschlag entsteht aus dem Anlass. Das ist keine Zusage zu jedem operativen Detail und bedeutet nicht, dass Casino Show jeden technischen Service selbst ausführt.",
+      "points": {
+        "occasion": {
+          "title": "Den Anlass verstehen",
+          "body": "Ein Empfang, ein Galadinner, eine Hochzeit oder ein privates Fest verlangen unterschiedliche Töne."
+        },
+        "guests": {
+          "title": "Die Gäste berücksichtigen",
+          "body": "Wer mitspielt, wer zusieht und wie vertraut die Gruppe mit den Tischen ist, lenkt die Wahl."
+        },
+        "space": {
+          "title": "Den Raum einschätzen",
+          "body": "Saal, Wege und verfügbare Zeit sagen, was im Ablauf Platz hat."
+        },
+        "selection": {
+          "title": "Passende Erfahrungen wählen",
+          "body": "Spiele und Services werden vorgeschlagen, wenn sie zum Abend passen, und im Vorschlag bestätigt."
+        },
+        "coordination": {
+          "title": "Die vorgeschlagene Unterhaltung abstimmen",
+          "body": "Rhythmus, Präsenz und Kombination werden abgestimmt. Was nicht bestätigt ist, gilt nicht als verfügbar."
+        }
+      }
+    },
+    "experience": {
+      "eyebrow": "Die Menschen",
+      "title": "Im Mittelpunkt stehen die Menschen",
+      "body": "Tische und Spiele bereiten die Szene. Das Erlebnis entsteht durch die Personen, die sich setzen, durch jene, die zusehen, und durch die Gespräche rundherum.",
+      "notes": {
+        "participation": {
+          "title": "Teilnahme",
+          "body": "Eine Einladung, ins Spiel zu kommen, ohne jene auszuschliessen, die lieber zusehen."
+        },
+        "conversation": {
+          "title": "Gespräch",
+          "body": "Der Tisch ist auch ein Ort, an dem sich die Gäste begegnen."
+        },
+        "discovery": {
+          "title": "Entdeckung",
+          "body": "Für viele ist es das erste Mal nahe an Roulette oder Blackjack, erlebt als Unterhaltung."
+        },
+        "shared": {
+          "title": "Gemeinsame Freude",
+          "body": "Die Erinnerung liegt im gemeinsamen Moment, nicht in einem Geldpreis."
+        },
+        "atmosphere": {
+          "title": "Atmosphäre",
+          "body": "Licht, Rhythmus und die Sorgfalt der Präsenz geben dem Abend einen Charakter."
+        }
+      }
+    },
+    "pillars": {
+      "eyebrow": "Das Projekt",
+      "title": "Die Details, die den Unterschied machen",
+      "body": "Vier Aufmerksamkeiten leiten die Art, wie wir einen Abend denken. Sie sind keine Zertifikate und beschreiben weder Personal noch Ausrüstung.",
+      "items": {
+        "atmosphere": {
+          "title": "Atmosphäre",
+          "body": "Die visuelle Haltung der Erfahrung: wie der Abend wirkt, bevor jemand die Regeln kennt."
+        },
+        "participation": {
+          "title": "Teilnahme",
+          "body": "Die Beteiligung der Gäste, in einem Mass, das zur Gruppe passt."
+        },
+        "flexibility": {
+          "title": "Flexibilität",
+          "body": "Die Möglichkeit, einen Vorschlag auf verschiedene Kontexte zuzuschneiden: Firma, Team-Building, Gala, Hochzeit, privates Fest. Das sind Kontexte, keine Liste abgeschlossener Aufträge."
+        },
+        "detail": {
+          "title": "Sorgfalt im Detail",
+          "body": "Die Aufmerksamkeit, mit der das beabsichtigte Erlebnis beschrieben wird, bevor es bestätigt wird."
+        }
+      }
+    },
+    "explore": {
+      "eyebrow": "Weiter",
+      "title": "Entdecken Sie, was wir für Ihren Anlass denken können",
+      "body": "Drei Seiten zur Orientierung. Keine erzählt abgeschlossene Projekte und keine verspricht eine bereits festgelegte Kombination.",
+      "items": {
+        "events": {
+          "title": "Events",
+          "body": "Firmenanlässe, Team-Building, Galabende, Hochzeiten und private Feste: mögliche Kontexte, kein Verzeichnis erledigter Arbeiten."
+        },
+        "games": {
+          "title": "Spiele und Services",
+          "body": "Roulette, Blackjack, Poker und weitere Erfahrungen. Die Kombination wird im Vorschlag bestätigt."
+        },
+        "gallery": {
+          "title": "Galerie",
+          "body": "Die Seite ist bereit. Fotografien von Anlässen erscheinen erst nach Freigabe."
+        }
+      }
+    },
+    "final": {
+      "eyebrow": "Angebot",
+      "title": "Erzählen Sie uns von Ihrem nächsten Anlass",
+      "body": "Schreiben Sie uns Anlass, Gäste und die Atmosphäre, die Sie suchen. Die Antwort ist ein Gespräch und, wenn es passt, ein Vorschlag."
+    }
+  },
+  "Contact": {
+    "hero": {
+      "eyebrow": "Kontakt",
+      "support": "Haben Sie eine Frage, eine Idee, oder möchten Sie Casino Show besser kennenlernen? Der erste Schritt ist, einfach darüber zu sprechen.",
+      "lead": "Diese Seite weist den Weg. Sie veröffentlicht keine Kontaktdaten, die noch nicht bestätigt sind.",
+      "mediaLabel": "Grafische Komposition, keine Fotografie eines Sitzes"
+    },
+    "paths": {
+      "label": "Wege zum Kontakt",
+      "quote": {
+        "title": "Haben Sie einen Anlass im Sinn?",
+        "body": "Erzählen Sie uns, was Sie organisieren. Gemeinsam lässt sich der Vorschlag finden, der zum Anlass passt.",
+        "note": "Der Button öffnet die Angebotsseite. Sie können die Anfrage vorbereiten, aber das Senden ist noch nicht aktiv."
+      },
+      "info": {
+        "title": "Möchten Sie mehr erfahren?",
+        "body": "Für allgemeine Fragen oder eine Zusammenarbeit wird ein direkter Kontakt veröffentlicht, sobald er bestätigt ist. Im Moment gibt es keinen.",
+        "link": "Zu den bestätigten Kanälen"
+      }
+    },
+    "channels": {
+      "eyebrow": "Kanäle",
+      "title": "So erreichen Sie uns",
+      "empty": "E-Mail, Telefon und Nachrichten sind noch nicht veröffentlicht. Sie erscheinen hier erst nach einer Bestätigung.",
+      "ready": "Dies sind die bestätigten Kontaktdaten.",
+      "items": {
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "whatsapp": "WhatsApp"
+      }
+    },
+    "start": {
+      "eyebrow": "Der erste Schritt",
+      "title": "Aus einem Gespräch entsteht eine Idee",
+      "body": "Ein erstes Gespräch kann wenige Punkte enthalten. Es ist eine Orientierung, kein Formular, und es legt keine Antwortzeit fest.",
+      "points": {
+        "type": {
+          "title": "Art des Anlasses",
+          "body": "Firma, privates Fest, Hochzeit oder ein anderer Anlass."
+        },
+        "idea": {
+          "title": "Allgemeine Idee",
+          "body": "Der Ton, den Sie sich vorstellen, auch wenn er noch eine Skizze ist."
+        },
+        "place": {
+          "title": "Ungefähre Gegend",
+          "body": "Die Stadt oder die Gegend, ohne damit eine bereits festgelegte Abdeckung zu beschreiben."
+        },
+        "period": {
+          "title": "Bevorzugter Zeitraum",
+          "body": "Ein Datum, ein Monat oder ein noch offenes Fenster."
+        },
+        "requests": {
+          "title": "Besondere Wünsche",
+          "body": "Was für die Gäste zählt, und später im Vorschlag bestätigt wird."
+        }
+      }
+    },
+    "final": {
+      "eyebrow": "Die Erlebnisse",
+      "title": "Jedes grosse Event beginnt mit einer Idee",
+      "body": "Die Seiten Events und Spiele und Services zeigen mögliche Kontexte und Erlebnisse. Sie ersetzen keinen bestätigten Vorschlag.",
+      "items": {
+        "events": {
+          "title": "Events",
+          "body": "Firmenanlässe, Team-Building, Galabende, Hochzeiten und private Feste, als Kontexte und nicht als erledigte Arbeiten."
+        },
+        "games": {
+          "title": "Spiele und Services",
+          "body": "Roulette, Blackjack, Poker und weitere Erfahrungen, zusammengestellt und im Vorschlag bestätigt."
+        }
+      }
+    }
+  },
+  "Quote": {
+    "hero": {
+      "eyebrow": "Angebot",
+      "support": "Drei Schritte, um den Anlass zu beschreiben. Der Vorschlag entsteht daraus, nicht aus einem bereits festen Paket.",
+      "notice": "Der Versand von Anfragen wird in Kürze verfügbar sein. Was Sie eintragen, bleibt auf dieser Seite und wird nicht übermittelt.",
+      "mediaLabel": "Grafische Komposition, keine Fotografie eines Anlasses"
+    },
+    "wizard": {
+      "label": "Angebotsanfrage",
+      "localeNote": "Wenn Sie die Sprache wechseln, werden die eingegebenen Angaben auf dieser Seite gelöscht. Sie werden nicht im Browser gespeichert."
+    },
+    "progress": {
+      "label": "Fortschritt der Anfrage",
+      "event": "Anlass",
+      "experience": "Erlebnis",
+      "contact": "Kontakt"
+    },
+    "steps": {
+      "event": {
+        "title": "Beginnen wir mit Ihrem Anlass",
+        "support": "Auch wenn noch nicht alles feststeht, können Sie hier anfangen."
+      },
+      "experience": {
+        "title": "Wie stellen Sie sich das Erlebnis vor?",
+        "support": "Wählen Sie, was Sie interessiert. Der endgültige Vorschlag wird anhand Ihres Anlasses definiert."
+      },
+      "contact": {
+        "title": "Fast geschafft",
+        "support": "Prüfen Sie die Angaben zu Ihrem Anlass und ergänzen Sie Ihre Kontaktdaten."
+      }
+    },
+    "fields": {
+      "required": "Erforderlich",
+      "optional": "Fakultativ",
+      "eventType": {
+        "label": "Art des Anlasses"
+      },
+      "location": {
+        "label": "Ort",
+        "hint": "Stadt oder Gegend, zum Beispiel Lugano, Zürich, Genf oder Locarno. Die vollständige Adresse ist nicht nötig. Die Beispiele sind keine bestätigte Abdeckung."
+      },
+      "date": {
+        "label": "Datum",
+        "hint": "Wenn das Datum feststeht, wählen Sie es. Ein vergangenes Datum wird nicht akzeptiert.",
+        "undecided": "Ich habe das Datum noch nicht festgelegt"
+      },
+      "guests": {
+        "label": "Anzahl der Gäste",
+        "hint": "Eine Schätzung, kein Preis."
+      },
+      "duration": {
+        "label": "Dauer",
+        "hint": "Ein Hinweis, keine bestätigte Verfügbarkeit."
+      },
+      "experiences": {
+        "label": "Erlebnisse",
+        "hint": "Eine Interessenauswahl. Sie bestätigt nicht, dass jeder Service an jedem Ort verfügbar ist, und auch keine Anzahl von Tischen oder Personal."
+      },
+      "objective": {
+        "label": "Ziel des Anlasses"
+      },
+      "notes": {
+        "label": "Möchten Sie uns noch etwas erzählen?",
+        "hint": "Location, Zeiten, Atmosphäre, besondere Bedürfnisse oder jede nützliche Angabe."
+      },
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "phoneHint": "Schweizer oder internationale Nummer. Eine Schweizer Vorwahl ist nicht erforderlich.",
+      "company": "Unternehmen",
+      "preference": "Wie möchten Sie kontaktiert werden",
+      "preferenceHint": "Eine Präferenz, keine Bestätigung, dass der Kanal bereits aktiv ist."
+    },
+    "options": {
+      "eventType": {
+        "corporate": {
+          "title": "Firmenanlass",
+          "body": "Ein Arbeitstreffen, eine Präsentation oder ein Abend mit Kolleginnen und Kollegen."
+        },
+        "dinner": {
+          "title": "Firmenessen",
+          "body": "Die Unterhaltung für den Abend. Das Menü gehört nicht zum Vorschlag."
+        },
+        "wedding": {
+          "title": "Hochzeit",
+          "body": "Ein Moment der Unterhaltung, nicht die Organisation der Hochzeit."
+        },
+        "private": {
+          "title": "Private Feier",
+          "body": "Ein Geburtstag, ein Jubiläum oder eine andere Feier unter Gästen."
+        },
+        "gala": {
+          "title": "Kongress oder Gala",
+          "body": "Ein formeller Abend, der im Vorschlag definiert wird."
+        },
+        "other": {
+          "title": "Anderes",
+          "body": "Ein Anlass, der nicht unter die vorherigen Punkte fällt."
+        }
+      },
+      "guests": {
+        "up-to-30": "Bis 30",
+        "30-60": "30 bis 60",
+        "60-100": "60 bis 100",
+        "100-200": "100 bis 200",
+        "over-200": "Über 200",
+        "unsure": "Noch unklar"
+      },
+      "duration": {
+        "up-to-2": "Bis 2 Stunden",
+        "2-4": "2 bis 4 Stunden",
+        "over-4": "Über 4 Stunden",
+        "unsure": "Noch unklar"
+      },
+      "experiences": {
+        "casino-party": {
+          "title": "Casino-Party-Erlebnis",
+          "body": "Eine Anfrage für einen koordinierten Vorschlag, kein Paket mit Preis oder Tischzahl."
+        },
+        "roulette": {
+          "title": "Roulette",
+          "body": "Unterhaltung im Saal, ohne Spiel um Geld."
+        },
+        "blackjack": {
+          "title": "Blackjack",
+          "body": "Ein Tisch, der den Gästen zugänglich ist. Es werden keine Lektionen versprochen."
+        },
+        "poker": {
+          "title": "Poker",
+          "body": "Ein gesellschaftlicher Tisch, kein Turnier um Geld."
+        },
+        "dice": {
+          "title": "Würfel",
+          "body": "Im Vorschlag zu prüfen, kein automatisches Extra."
+        },
+        "wheel-of-fortune": {
+          "title": "Glücksrad",
+          "body": "Im Vorschlag zu prüfen, kein automatisches Extra."
+        },
+        "selfie-mirror": {
+          "title": "Selfie-Spiegel",
+          "body": "Im Vorschlag zu prüfen, kein automatisches Extra."
+        },
+        "experience-360": {
+          "title": "360-Erlebnis",
+          "body": "Im Vorschlag zu prüfen, kein automatisches Extra."
+        },
+        "other-games": {
+          "title": "Weitere Spiele",
+          "body": "Nennen Sie sie in der Nachricht, wenn Sie schon eine Idee haben."
+        },
+        "recommendation": {
+          "title": "Empfehlen Sie uns",
+          "body": "Wir gehen vom Anlass aus und schlagen ein mögliches Erlebnis vor."
+        }
+      },
+      "objective": {
+        "team": "Teambuilding",
+        "entertainment": "Unterhaltung",
+        "clients": "Kundenanlass",
+        "dinner": "Firmenessen",
+        "celebration": "Feier",
+        "other": "Anderes"
+      },
+      "preference": {
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "whatsapp": "WhatsApp",
+        "none": "Keine Präferenz"
+      }
+    },
+    "selected": "Ausgewählt",
+    "nav": {
+      "back": "Zurück",
+      "next": "Weiter",
+      "editEvent": "Anlass bearbeiten",
+      "editExperience": "Erlebnis bearbeiten"
+    },
+    "summary": {
+      "title": "Übersicht",
+      "eventType": "Art des Anlasses",
+      "location": "Ort",
+      "date": "Datum",
+      "guests": "Gäste",
+      "duration": "Dauer",
+      "experiences": "Erlebnisse",
+      "objective": "Ziel",
+      "notes": "Notizen",
+      "empty": "Nicht angegeben"
+    },
+    "errors": {
+      "summary": "Prüfen Sie die markierten Felder, bevor Sie weitergehen.",
+      "eventType": "Wählen Sie eine Art des Anlasses.",
+      "location": "Geben Sie die Stadt oder den Ort an.",
+      "locationMax": "Der Ort ist zu lang.",
+      "date": "Geben Sie ein Datum an oder markieren Sie, dass es noch nicht feststeht.",
+      "dateInvalid": "Das Datum ist nicht gültig.",
+      "datePast": "Wählen Sie das heutige Datum oder ein späteres.",
+      "guests": "Geben Sie eine Spanne für die Gäste an.",
+      "choice": "Eine der Auswahlen ist nicht gültig.",
+      "notesMax": "Die Nachricht überschreitet die erlaubte Länge.",
+      "firstName": "Geben Sie den Vornamen an.",
+      "lastName": "Geben Sie den Nachnamen an.",
+      "nameMax": "Der Name ist zu lang.",
+      "email": "Geben Sie eine gültige E-Mail-Adresse an.",
+      "phone": "Geben Sie eine gültige Telefonnummer an, schweizerisch oder international.",
+      "companyMax": "Der Unternehmensname ist zu lang.",
+      "preference": "Geben Sie an, wie Sie kontaktiert werden möchten."
+    },
+    "privacy": {
+      "title": "Hinweis zum Datenschutz",
+      "body": "Der Datenschutzhinweis zu dieser Anfrage wird geprüft. Er ist noch kein genehmigter Rechtstext und aktiviert den Versand nicht. Die Einwilligung wird nicht als einzige Rechtsgrundlage dargestellt, weil die Grundlage in einer rechtlichen Prüfung zu klären ist."
+    },
+    "submission": {
+      "notice": "Der Versand von Anfragen wird in Kürze verfügbar sein. Die Angaben bleiben auf dieser Seite und werden nicht übermittelt."
+    }
+  },
+  "NotFound": {
+    "heading": "Seite nicht gefunden",
+    "description": "Diese Adresse entspricht keiner Seite der Website.",
+    "home": "Zur Startseite"
+  }
+}
