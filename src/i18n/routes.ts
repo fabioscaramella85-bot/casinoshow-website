@@ -46,6 +46,24 @@ export const pathnames = {
     fr: "/demander-un-devis",
     en: "/request-a-quote",
   },
+  "/privacy": {
+    it: "/informativa-privacy",
+    de: "/datenschutz",
+    fr: "/politique-de-confidentialite",
+    en: "/privacy-policy",
+  },
+  "/cookies": {
+    it: "/informativa-cookie",
+    de: "/cookie-richtlinie",
+    fr: "/politique-cookies",
+    en: "/cookie-policy",
+  },
+  "/legal": {
+    it: "/note-legali",
+    de: "/impressum",
+    fr: "/mentions-legales",
+    en: "/legal-notice",
+  },
 } as const;
 
 export const routePathnames = {
@@ -62,6 +80,28 @@ export type RouteId = keyof typeof routePathnames;
 export type InternalPathname = (typeof routePathnames)[RouteId];
 
 export const routeIds = Object.keys(routePathnames) as RouteId[];
+
+/** Supplementary legal routes. They are not part of the commercial sitemap. */
+export const legalPathnames = {
+  privacy: "/privacy",
+  cookies: "/cookies",
+  legalNotice: "/legal",
+} as const;
+
+export type LegalRouteId = keyof typeof legalPathnames;
+export type ShellRouteId = RouteId | LegalRouteId;
+
+export function shellHref(routeId: ShellRouteId | null): keyof typeof pathnames {
+  if (routeId && routeId in legalPathnames) {
+    return legalPathnames[routeId as LegalRouteId];
+  }
+
+  if (routeId) {
+    return routePathnames[routeId as RouteId];
+  }
+
+  return routePathnames.home;
+}
 
 export const primaryNavRouteIds = [
   "home",

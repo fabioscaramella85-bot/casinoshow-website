@@ -67,6 +67,10 @@ body {
   outline-offset: 3px;
 }
 
+header :focus-visible {
+  outline-color: var(--color-midnight);
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;

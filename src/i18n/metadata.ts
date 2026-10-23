@@ -3,7 +3,13 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { getPathname } from "./navigation";
 import { routing } from "./routing";
-import { routePathnames, type Locale, type RouteId } from "./routes";
+import {
+  legalPathnames,
+  routePathnames,
+  type LegalRouteId,
+  type Locale,
+  type RouteId,
+} from "./routes";
 import { CANONICAL_ORIGIN } from "./site";
 
 const openGraphLocales: Record<Locale, string> = {
@@ -31,6 +37,57 @@ export function languageAlternates(routeId: RouteId) {
     fr: absoluteLocalizedUrl(routeId, "fr"),
     en: absoluteLocalizedUrl(routeId, "en"),
     "x-default": absoluteLocalizedUrl(routeId, routing.defaultLocale),
+  };
+}
+
+export function absoluteLegalUrl(routeId: LegalRouteId, locale: Locale) {
+  return new URL(
+    getPathname({ locale, href: legalPathnames[routeId] }),
+    CANONICAL_ORIGIN,
+  ).href;
+}
+
+export function legalLanguageAlternates(routeId: LegalRouteId) {
+  return {
+    it: absoluteLegalUrl(routeId, "it"),
+    de: absoluteLegalUrl(routeId, "de"),
+    fr: absoluteLegalUrl(routeId, "fr"),
+    en: absoluteLegalUrl(routeId, "en"),
+    "x-default": absoluteLegalUrl(routeId, routing.defaultLocale),
+  };
+}
+
+export async function getLegalMetadata(routeId: LegalRouteId): Promise<Metadata> {
+  const locale = await getLocale();
+
+  if (!hasLocale(routing.locales, locale)) {
+    return {};
+  }
+
+  const t = await getTranslations(`Legal.${routeId}`);
+  const title = t("title");
+  const description = t("unavailable");
+  const url = absoluteLegalUrl(routeId, locale);
+
+  return {
+    title,
+    description,
+    robots: {
+      index: false,
+      follow: false,
+    },
+    alternates: {
+      canonical: url,
+      languages: legalLanguageAlternates(routeId),
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Casino Show",
+      locale: openGraphLocales[locale],
+      type: "website",
+    },
   };
 }
 

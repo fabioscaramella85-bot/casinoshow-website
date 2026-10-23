@@ -2,10 +2,10 @@ import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import type { RouteId } from "@/i18n/routes";
+import type { ShellRouteId } from "@/i18n/routes";
 
 type SiteShellProps = {
-  routeId: RouteId | null;
+  routeId: ShellRouteId | null;
   children: ReactNode;
 };
 
@@ -21,7 +21,7 @@ export async function SiteShell({ routeId, children }: SiteShellProps) {
       <main id="main" data-route={routeId ?? "not-found"} className="flex-1">
         {children}
       </main>
-      <SiteFooter routeId={routeId} />
+      <SiteFooter />
     </>
   );
 }

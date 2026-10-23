@@ -356,10 +356,119 @@ if (locs.includes(`${canonicalOrigin}/it/events`)) {
   fail("sitemap published the internal Italian events path");
 }
 
+const legalPages = [
+  {
+    id: "privacy",
+    paths: {
+      it: "/it/informativa-privacy",
+      de: "/de/datenschutz",
+      fr: "/fr/politique-de-confidentialite",
+      en: "/en/privacy-policy",
+    },
+    titles: {
+      it: "Informativa sulla privacy",
+      de: "Datenschutzerklärung",
+      fr: "Politique de confidentialité",
+      en: "Privacy Policy",
+    },
+  },
+  {
+    id: "cookies",
+    paths: {
+      it: "/it/informativa-cookie",
+      de: "/de/cookie-richtlinie",
+      fr: "/fr/politique-cookies",
+      en: "/en/cookie-policy",
+    },
+    titles: {
+      it: "Informativa sui cookie",
+      de: "Cookie-Richtlinie",
+      fr: "Politique relative aux cookies",
+      en: "Cookie Policy",
+    },
+  },
+  {
+    id: "legalNotice",
+    paths: {
+      it: "/it/note-legali",
+      de: "/de/impressum",
+      fr: "/fr/mentions-legales",
+      en: "/en/legal-notice",
+    },
+    titles: {
+      it: "Note legali",
+      de: "Impressum",
+      fr: "Mentions légales",
+      en: "Legal Notice",
+    },
+  },
+];
+
+const legalMarkers = {
+  it: "non è ancora disponibile",
+  de: "noch nicht verfügbar",
+  fr: "n'est pas encore disponible",
+  en: "not yet available",
+};
+
+for (const page of legalPages) {
+  for (const locale of locales) {
+    const path = page.paths[locale];
+    const result = await request(path);
+    const label = `legal ${page.id} ${locale} ${path}`;
+    if (result.status !== 200) {
+      fail(`${label} status ${result.status}`);
+      continue;
+    }
+    if (!/noindex/i.test(result.text)) fail(`${label} missing noindex`);
+    if (!result.text.includes(legalMarkers[locale])) fail(`${label} missing preparation notice`);
+    const heading = decode(result.text.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] ?? "");
+    if (heading !== page.titles[locale]) fail(`${label} heading "${heading}"`);
+    const canonical = result.text.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    if (canonical !== `${canonicalOrigin}${path}`) fail(`${label} canonical ${canonical}`);
+    if (locs.includes(`${canonicalOrigin}${path}`)) fail(`${label} is in the sitemap`);
+    const route = result.text.match(/data-route="([^"]+)"/)?.[1];
+    if (route !== page.id) fail(`${label} data-route ${route}`);
+  }
+}
+
+const homeIt = await request("/it");
+if (!homeIt.text.includes("logo-header.png")) fail("header logo missing");
+if (!homeIt.text.includes("logo-footer.png")) fail("footer logo missing");
+if (!homeIt.text.includes("loghi/favicon.png")) fail("favicon missing");
+if (!homeIt.text.includes("https://www.linkedin.com/in/fabio-scaramella")) {
+  fail("website credit link missing");
+}
+if (!homeIt.text.includes('rel="noopener noreferrer"')) fail("credit rel missing");
+if (!homeIt.text.includes("© 2026 Casino Show")) fail("copyright missing");
+if (!homeIt.text.includes('data-legal-publication="unpublished"')) {
+  fail("legal links published before approval");
+}
+if (!homeIt.text.includes("mailto:info@casinoshow.ch")) fail("footer email missing");
+if (!homeIt.text.includes("tel:+41765277178")) fail("footer phone missing");
+for (const anchor of ["#corporate", "#team", "#weddings", "#private", "#roulette", "#blackjack", "#poker", "#other-games", "#extras"]) {
+  if (!homeIt.text.includes(anchor)) fail(`footer missing ${anchor}`);
+}
+for (const page of legalPages) {
+  if (homeIt.text.includes(page.paths.it)) fail(`home published ${page.paths.it}`);
+}
+const quoteIt = await request("/it/preventivo");
+if (!quoteIt.text.includes("non vengono trasmessi")) {
+  fail("quote submission notice missing");
+}
+const headerLogo = await request("/loghi/logo-header.png");
+if (headerLogo.status !== 200) fail(`header logo asset ${headerLogo.status}`);
+const footerLogo = await request("/loghi/logo-footer.png");
+if (footerLogo.status !== 200) fail(`footer logo asset ${footerLogo.status}`);
+const favicon = await request("/loghi/favicon.png");
+if (favicon.status !== 200) fail(`favicon asset ${favicon.status}`);
+
 if (failures.length > 0) {
   console.error(`Route verification failed (${failures.length})`);
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log(`Verified 28 localized URLs, root redirect, 404s, and sitemap against ${origin}`);
+console.log(
+  `Verified 28 commercial URLs, 12 unpublished legal URLs, root redirect, 404s, and sitemap against ${origin}`,
+);

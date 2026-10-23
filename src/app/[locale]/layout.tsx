@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     default: "Casino Show",
     template: "%s · Casino Show",
   },
+  icons: {
+    icon: [{ url: "/loghi/favicon.png", type: "image/png", sizes: "512x512" }],
+  },
 };
 
 export const dynamicParams = false;

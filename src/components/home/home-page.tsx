@@ -1,3 +1,5 @@
+import { BrandMarquee } from "@/components/home/brand-marquee";
+import { HomeDavide } from "@/components/home/home-davide";
 import { HomeEvents } from "@/components/home/home-events";
 import { HomeFinalCta } from "@/components/home/home-final-cta";
 import { HomeGallery } from "@/components/home/home-gallery";
@@ -12,10 +14,12 @@ export function HomePage() {
   return (
     <SiteShell routeId="home">
       <HomeHero />
+      <BrandMarquee />
       <HomeIntroduction />
       <HomeEvents />
       <HomeGames />
       <HomeProcess />
+      <HomeDavide />
       <HomeWhy />
       <HomeGallery />
       <HomeFinalCta />

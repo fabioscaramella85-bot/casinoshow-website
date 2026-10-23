@@ -13,6 +13,7 @@ export function MobileNav({ openLabel, closeLabel, children }: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const panelId = useId();
   const firstRender = useRef(true);
 
@@ -31,12 +32,44 @@ export function MobileNav({ openLabel, closeLabel, children }: MobileNavProps) {
     }
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") {
+      if (event.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
         return;
       }
 
-      setOpen(false);
-      buttonRef.current?.focus();
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const panel = panelRef.current;
+      const button = buttonRef.current;
+      if (!panel || !button) {
+        return;
+      }
+
+      const items = [button, ...panel.querySelectorAll<HTMLElement>("a[href], button:not([disabled])")].filter(
+        (element) => element.getClientRects().length > 0,
+      );
+
+      if (items.length === 0) {
+        return;
+      }
+
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+        return;
+      }
+
+      if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     document.addEventListener("keydown", onKeyDown);
@@ -56,7 +89,12 @@ export function MobileNav({ openLabel, closeLabel, children }: MobileNavProps) {
       >
         {open ? <CloseIcon /> : <MenuIcon />}
       </button>
-      <div id={panelId} hidden={!open} className="absolute inset-x-0 top-full border-t border-line-on-dark bg-graphite">
+      <div
+        ref={panelRef}
+        id={panelId}
+        hidden={!open}
+        className="absolute inset-x-0 top-full z-40 max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-line-on-light bg-white"
+      >
         {children}
       </div>
     </div>

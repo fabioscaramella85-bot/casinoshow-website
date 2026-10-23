@@ -1,24 +1,24 @@
 import { getTranslations } from "next-intl/server";
+import { BrandLogo } from "@/components/brand-logo";
 import { HeaderFrame } from "@/components/header-frame";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { MobileNav } from "@/components/mobile-nav";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { Wordmark } from "@/components/wordmark";
 import { getNavLabels } from "@/i18n/labels";
 import { Link } from "@/i18n/navigation";
 import {
   primaryNavRouteIds,
   routePathnames,
-  type RouteId,
+  type ShellRouteId,
 } from "@/i18n/routes";
 
 type SiteHeaderProps = {
-  routeId: RouteId | null;
+  routeId: ShellRouteId | null;
 };
 
 const navLinkClass =
-  "type-nav inline-flex min-h-11 items-center whitespace-nowrap px-2 text-ivory/88 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:text-ivory data-[active=true]:text-ivory data-[active=true]:shadow-[inset_0_-1px_0_0_var(--color-brand-gold)] xl:px-2.5";
+  "inline-flex min-h-11 items-center whitespace-nowrap px-1.5 font-sans text-[0.8125rem] font-medium uppercase leading-[1.3] text-midnight/75 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:text-midnight data-[active=true]:text-brand-green data-[active=true]:shadow-[inset_0_-2px_0_0_var(--color-brand-green)] xl:px-2";
 
 export async function SiteHeader({ routeId }: SiteHeaderProps) {
   const shell = await getTranslations("Shell");
@@ -41,16 +41,18 @@ export async function SiteHeader({ routeId }: SiteHeaderProps) {
 
   return (
     <HeaderFrame>
-      <Container className="relative flex flex-wrap items-center gap-x-3 gap-y-2 py-3 lg:gap-6">
-        <Wordmark label={shell("logoLabel")} />
+      <Container className="relative flex flex-wrap items-center gap-x-3 gap-y-2 py-1.5">
+        <BrandLogo variant="header" label={shell("logoLabel")} />
         <nav
           aria-label={shell("primaryNav")}
-          className="hidden min-w-0 flex-1 items-center justify-center xl:flex"
+          className="hidden min-w-0 flex-1 flex-wrap items-center justify-center xl:flex"
         >
           {links}
         </nav>
-        <div className="ml-auto flex items-center gap-1 sm:gap-2">
-          <LanguageSwitcher routeId={routeId} />
+        <div className="ml-auto flex shrink-0 items-center gap-1 sm:gap-2">
+          <div className="hidden xl:block">
+            <LanguageSwitcher routeId={routeId} />
+          </div>
           <div className="hidden xl:block">
             <Button
               href={routePathnames.quote}
@@ -60,6 +62,10 @@ export async function SiteHeader({ routeId }: SiteHeaderProps) {
             </Button>
           </div>
           <MobileNav openLabel={shell("menuOpen")} closeLabel={shell("menuClose")}>
+            <div className="border-b border-line-on-light px-4 py-3">
+              <p className="type-eyebrow text-gold-ink">{shell("languageNav")}</p>
+              <LanguageSwitcher routeId={routeId} align="start" placement="flow" />
+            </div>
             <nav aria-label={shell("primaryNav")} className="flex flex-col px-4 py-4">
               {primaryNavRouteIds.map((id) => {
                 const active = id === routeId;

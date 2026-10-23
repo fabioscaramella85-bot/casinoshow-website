@@ -7,10 +7,12 @@
     "languageNav": "Lingua",
     "legalTitle": "Note legali",
     "legal": "Le informazioni legali saranno pubblicate in quest'area.",
-    "brand": "Intrattenimento a tema casinò per eventi in Svizzera.",
+    "brand": "Esperienze di intrattenimento ispirate al mondo del casinò, pensate per eventi aziendali e privati.",
     "menuOpen": "Apri il menu",
     "menuClose": "Chiudi il menu",
-    "copyright": "© {year} Casino Show"
+    "copyright": "© {year} Casino Show",
+    "creditLead": "Website by",
+    "newTab": "si apre in una nuova scheda"
   },
   "Nav": {
     "home": "Home",
@@ -66,117 +68,243 @@
   },
   "Home": {
     "hero": {
-      "eyebrow": "Svizzera",
-      "support": "L'emozione del casinò, l'eleganza di un evento esclusivo.",
-      "lead": "Tavoli, giochi e animazione per aziende, team building, matrimoni e feste private.",
-      "eventsCta": "Scopri gli eventi",
-      "mediaLabel": "Composizione grafica. La fotografia degli eventi sarà pubblicata in quest'area."
+      "carouselLabel": "Presentazione di Casino Show",
+      "previous": "Slide precedente",
+      "next": "Slide successiva",
+      "pagination": "Selezione delle slide",
+      "goTo": "Vai alla slide {number}: {title}",
+      "slideStatus": "Slide {number} di {total}",
+      "slides": {
+        "experience": {
+          "title": "Esperienza",
+          "eyebrow": "Casino Show · Swiss casino entertainment",
+          "slogan": "“Sempre un <gold>evento</gold> vincente.”",
+          "secondary": "Il fascino del casinò, protagonista del tuo evento.",
+          "description": "Tu scegli l'occasione, noi portiamo l'atmosfera. Tavoli da casinò, croupier e intrattenimento per eventi aziendali, matrimoni e feste private.",
+          "secondaryCta": "Scopri l'esperienza",
+          "meta": "Roulette · Blackjack · Poker · Eventi su misura"
+        },
+        "switzerland": {
+          "title": "Svizzera",
+          "eyebrow": "Casino Show · Svizzera",
+          "heading": "Da <gold>Lugano</gold>,",
+          "emotional": "l'emozione del casinò arriva al tuo evento.",
+          "secondary": "Un'esperienza esclusiva, ovunque si accenda la festa.",
+          "description": "Con Lugano come punto di riferimento, Casino Show propone esperienze di intrattenimento per eventi in Svizzera. Raccontaci dove e cosa stai organizzando: costruiremo una proposta su misura.",
+          "secondaryCta": "Scopri gli eventi",
+          "meta": "Lugano · Ticino · Svizzera"
+        }
+      }
     },
     "intro": {
       "eyebrow": "Il servizio",
-      "title": "Il casinò, portato nel vostro evento",
-      "body": "Casino Show allestisce un'animazione a tema casinò nel luogo dell'incontro. Gli ospiti si siedono ai tavoli, partecipano e condividono la serata, mentre l'insieme resta quello di un evento, non di una piattaforma di gioco.",
-      "detail": "La proposta si adatta allo spazio, al numero di persone e al tono che volete dare alla giornata o alla serata."
+      "title": "Il casinò, portato nel <em>vostro evento</em>",
+      "body": "Casino Show porta l'atmosfera del casinò direttamente nel luogo del vostro evento. Gli ospiti si siedono ai tavoli, partecipano ai giochi e condividono un'esperienza coinvolgente, pensata per arricchire la serata.",
+      "detail": "Ogni proposta prende forma intorno alla vostra occasione: dagli spazi disponibili al numero di ospiti, fino allo stile che desiderate dare all'evento.",
+      "primaryCta": "Richiedi un preventivo",
+      "secondaryCta": "Scopri gli eventi",
+      "images": {
+        "main": "Croupier con gli ospiti a un tavolo da casinò durante un evento",
+        "roulette": "Ruota della roulette su un tavolo da casinò",
+        "table": "Tavolo da gioco con carte e fiches",
+        "lugano": "Ricevimento serale sul lago, con le montagne sullo sfondo"
+      },
+      "steps": {
+        "tell": {
+          "title": "Ci raccontate il vostro evento",
+          "body": "Data, luogo, tipo di occasione e numero indicativo di ospiti."
+        },
+        "proposal": {
+          "title": "Progettiamo la proposta",
+          "body": "Vi aiutiamo a scegliere i giochi e a definire una proposta adatta al vostro evento."
+        },
+        "welcome": {
+          "title": "Allestiamo e accogliamo",
+          "body": "Prepariamo l'esperienza e accompagniamo gli ospiti nel mondo del casinò."
+        },
+        "enjoy": {
+          "title": "Voi vi godete l'esperienza",
+          "body": "I vostri ospiti partecipano, si divertono e condividono un momento speciale."
+        }
+      }
     },
     "events": {
       "eyebrow": "Eventi",
-      "title": "Un formato per ogni occasione",
-      "description": "Quattro categorie, una sola pagina. Il dettaglio di ciascun formato è raccolto nella pagina Eventi.",
-      "cta": "Scopri gli eventi",
+      "title": "Un formato per ogni <em>occasione</em>.",
+      "description": "Eventi aziendali, team building, matrimoni o feste private. Ogni occasione ha la sua atmosfera, noi aggiungiamo il fascino del casinò e un'esperienza da condividere.",
+      "cardCta": "Scopri l'evento",
+      "closing": "Ogni evento è diverso. <em>Raccontateci il vostro.</em>",
+      "primaryCta": "Richiedi un preventivo",
+      "secondaryCta": "Esplora tutti gli eventi",
       "items": {
         "corporate": {
           "title": "Eventi aziendali",
-          "body": "Serate con clienti, inaugurazioni e incontri di lavoro, con un'animazione che lascia spazio alla conversazione."
+          "body": "Il business incontra lo spettacolo. Un'esperienza originale per clienti e partner.",
+          "alt": "Ospiti in abito da sera intorno a un tavolo da casinò durante un evento aziendale"
         },
         "team": {
           "title": "Team building",
-          "body": "Un momento condiviso ai tavoli, pensato per far partecipare il gruppo senza la rigidità di un torneo."
+          "body": "Il gioco diventa condivisione. Un'esperienza coinvolgente per rafforzare il gruppo.",
+          "alt": "Un gruppo che festeggia intorno a un tavolo da gioco durante un team building"
         },
         "wedding": {
           "title": "Matrimoni",
-          "body": "Un intervallo di intrattenimento per gli ospiti, con un allestimento misurato sull'eleganza della festa."
+          "body": "Un dettaglio che sorprende. Intrattenimento elegante per un ricevimento speciale.",
+          "alt": "Una coppia di sposi a un tavolo da casinò durante il ricevimento"
         },
         "private": {
           "title": "Feste private",
-          "body": "Compleanni, ricorrenze e serate tra amici, con un ritmo concordato insieme a voi."
+          "body": "Una serata fuori dall'ordinario. Il fascino del casinò per feste e occasioni da ricordare.",
+          "alt": "Amici che festeggiano un compleanno intorno a una roulette"
         }
       }
     },
     "games": {
-      "eyebrow": "Giochi e servizi",
-      "title": "I tavoli della serata",
-      "description": "Una rosa di giochi per l'animazione. La presenza di ciascun tavolo si conferma nella proposta, in base all'evento.",
-      "cta": "Giochi e servizi",
+      "eyebrow": "Giochi & servizi",
+      "title": "Il fascino del gioco. <em>L'arte dell'intrattenimento.</em>",
+      "description": "Dalla roulette al blackjack, dal poker alle esperienze interattive: ogni proposta aggiunge carattere, coinvolgimento e atmosfera al vostro evento.",
+      "cardCta": "Scopri di più",
+      "closing": "Ogni evento ha il suo gioco. <em>Troviamo insieme quello giusto.</em>",
+      "primaryCta": "Richiedi un preventivo",
+      "secondaryCta": "Scopri tutti i giochi",
       "items": {
         "roulette": {
           "title": "Roulette",
-          "body": "Il tavolo classico, nel campo visivo della sala."
+          "body": "Il grande classico del casinò, tra eleganza, suspense e divertimento condiviso.",
+          "alt": "Ruota della roulette e fiches su un tavolo allestito per un evento"
         },
         "blackjack": {
           "title": "Blackjack",
-          "body": "Un gioco rapido, adatto a chi vuole entrare in partita subito."
+          "body": "Un gioco immediato e coinvolgente, dove ogni mano diventa parte dello spettacolo.",
+          "alt": "Carte da blackjack sul tavolo verde di un intrattenimento di sala"
         },
         "poker": {
-          "title": "Poker",
-          "body": "Tavoli per chi preferisce un confronto più lungo e raccolto."
-        },
-        "dice": {
-          "title": "Dadi",
-          "body": "Un ritmo più immediato, utile per alternare i tavoli principali."
+          "title": "Poker Texas Hold'em",
+          "body": "Strategia, intuizione e atmosfera per un tavolo che invita a partecipare.",
+          "alt": "Tavolo di poker Texas Hold'em con carte e fiches da evento"
         },
         "wheel": {
-          "title": "Ruota della fortuna",
-          "body": "Un momento di spettacolo, da inserire se trova posto nel programma della serata."
+          "title": "Ruota della Fortuna",
+          "body": "Colori, attesa e sorprese per un momento di intrattenimento che coinvolge tutti.",
+          "alt": "Ruota della fortuna colorata, pronta per un momento di spettacolo"
         },
-        "extra": {
-          "title": "Servizi complementari",
-          "body": "Animazioni e allestimenti che possono accompagnare i tavoli. Il perimetro si definisce nella proposta."
+        "dice": {
+          "title": "Dadi · Chuck-a-luck",
+          "body": "Il ritmo dei dadi e il piacere di partecipare a un gioco semplice e dinamico.",
+          "alt": "Tavolo di dadi Chuck-a-luck durante un intrattenimento di sala"
+        },
+        "selfie": {
+          "title": "Selfie Mirror",
+          "body": "Un'esperienza fotografica interattiva per creare ricordi della serata.",
+          "alt": "Specchio fotografico interattivo per gli ospiti di un evento"
+        },
+        "experience": {
+          "title": "360 Experience",
+          "body": "Un'esperienza video dinamica per rendere speciali i momenti dell'evento.",
+          "alt": "Postazione video a 360 gradi allestita per un momento dell'evento"
+        },
+        "custom": {
+          "title": "Giochi personalizzati",
+          "body": "Idee e format da valutare insieme per dare all'evento un carattere originale.",
+          "alt": "Allestimento di un gioco pensato su misura per un evento"
         }
       }
     },
     "process": {
       "eyebrow": "Come funziona",
-      "title": "Dalla richiesta alla serata",
+      "previous": "Fase precedente",
+      "next": "Fase successiva",
+      "phases": "Fasi",
       "steps": {
         "tell": {
-          "title": "Raccontateci l'evento",
-          "body": "Occasione, luogo, ospiti e atmosfera che avete in mente."
+          "title": "Raccontateci il vostro evento",
+          "body": "Condividete con noi l'occasione, la location, il numero di ospiti e l'atmosfera che desiderate. Da qui prende forma la vostra serata.",
+          "alt": "Consulente con un tablet, pronta a raccogliere i dettagli dell'evento"
         },
         "proposal": {
-          "title": "Ricevete una proposta su misura",
-          "body": "Componiamo giochi, allestimento e animazione intorno al vostro incontro."
+          "title": "Progettiamo la proposta",
+          "body": "Selezioniamo giochi, intrattenimento e dettagli per costruire una proposta su misura, coerente con lo stile e gli obiettivi del vostro evento.",
+          "alt": "Consulente che studia la pianta della location e la proposta"
         },
         "setup": {
-          "title": "Organiziamo l'allestimento",
-          "body": "Prepariamo la presenza in sala e lo svolgimento dell'intrattenimento."
+          "title": "Allestiamo la location",
+          "body": "Prepariamo i tavoli e organizziamo gli spazi dedicati all'intrattenimento, curando l'allestimento prima dell'arrivo degli ospiti.",
+          "alt": "Due membri dello staff che posizionano un tavolo da blackjack"
         },
         "enjoy": {
-          "title": "Gli ospiti vivono la serata",
-          "body": "I tavoli si aprono e l'evento segue il ritmo che avete scelto."
+          "title": "Vivete la serata",
+          "body": "I nostri croupier accompagnano gli ospiti tra giochi, emozioni e momenti da condividere. A voi non resta che godervi l'evento.",
+          "alt": "Ospiti e croupier intorno a un tavolo da blackjack durante la serata"
         }
+      }
+    },
+    "davide": {
+      "eyebrow": "Le persone dietro Casino Show",
+      "title": "L'esperienza <em>fa la differenza.</em>",
+      "name": "Davide Merli",
+      "lead": "Un percorso costruito ai tavoli da casinò, dove professionalità, precisione e capacità di coinvolgere le persone fanno parte dello stesso mestiere.",
+      "championship": "Nel 2012 Davide Merli ha conquistato il titolo europeo all'European Dealer Championship di Helsinki.",
+      "today": "Oggi questa esperienza contribuisce a dare forma all'intrattenimento di Casino Show: un servizio pensato per coinvolgere gli ospiti e valorizzare ogni occasione.",
+      "award": {
+        "year": "2012",
+        "label": "Campione europeo",
+        "name": "European Dealer Championship",
+        "place": "Helsinki"
+      },
+      "values": {
+        "skill": {
+          "title": "Competenza",
+          "body": "Esperienza riconosciuta a livello internazionale."
+        },
+        "together": {
+          "title": "Coinvolgimento",
+          "body": "Il gioco diventa un'occasione per stare insieme."
+        },
+        "care": {
+          "title": "Passione",
+          "body": "Attenzione e cura in ogni evento."
+        }
+      },
+      "cta": "Scopri la nostra storia",
+      "images": {
+        "portrait": "Davide Merli con il trofeo del campionato europeo dei croupier",
+        "medal": "Davide Merli con la medaglia e il riconoscimento Winner 2012",
+        "ceremony": "Davide Merli alla premiazione, con il trofeo e la medaglia",
+        "stage": "Davide Merli sul palco, con il trofeo alzato tra gli altri premiati",
+        "screen": "Davide Merli alza il trofeo davanti allo schermo Winner 2012"
+      },
+      "captions": {
+        "medal": "La medaglia e il riconoscimento del 2012",
+        "ceremony": "La premiazione, con trofeo e medaglia",
+        "stage": "Sul palco, tra gli altri premiati",
+        "screen": "Il trofeo davanti allo schermo del titolo"
       }
     },
     "why": {
       "eyebrow": "Perché Casino Show",
-      "title": "Presenza, partecipazione, misura",
-      "description": "Quattro attenzioni che guidano ogni proposta.",
+      "title": "L'eccellenza <em>in ogni dettaglio.</em>",
+      "description": "Professionalità, esperienza e passione per creare eventi memorabili.",
       "items": {
-        "presentation": {
-          "title": "Presentazione professionale",
-          "body": "L'allestimento e l'animazione sono pensati per stare bene in un evento curato."
+        "award": {
+          "title": "Esperienza premiata",
+          "body": "Davide Merli, campione europeo dei croupier nel 2012 a Helsinki: competenza riconosciuta ai massimi livelli."
         },
-        "guests": {
-          "title": "Ospiti coinvolti",
-          "body": "I giochi invitano a partecipare, senza escludere chi preferisce osservare."
+        "team": {
+          "title": "Croupier professionisti",
+          "body": "Una squadra esperta che accompagna gli ospiti con competenza, eleganza e capacità di coinvolgere."
         },
-        "formats": {
-          "title": "Formati flessibili",
-          "body": "Aziende, gruppi, matrimoni e feste private partono dalla stessa cura, con un programma diverso."
+        "equipment": {
+          "title": "Attrezzature di qualità",
+          "body": "Tavoli e accessori curati per valorizzare l'allestimento e l'atmosfera di ogni evento."
         },
-        "detail": {
-          "title": "Atmosfera e dettaglio",
-          "body": "Il tono della serata, lo spazio e il ritmo contano quanto i tavoli."
+        "memory": {
+          "title": "Un'esperienza da ricordare",
+          "body": "Il piacere di giocare, condividere e vivere insieme un momento speciale."
         }
+      },
+      "closing": {
+        "brand": "Casino Show",
+        "line": "L'intrattenimento che fa la differenza."
       }
     },
     "gallery": {
@@ -359,28 +487,40 @@
     },
     "overview": {
       "eyebrow": "La selezione",
-      "title": "Cinque voci, una sola pagina",
-      "description": "I tavoli e i servizi qui descritti sono proposte da confermare. La combinazione adatta al vostro evento si definisce nella proposta.",
+      "title": "Otto esperienze, una pagina",
+      "description": "Tavoli, giochi di sala ed esperienze interattive. Ogni presenza si conferma nella proposta, in base all'evento.",
       "items": {
         "roulette": {
           "title": "Roulette",
-          "summary": "Un tavolo che dà un centro visivo alla sala."
+          "summary": "Il tavolo classico e la suspense condivisa del giro."
         },
         "blackjack": {
           "title": "Blackjack",
-          "summary": "Mani brevi e ospiti vicini al tavolo."
+          "summary": "Mani brevi, scelte semplici, ospiti vicini al tavolo."
         },
         "poker": {
-          "title": "Poker",
-          "summary": "Un tavolo sociale, senza torneo con denaro."
+          "title": "Poker Texas Hold'em",
+          "summary": "Il Texas Hold'em come momento sociale, senza denaro."
         },
-        "other": {
-          "title": "Altri giochi",
-          "summary": "Dadi e ruota della fortuna, se trovano posto nel programma."
+        "wheel": {
+          "title": "Ruota della Fortuna",
+          "summary": "Una ruota colorata e l'attesa di tutta la sala."
         },
-        "extras": {
-          "title": "Servizi complementari",
-          "summary": "Esperienze opzionali, non incluse in automatico."
+        "dice": {
+          "title": "Dadi · Chuck-a-luck",
+          "summary": "Un gioco di dadi veloce e facile da seguire."
+        },
+        "selfie": {
+          "title": "Selfie Mirror",
+          "summary": "Un momento fotografico, distinto dai tavoli."
+        },
+        "experience": {
+          "title": "360 Experience",
+          "summary": "Un video dinamico, non un gioco da tavolo."
+        },
+        "custom": {
+          "title": "Giochi personalizzati",
+          "summary": "Idee da valutare insieme, secondo l'evento."
         }
       }
     },
@@ -504,6 +644,129 @@
       "eyebrow": "Preventivo",
       "title": "Creiamo insieme la tua casino experience",
       "body": "Raccontateci l'evento. La risposta è una proposta sui giochi e sui servizi adatti, senza un impegno su ciò che non è confermato."
+    },
+    "experiences": {
+      "cta": "Richiedi un preventivo",
+      "roulette": {
+        "index": "01",
+        "category": "Tavolo",
+        "title": "Roulette",
+        "lead": "Il tavolo più riconoscibile del casinò, portato nella sala del vostro evento.",
+        "body": "Gli ospiti si avvicinano, seguono il giro della ruota e condividono l'attesa. È un intrattenimento di sala: non si gioca denaro e non ci sono vincite in contanti.",
+        "atmosphere": "Eleganza e suspense. Il tavolo diventa un punto di ritrovo, senza dover occupare da solo tutta la serata.",
+        "occasions": "Si valuta per cene aziendali, ricevimenti e feste private, quando cercate un centro visivo per la sala.",
+        "highlights": {
+          "a": "Il giro della ruota riunisce gli sguardi",
+          "b": "Si partecipa oppure si osserva, nello stesso momento",
+          "c": "La presenza in sala si conferma nella proposta"
+        },
+        "alt": "Ruota della roulette e fiches su un tavolo allestito per un evento"
+      },
+      "blackjack": {
+        "index": "02",
+        "category": "Tavolo",
+        "title": "Blackjack",
+        "lead": "Un tavolo immediato, fatto di scelte brevi e di conversazione.",
+        "body": "Gli ospiti seguono la mano e decidono il passo successivo, restando vicini al gioco. Non è un corso e non indichiamo un numero fisso di posti.",
+        "atmosphere": "Il ritmo è vivace. Lo spettacolo sta nella mano e nel dialogo di chi è seduto, non in una gara.",
+        "occasions": "Funziona quando gli invitati vogliono entrare in partita per qualche minuto, in un evento aziendale o in una festa.",
+        "highlights": {
+          "a": "Regole facili da cogliere anche per chi arriva al tavolo",
+          "b": "Mani corte, così si entra e si esce senza un impegno lungo",
+          "c": "Il formato si accorda allo spazio nella proposta"
+        },
+        "alt": "Carte da blackjack sul tavolo verde di un intrattenimento di sala"
+      },
+      "poker": {
+        "index": "03",
+        "category": "Tavolo",
+        "title": "Poker Texas Hold'em",
+        "lead": "Il poker più riconoscibile, vissuto come momento sociale.",
+        "body": "Gli ospiti leggono la mano, parlano al tavolo e mettono in gioco intuizione e strategia. Non è un torneo con denaro e non prevede premi in contanti.",
+        "atmosphere": "Un tavolo più raccolto, per chi ama restare seduto e confrontarsi con calma.",
+        "occasions": "Si discute per serate aziendali, team e feste in cui il programma lascia spazio a una partita.",
+        "highlights": {
+          "a": "Carte comuni e decisioni che tutti possono seguire",
+          "b": "Il confronto resta tra gli ospiti, al ritmo della serata",
+          "c": "Nessuna struttura di gara e nessun montepremi"
+        },
+        "alt": "Tavolo di poker Texas Hold'em con carte e fiches da evento"
+      },
+      "wheel": {
+        "index": "04",
+        "category": "Gioco di sala",
+        "title": "Ruota della Fortuna",
+        "lead": "Una ruota colorata, un giro, e l'attesa di chi guarda.",
+        "body": "Gli ospiti seguono la ruota e condividono il momento in cui si ferma. Non pubblichiamo premi in denaro né un regolamento fisso.",
+        "atmosphere": "Spettacolare e breve. Coinvolge anche chi non è seduto a un tavolo.",
+        "occasions": "Utile per aprire una serata, segnare una pausa o animare un ricevimento.",
+        "highlights": {
+          "a": "Un gesto visivo, chiaro anche da lontano",
+          "b": "Un momento collettivo, non una partita lunga",
+          "c": "Si inserisce solo se trova posto nel programma"
+        },
+        "alt": "Ruota della fortuna colorata, pronta per un momento di spettacolo"
+      },
+      "dice": {
+        "index": "05",
+        "category": "Gioco di sala",
+        "title": "Dadi · Chuck-a-luck",
+        "lead": "Tre dadi, un ritmo veloce, una partecipazione semplice.",
+        "body": "Gli ospiti seguono il lancio e prendono parte a un gioco facile da capire. Non è una scommessa con denaro.",
+        "atmosphere": "Dinamico e leggero, per variare il tono accanto ai tavoli principali.",
+        "occasions": "Adatto quando volete un gioco aperto, anche per ospiti che non conoscono i tavoli classici.",
+        "highlights": {
+          "a": "Si capisce in pochi istanti",
+          "b": "Il ritmo resta alto, senza una lunga spiegazione",
+          "c": "Il ruolo nella serata si definisce nella proposta"
+        },
+        "alt": "Tavolo di dadi Chuck-a-luck durante un intrattenimento di sala"
+      },
+      "selfie": {
+        "index": "06",
+        "category": "Esperienza interattiva",
+        "title": "Selfie Mirror",
+        "lead": "Un momento fotografico interattivo, accanto ai giochi e non al loro posto.",
+        "body": "Gli ospiti si avvicinano e si ritraggono insieme. Non descriviamo stampe, invii automatici o dotazioni tecniche: si valuta solo se l'esperienza è adatta all'evento.",
+        "atmosphere": "Leggera e sociale. Un ricordo visivo della serata, distinto dall'atmosfera del tavolo.",
+        "occasions": "Ricevimenti, feste private e serate aziendali in cui conta anche l'immagine della serata.",
+        "highlights": {
+          "a": "Un'esperienza fotografica, non un gioco da tavolo",
+          "b": "Pensata per gli ospiti, in un momento dedicato",
+          "c": "Disponibilità e perimetro si confermano nella proposta"
+        },
+        "alt": "Specchio fotografico interattivo per gli ospiti di un evento"
+      },
+      "experience": {
+        "index": "07",
+        "category": "Esperienza interattiva",
+        "title": "360 Experience",
+        "lead": "Un video dinamico intorno agli ospiti, per un momento fuori dal tavolo.",
+        "body": "Gli invitati entrano nell'esperienza e restano al centro di una ripresa pensata per la serata. Non indichiamo formati di consegna, tempi di montaggio o attrezzature.",
+        "atmosphere": "Energica e contemporanea. Complementare ai giochi, non un sostituto della roulette o del poker.",
+        "occasions": "Si discute quando l'evento cerca un momento visivo da ricordare, oltre ai tavoli.",
+        "highlights": {
+          "a": "Un concetto video immersivo, da confermare sul posto",
+          "b": "Gli ospiti sono il soggetto del momento",
+          "c": "Nessuna promessa su file, tempi o diffusione"
+        },
+        "alt": "Postazione video a 360 gradi allestita per un momento dell'evento"
+      },
+      "custom": {
+        "index": "08",
+        "category": "Su misura",
+        "title": "Giochi personalizzati",
+        "lead": "Un formato da immaginare insieme, a partire dal vostro evento.",
+        "body": "Raccontateci l'occasione, gli ospiti e il tono. Valutiamo idee e varianti che possono dare un carattere originale alla serata. Nulla è incluso in automatico.",
+        "atmosphere": "Dipende dal format: può restare vicino al casinò oppure spostarsi verso un gioco più vostro.",
+        "occasions": "Quando i tavoli classici non bastano a raccontare l'evento, o volete un momento pensato per il vostro pubblico.",
+        "highlights": {
+          "a": "Si parte dai requisiti dell'evento, non da un catalogo chiuso",
+          "b": "Ogni idea si valuta, poi si conferma nella proposta",
+          "c": "Nessun formato è garantito prima di quel passaggio"
+        },
+        "alt": "Allestimento di un gioco pensato su misura per un evento"
+      }
     }
   },
   "Gallery": {
@@ -966,6 +1229,38 @@
     },
     "submission": {
       "notice": "Il servizio di invio delle richieste sarà disponibile a breve. I dati restano in questa pagina e non vengono trasmessi."
+    }
+  },
+  "Footer": {
+    "brand": "Intrattenimento ispirato al mondo del casinò per eventi aziendali e privati.",
+    "columns": {
+      "discover": "Scopri Casino Show",
+      "experiences": "Esperienze",
+      "contact": "Contattaci"
+    },
+    "nav": {
+      "home": "Home",
+      "events": "Eventi",
+      "games": "Giochi & Servizi",
+      "gallery": "Gallery",
+      "about": "Chi siamo",
+      "contact": "Contatti",
+      "quote": "Richiedi un preventivo"
+    }
+  },
+  "Legal": {
+    "status": "In preparazione",
+    "privacy": {
+      "title": "Informativa sulla privacy",
+      "unavailable": "Questo documento non è ancora disponibile. Non è un'informativa sulla privacy approvata."
+    },
+    "cookies": {
+      "title": "Informativa sui cookie",
+      "unavailable": "Questo documento non è ancora disponibile. Non è un'informativa sui cookie approvata."
+    },
+    "legalNotice": {
+      "title": "Note legali",
+      "unavailable": "Questo documento non è ancora disponibile. Non sono note legali approvate."
     }
   },
   "NotFound": {

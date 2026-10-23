@@ -21,12 +21,12 @@ export type EnabledContactChannel = {
 };
 
 /**
- * Public contact details. Every field stays empty until a value is
- * confirmed for casinoshow.ch. Do not put an example address here.
+ * Confirmed public contact details for casinoshow.ch.
+ * Address, WhatsApp and social profiles stay empty until they are confirmed.
  */
 export const contactDetails: ContactDetails = {
-  email: null,
-  phone: null,
+  email: "info@casinoshow.ch",
+  phone: "+41 76 527 71 78",
   whatsapp: null,
   address: null,
   socialProfiles: [],
