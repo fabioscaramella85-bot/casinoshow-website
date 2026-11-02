@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "node scripts/build-webpack.mjs build --webpack",
+    "start": "node scripts/build-webpack.mjs start",
     "lint": "eslint",
     "verify:routes": "node scripts/verify-routes.mjs",
     "verify:careers": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-careers.ts"
@@ -17,6 +17,8 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@next/swc-wasm-nodejs": "16.4.2",
+    "@tailwindcss/postcss": "4.3.3",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
