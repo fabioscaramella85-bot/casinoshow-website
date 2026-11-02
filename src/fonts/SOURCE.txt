@@ -1,0 +1,57 @@
+Casino Show self-hosted fonts.
+
+The site previously requested these families from Google Fonts, roman style only:
+Playfair Display 500, 600, 700; Montserrat 400, 500, 600, 700;
+Source Serif 4 700; Source Sans 3 600, 700. Subsets: latin and latin-ext.
+
+Google answered with variable WOFF2 files from fonts.gstatic.com. Each committed
+file is a static instance at the listed weight, containing the glyphs of both
+subset files. Outlines at that weight are the instance of the downloaded font.
+No italic is included.
+
+next/font/local applies one declaration list to every file in a family, so the
+CSS does not repeat unicode-range. Characters outside the two subsets are absent
+and fall back, as they did when unicode-range excluded them.
+
+The CSS variables stay --font-playfair, --font-montserrat, --font-social-serif
+and --font-social-sans. Next assigns its own font-family name at build time.
+The name inside the font file is only the Open Font License name.
+
+playfair-display
+Google Fonts file version: v40
+Font revision: 1.203
+License: OFL.txt, SIL Open Font License 1.1
+Reserved Font Name: "Playfair Display"
+Internal font name: Casino Show Display
+The reserved name is not used because the file is a modified instance.
+Repository: https://github.com/google/fonts/tree/main/ofl/playfairdisplay
+latin: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+latin-ext: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+montserrat
+Google Fonts file version: v31
+Font revision: 9.000
+License: OFL.txt, SIL Open Font License 1.1
+Reserved Font Name: none
+Internal font name: Montserrat
+Repository: https://github.com/google/fonts/tree/main/ofl/montserrat
+latin and latin-ext: same ranges as above
+
+source-serif-4
+Google Fonts file version: v15
+Font revision: 4.004
+License: OFL.txt, SIL Open Font License 1.1
+Reserved Font Name: none
+Internal font name: Source Serif 4
+Repository: https://github.com/google/fonts/tree/main/ofl/sourceserif4
+latin and latin-ext: same ranges as above
+
+source-sans-3
+Google Fonts file version: v20
+Font revision: 3.052
+License: OFL.txt, SIL Open Font License 1.1
+Reserved Font Name: "Source"
+Internal font name: Casino Show Sans
+The reserved name is not used because the file is a modified instance.
+Repository: https://github.com/google/fonts/tree/main/ofl/sourcesans3
+latin and latin-ext: same ranges as above
