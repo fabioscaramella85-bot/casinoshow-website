@@ -1,62 +1,62 @@
 import assert from "node:assert/strict";
+import { postResendMessage } from "../src/lib/mail/resend.ts";
 import {
-  previewAccessDecision,
-  previewAuthorizationMatches,
+  previewModeEnabled,
   previewOutboundMailBlocked,
   previewProtectionEnabled,
   previewRobotsDirective,
-  readPreviewGate,
 } from "../src/lib/preview/protection.ts";
 
-const user = "preview-reviewer";
-const password = "correct-horse-battery";
-const ready = {
-  CASINO_SHOW_PREVIEW_PROTECTION: "enabled",
-  CASINO_SHOW_PREVIEW_USER: user,
-  CASINO_SHOW_PREVIEW_PASSWORD: password,
-};
+const preview = { CASINO_SHOW_PREVIEW_MODE: "enabled" };
 
-function basic(value: string): string {
-  return `Basic ${Buffer.from(value, "utf8").toString("base64")}`;
-}
-
-assert.equal(readPreviewGate({}).state, "off");
+assert.equal(previewModeEnabled({}), false);
 assert.equal(previewProtectionEnabled({}), false);
 assert.equal(previewOutboundMailBlocked({}), false);
 assert.equal(previewRobotsDirective({}), undefined);
-assert.equal(previewAccessDecision(null, {}).toString(), "allow");
-assert.equal(readPreviewGate({ CASINO_SHOW_PREVIEW_PROTECTION: "true" }).state, "off");
 
-assert.equal(readPreviewGate({ CASINO_SHOW_PREVIEW_PROTECTION: "enabled" }).state, "misconfigured");
+assert.equal(previewModeEnabled({ CASINO_SHOW_PREVIEW_MODE: "true" }), false);
+assert.equal(previewModeEnabled({ CASINO_SHOW_PREVIEW_PROTECTION: "enabled" }), false);
 assert.equal(
-  readPreviewGate({
+  previewModeEnabled({
     CASINO_SHOW_PREVIEW_PROTECTION: "enabled",
-    CASINO_SHOW_PREVIEW_USER: user,
-    CASINO_SHOW_PREVIEW_PASSWORD: "short-pass",
-  }).state,
-  "misconfigured",
+    CASINO_SHOW_PREVIEW_USER: "preview-reviewer",
+    CASINO_SHOW_PREVIEW_PASSWORD: "correct-horse-battery",
+  }),
+  false,
 );
-assert.equal(
-  readPreviewGate({
-    CASINO_SHOW_PREVIEW_PROTECTION: "enabled",
-    CASINO_SHOW_PREVIEW_USER: "bad:user",
-    CASINO_SHOW_PREVIEW_PASSWORD: password,
-  }).state,
-  "misconfigured",
-);
-assert.equal(previewAccessDecision(basic(`${user}:${password}`), { CASINO_SHOW_PREVIEW_PROTECTION: "enabled" }), "unavailable");
 
-assert.equal(readPreviewGate(ready).state, "ready");
-assert.equal(previewProtectionEnabled(ready), true);
-assert.equal(previewOutboundMailBlocked(ready), true);
-assert.deepEqual(previewRobotsDirective(ready), { index: false, follow: false });
-assert.equal(previewAuthorizationMatches(basic(`${user}:${password}`), user, password), true);
-assert.equal(previewAuthorizationMatches(basic(`${user}:wrong-password-value`), user, password), false);
-assert.equal(previewAuthorizationMatches(basic(`other-user:${password}`), user, password), false);
-assert.equal(previewAuthorizationMatches(null, user, password), false);
-assert.equal(previewAuthorizationMatches("Bearer token", user, password), false);
-assert.equal(previewAccessDecision(null, ready), "challenge");
-assert.equal(previewAccessDecision(basic(`${user}:${password}`), ready), "allow");
-assert.equal(previewOutboundMailBlocked({ ...ready, CASINO_SHOW_QUOTE_DELIVERY: "enabled", RESEND_API_KEY: "present" }), true);
+assert.equal(previewModeEnabled(preview), true);
+assert.equal(previewProtectionEnabled(preview), true);
+assert.equal(previewOutboundMailBlocked(preview), true);
+assert.deepEqual(previewRobotsDirective(preview), { index: false, follow: false });
+assert.equal(
+  previewOutboundMailBlocked({
+    ...preview,
+    CASINO_SHOW_QUOTE_DELIVERY: "enabled",
+    RESEND_API_KEY: "present",
+  }),
+  true,
+);
+
+const previous = process.env.CASINO_SHOW_PREVIEW_MODE;
+process.env.CASINO_SHOW_PREVIEW_MODE = "enabled";
+const blocked = await postResendMessage(
+  "not-a-real-key",
+  {
+    from: "preview@example.com",
+    to: "info@casinoshow.ch",
+    replyTo: "guest@example.com",
+    subject: "preview check",
+    text: "not sent",
+    html: "<p>not sent</p>",
+  },
+  "preview-check",
+);
+if (previous === undefined) {
+  delete process.env.CASINO_SHOW_PREVIEW_MODE;
+} else {
+  process.env.CASINO_SHOW_PREVIEW_MODE = previous;
+}
+assert.equal(blocked, "error");
 
 console.log("preview-protection-unit-ok");
