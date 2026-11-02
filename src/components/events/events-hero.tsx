@@ -1,51 +1,74 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { MediaFrame } from "@/components/home/media-frame";
+import { EventIcon } from "@/components/events/events-icons";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { Section } from "@/components/ui/section";
 import { getNavLabels } from "@/i18n/labels";
 import { routePathnames } from "@/i18n/routes";
 
-const categoryIds = ["corporate", "team", "weddings", "private"] as const;
+const highlights = [
+  { id: "atmosphere", icon: "spark" },
+  { id: "experience", icon: "guests" },
+  { id: "croupiers", icon: "croupier" },
+  { id: "setup", icon: "layout" },
+] as const;
 
 export async function EventsHero() {
   const page = await getTranslations("Pages.events");
   const t = await getTranslations("Events");
   const labels = await getNavLabels();
+  const line1 = t("hero.line1");
+  const line2 = t("hero.line2");
+
+  if (`${line1} ${line2}` !== page("heading")) {
+    throw new Error("Events hero lines must match Pages.events.heading.");
+  }
 
   return (
-    <Section tone="dark">
-      <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <Eyebrow tone="dark">{t("hero.eyebrow")}</Eyebrow>
-          <h1 className="type-display mt-4 max-w-xl text-balance">{page("heading")}</h1>
-          <p className="type-body-lg mt-6 max-w-xl text-text-on-dark">{t("hero.support")}</p>
-          <p className="type-body mt-4 max-w-xl text-text-muted-on-dark">{t("hero.lead")}</p>
-          <div className="mt-8">
-            <Button href={routePathnames.quote}>{labels.quote}</Button>
-          </div>
-          <nav aria-label={t("hero.navLabel")} className="mt-6">
-            <ul className="flex flex-col sm:flex-row sm:flex-wrap sm:gap-x-6">
-              {categoryIds.map((id) => (
-                <li key={id}>
-                  <a
-                    href={`#${id}`}
-                    className="type-nav inline-flex min-h-11 items-center text-ivory/80 transition-colors duration-[var(--duration-fast)] hover:text-ivory"
-                  >
-                    {t(`overview.items.${id}.title`)}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-        <MediaFrame
-          accent="green"
-          label={t("hero.mediaLabel")}
-          className="aspect-[4/3] lg:aspect-[4/5]"
+    <section className="ev-hero" aria-labelledby="events-hero-title">
+      <div className="ev-hero-media" aria-hidden="true">
+        <Image
+          src="/eventi/sfondo.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={85}
+          className="ev-hero-image"
         />
+      </div>
+      <div className="ev-hero-scrim" aria-hidden="true" />
+      <Container className="ev-hero-content">
+        <div className="ev-hero-copy">
+          <div className="ev-rise">
+            <Eyebrow tone="dark">{t("hero.eyebrow")}</Eyebrow>
+            <span className="ev-gold-rule" aria-hidden="true" />
+          </div>
+          <h1 id="events-hero-title" className="type-display ev-hero-title ev-rise">
+            <span className="block">{line1}</span>
+            <span className="block">{line2}</span>
+          </h1>
+          <p className="type-body-lg ev-hero-support ev-rise">{t("hero.support")}</p>
+          <p className="type-body ev-hero-lead ev-rise">{t("hero.lead")}</p>
+          <div className="ev-hero-actions ev-rise">
+            <Button href={routePathnames.quote} className="w-full md:w-auto">
+              {labels.quote}
+            </Button>
+            <a href="#eventi-mosaico" className="ev-button-light w-full md:w-auto">
+              {t("hero.secondaryCta")}
+            </a>
+          </div>
+        </div>
+        <ul className="ev-highlights ev-rise">
+          {highlights.map((item) => (
+            <li key={item.id} className="ev-highlight">
+              <EventIcon name={item.icon} />
+              <span>{t(`hero.highlights.${item.id}`)}</span>
+            </li>
+          ))}
+        </ul>
       </Container>
-    </Section>
+    </section>
   );
 }

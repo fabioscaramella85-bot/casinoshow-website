@@ -1,14 +1,19 @@
+import { getCareersMailConfig } from "../careers/mail";
+
 /**
- * Future statuses exist so a delivery adapter can be added later.
- * Phase 10 may only report "unconfigured". Nothing in this module
- * sends, stores or logs a quote.
+ * Quote delivery stays off unless CASINO_SHOW_QUOTE_DELIVERY is exactly "enabled".
+ * Resend credentials alone do not turn it on. Nothing here sends mail.
  */
 export type QuoteSubmissionStatus = "unconfigured" | "ready" | "submitting" | "success" | "error";
 
-export function quoteSubmissionStatus(): QuoteSubmissionStatus {
-  return "unconfigured";
+export function quoteSendingEnabled(env: NodeJS.ProcessEnv = process.env): boolean {
+  return env.CASINO_SHOW_QUOTE_DELIVERY === "enabled";
 }
 
-export function canTransmitQuote(): boolean {
-  return false;
+export function canTransmitQuote(env: NodeJS.ProcessEnv = process.env): boolean {
+  return quoteSendingEnabled(env) && getCareersMailConfig(env).ready;
+}
+
+export function quoteSubmissionStatus(env: NodeJS.ProcessEnv = process.env): QuoteSubmissionStatus {
+  return canTransmitQuote(env) ? "ready" : "unconfigured";
 }

@@ -16,8 +16,6 @@ export const guestRangeIds = [
   "unsure",
 ] as const;
 
-export const durationIds = ["up-to-2", "2-4", "over-4", "unsure"] as const;
-
 export const experienceIds = [
   "casino-party",
   "roulette",
@@ -42,12 +40,23 @@ export const objectiveIds = [
 
 export const contactPreferenceIds = ["email", "phone", "whatsapp", "none"] as const;
 
+export const referralSourceIds = [
+  "google_search",
+  "ai_assistants",
+  "instagram",
+  "facebook",
+  "word_of_mouth",
+  "previous_event",
+  "event_agency",
+  "other",
+] as const;
+
 export type EventTypeId = (typeof eventTypeIds)[number];
 export type GuestRangeId = (typeof guestRangeIds)[number];
-export type DurationId = (typeof durationIds)[number];
 export type ExperienceId = (typeof experienceIds)[number];
 export type ObjectiveId = (typeof objectiveIds)[number];
 export type ContactPreferenceId = (typeof contactPreferenceIds)[number];
+export type ReferralSourceId = (typeof referralSourceIds)[number];
 export type QuoteStep = 1 | 2 | 3;
 
 export type QuoteDraft = {
@@ -56,7 +65,6 @@ export type QuoteDraft = {
   eventDate: string;
   dateUndecided: boolean;
   guestRange: GuestRangeId | "";
-  duration: DurationId | "";
   experiences: ExperienceId[];
   eventObjective: ObjectiveId | "";
   additionalNotes: string;
@@ -66,6 +74,8 @@ export type QuoteDraft = {
   phone: string;
   company: string;
   contactPreference: ContactPreferenceId | "";
+  referralSource: ReferralSourceId | "";
+  referralSourceOther: string;
 };
 
 export const quoteLimits = {
@@ -75,6 +85,7 @@ export const quoteLimits = {
   email: 120,
   phone: 30,
   company: 120,
+  referralOther: 120,
 } as const;
 
 export function emptyQuoteDraft(): QuoteDraft {
@@ -84,7 +95,6 @@ export function emptyQuoteDraft(): QuoteDraft {
     eventDate: "",
     dateUndecided: false,
     guestRange: "",
-    duration: "",
     experiences: [],
     eventObjective: "",
     additionalNotes: "",
@@ -94,6 +104,8 @@ export function emptyQuoteDraft(): QuoteDraft {
     phone: "",
     company: "",
     contactPreference: "",
+    referralSource: "",
+    referralSourceOther: "",
   };
 }
 
@@ -135,10 +147,6 @@ export function isGuestRangeId(value: string): value is GuestRangeId {
   return includesId(guestRangeIds, value);
 }
 
-export function isDurationId(value: string): value is DurationId {
-  return includesId(durationIds, value);
-}
-
 export function isExperienceId(value: string): value is ExperienceId {
   return includesId(experienceIds, value);
 }
@@ -149,4 +157,8 @@ export function isObjectiveId(value: string): value is ObjectiveId {
 
 export function isContactPreferenceId(value: string): value is ContactPreferenceId {
   return includesId(contactPreferenceIds, value);
+}
+
+export function isReferralSourceId(value: string): value is ReferralSourceId {
+  return includesId(referralSourceIds, value);
 }

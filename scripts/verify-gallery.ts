@@ -4,6 +4,8 @@ import {
   filterGalleryPhotos,
   galleryKeyAction,
   galleryPhotos,
+  homepagePreviewIds,
+  selectCuratedHomepagePreview,
   selectHomepagePreview,
   stepGalleryIndex,
   type GalleryPhoto,
@@ -39,7 +41,32 @@ const poker = photo("poker-table", ["poker", "weddings-private"], { featured: tr
 const wheel = photo("wheel-night", ["wheel-of-fortune", "casino-party"]);
 const fixtures = [roulette, poker, wheel];
 
-assert.equal(galleryPhotos.length, 0);
+assert.deepEqual(
+  galleryPhotos.filter((photo) => photo.featured).map((photo) => photo.id),
+  [
+    "drive-img-5728",
+    "drive-img-5718",
+    "drive-img-5725",
+    "fc-wedding-roulette-croupier-001",
+  ],
+);
+assert.equal(galleryPhotos.length, 64);
+for (const excludedId of [
+  "drive-img-5595",
+  "fc-selfie-mirror-001",
+  "drive-img-5560",
+  "drive-img-5561",
+]) {
+  assert.equal(
+    galleryPhotos.some((photo) => photo.id === excludedId),
+    false,
+    excludedId,
+  );
+}
+assert.equal(
+  galleryPhotos.some((photo) => photo.categories.includes("selfie-mirror")),
+  false,
+);
 assert.equal(filterGalleryPhotos(fixtures, "all").length, 3);
 assert.deepEqual(
   filterGalleryPhotos(fixtures, "roulette").map((item) => item.id),
@@ -65,6 +92,10 @@ assert.deepEqual(galleryKeyAction("ArrowLeft", 0, 3), { type: "index", index: 0 
 assert.deepEqual(galleryKeyAction("ArrowRight", 2, 3), { type: "index", index: 2 });
 assert.deepEqual(galleryKeyAction("Enter", 1, 3), { type: "none" });
 
+assert.deepEqual(
+  selectCuratedHomepagePreview(galleryPhotos).map((photo) => photo.id),
+  [...homepagePreviewIds],
+);
 assert.deepEqual(selectHomepagePreview([]), []);
 assert.deepEqual(
   selectHomepagePreview(fixtures).map((item) => item.id),
@@ -83,7 +114,13 @@ rejects([photo("Bad Id", ["dice"])]);
 rejects([photo("same", ["dice"]), photo("same", ["poker"])]);
 rejects([photo("shared", ["dice"], { src: "/images/gallery/other.webp" }), photo("other", ["poker"], { src: "/images/gallery/other.webp" })]);
 rejects([photo("logo", ["dice"], { src: "/loghi/logo.png" })]);
-rejects([photo("small", ["dice"], { width: 800 })]);
+rejects([photo("small", ["dice"], { width: 480, height: 320 })]);
+assert.doesNotThrow(() =>
+  assertGalleryManifest([photo("portrait", ["roulette"], { width: 1067, height: 1600 })]),
+);
+assert.doesNotThrow(() =>
+  assertGalleryManifest([photo("wide", ["roulette"], { width: 1600, height: 720 })]),
+);
 rejects([photo("none", [])]);
 rejects([photo("unknown", ["tables" as GalleryPhotoCategory])]);
 rejects([photo("repeat", ["dice", "dice"])]);

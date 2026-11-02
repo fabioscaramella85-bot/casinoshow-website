@@ -15,7 +15,6 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { routePathnames } from "@/i18n/routes";
 
-const SLIDE_COUNT = 2;
 const AUTOPLAY_MS = 7000;
 
 const SLIDES = [
@@ -29,7 +28,12 @@ const SLIDES = [
     src: "/home-page/hero/foto-2.png",
     imageClassName: "object-[86%_72%] sm:object-[80%_64%] lg:object-[74%_60%]",
   },
+  {
+    id: "staff",
+  },
 ] as const;
+
+const SLIDE_COUNT = SLIDES.length;
 
 type SlideId = (typeof SLIDES)[number]["id"];
 
@@ -43,6 +47,73 @@ const tabletOverlay =
   "linear-gradient(90deg, rgb(5 10 8 / 0.94) 0%, rgb(6 13 10 / 0.86) 38%, rgb(7 13 11 / 0.58) 64%, rgb(8 12 11 / 0.22) 100%)";
 
 const copyWidth = "w-full max-w-[37.5rem] xl:max-w-[42rem]";
+const staffCopyWidth =
+  "w-full max-w-[min(37.5rem,calc(58vw-1.5rem))] xl:max-w-[min(42rem,calc(58vw-2rem))]";
+
+const staffOverlay =
+  "linear-gradient(90deg, rgb(5 11 9 / 0.94) 0%, rgb(6 14 11 / 0.9) 46%, rgb(7 13 11 / 0.7) 76%, rgb(8 12 11 / 0.34) 100%)";
+
+const staffMain = {
+  src: "/chi-siamo/staff/staff%204.jpg",
+  className: "object-[82%_42%]",
+};
+
+const staffMosaic = [
+  {
+    src: "/chi-siamo/staff/staff%201.jpg",
+    cell: "col-start-1 row-start-1 row-span-2",
+    className: "object-[center_28%]",
+    sizes: "(min-width: 768px) 18vw, 40vw",
+  },
+  {
+    src: "/chi-siamo/staff/staff%203.jpg",
+    cell: "col-start-2 col-span-2 row-start-1",
+    className: "object-[center_28%]",
+    sizes: "(min-width: 768px) 24vw, 100vw",
+  },
+  {
+    src: "/chi-siamo/staff/staff%205.jpg",
+    cell: "col-start-2 row-start-2",
+    className: "object-[center_28%]",
+    sizes: "(min-width: 768px) 16vw, 40vw",
+  },
+  {
+    src: "/chi-siamo/staff/staff%202.jpg",
+    cell: "col-start-3 row-start-2",
+    className: "object-[28%_40%]",
+    sizes: "(min-width: 768px) 16vw, 40vw",
+  },
+  {
+    src: "/chi-siamo/staff/staff%209.jpg",
+    cell: "col-start-1 col-span-2 row-start-3",
+    className: "object-[center_32%]",
+    sizes: "(min-width: 768px) 24vw, 100vw",
+  },
+  {
+    src: "/chi-siamo/staff/staff%206.jpg",
+    cell: "col-start-3 row-start-3",
+    className: "object-[center_40%]",
+    sizes: "(min-width: 768px) 16vw, 40vw",
+  },
+] as const;
+
+const staffMobile = [
+  {
+    src: "/chi-siamo/staff/staff%204.jpg",
+    className: "object-[62%_34%]",
+    sizes: "100vw",
+  },
+  {
+    src: "/chi-siamo/staff/staff%203.jpg",
+    className: "object-[center_26%]",
+    sizes: "50vw",
+  },
+  {
+    src: "/chi-siamo/staff/staff%201.jpg",
+    className: "object-[center_30%]",
+    sizes: "50vw",
+  },
+] as const;
 const copyPadding = "pt-12 pb-28 sm:pt-14 sm:pb-32 lg:pt-16 lg:pb-28";
 const copyMinHeight = "lg:min-h-[clamp(38.75rem,calc(100svh-5.5rem),45rem)]";
 
@@ -72,6 +143,86 @@ function Chevron({ direction }: { direction: "left" | "right" }) {
         strokeLinejoin="round"
       />
     </svg>
+  );
+}
+
+function MosaicPhoto({
+  src,
+  className,
+  sizes,
+}: {
+  src: string;
+  className: string;
+  sizes: string;
+}) {
+  return (
+    <div className="relative h-full min-h-0 min-w-0 overflow-hidden">
+      <Image
+        src={src}
+        alt=""
+        fill
+        sizes={sizes}
+        quality={85}
+        loading="lazy"
+        className={`object-cover ${className}`}
+      />
+    </div>
+  );
+}
+
+function StaffMosaic({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    const [lead, left, right] = staffMobile;
+
+    return (
+      <div className="grid h-full grid-rows-[1.35fr_1fr] gap-0.5 bg-[#07110d]">
+        <MosaicPhoto src={lead.src} className={lead.className} sizes={lead.sizes} />
+        <div className="grid min-h-0 grid-cols-2 gap-0.5">
+          <MosaicPhoto src={left.src} className={left.className} sizes={left.sizes} />
+          <MosaicPhoto src={right.src} className={right.className} sizes={right.sizes} />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid h-full grid-cols-[1.15fr_0.9fr_1fr] grid-rows-[1.2fr_0.95fr_1fr] gap-0.5 bg-[#07110d]">
+      {staffMosaic.map((photo) => (
+        <div key={photo.src} className={`relative min-h-0 min-w-0 overflow-hidden ${photo.cell}`}>
+          <Image
+            src={photo.src}
+            alt=""
+            fill
+            sizes={photo.sizes}
+            quality={85}
+            loading="lazy"
+            className={`object-cover ${photo.className}`}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function StaffBackdrop() {
+  return (
+    <div aria-hidden="true" className="absolute inset-0">
+      <div className="absolute inset-y-0 left-0 w-[65%] overflow-hidden">
+        <Image
+          src={staffMain.src}
+          alt=""
+          fill
+          sizes="65vw"
+          quality={85}
+          loading="lazy"
+          className={`object-cover ${staffMain.className}`}
+        />
+        <div className="absolute inset-0" style={{ background: staffOverlay }} />
+      </div>
+      <div className="absolute inset-y-0 right-0 w-[35%]">
+        <StaffMosaic />
+      </div>
+    </div>
   );
 }
 
@@ -116,7 +267,7 @@ export function HomeHero() {
       return;
     }
 
-    const id = window.setTimeout(() => setSecondImage(true), index === 1 ? 0 : 1200);
+    const id = window.setTimeout(() => setSecondImage(true), index === 0 ? 1200 : 0);
     return () => window.clearTimeout(id);
   }, [index, secondImage]);
 
@@ -202,11 +353,40 @@ export function HomeHero() {
       }}
       onBlurCapture={onBlur}
     >
+      <div className="relative h-[clamp(14.375rem,56vw,18.125rem)] overflow-hidden md:hidden" aria-hidden="true">
+        {SLIDES.map((slide, slideIndex) => {
+          const active = slideIndex === index;
+          const showImage = slideIndex === 0 || secondImage;
+
+          return (
+            <div key={slide.id} className={`absolute inset-0 ${layerVisibility(active, reduced)}`}>
+              {showImage && slide.id === "staff" ? <StaffMosaic compact /> : null}
+              {showImage && slide.id !== "staff" ? (
+                <Image
+                  src={slide.src}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  quality={85}
+                  preload={slideIndex === 0}
+                  loading={slideIndex === 0 ? "eager" : "lazy"}
+                  className={`object-cover ${slide.imageClassName}`}
+                />
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="relative hidden md:block">
       <div aria-hidden="true" inert className="invisible">
         <Container>
           <div className={`grid items-center ${copyPadding} ${copyMinHeight}`}>
             {SLIDES.map((slide) => (
-              <div key={slide.id} className={`col-start-1 row-start-1 ${copyWidth}`}>
+              <div
+                key={slide.id}
+                className={`col-start-1 row-start-1 ${slide.id === "staff" ? staffCopyWidth : copyWidth}`}
+              >
                 <SlideCopy id={slide.id} quote={quote} decorative />
               </div>
             ))}
@@ -220,7 +400,7 @@ export function HomeHero() {
 
         return (
           <div key={slide.id} className={`absolute inset-0 ${layerVisibility(active, reduced)}`}>
-            {showImage && slideIndex === 0 ? (
+            {showImage && slide.id === "experience" ? (
               <Image
                 src={slide.src}
                 alt=""
@@ -231,7 +411,7 @@ export function HomeHero() {
                 className={`object-cover ${slide.imageClassName}`}
               />
             ) : null}
-            {showImage && slideIndex === 1 ? (
+            {showImage && slide.id === "switzerland" ? (
               <Image
                 src={slide.src}
                 alt=""
@@ -242,15 +422,20 @@ export function HomeHero() {
                 className={`object-cover ${slide.imageClassName}`}
               />
             ) : null}
-            <div className="absolute inset-0 md:hidden" style={{ background: mobileOverlay }} />
-            <div
-              className="absolute inset-0 hidden md:block lg:hidden"
-              style={{ background: tabletOverlay }}
-            />
-            <div
-              className="absolute inset-0 hidden lg:block"
-              style={{ background: desktopOverlay }}
-            />
+            {showImage && slide.id === "staff" ? <StaffBackdrop /> : null}
+            {slide.id === "staff" ? null : (
+              <>
+                <div className="absolute inset-0 md:hidden" style={{ background: mobileOverlay }} />
+                <div
+                  className="absolute inset-0 hidden md:block lg:hidden"
+                  style={{ background: tabletOverlay }}
+                />
+                <div
+                  className="absolute inset-0 hidden lg:block"
+                  style={{ background: desktopOverlay }}
+                />
+              </>
+            )}
             <div className="relative z-10 flex h-full items-center">
               <Container className={`flex h-full w-full items-center ${copyPadding}`}>
                 <div
@@ -262,7 +447,7 @@ export function HomeHero() {
                   })}
                   aria-hidden={active ? undefined : true}
                   inert={active ? undefined : true}
-                  className={copyWidth}
+                  className={slide.id === "staff" ? staffCopyWidth : copyWidth}
                 >
                   <SlideCopy id={slide.id} quote={quote} />
                 </div>
@@ -271,8 +456,9 @@ export function HomeHero() {
           </div>
         );
       })}
+      </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-30 pb-5 sm:pb-6">
+      <div className="relative z-30 bg-[#07110d] py-4 md:absolute md:inset-x-0 md:bottom-0 md:bg-transparent md:py-0 md:pb-6">
         <Container>
           <div
             className="flex items-center gap-3"
@@ -302,7 +488,9 @@ export function HomeHero() {
               const title =
                 slide.id === "experience"
                   ? t("hero.slides.experience.title")
-                  : t("hero.slides.switzerland.title");
+                  : slide.id === "switzerland"
+                    ? t("hero.slides.switzerland.title")
+                    : t("hero.slides.staff.title");
 
               return (
                 <button
@@ -338,6 +526,29 @@ export function HomeHero() {
           </div>
         </Container>
       </div>
+
+      <div className="grid bg-[#07110d] px-5 pt-1 pb-8 sm:px-6 md:hidden">
+        {SLIDES.map((slide, slideIndex) => {
+          const active = slideIndex === index;
+
+          return (
+            <div
+              key={slide.id}
+              className={`col-start-1 row-start-1 ${active ? "" : "invisible"}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={t("hero.slideStatus", {
+                number: slideIndex + 1,
+                total: SLIDE_COUNT,
+              })}
+              aria-hidden={active ? undefined : true}
+              inert={active ? undefined : true}
+            >
+              <SlideCopy id={slide.id} quote={quote} stacked />
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }
@@ -346,15 +557,24 @@ function SlideCopy({
   id,
   quote,
   decorative = false,
+  stacked = false,
 }: {
   id: SlideId;
   quote: string;
   decorative?: boolean;
+  stacked?: boolean;
 }) {
   const t = useTranslations("Home");
   const page = useTranslations("Pages.home");
   const Title = "p";
   const Subtitle = decorative ? "p" : "h2";
+  const actionsClass = stacked
+    ? "mt-7 flex flex-col gap-3"
+    : "mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-start";
+  const buttonClass = stacked ? "w-full" : "w-full sm:w-auto";
+  const metaClass = stacked
+    ? "type-eyebrow mt-6 text-brand-gold"
+    : "type-eyebrow mt-6 hidden text-brand-gold sm:block";
 
   if (id === "experience") {
     return (
@@ -362,7 +582,7 @@ function SlideCopy({
         <Eyebrow tone="dark">{t("hero.slides.experience.eyebrow")}</Eyebrow>
         {decorative ? null : <h1 className="sr-only">{page("heading")}</h1>}
         <Title className="mt-4">
-          <span className="inline-flex items-baseline gap-x-[0.32em] font-display text-[clamp(2.05rem,1rem+2.6vw,3.9rem)] font-semibold leading-none tracking-[-0.025em] text-ivory">
+          <span className="inline-flex items-baseline gap-x-[0.28em] font-sans text-[clamp(2.05rem,1rem+2.6vw,3.9rem)] font-bold leading-none tracking-[-0.03em] text-ivory">
             <span>CASINO</span>
             <span className="text-brand-green">SHOW</span>
           </span>
@@ -376,17 +596,44 @@ function SlideCopy({
         <p className="type-body mt-3 max-w-[38rem] text-pretty text-text-muted-on-dark">
           {t("hero.slides.experience.description")}
         </p>
-        <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-start">
-          <Button href={routePathnames.quote} className="w-full sm:w-auto">
+        <div className={actionsClass}>
+          <Button href={routePathnames.quote} className={buttonClass}>
             {quote}
           </Button>
-          <Button href={routePathnames.events} variant="light" className="w-full sm:w-auto">
+          <Button href={routePathnames.events} variant="light" className={buttonClass}>
             {t("hero.slides.experience.secondaryCta")}
           </Button>
         </div>
-        <p className="type-eyebrow mt-6 hidden text-brand-gold sm:block">
-          {t("hero.slides.experience.meta")}
+        <p className={metaClass}>{t("hero.slides.experience.meta")}</p>
+      </>
+    );
+  }
+
+  if (id === "staff") {
+    return (
+      <>
+        <Eyebrow tone="dark">{t("hero.slides.staff.eyebrow")}</Eyebrow>
+        <Subtitle className="mt-4 font-sans text-[clamp(1.55rem,0.85rem+3vw,2.2rem)] font-bold leading-[1.02] tracking-[-0.02em] text-ivory uppercase md:text-[clamp(1.85rem,0.7rem+2.5vw,3.4rem)]">
+          {t("hero.slides.staff.headingLead")}{" "}
+          <span className="block text-brand-green md:inline">Show.</span>
+        </Subtitle>
+        <p className="mt-3 font-display text-[clamp(1.35rem,0.95rem+1vw,2rem)] font-medium leading-[1.2] text-ivory italic">
+          {t("hero.slides.staff.subtitle")}
         </p>
+        <p className="mt-5 font-display text-[clamp(1.15rem,1rem+0.4vw,1.45rem)] font-medium leading-snug text-ivory">
+          {t("hero.slides.staff.secondary")}
+        </p>
+        <p className="type-body mt-3 max-w-[38rem] text-pretty text-text-muted-on-dark">
+          {t("hero.slides.staff.description")}
+        </p>
+        <div className={actionsClass}>
+          <Button href={routePathnames.about} className={buttonClass}>
+            {t("hero.slides.staff.primaryCta")}
+          </Button>
+          <Button href={routePathnames.quote} variant="light" className={buttonClass}>
+            {quote}
+          </Button>
+        </div>
       </>
     );
   }
@@ -394,7 +641,7 @@ function SlideCopy({
   return (
     <>
       <Eyebrow tone="dark">{t("hero.slides.switzerland.eyebrow")}</Eyebrow>
-      <Subtitle className="mt-4 font-display text-[clamp(2.15rem,0.9rem+4vw,4rem)] font-medium leading-[0.95] tracking-[0.03em] text-ivory uppercase">
+      <Subtitle className="mt-4 font-sans text-[clamp(2.15rem,0.9rem+4vw,4rem)] font-bold leading-[1.02] tracking-[-0.02em] text-ivory uppercase">
         {t.rich("hero.slides.switzerland.heading", { gold })}
       </Subtitle>
       <p className="mt-3 max-w-[18em] font-display text-[clamp(1.45rem,1rem+1.15vw,2.15rem)] font-medium leading-[1.2] text-ivory italic">
@@ -406,17 +653,15 @@ function SlideCopy({
       <p className="type-body mt-3 max-w-[38rem] text-pretty text-text-muted-on-dark">
         {t("hero.slides.switzerland.description")}
       </p>
-      <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-start">
-        <Button href={routePathnames.quote} className="w-full sm:w-auto">
+      <div className={actionsClass}>
+        <Button href={routePathnames.quote} className={buttonClass}>
           {quote}
         </Button>
-        <Button href={routePathnames.events} variant="light" className="w-full sm:w-auto">
+        <Button href={routePathnames.events} variant="light" className={buttonClass}>
           {t("hero.slides.switzerland.secondaryCta")}
         </Button>
       </div>
-      <p className="type-eyebrow mt-6 hidden text-brand-gold sm:block">
-        {t("hero.slides.switzerland.meta")}
-      </p>
+      <p className={metaClass}>{t("hero.slides.switzerland.meta")}</p>
     </>
   );
 }

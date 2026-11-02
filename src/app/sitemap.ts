@@ -1,10 +1,21 @@
 import type { MetadataRoute } from "next";
-import { absoluteLocalizedUrl, languageAlternates } from "@/i18n/metadata";
-import { routeIds } from "@/i18n/routes";
+import { publicGameLandingEntries } from "@/i18n/game-landings";
+import {
+  absoluteGameLandingUrl,
+  absoluteLocalizedUrl,
+  gameLandingLanguageAlternates,
+  languageAlternates,
+} from "@/i18n/metadata";
+import { routeIds, type Locale } from "@/i18n/routes";
+import { previewProtectionEnabled } from "@/lib/preview/protection";
 import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routeIds.flatMap((routeId) =>
+  if (previewProtectionEnabled()) {
+    return [];
+  }
+
+  const pages = routeIds.flatMap((routeId) =>
     routing.locales.map((locale) => ({
       url: absoluteLocalizedUrl(routeId, locale),
       alternates: {
@@ -12,4 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     })),
   );
+
+  const gameLandings = publicGameLandingEntries().map(({ pathname, locale }) => ({
+    url: absoluteGameLandingUrl(pathname, locale as Locale),
+    alternates: {
+      languages: gameLandingLanguageAlternates(pathname),
+    },
+  }));
+
+  return [...pages, ...gameLandings];
 }

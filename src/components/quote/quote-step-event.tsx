@@ -5,12 +5,10 @@ import { useTranslations } from "next-intl";
 import { QuoteField } from "@/components/quote/quote-field";
 import { QuoteOptionCard } from "@/components/quote/quote-option-card";
 import {
-  durationIds,
   eventTypeIds,
   guestRangeIds,
   localTodayIso,
   quoteLimits,
-  type DurationId,
   type EventTypeId,
   type GuestRangeId,
   type QuoteDraft,
@@ -110,29 +108,6 @@ export function QuoteStepEvent({ draft, errors, onChange }: QuoteStepEventProps)
               checked={draft.guestRange === id}
               title={t(`options.guests.${id}`)}
               onSelect={() => onChange({ guestRange: id as GuestRangeId })}
-            />
-          ))}
-        </div>
-      </ChoiceGroup>
-      <ChoiceGroup
-        id="quote-duration"
-        legend={t("fields.duration.label")}
-        requirement={optional}
-        hint={t("fields.duration.hint")}
-        error={errors["quote-duration"] ? t(errors["quote-duration"]) : undefined}
-      >
-        <div className="grid gap-3 sm:grid-cols-2">
-          {durationIds.map((id) => (
-            <QuoteOptionCard
-              key={id}
-              type="radio"
-              name="duration"
-              value={id}
-              checked={draft.duration === id}
-              allowClear
-              title={t(`options.duration.${id}`)}
-              onSelect={() => onChange({ duration: id as DurationId })}
-              onClear={() => onChange({ duration: "" })}
             />
           ))}
         </div>

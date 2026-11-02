@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { submitQuoteRequest } from "@/app/[locale]/quote/actions";
 import { Button } from "@/components/ui/button";
 import { QuoteProgress } from "@/components/quote/quote-progress";
 import { QuoteStepContact } from "@/components/quote/quote-step-contact";
@@ -11,6 +12,29 @@ import { emptyQuoteDraft, localTodayIso, type QuoteDraft, type QuoteStep } from 
 import { validateQuoteStep, type QuoteErrors } from "@/lib/quote/validation";
 
 const stepKeys = { 1: "event", 2: "experience", 3: "contact" } as const;
+
+type QuoteWizardProps = {
+  deliveryEnabled?: boolean;
+};
+
+type SendPhase = "idle" | "submitting" | "sent" | "unavailable" | "error";
+
+function stepForField(id: string): QuoteStep {
+  if (id === "quote-experiences" || id === "quote-objective" || id === "quote-notes") return 2;
+  if (
+    id === "quote-firstName" ||
+    id === "quote-lastName" ||
+    id === "quote-email" ||
+    id === "quote-phone" ||
+    id === "quote-company" ||
+    id === "quote-preference" ||
+    id === "quote-referral" ||
+    id === "quote-referral-other"
+  ) {
+    return 3;
+  }
+  return 1;
+}
 
 function focusTarget(id: string) {
   const node = document.getElementById(id);
@@ -22,16 +46,24 @@ function focusTarget(id: string) {
   node.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
 }
 
-export function QuoteWizard() {
+export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
   const t = useTranslations("Quote");
   const locale = useLocale();
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const honeypotRef = useRef<HTMLInputElement>(null);
+  const startedAt = useRef(0);
+  const sending = useRef(false);
   const mounted = useRef(false);
   const pendingFocus = useRef<string | null>(null);
   const [step, setStep] = useState<QuoteStep>(1);
   const [maxReached, setMaxReached] = useState<QuoteStep>(1);
   const [draft, setDraft] = useState<QuoteDraft>(emptyQuoteDraft);
   const [errors, setErrors] = useState<QuoteErrors>({});
+  const [phase, setPhase] = useState<SendPhase>("idle");
+
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
 
   useEffect(() => {
     if (!mounted.current) {
@@ -81,24 +113,86 @@ export function QuoteWizard() {
     setStep(target);
   }
 
+  function quoteFormData(): FormData {
+    const data = new FormData();
+    data.set("locale", locale);
+    data.set("startedAt", String(startedAt.current));
+    data.set("company_website", honeypotRef.current?.value ?? "");
+    data.set("eventType", draft.eventType);
+    data.set("eventLocation", draft.eventLocation);
+    data.set("eventDate", draft.eventDate);
+    data.set("dateUndecided", draft.dateUndecided ? "yes" : "no");
+    data.set("guestRange", draft.guestRange);
+    for (const id of draft.experiences) data.append("experiences", id);
+    data.set("eventObjective", draft.eventObjective);
+    data.set("additionalNotes", draft.additionalNotes);
+    data.set("firstName", draft.firstName);
+    data.set("lastName", draft.lastName);
+    data.set("email", draft.email);
+    data.set("phone", draft.phone);
+    data.set("company", draft.company);
+    data.set("contactPreference", draft.contactPreference);
+    data.set("referralSource", draft.referralSource);
+    data.set("referralSourceOther", draft.referralSourceOther);
+    return data;
+  }
+
+  async function sendRequest() {
+    if (sending.current) return;
+    const result = validateQuoteStep(draft, 3, localTodayIso());
+    if (!result.ok) {
+      fail(3, result.errors, result.firstField);
+      setPhase("idle");
+      return;
+    }
+    setErrors({});
+    if (!deliveryEnabled) {
+      setPhase("unavailable");
+      return;
+    }
+    sending.current = true;
+    setPhase("submitting");
+    try {
+      const response = await submitQuoteRequest(quoteFormData());
+      if (response.status === "sent") {
+        setPhase("sent");
+        return;
+      }
+      if (response.status === "invalid") {
+        const first = Object.keys(response.fields)[0] ?? "quote-firstName";
+        fail(stepForField(first), response.fields, first);
+        setPhase("idle");
+        return;
+      }
+      if (response.status === "unavailable") {
+        setPhase("unavailable");
+        return;
+      }
+      setPhase("error");
+    } finally {
+      sending.current = false;
+    }
+  }
+
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (step < 3) {
       goTo((step + 1) as QuoteStep);
       return;
     }
-    const result = validateQuoteStep(draft, 3, localTodayIso());
-    if (!result.ok) {
-      fail(3, result.errors, result.firstField);
-      return;
-    }
-    setErrors({});
+    void sendRequest();
   }
 
   const errorEntries = Object.entries(errors);
 
   return (
-    <form noValidate onSubmit={onSubmit} aria-labelledby="quote-step-title" className="min-w-0">
+    <form noValidate onSubmit={onSubmit} aria-labelledby="quote-step-title" className="relative min-w-0">
+      <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
+        <label>
+          Website
+          <input ref={honeypotRef} name="company_website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </label>
+      </div>
       <p className="type-small text-text-muted-on-light">{t("wizard.localeNote")}</p>
       <div className="mt-6">
         <QuoteProgress step={step} maxReached={maxReached} onStep={goTo} />
@@ -152,15 +246,43 @@ export function QuoteWizard() {
       </div>
       <div className="mt-10 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
         {step > 1 ? (
-          <Button variant="secondary" onClick={() => goTo((step - 1) as QuoteStep)}>
+          <Button
+            variant="secondary"
+            className="w-full sm:w-auto"
+            onClick={() => goTo((step - 1) as QuoteStep)}
+          >
             {t("nav.back")}
           </Button>
         ) : (
           <span />
         )}
         {step < 3 ? (
-          <Button onClick={() => goTo((step + 1) as QuoteStep)}>{t("nav.next")}</Button>
-        ) : null}
+          <Button className="w-full sm:w-auto" onClick={() => goTo((step + 1) as QuoteStep)}>
+            {t("nav.next")}
+          </Button>
+        ) : (
+          <div className="grid w-full gap-3 sm:w-auto">
+            {phase === "sent" || phase === "unavailable" || phase === "error" ? (
+              <p
+                role={phase === "error" ? "alert" : "status"}
+                className={`type-body border px-4 py-4 ${
+                  phase === "error" ? "border-brand-red text-brand-red" : "border-brand-gold text-text-on-light"
+                }`}
+              >
+                {t(
+                  phase === "sent"
+                    ? "submission.success"
+                    : phase === "unavailable"
+                      ? "submission.unavailable"
+                      : "submission.error",
+                )}
+              </p>
+            ) : null}
+            <Button className="w-full sm:w-auto" disabled={phase === "submitting"} onClick={() => void sendRequest()}>
+              {phase === "submitting" ? t("nav.submitting") : t("nav.submit")}
+            </Button>
+          </div>
+        )}
       </div>
     </form>
   );

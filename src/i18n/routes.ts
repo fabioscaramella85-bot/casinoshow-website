@@ -1,3 +1,5 @@
+import { gameLandingPathnames } from "@/i18n/game-landings";
+
 export const locales = ["it", "de", "fr", "en"] as const;
 
 export type Locale = (typeof locales)[number];
@@ -46,6 +48,12 @@ export const pathnames = {
     fr: "/demander-un-devis",
     en: "/request-a-quote",
   },
+  "/careers": {
+    it: "/lavora-con-noi",
+    de: "/arbeiten-sie-mit-uns",
+    fr: "/travaillez-avec-nous",
+    en: "/work-with-us",
+  },
   "/privacy": {
     it: "/informativa-privacy",
     de: "/datenschutz",
@@ -64,6 +72,7 @@ export const pathnames = {
     fr: "/mentions-legales",
     en: "/legal-notice",
   },
+  ...gameLandingPathnames,
 } as const;
 
 export const routePathnames = {
@@ -74,6 +83,7 @@ export const routePathnames = {
   about: "/about",
   contact: "/contact",
   quote: "/quote",
+  careers: "/careers",
 } as const;
 
 export type RouteId = keyof typeof routePathnames;
@@ -90,6 +100,21 @@ export const legalPathnames = {
 
 export type LegalRouteId = keyof typeof legalPathnames;
 export type ShellRouteId = RouteId | LegalRouteId;
+
+export function languageSwitchHref(
+  pathname: string,
+  locale: Locale,
+  routeId: ShellRouteId | null,
+): keyof typeof pathnames {
+  if (pathname in pathnames) {
+    const config = pathnames[pathname as keyof typeof pathnames];
+    if (typeof config === "string" || Object.prototype.hasOwnProperty.call(config, locale)) {
+      return pathname as keyof typeof pathnames;
+    }
+  }
+
+  return shellHref(routeId);
+}
 
 export function shellHref(routeId: ShellRouteId | null): keyof typeof pathnames {
   if (routeId && routeId in legalPathnames) {

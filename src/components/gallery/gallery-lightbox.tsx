@@ -3,14 +3,20 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef } from "react";
-import {
-  galleryKeyAction,
-  stepGalleryIndex,
-  type GalleryViewPhoto,
-} from "@/data/gallery";
+import { galleryKeyAction, stepGalleryIndex } from "@/data/gallery";
+
+type LightboxPhoto = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+  credit?: string;
+  blurDataURL?: string;
+};
 
 type GalleryLightboxProps = {
-  photos: readonly GalleryViewPhoto[];
+  photos: readonly LightboxPhoto[];
   index: number;
   onClose: () => void;
   onIndex: (index: number) => void;
@@ -117,6 +123,8 @@ export function GalleryLightbox({ photos, index, onClose, onIndex }: GalleryLigh
           fill
           sizes="(min-width: 1280px) 72rem, 100vw"
           loading="eager"
+          placeholder={photo.blurDataURL ? "blur" : "empty"}
+          blurDataURL={photo.blurDataURL}
           className="object-contain"
         />
       </div>

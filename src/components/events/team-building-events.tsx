@@ -1,39 +1,45 @@
-import { getTranslations } from "next-intl/server";
-import { MediaFrame } from "@/components/home/media-frame";
+import { getLocale, getTranslations } from "next-intl/server";
+import { hasLocale } from "next-intl";
+import { EventFrame } from "@/components/events/event-frame";
+import { eventAlt, eventPhoto, eventPhotoIds } from "@/components/events/event-photos";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { Section } from "@/components/ui/section";
+import type { GalleryLocale } from "@/data/gallery";
+import { routing } from "@/i18n/routing";
 
-const pointKeys = ["participation", "interaction", "challenge", "collaboration"] as const;
+const pointKeys = ["beginners", "interaction", "adaptable"] as const;
 
 export async function TeamBuildingEvents() {
   const t = await getTranslations("Events");
+  const locale = await getLocale();
+  const language: GalleryLocale = hasLocale(routing.locales, locale) ? locale : "it";
+  const photo = eventPhoto(eventPhotoIds.teamFeature);
 
   return (
-    <Section id="team" labelledBy="events-team" tone="light">
-      <Container className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-        <div className="lg:order-2">
+    <section id="team" className="bg-surface-muted py-[var(--spacing-section)] text-text-on-light" aria-labelledby="events-team">
+      <Container className="ev-split ev-split-reverse">
+        <div className="ev-split-copy">
           <Eyebrow>{t("team.eyebrow")}</Eyebrow>
           <h2 id="events-team" className="type-h2 mt-3 text-balance">
             {t("team.title")}
           </h2>
           <p className="type-body-lg mt-5 text-text-muted-on-light">{t("team.body")}</p>
-          <ol className="mt-8 border-t border-line-on-light">
-            {pointKeys.map((key, index) => (
-              <li key={key} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-line-on-light py-5">
-                <span className="type-eyebrow pt-1 text-gold-ink">0{index + 1}</span>
-                <div>
-                  <h3 className="type-h4">{t(`team.points.${key}.title`)}</h3>
-                  <p className="type-body mt-2 text-text-muted-on-light">
-                    {t(`team.points.${key}.body`)}
-                  </p>
-                </div>
+          <ul className="mt-6 grid gap-3 border-t border-line-on-light">
+            {pointKeys.map((key) => (
+              <li key={key} className="border-b border-line-on-light py-3">
+                <p className="type-body">{t(`team.points.${key}`)}</p>
               </li>
             ))}
-          </ol>
+          </ul>
         </div>
-        <MediaFrame decorative accent="green" className="aspect-[4/3] lg:order-1" />
+        <EventFrame
+          photo={photo}
+          alt={eventAlt(photo, language)}
+          sizes="(min-width: 1024px) 42vw, 100vw"
+          className="ev-zoom ev-media-tall"
+          imageClassName="object-center"
+        />
       </Container>
-    </Section>
+    </section>
   );
 }

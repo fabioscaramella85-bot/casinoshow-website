@@ -1,7 +1,13 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "@/i18n/navigation";
+
+const MobileMenuContext = createContext({ open: false });
+
+export function useMobileMenu() {
+  return useContext(MobileMenuContext);
+}
 
 type MobileNavProps = {
   openLabel: string;
@@ -77,6 +83,7 @@ export function MobileNav({ openLabel, closeLabel, children }: MobileNavProps) {
   }, [open]);
 
   return (
+    <MobileMenuContext.Provider value={{ open }}>
     <div className="xl:hidden">
       <button
         ref={buttonRef}
@@ -98,6 +105,7 @@ export function MobileNav({ openLabel, closeLabel, children }: MobileNavProps) {
         {children}
       </div>
     </div>
+    </MobileMenuContext.Provider>
   );
 }
 

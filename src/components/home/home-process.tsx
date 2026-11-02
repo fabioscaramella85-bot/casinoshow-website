@@ -15,28 +15,28 @@ const steps = [
     src: "/home-page/come-funziona/raccontaci-il-tuo-evento-alpha.webp",
     width: 1024,
     height: 1536,
-    figure: "88%",
+    figure: "94%",
   },
   {
     key: "proposal",
     src: "/home-page/come-funziona/progettiamo-la-proposta-alpha.webp",
     width: 1024,
     height: 1536,
-    figure: "90%",
+    figure: "96%",
   },
   {
     key: "setup",
     src: "/home-page/come-funziona/allestiamo-la-location-alpha.webp",
     width: 1312,
     height: 1199,
-    figure: "70%",
+    figure: "96%",
   },
   {
     key: "enjoy",
     src: "/home-page/come-funziona/vivete-la-serata.png",
     width: 1536,
     height: 1024,
-    figure: "62%",
+    figure: "92%",
   },
 ] as const;
 
@@ -58,7 +58,7 @@ const processStyles = `
 }
 .process-stage-photo {
   object-fit: cover;
-  object-position: 90% 62%;
+  object-position: right center;
 }
 .process-layout {
   position: relative;
@@ -220,27 +220,37 @@ const processStyles = `
 .process-figure[data-step="enjoy"] img { transform: translateX(-1%); }
 .process-figure[data-step="setup"] img,
 .process-figure[data-step="enjoy"] img {
-  width: min(100%, 38rem);
+  width: 100%;
   height: auto;
   max-height: var(--figure-h);
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .process-stage-bg { height: min(34rem, 64%); }
-  .process-stage-photo { object-position: 62% 62%; }
+  .process-stage-bg { height: 27rem; overflow: hidden; }
+  .process-stage-photo {
+    object-position: right center;
+    transform: scale(1.28);
+    transform-origin: right center;
+  }
 }
 @media (min-width: 1024px) {
   .process-stage,
-  .process-layout { min-height: 44rem; }
-  .process-stage-bg { inset: 0 auto 0 0; width: 140%; height: auto; }
-  .process-stage-photo { object-position: left 68%; }
+  .process-layout { min-height: 31rem; }
+  .process-stage-bg { inset: 0; width: 100%; height: 100%; }
+  .process-stage-photo { object-position: left center; }
   .process-layout {
     grid-template-columns: 45% 55%;
     grid-template-areas:
       "copy figures"
       "nav figures";
   }
-  .process-copy { justify-content: flex-end; padding-block: 4.5rem 0.5rem; }
-  .process-nav { align-self: start; padding-bottom: 4.5rem; }
+  .process-copy { justify-content: center; padding-block: 1.75rem 0.35rem; }
+  .process-index { margin-top: 0.8rem; }
+  .process-copy-stack { margin-top: 0.55rem; }
+  .process-phase-body { margin-top: 0.85rem; }
+  .process-cta { margin-top: 1.15rem; }
+  .process-nav { align-self: end; margin-top: 0.55rem; padding-bottom: 1.15rem; }
+  .process-progress { margin-top: 0.85rem; }
+  .process-tab { min-height: 2.4rem; padding-top: 0.7rem; }
   .process-stage {
     --content-left: calc((100vw - min(100vw, 80rem)) / 2 + 2rem);
     --content-width: calc(min(100vw, 80rem) - 4rem);
@@ -249,10 +259,14 @@ const processStyles = `
   .process-figures { height: auto; }
   .process-figure {
     justify-content: center;
+    bottom: 0.55rem;
     left: calc(58.8vw - var(--figures-left));
     right: calc(1.5vw - (100vw - var(--content-left) - var(--content-width)));
   }
   .process-phase-body { font-size: 1.05rem; }
+}
+@media (min-width: 1024px) and (max-width: 1180px) {
+  .process-stage-photo { object-position: 20% center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .process-phase,
@@ -445,7 +459,7 @@ export function HomeProcess() {
       <style>{processStyles}</style>
       <div className="process-stage-bg" aria-hidden="true">
         <Image
-          src="/home-page/come-funziona/sfondo-stage.png"
+          src="/home-page/come-funziona/sfondo-2.png"
           alt=""
           fill
           sizes="100vw"

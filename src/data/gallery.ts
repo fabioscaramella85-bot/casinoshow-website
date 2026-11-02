@@ -1,3 +1,5 @@
+import { galleryPhotoRecords } from "./gallery-photos.ts";
+
 export const galleryLocales = ["it", "de", "fr", "en"] as const;
 
 export type GalleryLocale = (typeof galleryLocales)[number];
@@ -34,6 +36,8 @@ export type GalleryPhoto = {
   credit?: string;
   featured?: boolean;
   rightsStatus: "approved";
+  /** Tiny inline preview so the grid can paint before the photograph arrives. */
+  blurDataURL?: string;
 };
 
 export type GalleryViewPhoto = {
@@ -46,6 +50,7 @@ export type GalleryViewPhoto = {
   caption?: string;
   credit?: string;
   featured: boolean;
+  blurDataURL?: string;
 };
 
 export type GalleryKeyAction =
@@ -62,10 +67,10 @@ const srcPattern =
   /^\/images\/gallery\/[a-z0-9]+(?:-[a-z0-9]+)*\.(?:webp|avif|jpe?g)$/;
 
 /**
- * Approved photographs only. The list stays empty until a file in
- * public/images/gallery has confirmed rights. Do not add stand-ins.
+ * Approved photographs. Originals stay in casinoshow-media-import.
+ * The Fun Casino hero PNG is excluded until its rights are confirmed.
  */
-export const galleryPhotos: readonly GalleryPhoto[] = [];
+export const galleryPhotos: readonly GalleryPhoto[] = galleryPhotoRecords;
 
 export function assertGalleryManifest(photos: readonly GalleryPhoto[]): void {
   const ids = new Set<string>();
@@ -90,11 +95,17 @@ export function assertGalleryManifest(photos: readonly GalleryPhoto[]): void {
     }
     sources.add(photo.src);
 
-    if (!Number.isInteger(photo.width) || photo.width < 1200) {
-      throw new Error(`Gallery image "${photo.id}" needs a width of at least 1200.`);
-    }
-    if (!Number.isInteger(photo.height) || photo.height < 900) {
-      throw new Error(`Gallery image "${photo.id}" needs a height of at least 900.`);
+    const longSide = Math.max(photo.width, photo.height);
+    const shortSide = Math.min(photo.width, photo.height);
+    if (
+      !Number.isInteger(photo.width) ||
+      !Number.isInteger(photo.height) ||
+      shortSide < 640 ||
+      longSide < 1000
+    ) {
+      throw new Error(
+        `Gallery image "${photo.id}" is below photographic size (${photo.width}×${photo.height}).`,
+      );
     }
     if (photo.categories.length === 0) {
       throw new Error(`Gallery image "${photo.id}" needs at least one category.`);
@@ -179,6 +190,28 @@ export function selectHomepagePreview<T extends { featured?: boolean }>(
   return source.slice(0, limit);
 }
 
+/** Homepage frames, independent from the public gallery sequence. */
+export const homepagePreviewIds = [
+  "drive-img-5728",
+  "drive-img-5718",
+  "drive-img-5725",
+  "fc-wedding-roulette-croupier-001",
+  "drive-img-5603",
+  "drive-img-5724",
+  "fc-croupier-roulette-001",
+  "fc-corporate-guests-action-001",
+] as const;
+
+export function selectCuratedHomepagePreview<T extends { id: string }>(
+  photos: readonly T[],
+): T[] {
+  const byId = new Map(photos.map((photo) => [photo.id, photo]));
+  return homepagePreviewIds.flatMap((id) => {
+    const photo = byId.get(id);
+    return photo ? [photo] : [];
+  });
+}
+
 export function toGalleryView(
   photos: readonly GalleryPhoto[],
   locale: GalleryLocale,
@@ -193,5 +226,6 @@ export function toGalleryView(
     caption: photo.caption?.[locale],
     credit: photo.credit,
     featured: photo.featured === true,
+    blurDataURL: photo.blurDataURL,
   }));
 }

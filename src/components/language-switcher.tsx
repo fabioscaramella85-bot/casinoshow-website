@@ -3,9 +3,10 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { LanguageFlag } from "@/components/social/language-flags";
 import {
+  languageSwitchHref,
   locales,
-  shellHref,
   type Locale,
   type ShellRouteId,
 } from "@/i18n/routes";
@@ -36,7 +37,6 @@ export function LanguageSwitcher({
   const rootRef = useRef<HTMLElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuId = useId();
-  const href = shellHref(routeId);
   const currentName = languages(locale);
 
   useEffect(() => {
@@ -122,7 +122,7 @@ export function LanguageSwitcher({
         aria-expanded={open}
         aria-haspopup="menu"
         aria-controls={menuId}
-        aria-label={`${shell("languageNav")}: ${currentName}`}
+        aria-label={shell("languageCurrent", { language: currentName })}
         onClick={() => setOpen((current) => !current)}
         onKeyDown={(event) => {
           if (event.key === "ArrowDown" || event.key === "ArrowUp") {
@@ -131,7 +131,8 @@ export function LanguageSwitcher({
           }
         }}
       >
-        <span lang={locale}>{currentName}</span>
+        <LanguageFlag code={locale} />
+        {placement === "flow" ? <span lang={locale}>{currentName}</span> : null}
         <Chevron open={open} />
       </button>
       <ul
@@ -147,19 +148,22 @@ export function LanguageSwitcher({
       >
         {locales.map((code) => {
           const active = code === locale;
+          const href = languageSwitchHref(pathname, code, routeId);
+          const keepHash = Boolean(hash) && href === pathname;
           return (
             <li key={code} role="none">
               <Link
-                href={hash ? { pathname: href, hash } : href}
+                href={keepHash ? { pathname: href, hash } : href}
                 locale={code}
                 hrefLang={code}
                 lang={code}
                 role="menuitem"
                 aria-current={active ? "true" : undefined}
                 data-active={active ? "true" : "false"}
-                className="flex min-h-11 items-center px-4 font-sans text-sm text-midnight/80 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:bg-midnight/5 hover:text-midnight data-[active=true]:text-brand-green data-[active=true]:shadow-[inset_2px_0_0_0_var(--color-brand-green)]"
+                className="flex min-h-11 items-center gap-3 px-4 font-sans text-sm text-midnight/80 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:bg-midnight/5 hover:text-midnight data-[active=true]:text-brand-green data-[active=true]:shadow-[inset_2px_0_0_0_var(--color-brand-green)]"
                 onClick={() => setOpen(false)}
               >
+                <LanguageFlag code={code} />
                 {languages(code)}
               </Link>
             </li>

@@ -49,9 +49,6 @@ export function QuoteSummary({ draft, locale, onEditEvent, onEditExperience }: Q
           label={t("summary.guests")}
           value={draft.guestRange ? t(`options.guests.${draft.guestRange}`) : t("summary.empty")}
         />
-        {draft.duration ? (
-          <Row label={t("summary.duration")} value={t(`options.duration.${draft.duration}`)} />
-        ) : null}
         <Row label={t("summary.experiences")} value={experiences || t("summary.empty")} />
         {draft.eventObjective ? (
           <Row label={t("summary.objective")} value={t(`options.objective.${draft.eventObjective}`)} />
@@ -59,12 +56,22 @@ export function QuoteSummary({ draft, locale, onEditEvent, onEditExperience }: Q
         {draft.additionalNotes.trim() ? (
           <Row label={t("summary.notes")} value={draft.additionalNotes.trim()} />
         ) : null}
+        {draft.referralSource ? (
+          <Row
+            label={t("summary.referral")}
+            value={
+              draft.referralSource === "other" && draft.referralSourceOther.trim()
+                ? `${t("options.referral.other")}: ${draft.referralSourceOther.trim()}`
+                : t(`options.referral.${draft.referralSource}`)
+            }
+          />
+        ) : null}
       </dl>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Button variant="secondary" onClick={onEditEvent}>
+        <Button variant="secondary" className="w-full sm:w-auto" onClick={onEditEvent}>
           {t("nav.editEvent")}
         </Button>
-        <Button variant="secondary" onClick={onEditExperience}>
+        <Button variant="secondary" className="w-full sm:w-auto" onClick={onEditExperience}>
           {t("nav.editExperience")}
         </Button>
       </div>

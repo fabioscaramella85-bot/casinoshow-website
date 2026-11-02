@@ -1,4 +1,4 @@
-import { LegalPlaceholder } from "@/components/legal/legal-placeholder";
+import { LegalDocument } from "@/components/legal/legal-document";
 import { getLegalMetadata } from "@/i18n/metadata";
 
 export function generateMetadata() {
@@ -6,5 +6,5 @@ export function generateMetadata() {
 }
 
 export default function PrivacyPage() {
-  return <LegalPlaceholder routeId="privacy" />;
+  return <LegalDocument routeId="privacy" />;
 }

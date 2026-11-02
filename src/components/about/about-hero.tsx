@@ -1,28 +1,50 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { MediaFrame } from "@/components/home/media-frame";
+import { AboutLink } from "@/components/about/about-link";
+import { aboutMedia } from "@/components/about/about-media";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { Section } from "@/components/ui/section";
 
 export async function AboutHero() {
   const page = await getTranslations("Pages.about");
   const t = await getTranslations("About");
 
   return (
-    <Section tone="dark">
-      <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <Eyebrow tone="dark">{t("hero.eyebrow")}</Eyebrow>
-          <h1 className="type-display mt-4 max-w-xl text-balance">{page("heading")}</h1>
-          <p className="type-body-lg mt-6 max-w-xl text-text-on-dark">{t("hero.support")}</p>
-          <p className="type-body mt-4 max-w-xl text-text-muted-on-dark">{t("hero.lead")}</p>
+    <section className="about-hero" aria-labelledby="about-hero-title">
+      <Container className="about-hero-content">
+        <div className="about-hero-copy">
+          <div className="about-hero-rise">
+            <Eyebrow tone="dark">{t("hero.eyebrow")}</Eyebrow>
+          </div>
+          <h1 id="about-hero-title" className="type-display about-hero-title about-hero-rise">
+            {page("heading")}
+          </h1>
+          <p className="type-body-lg about-hero-lead about-hero-rise">{t("hero.lead")}</p>
+          <div className="about-hero-rise">
+            <AboutLink href="#la-nostra-storia" tone="hero">
+              {t("hero.cta")}
+            </AboutLink>
+          </div>
         </div>
-        <MediaFrame
-          accent="gold"
-          label={t("hero.mediaLabel")}
-          className="aspect-[4/3] lg:aspect-[4/5]"
-        />
       </Container>
-    </Section>
+      <div
+        className="about-hero-media"
+        style={
+          {
+            "--about-hero-ratio": `${aboutMedia.hero.width} / ${aboutMedia.hero.height}`,
+          } as React.CSSProperties
+        }
+      >
+        <Image
+          src={aboutMedia.hero}
+          alt={t("hero.imageAlt")}
+          fill
+          priority
+          sizes="100vw"
+          quality={85}
+          className="about-hero-image"
+        />
+      </div>
+    </section>
   );
 }

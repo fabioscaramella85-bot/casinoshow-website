@@ -7,8 +7,8 @@ const assets = {
     src: "/loghi/logo-header.png",
     width: 1600,
     height: 437,
-    className: "h-auto w-[200px] md:w-[230px] xl:w-[280px]",
-    sizes: "(min-width: 1280px) 280px, (min-width: 768px) 230px, 200px",
+    className: "h-auto w-[200px] md:w-[220px] xl:w-[240px]",
+    sizes: "(min-width: 1280px) 240px, (min-width: 768px) 220px, 200px",
   },
   footer: {
     src: "/loghi/logo-footer.png",

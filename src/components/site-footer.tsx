@@ -1,9 +1,13 @@
 import { getTranslations } from "next-intl/server";
+import type { ReactNode } from "react";
 import { BrandLogo } from "@/components/brand-logo";
 import { Container } from "@/components/ui/container";
 import { enabledContactChannels } from "@/config/contact";
 import { legalContentPublished } from "@/config/legal";
+import { facebookUrl, instagramUrl, whatsappUrl } from "@/config/social";
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/social/icons";
 import { Link } from "@/i18n/navigation";
+import { gameLandingHref, gameLandingNavOrder } from "@/i18n/game-landings";
 import { legalPathnames, routePathnames, type LegalRouteId } from "@/i18n/routes";
 
 const copyrightYear = 2026;
@@ -11,7 +15,7 @@ const copyrightYear = 2026;
 const legalRouteIds = ["privacy", "cookies", "legalNotice"] as const satisfies readonly LegalRouteId[];
 
 const footerColumns = [
-  { heading: "discover", ids: ["home", "about", "gallery"] },
+  { heading: "discover", ids: ["home", "about", "careers", "gallery"] },
   { heading: "experiences", ids: ["events", "games"] },
   { heading: "contact", ids: ["contact", "quote"] },
 ] as const;
@@ -27,8 +31,9 @@ const gamesSectionLinks = [
 export async function SiteFooter() {
   const shell = await getTranslations("Shell");
   const footer = await getTranslations("Footer");
+  const social = await getTranslations("Social");
   const games = await getTranslations("Games");
-  const legal = await getTranslations("Legal");
+  const landings = await getTranslations("GameLandings");
   const channels = enabledContactChannels();
   const published = legalRouteIds.filter((id) => legalContentPublished[id]);
 
@@ -47,10 +52,54 @@ export async function SiteFooter() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href={whatsappUrl(social("whatsappMessage"))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={footerLinkClass}
+                >
+                  {social("whatsapp")}
+                  <span className="sr-only"> ({shell("newTab")})</span>
+                </a>
+              </li>
+            </ul>
+            <ul className="mt-4 flex gap-3">
+              {instagramUrl ? (
+                <li>
+                  <FooterSocialIcon
+                    href={instagramUrl}
+                    label={social("instagram")}
+                    newTab={shell("newTab")}
+                    className="bg-[linear-gradient(135deg,#f9ce34_0%,#ee2a7b_55%,#6228d7_100%)]"
+                    icon={<InstagramIcon />}
+                  />
+                </li>
+              ) : null}
+              {facebookUrl ? (
+                <li>
+                  <FooterSocialIcon
+                    href={facebookUrl}
+                    label={social("facebook")}
+                    newTab={shell("newTab")}
+                    className="bg-[#1877F2]"
+                    icon={<FacebookIcon />}
+                  />
+                </li>
+              ) : null}
+              <li>
+                <FooterSocialIcon
+                  href={whatsappUrl(social("whatsappMessage"))}
+                  label={social("whatsapp")}
+                  newTab={shell("newTab")}
+                  className="bg-[#25D366]"
+                  icon={<WhatsAppIcon />}
+                />
+              </li>
             </ul>
           </div>
 
-          <nav aria-label={shell("footerNav")} className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+          <nav aria-label={shell("footerNav")} className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
             {footerColumns.map((column) => (
               <div key={column.heading}>
                 <h2 className="font-sans text-xs font-semibold uppercase leading-snug tracking-[0.14em] text-brand-gold">
@@ -79,28 +128,54 @@ export async function SiteFooter() {
                 </ul>
               </div>
             ))}
+            <div>
+              <h2 className="font-sans text-xs font-semibold uppercase leading-snug tracking-[0.14em] text-brand-gold">
+                {footer("columns.rentals")}
+              </h2>
+              <ul className="mt-3">
+                {gameLandingNavOrder.map((id) => (
+                  <li key={id}>
+                    <Link href={gameLandingHref[id]} className={footerLinkClass}>
+                      {landings(`${id}.name`)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
-        </div>
-
-        <div data-legal-publication={published.length > 0 ? "published" : "unpublished"}>
-          {published.length > 0 ? (
-            <ul className="mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:gap-x-8">
-              {published.map((id) => (
-                <li key={id}>
-                  <Link href={legalPathnames[id]} className={footerLinkClass}>
-                    {legal(`${id}.title`)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : null}
         </div>
 
         <hr className="mt-8 h-px border-0 bg-line-on-dark" />
 
-        <div className="flex flex-col gap-1 pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-text-muted-on-dark">{shell("copyright", { year: copyrightYear })}</p>
-          <p className="text-sm text-text-muted-on-dark">
+        <div
+          data-legal-publication={published.length > 0 ? "published" : "unpublished"}
+          className="flex flex-col items-center gap-1 pt-5 text-center xl:flex-row xl:items-center xl:gap-8 xl:text-left"
+        >
+          <p className="text-sm text-text-muted-on-dark xl:min-w-0 xl:flex-1">
+            {shell("copyright", { year: copyrightYear })}
+          </p>
+          {published.length > 0 ? (
+            <nav aria-label={footer("legalNav")} className="max-w-full xl:shrink">
+              <ul className="flex flex-wrap items-center justify-center">
+                {published.map((id, index) => (
+                  <li key={id} className="inline-flex items-center">
+                    {index > 0 ? (
+                      <span aria-hidden="true" className="px-2 text-sm text-text-muted-on-dark">
+                        ·
+                      </span>
+                    ) : null}
+                    <Link
+                      href={legalPathnames[id]}
+                      className="inline-flex min-h-11 items-center px-1 text-sm text-ivory transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:text-brand-gold"
+                    >
+                      {footer(`legal.${id}`)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
+          <p className="text-sm text-text-muted-on-dark xl:min-w-0 xl:flex-1 xl:text-right">
             {shell("creditLead")}{" "}
             <a
               href="https://www.linkedin.com/in/fabio-scaramella"
@@ -115,5 +190,31 @@ export async function SiteFooter() {
         </div>
       </Container>
     </footer>
+  );
+}
+
+function FooterSocialIcon({
+  href,
+  label,
+  newTab,
+  className,
+  icon,
+}: {
+  href: string;
+  label: string;
+  newTab: string;
+  className: string;
+  icon: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${label} (${newTab})`}
+      className={`inline-flex size-11 items-center justify-center rounded-full text-white ${className}`}
+    >
+      {icon}
+    </a>
   );
 }

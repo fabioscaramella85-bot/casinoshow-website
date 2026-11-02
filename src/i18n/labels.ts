@@ -12,5 +12,6 @@ export async function getNavLabels(): Promise<Record<RouteId, string>> {
     about: t("about"),
     contact: t("contact"),
     quote: t("quote"),
+    careers: t("careers"),
   };
 }

@@ -10,9 +10,11 @@
     "brand": "Entertainment experiences inspired by the world of the casino, designed for corporate and private events.",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
+    "aboutMenu": "Open the Work with us link",
     "copyright": "© {year} Casino Show",
     "creditLead": "Website by",
-    "newTab": "opens in a new tab"
+    "newTab": "opens in a new tab",
+    "languageCurrent": "Change language, current language: {language}"
   },
   "Nav": {
     "home": "Home",
@@ -20,6 +22,7 @@
     "games": "Games & Services",
     "gallery": "Gallery",
     "about": "About Us",
+    "careers": "Work with us",
     "contact": "Contact",
     "quote": "Request a Quote"
   },
@@ -29,14 +32,31 @@
     "fr": "Français",
     "en": "English"
   },
+  "Social": {
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "instagramDescription": "Corporate events · Private parties · Casino Show",
+    "facebookDescription": "Events and casino parties across Italy",
+    "followers": "Followers",
+    "posts": "Posts",
+    "eventsSpan": "Of events",
+    "instagramArtworkAlt": "Roulette and the Instagram logo with the words Seguici su Instagram",
+    "facebookArtworkAlt": "Gaming table and the Facebook logo with the words Seguici su Facebook",
+    "visitInstagram": "Visit Instagram",
+    "visitFacebook": "Visit Facebook",
+    "follow": "Follow us and get in touch",
+    "whatsappMessage": "Hello, I would like information about Casino Show services for an event in Switzerland."
+  },
   "Pages": {
     "home": {
       "heading": "Always a winning event",
       "description": "Casino Show brings casino-themed entertainment to events in Switzerland, with an atmosphere shaped around the occasion."
     },
     "events": {
-      "heading": "A distinct experience for every event",
-      "description": "Casino Show offers casino-themed entertainment for corporate events, team building, weddings and private celebrations in Switzerland."
+      "title": "Casino entertainment for events in Switzerland",
+      "heading": "A unique casino experience for every event",
+      "description": "Casino-themed entertainment for corporate events, team building, weddings and private parties in Switzerland. Discover the Casino Show experiences."
     },
     "games": {
       "heading": "The games that light up your event",
@@ -44,11 +64,17 @@
     },
     "gallery": {
       "heading": "Our casino experience in pictures",
-      "description": "The Casino Show gallery will publish approved photographs of casino-themed events in Switzerland. No approved photograph is published yet."
+      "description": "Photographs of tables, croupiers and guests during Casino Show casino-themed events."
     },
     "about": {
-      "heading": "Not only games. Experiences to live.",
-      "description": "Casino Show offers casino-themed entertainment for corporate and private events in Switzerland. It is an experience in the room, not a game for money."
+      "title": "About us | Casino Show Switzerland · Experience since 2007",
+      "heading": "A story of passion, people and great events.",
+      "description": "Discover Casino Show, the Fun Casinò experience in Switzerland. Entertainment for events since 2007, with Davide Merli and a team of professional croupiers."
+    },
+    "careers": {
+      "title": "Work with us | Croupiers and events in Switzerland | Casino Show",
+      "heading": "Step into the world of Casino Show.",
+      "description": "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Send your CV."
     },
     "contact": {
       "heading": "Let's talk about your next event",
@@ -93,6 +119,15 @@
           "description": "With Lugano as its reference point, Casino Show creates entertainment experiences for events in Switzerland. Tell us where and what you are planning, and we will shape a proposal around it.",
           "secondaryCta": "Discover the events",
           "meta": "Lugano · Ticino · Switzerland"
+        },
+        "staff": {
+          "title": "Team",
+          "eyebrow": "Casino Show · Our team",
+          "headingLead": "People make the",
+          "subtitle": "The casino comes alive through the people who make it special.",
+          "secondary": "Professionalism, elegance and involvement.",
+          "description": "From the croupiers to the organisation, every detail helps turn your event into an experience to remember.",
+          "primaryCta": "Discover who we are"
         }
       }
     },
@@ -105,9 +140,9 @@
       "secondaryCta": "Discover the events",
       "images": {
         "main": "Croupier with guests at a casino table during an event",
-        "roulette": "Roulette wheel on a casino table",
-        "table": "Gaming table with cards and chips",
-        "lugano": "Evening reception by the lake, with mountains behind"
+        "roulette": "Professional roulette table, with wheel, green felt and wooden legs.",
+        "table": "Professional blackjack table, with blue felt and chip holders.",
+        "lugano": "Professional Texas Hold'em poker table, with red felt."
       },
       "steps": {
         "tell": {
@@ -282,24 +317,25 @@
     },
     "why": {
       "eyebrow": "Why Casino Show",
-      "title": "Excellence <em>in every detail.</em>",
-      "description": "Professionalism, experience and passion, shaped into memorable events.",
+      "titleLead": "Setting up a casino is not enough.",
+      "titleAccent": "You have to create an experience.",
+      "description": "Professionalism, atmosphere and involvement. Every element helps make your event special.",
       "items": {
         "award": {
-          "title": "Award-winning experience",
-          "body": "Davide Merli, European croupier champion in 2012 in Helsinki: expertise recognised at the highest level."
+          "title": "Recognised experience",
+          "body": "Expertise awarded at European level, placed at the service of every event."
         },
         "team": {
-          "title": "Professional croupiers",
-          "body": "An experienced team that hosts guests with skill, elegance and an ease for bringing people in."
+          "title": "People, not extras",
+          "body": "Professional croupiers who can lead the game and bring the guests in."
         },
         "equipment": {
-          "title": "Quality equipment",
-          "body": "Tables and accessories chosen to give every event its setting and its atmosphere."
+          "title": "Every detail counts",
+          "body": "Tables, accessories and settings prepared to create the right atmosphere."
         },
         "memory": {
-          "title": "An experience to remember",
-          "body": "The pleasure of playing, sharing and living a special moment together."
+          "title": "The memory that remains",
+          "body": "A moment to live together, able to set your occasion apart."
         }
       },
       "closing": {
@@ -313,7 +349,7 @@
       "description": "This preview is a grid reserved for real event photographs. The images are not published yet.",
       "cta": "Go to the gallery",
       "readyTitle": "From the evenings",
-      "readyDescription": "A selection of the approved photographs. The gallery page gathers them."
+      "readyDescription": "Guests, croupiers and the atmosphere of real evenings."
     },
     "final": {
       "eyebrow": "Quote",
@@ -324,157 +360,233 @@
   "Events": {
     "hero": {
       "eyebrow": "Events",
-      "support": "From corporate gatherings to private occasions, Casino Show turns each meeting into an experience guests can join.",
-      "lead": "Casino-themed entertainment, set up at your event in Switzerland.",
-      "navLabel": "Event categories",
-      "mediaLabel": "Graphic composition. Event photography will be published in this area."
+      "line1": "A unique casino experience",
+      "line2": "for every event",
+      "support": "We turn your event into an occasion to remember, with the elegance and allure of the casino world.",
+      "lead": "Casino-themed entertainment for corporate events, weddings and private parties in Switzerland, with no real-money wagering.",
+      "secondaryCta": "Explore the occasions",
+      "highlights": {
+        "atmosphere": "Exclusive atmosphere",
+        "experience": "Engaging experience",
+        "croupiers": "Professional croupiers",
+        "setup": "Tailored setup"
+      }
     },
-    "overview": {
+    "mosaic": {
+      "eyebrow": "Our experiences",
+      "title": "Every occasion deserves something special",
+      "description": "Explore the Casino Show experiences. Select a card to see the entertainment possibilities for your event.",
+      "cta": "Request information",
+      "hint": "Discover",
+      "back": "Front",
+      "open": "Show details",
+      "close": "Return to the front",
+      "cards": {
+        "eventi-aziendali": {
+          "frontTitle": "Corporate events",
+          "frontText": "Elegant entertainment for companies and professionals.",
+          "backTitle": "Corporate events",
+          "backText": "Turn company gatherings, receptions and client events into a shared experience. Gaming tables and professional staff create moments to meet in an exclusive atmosphere.",
+          "alt": "A roulette wheel in the foreground, with chips and a brass lamp. Behind it, people in dark suits by a window at dusk."
+        },
+        "team-building": {
+          "frontTitle": "Team building",
+          "frontText": "A shared experience that brings the group together.",
+          "backTitle": "Team building",
+          "backText": "Bring colleagues together in an original activity built on interaction, play and team spirit. A format open to people who have never played casino games.",
+          "alt": "Black folders lettered Team Building and poker chips on marble, in front of a flip chart with a rising graph."
+        },
+        "matrimoni": {
+          "frontTitle": "Weddings",
+          "frontText": "Special entertainment for your guests.",
+          "backTitle": "Weddings",
+          "backText": "Offer guests an original experience during the reception. An elegant casino corner becomes a meeting point and gives the celebration an extra moment.",
+          "alt": "A roulette wheel, white roses and candles in the foreground, with a couple in wedding dress blurred under a floral arch."
+        },
+        "feste-private": {
+          "frontTitle": "Private parties",
+          "frontText": "A casino atmosphere for special occasions.",
+          "backTitle": "Private parties",
+          "backText": "Bring the appeal of the casino to your private party. An adaptable experience that involves guests, creates shared moments and gives the evening its own character.",
+          "alt": "A gaming table with chips, a glass and a lamp, in a lounge with pale sofas and guests by the window."
+        },
+        "compleanni": {
+          "frontTitle": "Birthdays",
+          "frontText": "Celebrate with an experience out of the ordinary.",
+          "backTitle": "Birthdays",
+          "backText": "Make a birthday a different kind of evening, with casino-themed entertainment. Games, atmosphere and guest participation turn the party into a shared experience.",
+          "alt": "A candlelit cake and chips on a gaming table, in front of a glowing Happy Birthday sign and black and gold balloons."
+        },
+        "casino-royale": {
+          "frontTitle": "Casino Royale",
+          "frontText": "The allure of an evening in a 007 spirit.",
+          "backTitle": "Casino Royale",
+          "backText": "Black tie, elegance and a cinematic atmosphere: Casino Royale inspires an evening full of style. Gaming tables and scenic details contribute to the experience.",
+          "alt": "A gaming table with cards, a bow tie and a glass. Behind it, a 007 poster, red roses and a vintage car."
+        },
+        "cene-di-gala": {
+          "frontTitle": "Gala dinners",
+          "frontText": "An exclusive note for elegant receptions.",
+          "backTitle": "Gala dinners",
+          "backText": "Add a refined moment of entertainment to a gala dinner or formal reception. The casino experience encourages guests to meet before or after the meal.",
+          "alt": "A set table with candles, glasses and white roses in a chandeliered hall, and a roulette table in the background."
+        },
+        "fiere-esposizioni": {
+          "frontTitle": "Fairs and exhibitions",
+          "frontText": "An experience that draws attention.",
+          "backTitle": "Fairs and exhibitions",
+          "backText": "Introduce an interactive activity within a stand or exhibition space. A casino-themed format can spark curiosity and encourage new conversations.",
+          "alt": "An exhibition stand with a roulette wheel, oversized playing-card panels and people in dark suits in a trade-fair hall."
+        },
+        "convention": {
+          "frontTitle": "Conventions",
+          "frontText": "Engage participants beyond the programme.",
+          "backTitle": "Conventions",
+          "backText": "Complement conventions, meetings and professional gatherings with a shared moment. An experience designed to encourage conversation in an informal setting.",
+          "alt": "A roulette table in the foreground of a conference hall, with an audience, a stage and a large screen."
+        },
+        "lanci-di-prodotto": {
+          "frontTitle": "Product launches",
+          "frontText": "An event that puts your brand in the room.",
+          "backTitle": "Product launches",
+          "backText": "Accompany the launch of a product or service with original entertainment. A casino atmosphere can help make the occasion distinctive and engaging.",
+          "alt": "A stage where two people lift a black and gold cloth, with card-themed screens and a seated audience."
+        },
+        "feste-di-natale": {
+          "frontTitle": "Christmas parties",
+          "frontText": "Company celebrations worth remembering.",
+          "backTitle": "Christmas parties",
+          "backText": "Give your company Christmas party elegant, participatory entertainment. A chance to bring colleagues together in an atmosphere unlike the usual one.",
+          "alt": "A roulette wheel in the foreground, lit Christmas trees and garlands in a hall with guests in dark evening dress."
+        },
+        "serate-a-tema": {
+          "frontTitle": "Themed evenings",
+          "frontText": "An original concept for every occasion.",
+          "backTitle": "Themed evenings",
+          "backText": "Draw on the world of the casino for a personal themed evening. Setting, games and entertainment can be combined around the style of the event.",
+          "alt": "A gaming table in a 1920s setting, with red feathers, giant playing cards and a figure in a feathered costume on stage."
+        }
+      }
+    },
+    "occasions": {
       "eyebrow": "The occasions",
-      "title": "Four ways to bring guests together",
-      "description": "Every category stays on this page. Choose an occasion to read the detail.",
+      "title": "Every event has its own moment",
+      "description": "See how casino-themed entertainment can make your occasion more engaging.",
+      "cta": "Discover more",
       "items": {
         "corporate": {
           "title": "Corporate events",
-          "summary": "Receptions, gala dinners, company celebrations and client gatherings."
+          "summary": "Receptions, gala dinners and occasions for clients, partners and colleagues.",
+          "alt": "Atmosphere image: a gaming table with guests in dark formal wear."
         },
         "team": {
           "title": "Team building",
-          "summary": "A shared moment among colleagues, with no promise about work."
+          "summary": "A shared experience for colleagues, built around play and enjoyment.",
+          "alt": "Atmosphere image: a group around a gaming table."
         },
         "weddings": {
           "title": "Weddings",
-          "summary": "Entertainment for guests during the reception."
+          "summary": "Original entertainment to surprise guests and enrich the reception.",
+          "alt": "Atmosphere image: a couple in evening dress at a gaming table."
         },
         "private": {
-          "title": "Private celebrations",
-          "summary": "Birthdays, anniversaries and other private occasions."
+          "title": "Private parties",
+          "summary": "Birthdays, anniversaries and celebrations to enjoy together.",
+          "alt": "Atmosphere image: guests around a roulette wheel at a party."
         }
       }
     },
     "corporate": {
-      "eyebrow": "Companies",
-      "title": "A considered presence at a corporate evening",
-      "body": "For receptions, gala dinners, company celebrations, client gatherings and networking, the entertainment sits inside the programme with a measured tone. Guests take part, the room stays central and the setup follows the space available.",
+      "eyebrow": "Corporate events",
+      "title": "Elegance, entertainment and networking",
+      "body": "An experience that stays with people. Casino tables create an exclusive atmosphere and give guests an original way to meet, play and share the evening.",
       "points": {
-        "reception": {
-          "title": "Receptions",
-          "body": "The tables accompany the welcome and still leave room to talk."
-        },
-        "gala": {
-          "title": "Gala dinners",
-          "body": "A moment of participation that fits a formal evening."
-        },
-        "celebration": {
-          "title": "Company celebrations",
-          "body": "Anniversaries and internal parties, paced to the programme."
-        },
-        "clients": {
-          "title": "Client entertainment",
-          "body": "An elegant presence for the evening, without turning it into a separate show."
-        },
-        "networking": {
-          "title": "Networking",
-          "body": "A light shared theme, while conversation between people stays central."
-        }
+        "dinner": "Company dinners and receptions",
+        "clients": "Client and partner events",
+        "celebration": "Christmas parties and company anniversaries",
+        "launch": "Product launches and openings"
       }
     },
     "team": {
-      "eyebrow": "Groups",
-      "title": "A shared game, not a course",
-      "body": "The tables can bring colleagues together in entertainment they join: people sit, play and change places. It is an informal moment. It is not training and it promises no effect on work.",
+      "eyebrow": "Team building",
+      "title": "Play becomes a shared experience",
+      "body": "Around roulette, blackjack and other available games, colleagues can meet in an informal setting, take part and share time away from the working day.",
       "points": {
-        "participation": {
-          "title": "Participation",
-          "body": "Those who want to play take a seat. Those who prefer to watch stay with the group."
-        },
-        "interaction": {
-          "title": "Easy conversation",
-          "body": "The game gives a simple reason to talk outside the meeting."
-        },
-        "challenge": {
-          "title": "Shared challenges",
-          "body": "The hands create a friendly contest, without the format of an imposed tournament."
-        },
-        "collaboration": {
-          "title": "Informal collaboration",
-          "body": "The tables mix people. The programme follows the length of the gathering."
-        }
+        "beginners": "Open to beginners",
+        "interaction": "Easy, spontaneous interaction",
+        "adaptable": "An experience shaped around the group"
       }
     },
     "weddings": {
-      "eyebrow": "Reception",
-      "title": "A moment for the guests",
-      "body": "During the reception, casino-themed entertainment can give guests another passage in the celebration: elegant, open to different groups and matched to the tone of the evening.",
-      "note": "Casino Show looks after this entertainment. The wedding planning, the venue and the table service stay with the hosts.",
-      "atmosphere": {
-        "title": "Atmosphere",
-        "body": "The setup follows the elegance of the celebration and does not take over the night."
-      },
-      "guests": {
-        "title": "Guests",
-        "body": "The tables invite people to join in, including guests who have not met yet."
-      }
+      "eyebrow": "Weddings",
+      "title": "A special note for your guests",
+      "body": "During the reception, casino-themed entertainment gives guests an original, engaging moment and adds charm and fun to the celebration.",
+      "note": "Casino Show provides the entertainment during the reception. It does not plan the wedding."
     },
     "private": {
-      "eyebrow": "Private",
-      "title": "The party, at the pace you choose",
-      "body": "Birthdays, anniversaries, private parties and other occasions can include the tables. Which games are present is confirmed in the proposal, according to the space and the number of guests.",
-      "points": {
-        "birthday": {
-          "title": "Birthdays",
-          "body": "An extra point of attention, scaled to the length of the party."
+      "eyebrow": "Private parties",
+      "title": "Special occasions deserve something different",
+      "body": "Birthdays, anniversaries and private celebrations become more engaging with gaming tables, a casino atmosphere and an experience designed for the guests."
+    },
+    "process": {
+      "eyebrow": "How it works",
+      "title": "Simple to arrange, remarkable to experience",
+      "subtitle": "Together we define the entertainment that suits your event.",
+      "gamesCta": "Explore games and services",
+      "steps": {
+        "tell": {
+          "title": "You tell us about the occasion",
+          "body": "The type of event, number of guests, available space and the atmosphere you want."
         },
-        "anniversary": {
-          "title": "Anniversaries",
-          "body": "An interlude for guests, in the tone of the occasion."
+        "proposal": {
+          "title": "We prepare the proposal",
+          "body": "We identify the right fit, with games, croupiers and setup based on your needs."
         },
-        "party": {
-          "title": "Private parties",
-          "body": "Evenings with friends or family, with a programme discussed together."
+        "setup": {
+          "title": "We set up and host",
+          "body": "Our team handles the setup and runs the entertainment you agreed."
         },
-        "occasion": {
-          "title": "Special occasions",
-          "body": "Other private celebrations, when the entertainment has to fit a programme already set."
+        "enjoy": {
+          "title": "You and your guests enjoy the experience",
+          "body": "An elegant, engaging moment, open to people who have never played."
         }
       }
     },
-    "tailored": {
-      "eyebrow": "The proposal",
-      "title": "The format follows the event",
-      "body": "The type of gathering, the number of guests, the space, the atmosphere, the choice of games and the way the evening is hosted are set in the proposal. It is not an unlimited catalogue.",
-      "points": {
-        "type": {
-          "title": "Event type",
-          "body": "A company, a group, a wedding or a private party changes the tone."
+    "advantages": {
+      "eyebrow": "Why choose Casino Show",
+      "title": "More than a game, a complete experience",
+      "items": {
+        "croupiers": {
+          "title": "Professional croupiers",
+          "body": "People dedicated to running the games and welcoming participants."
         },
-        "guests": {
-          "title": "Number of guests",
-          "body": "How the tables are staffed depends on how many people take part."
-        },
-        "space": {
-          "title": "Available space",
-          "body": "The room decides what can be set up."
+        "tables": {
+          "title": "Tables and settings",
+          "body": "Equipment and staging that bring a casino atmosphere into the room."
         },
         "atmosphere": {
-          "title": "Desired atmosphere",
-          "body": "Formal, festive or quiet: the pace follows that."
+          "title": "An engaging atmosphere",
+          "body": "Entertainment that draws attention and invites guests to take part."
         },
-        "games": {
-          "title": "Suitable games",
-          "body": "The tables are chosen from those that fit the occasion."
-        },
-        "format": {
-          "title": "Entertainment format",
-          "body": "Length and hosting are fixed with the programme of the evening."
+        "tailored": {
+          "title": "A tailored experience",
+          "body": "A proposal shaped around the event, the space and the number of guests."
         }
-      },
-      "gamesCta": "See games and services"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Let yourself be inspired",
+      "title": "Real events, real emotion",
+      "body": "See a few moments from evenings animated by Casino Show in our photo gallery.",
+      "previous": "Previous image",
+      "next": "Next image",
+      "region": "Photographs from Casino Show events",
+      "cta": "Visit the gallery"
     },
     "final": {
-      "eyebrow": "Quote",
-      "title": "Your next event deserves something special",
-      "body": "Tell us about the occasion. The reply is a proposal shaped by the type of event, the guests and the space."
+      "eyebrow": "Your event deserves something special",
+      "title": "Tell us your idea",
+      "body": "Share your occasion with us. We will help you find the Casino Show experience that fits."
     }
   },
   "Games": {
@@ -647,6 +759,7 @@
     },
     "experiences": {
       "cta": "Request a quote",
+      "discover": "Discover the game",
       "roulette": {
         "index": "01",
         "category": "Table",
@@ -773,14 +886,9 @@
     "hero": {
       "eyebrow": "Gallery",
       "support": "The atmosphere, the details and the experiences that make a Casino Show event distinctive.",
-      "lead": "Approved photographs will appear on this page. None are published at the moment.",
-      "mediaLabel": "Graphic composition, until approved photographs are available"
+      "lead": "Real photographs of tables, croupiers and guests during events."
     },
-    "intro": {
-      "eyebrow": "The purpose of the page",
-      "title": "Atmosphere, not an invented archive",
-      "body": "The gallery is ready to show tables, guests meeting one another and the tone of a casino-themed event. It does not assign dates, client names or stories that are not documented."
-    },
+    "open": "Open",
     "empty": {
       "eyebrow": "Selection",
       "title": "No approved photograph",
@@ -789,7 +897,7 @@
     "collection": {
       "eyebrow": "Selection",
       "title": "The photographs",
-      "body": "Each picture can belong to more than one category. The filter shows approved photographs only."
+      "body": "Filter by game or by kind of event. Each photograph stays tied to what is actually visible."
     },
     "filters": {
       "label": "Gallery categories",
@@ -809,6 +917,7 @@
       }
     },
     "count": "{count, plural, one {# photograph} other {# photographs}}",
+    "loadMore": "Show more photographs",
     "emptyCategory": "No approved photograph in this category.",
     "lightbox": {
       "dialog": "Enlarged photograph",
@@ -826,199 +935,144 @@
   },
   "About": {
     "hero": {
-      "eyebrow": "About",
-      "support": "Casino Show starts from the idea of turning the appeal of the casino into entertainment to share, at corporate events and private occasions.",
-      "lead": "It is a presence meant for the room, not an online gaming platform and not a game for money.",
-      "mediaLabel": "Graphic composition, not a photograph of the activity"
+      "eyebrow": "About us",
+      "lead": "Since 2007 we have brought the appeal of the casino to events. An experience born in Italy with Fun Casinò and developed in Switzerland through Casino Show.",
+      "cta": "Discover our story",
+      "imageAlt": "Professionals in dark formal wear gathered around a roulette table during an event."
     },
-    "idea": {
-      "eyebrow": "The idea",
-      "title": "The appeal of the casino, in another form",
-      "body": "The tables, the gesture of play and the light of an evening have a particular appeal. Here that appeal becomes live entertainment: people come closer, try, comment and stay with the experience.",
-      "aside": "The energy comes from being in the room, not from a win. Taking part is the pleasure of the encounter, not a wager for money."
-    },
-    "approach": {
-      "eyebrow": "The way of working",
-      "title": "Every event has its own atmosphere",
-      "body": "A proposal takes shape from the occasion. This is not a guarantee of every operational detail, and it does not mean that Casino Show carries out every technical service itself.",
-      "points": {
-        "occasion": {
-          "title": "Understand the occasion",
-          "body": "A reception, a gala dinner, a wedding or a private party asks for a different tone."
+    "story": {
+      "eyebrow": "01 / Our story",
+      "title": "From Italy to Switzerland. The same passion since 2007.",
+      "p1": "Casino Show brings to Switzerland the experience of Fun Casinò, the Italian project founded in 2007 by Davide Merli, professional croupier and European champion.",
+      "p2": "Created to take the appeal of casino tables beyond gaming halls, Fun Casinò has developed over the years a format devoted to entertainment for corporate events, receptions and private occasions.",
+      "p3": "With Casino Show, this experience extends to the Swiss market through a shared project, with the same attention to the quality of the setup, the preparation of the croupiers and the involvement of the guests.",
+      "p4": "Two brands, two markets, one shared vision: to create elegant, engaging entertainment, without play for real money.",
+      "imageAlt": "A croupier at a roulette table during an event.",
+      "link": "Discover our services",
+      "marks": {
+        "founded": {
+          "lead": "2007",
+          "note": "Fun Casinò is founded"
         },
-        "guests": {
-          "title": "Consider the guests",
-          "body": "Who joins in, who watches, and how familiar the group is with the tables, all guide the choice."
+        "markets": {
+          "lead": "Italy + Switzerland",
+          "note": "A shared project"
         },
-        "space": {
-          "title": "Read the space",
-          "body": "The room, the circulation and the time available say what can fit the programme."
-        },
-        "selection": {
-          "title": "Choose suitable experiences",
-          "body": "Games and services are proposed when they suit the evening, then confirmed in the proposal."
-        },
-        "coordination": {
-          "title": "Shape the proposed entertainment",
-          "body": "Pace, presence and combination are aligned. Anything not confirmed is not treated as available."
+        "entertainment": {
+          "lead": "Casino entertainment",
+          "note": "Experiences without real money"
         }
       }
     },
-    "experience": {
-      "eyebrow": "The people",
-      "title": "People are at the centre",
-      "body": "The tables and the games set the scene. The experience comes from the people who sit down, from those who watch, and from the conversations that open around them.",
-      "notes": {
-        "participation": {
-          "title": "Participation",
-          "body": "An invitation to join the play, without leaving out anyone who would rather watch."
+    "davide": {
+      "eyebrow": "02 / The experience behind the project",
+      "title": "Davide Merli. Experience makes the difference.",
+      "subtitle": "Professional croupier, founder of Fun Casinò and European champion in 2012.",
+      "p1": "The story of Casino Show is tied to the professional path of Davide Merli.",
+      "p2": "His career in the casino world begins in 1998, with training in Sanremo, and continues through professional experience in Italy and abroad.",
+      "p3": "From the United Kingdom to France and on to the Caribbean, Davide builds his skill directly at the gaming tables, also working in Switzerland at the Casino of Lugano and the Casino Admiral in Mendrisio.",
+      "p4": "In 2007 he founds Fun Casinò, bringing the professional culture of the casino into entertainment for events.",
+      "p5": "In 2012, in Helsinki, he wins the European title at the European Dealer Championship, a recognition that marks his professional path.",
+      "p6": "This experience is one of the foundations of Casino Show: attention to the guests, preparation, precision and the ability to turn play into a shared moment of entertainment.",
+      "imageAlt": "Davide Merli with the European Dealer Championship trophy.",
+      "link": "Discover our experiences",
+      "milestones": {
+        "start": {
+          "lead": "1998",
+          "note": "Start of his career"
         },
-        "conversation": {
-          "title": "Conversation",
-          "body": "The table is also a place where guests meet."
+        "founded": {
+          "lead": "2007",
+          "note": "Founding of Fun Casinò"
         },
-        "discovery": {
-          "title": "Discovery",
-          "body": "For many people it is a first time close to roulette or blackjack, lived as entertainment."
-        },
-        "shared": {
-          "title": "Shared enjoyment",
-          "body": "The memory sits in the time spent together, not in a cash prize."
-        },
-        "atmosphere": {
-          "title": "Atmosphere",
-          "body": "Light, pace and care in the presentation give the evening its character."
+        "champion": {
+          "lead": "2012",
+          "note": "European croupier champion"
         }
       }
     },
-    "pillars": {
-      "eyebrow": "The project",
-      "title": "The details that make the difference",
-      "body": "Four kinds of attention guide the way an evening is imagined. They are not certifications, and they do not describe staff or equipment.",
-      "items": {
-        "atmosphere": {
-          "title": "Atmosphere",
-          "body": "The visual character of the experience: how the evening presents itself."
+    "staff": {
+      "eyebrow": "03 / The people of Casino Show",
+      "title": "People make the evening.",
+      "p1": "Behind every Casino Show event is a team of professionals chosen for their skill, their presence and their ability to involve the guests.",
+      "p2": "Our croupiers do more than run the tables. They welcome participants, explain the rules and help create an atmosphere that is elegant, lively and open to people who have never played.",
+      "p3": "Every event is different. The team is therefore composed according to the venue, the tables planned, the number of guests and the experience to be created.",
+      "p4": "Technical preparation is essential. So are attention to people, the ability to communicate and care for detail.",
+      "images": {
+        "group": "A team in dark formal wear in front of the table at an event.",
+        "croupier": "A croupier at the roulette during an event.",
+        "guests": "A croupier and guests around a table during an event."
+      },
+      "qualities": {
+        "professionalism": {
+          "title": "Professionalism",
+          "body": "Preparation, precision and attention to detail."
         },
-        "participation": {
-          "title": "Participation",
-          "body": "The involvement of the guests, at a level that suits the group."
+        "presence": {
+          "title": "Presence",
+          "body": "A team able to bring out the atmosphere of the event."
         },
-        "flexibility": {
-          "title": "Flexibility",
-          "body": "The possibility of shaping a proposal around different contexts: a company, a team day, a gala, a wedding, a private party. These are contexts, not a list of completed work."
-        },
-        "detail": {
-          "title": "Attention to detail",
-          "body": "Care in defining the experience that is intended, before it is confirmed."
+        "involvement": {
+          "title": "Involvement",
+          "body": "Every guest is accompanied and invited to take part."
         }
+      },
+      "link": "Request a quote",
+      "cta": {
+        "title": "Bring this experience to your event.",
+        "body": "Tell us what you are organising. We will help you shape an experience made for the occasion."
       }
     },
-    "explore": {
-      "eyebrow": "Next",
-      "title": "See what we can imagine for your event",
-      "body": "Three pages for orientation. None of them recounts finished projects, and none promises a combination that is already fixed.",
-      "items": {
-        "events": {
-          "title": "Events",
-          "body": "Companies, team days, gala evenings, weddings and private parties: possible contexts, not a record of completed work."
-        },
-        "games": {
-          "title": "Games and services",
-          "body": "Roulette, blackjack, poker and other experiences. The combination is confirmed in the proposal."
-        },
-        "gallery": {
-          "title": "Gallery",
-          "body": "The page is ready. Event photographs appear only after they are approved."
-        }
-      }
-    },
-    "final": {
-      "eyebrow": "Quote",
-      "title": "Tell us about your next event",
-      "body": "Write to us about the occasion, the guests and the atmosphere you are looking for. The reply is a conversation and, where it fits, a proposal."
+    "italy": {
+      "eyebrow": "Our project in Italy",
+      "titleLead": "Discover Fun Casinò.",
+      "titleAccent": "The same experience, in Italy.",
+      "p1": "Fun Casinò is the Italian project founded in 2007 by Davide Merli, with which Casino Show shares experience, professionalism and a passion for entertainment.",
+      "p2": "If you are organising an event in Italy, visit the Fun Casinò website to discover the services, solutions and possibilities available across Italy.",
+      "logoAlt": "Fun Casinò logo, Professional Casino Entertainment.",
+      "imageAlt": "An elegant evening in Italy, with a roulette wheel and the Italian flag.",
+      "cta": "Visit the Fun Casinò website"
     }
   },
   "Contact": {
-    "hero": {
+    "intro": {
       "eyebrow": "Contact",
-      "support": "Do you have a question, an idea, or would you like to know Casino Show better? The first step is simply to talk about it.",
-      "lead": "This page points the conversation. It does not publish contact details that are not yet confirmed.",
-      "mediaLabel": "Graphic composition, not a photograph of an office"
+      "title": "Let's talk about your next event.",
+      "description": "For general information, you can contact us directly. If you are organising an event, tell us about it through a quote request."
     },
-    "paths": {
-      "label": "Ways to get in touch",
-      "quote": {
-        "title": "Do you have an event in mind?",
-        "body": "Tell us what you are organising. Together we can consider the proposal that best suits your event.",
-        "note": "The button opens the quote page. You can prepare the request, but sending is not active yet."
+    "columns": {
+      "label": "How to reach us",
+      "general": {
+        "eyebrow": "General contact",
+        "title": "Do you need some information?",
+        "description": "For any question, you can write to us or call us directly."
       },
-      "info": {
-        "title": "Would you like to know more?",
-        "body": "For a general question or a collaboration, a direct contact will be published only once it is confirmed. There is not one at the moment.",
-        "link": "Go to the confirmed channels"
+      "event": {
+        "eyebrow": "Organise an event",
+        "title": "Do you have an evening in mind?",
+        "description": "Corporate events, weddings, private parties or special occasions. Tell us your idea and we will prepare a proposal tailored to you.",
+        "cta": "Request a quote"
+      },
+      "careers": {
+        "eyebrow": "Work with us",
+        "title": "Would you like to join our team?",
+        "description": "We are looking for motivated people, including those without experience, who are available to collaborate at our events in Switzerland.",
+        "cta": "See how to apply"
       }
     },
     "channels": {
-      "eyebrow": "Channels",
-      "title": "How to reach us",
-      "empty": "Email, telephone and messages are not published yet. They will appear here only after they are confirmed.",
-      "ready": "These are the confirmed contact details.",
-      "items": {
-        "email": "Email",
-        "phone": "Telephone",
-        "whatsapp": "WhatsApp"
-      }
-    },
-    "start": {
-      "eyebrow": "The first step",
-      "title": "A conversation is where an idea starts",
-      "body": "A first exchange can include only a few points. It is guidance, not a form, and it does not set a response time.",
-      "points": {
-        "type": {
-          "title": "Type of event",
-          "body": "A company gathering, a private party, a wedding or another occasion."
-        },
-        "idea": {
-          "title": "General idea",
-          "body": "The tone you have in mind, even if it is still only a sketch."
-        },
-        "place": {
-          "title": "Approximate area",
-          "body": "The city or the area, without describing coverage that is already fixed."
-        },
-        "period": {
-          "title": "Preferred period",
-          "body": "A date, a month or a window that is still open."
-        },
-        "requests": {
-          "title": "Particular requests",
-          "body": "What matters for the guests, to be confirmed later in the proposal."
-        }
-      }
-    },
-    "final": {
-      "eyebrow": "The experiences",
-      "title": "Every great event starts with an idea",
-      "body": "The Events and Games and services pages show possible contexts and experiences. They do not replace a confirmed proposal.",
-      "items": {
-        "events": {
-          "title": "Events",
-          "body": "Companies, team days, gala evenings, weddings and private parties, as contexts rather than completed work."
-        },
-        "games": {
-          "title": "Games and services",
-          "body": "Roulette, blackjack, poker and other experiences, to be composed and confirmed in the proposal."
-        }
-      }
+      "email": "Email",
+      "phoneWhatsapp": "Telephone / WhatsApp",
+      "whatsapp": "WhatsApp",
+      "emailLabel": "Send an email to {value}",
+      "phoneLabel": "Call {value}",
+      "whatsappLabel": "Open WhatsApp with {value}"
     }
   },
   "Quote": {
-    "hero": {
-      "eyebrow": "Quote",
-      "support": "Three steps to describe the event. The proposal starts from what you describe here.",
-      "notice": "The request sending service will be available soon. What you enter stays on this page and is not transmitted.",
-      "mediaLabel": "Graphic composition, not a photograph of an event"
+    "intro": {
+      "eyebrow": "Request a quote",
+      "description": "A few details are enough for us to prepare a proposal tailored to you."
     },
     "wizard": {
       "label": "Quote request",
@@ -1063,9 +1117,11 @@
         "label": "Number of guests",
         "hint": "An estimate, not a price."
       },
-      "duration": {
-        "label": "Duration",
-        "hint": "An indication, not confirmed availability."
+      "referral": {
+        "label": "How did you hear about us?",
+        "placeholder": "Select an option",
+        "otherLabel": "Specify how you heard about us",
+        "otherPlaceholder": "Tell us how you found us"
       },
       "experiences": {
         "label": "Experiences",
@@ -1122,11 +1178,15 @@
         "over-200": "Over 200",
         "unsure": "Not sure yet"
       },
-      "duration": {
-        "up-to-2": "Up to 2 hours",
-        "2-4": "2–4 hours",
-        "over-4": "Over 4 hours",
-        "unsure": "Not sure yet"
+      "referral": {
+        "google_search": "Google / Search engines",
+        "ai_assistants": "ChatGPT / Other AI",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "word_of_mouth": "Word of mouth / Friends / Colleagues",
+        "previous_event": "Previous Casino Show event",
+        "event_agency": "Wedding planner / Event agency",
+        "other": "Other"
       },
       "experiences": {
         "casino-party": {
@@ -1189,6 +1249,8 @@
     "nav": {
       "back": "Back",
       "next": "Continue",
+      "submit": "Send the request",
+      "submitting": "Sending",
       "editEvent": "Edit the event",
       "editExperience": "Edit the experience"
     },
@@ -1198,8 +1260,8 @@
       "location": "Location",
       "date": "Date",
       "guests": "Guests",
-      "duration": "Duration",
       "experiences": "Experiences",
+      "referral": "How you heard about us",
       "objective": "Objective",
       "notes": "Notes",
       "empty": "Not provided"
@@ -1221,14 +1283,178 @@
       "email": "Enter a valid email address.",
       "phone": "Enter a valid telephone number, Swiss or international.",
       "companyMax": "The company name is too long.",
-      "preference": "Choose how you would prefer to be contacted."
+      "preference": "Choose how you would prefer to be contacted.",
+      "referralMax": "That note is too long."
     },
     "privacy": {
       "title": "Privacy note",
-      "body": "The privacy note for this request is under review. It is not an approved legal text yet and it does not activate sending. Consent is not presented as the only legal basis: the basis has to be defined in a legal review."
+      "body": "The privacy note for this request is under review. It is not an approved legal text yet and it does not activate sending. Consent is not presented as the only legal basis: the basis has to be defined in a legal review.",
+      "linkLead": "The text under review is in the ",
+      "link": "privacy policy"
     },
     "submission": {
-      "notice": "The request sending service will be available soon. The details stay on this page and are not transmitted."
+      "notice": "The request sending service will be available soon. The details stay on this page and are not transmitted.",
+      "success": "The request has been sent. We will reply to the contact details you gave.",
+      "unavailable": "Sending is not active yet. The details stay on this page and are not transmitted.",
+      "error": "The request could not be sent. The details stay on this page: you can try again."
+    }
+  },
+  "Careers": {
+    "hero": {
+      "eyebrow": "Work with us",
+      "title": "Step into the world of Casino Show.",
+      "lead": "We are looking for reliable, professional people who can engage guests. Whether you already have experience at casino tables or want to start a new path, we would like to meet you.",
+      "cta": "Send your application",
+      "imageAlt": "A croupier and guests at a blackjack table during an event."
+    },
+    "team": {
+      "eyebrow": "Our team",
+      "title": "Professionalism matters. Attitude makes the difference.",
+      "intro": "At an event, knowing the game is not enough. Presence, communication, attention to guests and the ability to work as a team all matter. That is why we consider both experienced croupiers and motivated people who want to learn.",
+      "items": {
+        "professionalism": {
+          "title": "Professionalism",
+          "body": "Seriousness, punctuality, reliability and care for your role."
+        },
+        "presence": {
+          "title": "Presence",
+          "body": "An elegant, natural and confident manner with guests."
+        },
+        "communication": {
+          "title": "Communication",
+          "body": "The ability to explain, involve and put at ease people who have never played."
+        },
+        "team": {
+          "title": "Team spirit",
+          "body": "Collaboration, flexibility and attention to the success of the event."
+        }
+      }
+    },
+    "opportunity": {
+      "eyebrow": "Opportunities",
+      "title": "Events across Switzerland.",
+      "p1": "Casino Show creates entertainment for corporate events, private parties, weddings and special occasions. We are looking for collaborators available to take part in events organised across the regions of Switzerland.",
+      "p2": "We also consider applications from people living in areas bordering Switzerland, subject to the requirements that apply to working in the country.",
+      "note": "Every application is assessed individually, based on profile, experience and availability."
+    },
+    "form": {
+      "title": "Apply to Casino Show",
+      "description": "Complete the form and tell us a little about yourself. We will review your application for possible collaboration.",
+      "requiredNote": "Fields marked with * are required.",
+      "optional": "Optional",
+      "sections": {
+        "personal": "Personal details",
+        "experience": "Experience",
+        "availability": "Availability",
+        "presentation": "Introduction",
+        "cv": "Curriculum",
+        "privacy": "Privacy"
+      }
+    },
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "locality": "Place of residence",
+      "country": "Country of residence",
+      "birthDate": "Date of birth",
+      "experience": "Experience as a croupier",
+      "games": "Games you know",
+      "hospitality": "Experience in events, hospitality or public-facing work",
+      "regions": "Where are you available to work?",
+      "availability": "Indicative availability",
+      "languages": "Languages spoken",
+      "presentation": "Short introduction",
+      "cv": "Upload your curriculum"
+    },
+    "hints": {
+      "birthDate": "Optional.",
+      "games": "You can select more than one. This is not required if you have no experience.",
+      "hospitality": "You can tell us about experience in events, reception, restaurants or other roles working with people.",
+      "availability": "Indicate roughly when you could take part. This is not a commitment.",
+      "languages": "No particular language is required.",
+      "presentation": "Tell us about your experience, why you want to work with Casino Show and how you relate to people during an event.",
+      "cv": "PDF, DOC or DOCX. Maximum 5 MB."
+    },
+    "placeholders": {
+      "country": "Select",
+      "experience": "Select"
+    },
+    "options": {
+      "country": {
+        "ch": "Switzerland",
+        "it": "Italy",
+        "fr": "France",
+        "de": "Germany",
+        "at": "Austria",
+        "other": "Other"
+      },
+      "experience": {
+        "none": "No experience",
+        "lt1": "Less than 1 year",
+        "y1_3": "1 to 3 years",
+        "y3_5": "3 to 5 years",
+        "gt5": "More than 5 years"
+      },
+      "games": {
+        "roulette": "Roulette",
+        "blackjack": "Blackjack",
+        "poker": "Poker",
+        "other": "Other games"
+      },
+      "regions": {
+        "ticino": "Ticino",
+        "german": "German-speaking Switzerland",
+        "french": "French-speaking Switzerland",
+        "all": "All of Switzerland"
+      },
+      "availability": {
+        "weekdays": "Weekdays",
+        "weekend": "Weekends",
+        "evening": "Evening hours",
+        "variable": "Variable availability"
+      },
+      "languages": {
+        "it": "Italian",
+        "de": "German",
+        "fr": "French",
+        "en": "English",
+        "other": "Other languages"
+      }
+    },
+    "privacy": {
+      "before": "I have read the ",
+      "link": "privacy policy",
+      "after": " and I consent to the processing of my personal data for the handling of this application."
+    },
+    "submit": "Send application",
+    "submitting": "Sending...",
+    "success": "Thank you! Your application has been sent.",
+    "sendError": "The application could not be sent. Please try again later.",
+    "errors": {
+      "summary": "Check the highlighted fields before sending.",
+      "firstName": "Enter your first name.",
+      "lastName": "Enter your last name.",
+      "nameMax": "The name is too long.",
+      "email": "Enter a valid email address.",
+      "phone": "Enter a valid phone number.",
+      "locality": "Enter your place of residence.",
+      "localityMax": "The place is too long.",
+      "country": "Enter your country of residence.",
+      "birthDate": "Enter a valid date of birth, or leave the field empty.",
+      "experience": "Indicate your experience as a croupier.",
+      "choice": "One of the choices is not valid.",
+      "hospitalityMax": "The text is too long.",
+      "regions": "Indicate where you are available to work.",
+      "regionsConflict": "Select all of Switzerland or individual regions, not both.",
+      "presentation": "Add a few lines to introduce yourself.",
+      "presentationMax": "The introduction is too long.",
+      "privacy": "Sending an application requires consent to the processing of your data.",
+      "cv": "Upload your curriculum.",
+      "cvSize": "The file is too large. The limit is 5 MB.",
+      "cvType": "Upload a PDF, DOC or DOCX file.",
+      "cvContent": "The file is not a valid PDF, DOC or DOCX curriculum."
     }
   },
   "Footer": {
@@ -1236,7 +1462,8 @@
     "columns": {
       "discover": "Discover Casino Show",
       "experiences": "Experiences",
-      "contact": "Contact us"
+      "contact": "Contact us",
+      "rentals": "Table and game hire"
     },
     "nav": {
       "home": "Home",
@@ -1244,28 +1471,345 @@
       "games": "Games & Services",
       "gallery": "Gallery",
       "about": "About Us",
+      "careers": "Work with us",
       "contact": "Contact",
       "quote": "Request a Quote"
+    },
+    "legalNav": "Legal documents",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "legalNotice": "Legal Notice"
     }
   },
   "Legal": {
-    "status": "In preparation",
+    "status": "Unapproved draft",
+    "draftNotice": "Technical draft of 31 October 2026. This text is not approved and does not replace a review by the controller or by counsel. The marker [DA CONFERMARE] means a fact or an assessment is still missing.",
     "privacy": {
       "title": "Privacy Policy",
-      "unavailable": "This document is not yet available. It is not an approved privacy policy."
+      "unavailable": "Unapproved draft. This is not a final privacy policy.",
+      "sections": [
+        {
+          "title": "Scope",
+          "paragraphs": [
+            "This draft describes personal-data processing connected with the website casinoshow.ch, based on the application code and the client's indications. It does not describe other websites or third-party social networks."
+          ]
+        },
+        {
+          "title": "Named organisation",
+          "paragraphs": [
+            "The client names Immoevents360 Sagl, a Swiss company with its seat in the Canton of Ticino, entered in the commercial register under number CH-501.4.029.022-5, as the company linked to the trade name CasinoShow.ch. The client also names it as Davide Merli's company that follows CasinoShow. Its role as controller is [DA CONFERMARE].",
+            "Street address, municipality, UID number, authorised signatories, and a contact reserved for privacy requests are not in this draft. [DA CONFERMARE]",
+            "The website publishes info@casinoshow.ch and the telephone number +41 76 527 71 78. Use of these details as the controller's contacts is [DA CONFERMARE]."
+          ]
+        },
+        {
+          "title": "Applicable law",
+          "paragraphs": [
+            "For a website aimed at Switzerland, the Federal Act on Data Protection (FADP) is the framework to consider. Whether the European Union General Data Protection Regulation applies depends on points still to be checked, including an offer of services to people in the European Economic Area. [DA CONFERMARE]"
+          ]
+        },
+        {
+          "title": "Quote-form data",
+          "paragraphs": [
+            "The quote form collects, in the browser page, the data listed below. At present it does not send them: they stay on that page and are not transmitted to a server. Any later activation of sending, and the processing that would follow, is [DA CONFERMARE]."
+          ],
+          "items": [
+            "Event type, place, date or a note that the date is undecided, guest range",
+            "Requested experiences, aim of the evening, notes",
+            "First name, last name, email, telephone, company",
+            "Contact preference and source of the enquiry"
+          ]
+        },
+        {
+          "title": "Application data",
+          "paragraphs": [
+            "The careers form collects the data listed below, together with the page language and the date and time of the consent given in the form.",
+            "If the server email configuration is present, the application sends these data, including the CV, to the Resend API (api.resend.com), to the configured address. The CV is attached to that message and the code does not write it to disk. The live production configuration, including the recipient address, is [DA CONFERMARE].",
+            "To limit repeated submissions, the server keeps in process memory, for one hour at most, the first IP address read from the request headers, or the value local if the address is missing. That value is not written to a database and is lost when the process restarts."
+          ],
+          "items": [
+            "First name, last name, email, telephone, locality, country, date of birth",
+            "Experience level, games, text about floor experience",
+            "Regions, availability, languages, presentation text",
+            "CV as PDF, DOC, or DOCX, up to 5 MB"
+          ]
+        },
+        {
+          "title": "Technical data",
+          "paragraphs": [
+            "The provider that hosts the website, and any recording of IP addresses or platform logs, does not appear in the code. [DA CONFERMARE]",
+            "The application code contains no analytics or marketing tools."
+          ]
+        },
+        {
+          "title": "Purposes and legal bases",
+          "paragraphs": [
+            "The purposes that follow from the website are: to prepare a reply to a quote request once sending is active; to assess an application; to operate the website and limit abusive submissions of the careers form.",
+            "The legal basis for each processing activity is for the controller to choose. This draft does not set it. [DA CONFERMARE]"
+          ]
+        },
+        {
+          "title": "Recipients and processors",
+          "paragraphs": [
+            "The application email is addressed to the recipient configured on the server. The sample configuration file shows info@casinoshow.ch. The actual production recipient is [DA CONFERMARE].",
+            "Resend is the service intended for that sending when the key is configured. The contract and the processor role are [DA CONFERMARE].",
+            "The code shows no other provider that receives form data."
+          ]
+        },
+        {
+          "title": "Transfers",
+          "paragraphs": [
+            "The call to api.resend.com may involve processing outside Switzerland. The country of processing and the safeguards are [DA CONFERMARE].",
+            "The code shows no other transfer set up by the application."
+          ]
+        },
+        {
+          "title": "Retention",
+          "paragraphs": [
+            "While the quote form does not send the data, the website does not keep them on a server.",
+            "The retention period for application emails, CVs, and any hosting logs is [DA CONFERMARE].",
+            "The value used to limit application submissions stays in memory for one hour at most."
+          ]
+        },
+        {
+          "title": "People's rights",
+          "paragraphs": [
+            "Under the FADP, a person may request access, correction, and deletion, and may contact the Federal Data Protection and Information Commissioner (FDPIC).",
+            "If the GDPR were applicable, the further rights in that regulation and a complaint to a supervisory authority would also need to be stated. That possibility is [DA CONFERMARE].",
+            "Requests may be sent to info@casinoshow.ch, unless the controller names a different address. [DA CONFERMARE]"
+          ]
+        },
+        {
+          "title": "Security",
+          "paragraphs": [
+            "The website is served over HTTPS. The email-sending keys are intended for the server only. The application does not write the CV to disk. These measures reduce some risks and do not rule out every unauthorised access."
+          ]
+        },
+        {
+          "title": "Automated decisions and minors",
+          "paragraphs": [
+            "The code contains no automated decision that produces a legal effect on a person.",
+            "The website presents a service for events. The careers form asks for a date of birth. The minimum age to apply is [DA CONFERMARE]."
+          ]
+        },
+        {
+          "title": "Update",
+          "paragraphs": [
+            "The date of an approved version will be stated only after the data are checked and the text is approved."
+          ]
+        }
+      ]
     },
     "cookies": {
       "title": "Cookie Policy",
-      "unavailable": "This document is not yet available. It is not an approved cookie policy."
+      "unavailable": "Unapproved draft. This is not a final cookie policy.",
+      "sections": [
+        {
+          "title": "Check carried out",
+          "paragraphs": [
+            "This draft describes only the technologies found in the application code on the date stated above. The check covered cookies, browser storage, analytics and marketing tools, and external content loaded with the page."
+          ]
+        },
+        {
+          "title": "Technical, analytics, and marketing cookies",
+          "paragraphs": [
+            "The application does not set cookies. The language cookie is disabled. No analytics cookies were found. No marketing cookies were found.",
+            "A technical cookie of the hosting platform is not visible in the code, because the hosting provider is not named. [DA CONFERMARE]"
+          ]
+        },
+        {
+          "title": "Consent banner",
+          "paragraphs": [
+            "No banner was added. With the elements found, no non-essential cookie appears that would need to be blocked before consent. If hosting cookies beyond technical cookies are confirmed, or if analytics or marketing is added, that choice needs to be reviewed. [DA CONFERMARE]"
+          ]
+        },
+        {
+          "title": "Browser storage",
+          "paragraphs": [
+            "The quote form keeps data in the state of the open page. The code does not write it to cookies, localStorage, or sessionStorage."
+          ]
+        },
+        {
+          "title": "Fonts",
+          "paragraphs": [
+            "Fonts are prepared at build time and served by the same website. Visiting the page does not contact an external font service."
+          ]
+        },
+        {
+          "title": "Links to other websites",
+          "paragraphs": [
+            "Instagram, Facebook, WhatsApp, LinkedIn, and the Fun Casinò website open only if the person follows the link. They are not embedded in the page and do not start on their own when casinoshow.ch opens. After that, those websites' rules apply.",
+            "The linked Instagram and Facebook profiles are Fun Casinò Italia accounts. Confirmation that they are the profiles to publish on CasinoShow.ch is [DA CONFERMARE]."
+          ]
+        }
+      ]
     },
     "legalNotice": {
       "title": "Legal Notice",
-      "unavailable": "This document is not yet available. It is not an approved legal notice."
+      "unavailable": "Unapproved draft. This is not a final legal notice.",
+      "sections": [
+        {
+          "title": "Website and name",
+          "paragraphs": [
+            "CasinoShow.ch is the trade name given for this website. The pages present table hire and entertainment services for physical events in Switzerland. The website is not an online casino and does not offer gambling for money."
+          ]
+        },
+        {
+          "title": "Named company",
+          "paragraphs": [
+            "Immoevents360 Sagl, a Swiss company. Seat as indicated: Canton of Ticino. Commercial register: CH-501.4.029.022-5. The client names it as Davide Merli's company linked to CasinoShow. Its role as operator of the website is [DA CONFERMARE].",
+            "Street address, municipality, UID number, authorised signatories, and share capital are not in this draft. [DA CONFERMARE]"
+          ]
+        },
+        {
+          "title": "Contact details",
+          "paragraphs": [
+            "Email published on the website: info@casinoshow.ch. Telephone published: +41 76 527 71 78. Confirmation that these are the company's official contacts is [DA CONFERMARE]."
+          ]
+        },
+        {
+          "title": "Hosting",
+          "paragraphs": [
+            "The provider that hosts the website is not named in the code. [DA CONFERMARE]"
+          ]
+        },
+        {
+          "title": "Intellectual property",
+          "paragraphs": [
+            "Texts, photographs, and signs remain with their respective owners. A registration of the CasinoShow name does not follow from this draft. [DA CONFERMARE]",
+            "Some images and the social profiles point to materials or accounts of Fun Casinò. Permission to use them on this website is [DA CONFERMARE]."
+          ]
+        },
+        {
+          "title": "Information about the service",
+          "paragraphs": [
+            "The content describes services for events. Completing a form on the website is not a contract. At present the quote form does not transmit the request. Prices, availability, and confirmations are set in the proposal the parties agree."
+          ]
+        },
+        {
+          "title": "Limits",
+          "paragraphs": [
+            "The website information is general. This draft does not exclude liability in cases where the law does not allow that. A more precise clause is [DA CONFERMARE]."
+          ]
+        },
+        {
+          "title": "Links and applicable law",
+          "paragraphs": [
+            "Links to other websites leave casinoshow.ch. Those websites are run by their own operators.",
+            "Swiss law may be relevant to dealings with the named company. Venue and contract terms are [DA CONFERMARE]."
+          ]
+        }
+      ]
     }
   },
   "NotFound": {
     "heading": "Page not found",
     "description": "This address does not match a page on the site.",
     "home": "Back to the home page"
+  },
+  "GameLandings": {
+    "breadcrumbLabel": "Breadcrumb",
+    "serviceType": "Event entertainment",
+    "areaServed": "Switzerland",
+    "overview": "Games and services overview",
+    "menu": "Open the hire games",
+    "menuClose": "Close the hire games",
+    "roulette": {
+      "name": "Roulette",
+      "seoTitle": "Roulette table hire for events",
+      "seoDescription": "Hire of a roulette table with a croupier for corporate events, weddings and private parties in Switzerland. Floor entertainment, with no cash play.",
+      "heroTitle": "Roulette table hire",
+      "heroSubtitle": "Bring the elegance and the thrill of roulette to your event, with professional tables and dedicated croupiers.",
+      "presentationTitle": "The spin of the wheel, at the heart of the evening",
+      "presentationLead": "Roulette is the most recognisable table of the night. Guests follow the wheel, share the wait and gather around the layout.",
+      "presentationBody": "A professional croupier runs the game and welcomes anyone who steps up. Guests can play or simply watch. No cash is wagered and there are no cash winnings.",
+      "presentationAtmosphere": "The cloth, the wheel and the chips bring an elegance that reads at once, without taking over the whole programme.",
+      "presentationOccasions": "It suits corporate events, weddings and private parties. How many tables, and where they sit in the evening, is confirmed in the proposal.",
+      "imageAlt": "Roulette table with wheel, cloth and chips, set for an event.",
+      "galleryTitle": "Roulette at our events",
+      "ctaTitle": "Bring roulette to your next event",
+      "ctaBody": "Turn your event into an experience guests remember. Request a tailored quote and see how the thrill of roulette can be part of your party."
+    },
+    "blackjack": {
+      "name": "Blackjack",
+      "seoTitle": "Blackjack table hire for events",
+      "seoDescription": "Hire of a blackjack table with a croupier for corporate events, weddings and private parties in Switzerland. Floor entertainment, with no cash play.",
+      "heroTitle": "Blackjack table hire",
+      "heroSubtitle": "A lively table that is easy to follow, with a croupier who guides guests through the hand.",
+      "presentationTitle": "Short hands, conversation and pace",
+      "presentationLead": "Blackjack brings guests together around quick choices. They follow the hand, stay close to the table and can join in for just a few minutes.",
+      "presentationBody": "A professional croupier runs the game and keeps each gesture clear. It is not a lesson and it is not cash play: there are no cash winnings.",
+      "presentationAtmosphere": "The pace is lively, and it still belongs to a party. The table is for the people seated and for anyone who stops to watch.",
+      "presentationOccasions": "It fits corporate events, weddings and private parties. The format and the number of seats are confirmed in the proposal.",
+      "imageAlt": "Blackjack table with cloth, cards and chips, set for an event.",
+      "galleryTitle": "Blackjack at our events",
+      "ctaTitle": "Bring blackjack to your next event",
+      "ctaBody": "Turn your event into an experience guests remember. Request a tailored quote and see how blackjack can set the pace of your party."
+    },
+    "casino-war": {
+      "name": "Casino War",
+      "seoTitle": "Casino War table hire for events",
+      "seoDescription": "Hire of a Casino War table with a croupier for corporate events, weddings and private parties in Switzerland. Floor entertainment, with no cash winnings.",
+      "heroTitle": "Casino War table hire",
+      "heroSubtitle": "An immediate comparison of cards, made to draw guests in without a long explanation.",
+      "presentationTitle": "One card, one comparison, one shared moment",
+      "presentationLead": "Casino War is a direct table. Guests follow the cards as they are compared and stay in the rhythm of the evening, even if casino games are new to them.",
+      "presentationBody": "A professional croupier leads the table and keeps the game clear. It is entertainment for events: no cash is wagered and there are no cash winnings.",
+      "presentationAtmosphere": "The table is lively and easy to approach. It works as a meeting point beside the other games in the room.",
+      "presentationOccasions": "It suits corporate events, weddings and private parties when the game should stay open to everyone. How it sits in the room is confirmed in the proposal.",
+      "imageAlt": "Casino War table set for an event, with cloth, cards and chips.",
+      "galleryTitle": "Casino War at our events",
+      "ctaTitle": "Bring Casino War to your next event",
+      "ctaBody": "Turn your event into an experience guests remember. Request a tailored quote and see how Casino War can be part of your party."
+    },
+    "chuck-a-luck": {
+      "name": "Chuck-a-Luck (Dice)",
+      "seoTitle": "Chuck-a-Luck dice table hire for events",
+      "seoDescription": "Hire of a Chuck-a-Luck dice table with a croupier for corporate events, weddings and private parties in Switzerland. Floor entertainment, with no cash play.",
+      "heroTitle": "Chuck-a-Luck table hire",
+      "heroSubtitle": "Three dice, a quick pace and a table open to anyone who wants to join at once.",
+      "presentationTitle": "The dice game you understand on the first throw",
+      "presentationLead": "Chuck-a-Luck is a dice game. Guests follow the throw, read the numbers on the cloth and join in without a long explanation.",
+      "presentationBody": "A professional croupier runs the table and keeps the pace. It is not a cash wager and there are no cash winnings.",
+      "presentationAtmosphere": "Light and lively. It sits well beside the classic tables and welcomes guests who prefer a simple game.",
+      "presentationOccasions": "It is chosen for corporate events, weddings and private parties when you want a moment open to every guest. Its place in the evening is confirmed in the proposal.",
+      "imageAlt": "Chuck-a-Luck dice table with a numbered cloth and chips, set for an event.",
+      "galleryTitle": "Chuck-a-Luck at our events",
+      "ctaTitle": "Bring Chuck-a-Luck to your next event",
+      "ctaBody": "Turn your event into an experience guests remember. Request a tailored quote and see how the pace of the dice can be part of your party."
+    },
+    "poker": {
+      "name": "Texas Hold'em poker",
+      "seoTitle": "Texas Hold'em poker table hire for events",
+      "seoDescription": "Hire of a Texas Hold'em poker table with a croupier for corporate events, weddings and private parties in Switzerland. Floor entertainment, with no cash prizes.",
+      "heroTitle": "Texas Hold'em poker table hire",
+      "heroSubtitle": "The most recognisable form of poker, played as a social table among the guests of the evening.",
+      "presentationTitle": "Community cards and a table to share",
+      "presentationLead": "At Texas Hold'em, guests follow the community cards, talk at the table and play with instinct and patience. It is company, not a contest.",
+      "presentationBody": "A professional croupier runs the hand and keeps the game clear, even for someone sitting down for the first time. It is not a cash tournament and there are no cash prizes.",
+      "presentationAtmosphere": "A more intimate table, for guests who like to stay seated and read one another. It stays in the tone of the party, at the pace you choose.",
+      "presentationOccasions": "It works for corporate events, weddings and private parties when the programme leaves room for a game. Length and format are confirmed in the proposal.",
+      "imageAlt": "Texas Hold'em poker table with cloth, cards and chips, set for an event.",
+      "galleryTitle": "Poker at our events",
+      "ctaTitle": "Bring poker to your next event",
+      "ctaBody": "Turn your event into an experience guests remember. Request a tailored quote and see how a Texas Hold'em table can be part of your party."
+    },
+    "wheel-of-fortune": {
+      "name": "Wheel of Fortune",
+      "seoTitle": "Wheel of Fortune hire for events",
+      "seoDescription": "Hire of a wheel of fortune with floor staff for corporate events, weddings and private parties in Switzerland. A showpiece moment, with no cash prizes.",
+      "heroTitle": "Wheel of Fortune hire",
+      "heroSubtitle": "A showpiece wheel and a spin that gathers every glance, including from guests who are not seated at a table.",
+      "presentationTitle": "One spin, and the room looks the same way",
+      "presentationLead": "The wheel of fortune is a shared moment. Guests follow the spin and share the wait, without needing to know a table game.",
+      "presentationBody": "Floor staff guide the moment and keep the pace. We do not publish cash prizes or a fixed set of rules: it is entertainment for events.",
+      "presentationAtmosphere": "Striking and brief. It gives the evening a visual mark and includes guests who would rather watch.",
+      "presentationOccasions": "Useful to open a corporate event, to mark a pause at a wedding or to animate a private party. It joins the programme when there is room, and is confirmed in the proposal.",
+      "imageAlt": "A colourful wheel of fortune with its playing table, set for an event.",
+      "galleryTitle": "The Wheel of Fortune at our events",
+      "ctaTitle": "Bring the Wheel of Fortune to your next event",
+      "ctaBody": "Turn your event into an experience guests remember. Request a tailored quote and see how the Wheel of Fortune can be part of your party."
+    }
   }
 }

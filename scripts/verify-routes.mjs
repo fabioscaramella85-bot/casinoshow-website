@@ -28,15 +28,15 @@ const pages = [
     },
     headings: {
       it: "Un'esperienza unica per ogni evento",
-      de: "Ein eigenes Erlebnis für jeden Anlass",
-      fr: "Une expérience propre à chaque événement",
-      en: "A distinct experience for every event",
+      de: "Ein besonderes Casino-Erlebnis für jeden Anlass",
+      fr: "Une expérience casino unique pour chaque événement",
+      en: "A unique casino experience for every event",
     },
     descriptions: {
-      it: "Casino Show propone intrattenimento a tema casinò per eventi aziendali, team building, matrimoni e feste private in Svizzera.",
-      de: "Casino Show bietet Casino-Unterhaltung für Firmenanlässe, Team-Building, Hochzeiten und private Feste in der Schweiz.",
-      fr: "Casino Show propose une animation de casino pour les événements d'entreprise, le team building, les mariages et les fêtes privées en Suisse.",
-      en: "Casino Show offers casino-themed entertainment for corporate events, team building, weddings and private celebrations in Switzerland.",
+      it: "Intrattenimento a tema casinò per eventi aziendali, team building, matrimoni e feste private in Svizzera. Scopri le esperienze Casino Show.",
+      de: "Casino-Unterhaltung für Firmenanlässe, Team-Building, Hochzeiten und private Feste in der Schweiz. Entdecken Sie die Erlebnisse von Casino Show.",
+      fr: "Animation casino pour événements d'entreprise, team building, mariages et fêtes privées en Suisse. Découvrez les expériences Casino Show.",
+      en: "Casino-themed entertainment for corporate events, team building, weddings and private parties in Switzerland. Discover the Casino Show experiences.",
     },
   },
   {
@@ -75,10 +75,10 @@ const pages = [
       en: "Our casino experience in pictures",
     },
     descriptions: {
-      it: "La galleria di Casino Show pubblicherà le fotografie approvate degli eventi a tema casinò in Svizzera. Per ora non ce ne sono.",
-      de: "Die Galerie von Casino Show veröffentlicht freigegebene Fotografien von Casino-Anlässen in der Schweiz. Derzeit ist noch keine Fotografie freigegeben.",
-      fr: "La galerie de Casino Show publiera les photographies approuvées des événements à thème casino en Suisse. Pour le moment, aucune photographie approuvée n'y figure.",
-      en: "The Casino Show gallery will publish approved photographs of casino-themed events in Switzerland. No approved photograph is published yet.",
+      it: "Fotografie di tavoli, croupier e ospiti durante gli eventi a tema casinò di Casino Show.",
+      de: "Fotografien von Tischen, Croupiers und Gästen bei den Casino-Anlässen von Casino Show.",
+      fr: "Photographies de tables, de croupiers et d'invités pendant les événements à thème casino de Casino Show.",
+      en: "Photographs of tables, croupiers and guests during Casino Show casino-themed events.",
     },
   },
   {
@@ -144,6 +144,27 @@ const pages = [
       en: "Prepare a quote request for a Casino Show event. Sending is not active yet.",
     },
   },
+  {
+    id: "careers",
+    paths: {
+      it: "/it/lavora-con-noi",
+      de: "/de/arbeiten-sie-mit-uns",
+      fr: "/fr/travaillez-avec-nous",
+      en: "/en/work-with-us",
+    },
+    headings: {
+      it: "Entra nel mondo di Casino Show.",
+      de: "Werden Sie Teil von Casino Show.",
+      fr: "Entrez dans l'univers de Casino Show.",
+      en: "Step into the world of Casino Show.",
+    },
+    descriptions: {
+      it: "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza. Invia il tuo CV.",
+      de: "Arbeiten Sie mit Casino Show in der Schweiz. Wir prüfen Bewerbungen von erfahrenen Croupiers und motivierten Menschen, auch ohne Erfahrung. Senden Sie Ihren Lebenslauf.",
+      fr: "Travaillez avec Casino Show en Suisse. Nous examinons les candidatures de croupiers expérimentés et de personnes motivées, même sans expérience. Envoyez votre CV.",
+      en: "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Send your CV.",
+    },
+  },
 ];
 
 const locales = ["it", "de", "fr", "en"];
@@ -151,6 +172,12 @@ const failures = [];
 
 function fail(message) {
   failures.push(message);
+}
+
+function headingText(html) {
+  const match = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/);
+  if (!match) return "";
+  return decode(match[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
 }
 
 function decode(value) {
@@ -227,14 +254,13 @@ for (const page of pages) {
     const lang = result.text.match(/<html[^>]*lang="([^"]+)"/)?.[1];
     if (lang !== locale) fail(`${label} html lang ${lang}`);
 
-    const heading = decode(
-      result.text.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] ?? "",
-    );
+    const decodedText = decode(result.text);
+    const heading = headingText(result.text);
     if (heading !== page.headings[locale]) {
       fail(`${label} heading "${heading}"`);
     }
 
-    if (!result.text.includes(page.descriptions[locale])) {
+    if (!decodedText.includes(page.descriptions[locale])) {
       fail(`${label} missing description`);
     }
 
@@ -342,7 +368,7 @@ if (sitemap.status !== 200) fail(`sitemap status ${sitemap.status}`);
 const locs = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
   (match) => match[1],
 );
-if (locs.length !== 28) fail(`sitemap loc count ${locs.length}`);
+if (locs.length !== 32) fail(`sitemap loc count ${locs.length}`);
 for (const page of pages) {
   for (const locale of locales) {
     const url = `${canonicalOrigin}${page.paths[locale]}`;
@@ -405,10 +431,10 @@ const legalPages = [
 ];
 
 const legalMarkers = {
-  it: "non è ancora disponibile",
-  de: "noch nicht verfügbar",
-  fr: "n'est pas encore disponible",
-  en: "not yet available",
+  it: "Bozza non approvata",
+  de: "Nicht genehmigter Entwurf",
+  fr: "Brouillon non approuvé",
+  en: "Unapproved draft",
 };
 
 for (const page of legalPages) {
@@ -422,6 +448,8 @@ for (const page of legalPages) {
     }
     if (!/noindex/i.test(result.text)) fail(`${label} missing noindex`);
     if (!result.text.includes(legalMarkers[locale])) fail(`${label} missing preparation notice`);
+    if (!result.text.includes("[DA CONFERMARE]")) fail(`${label} missing confirmation marker`);
+    if (!result.text.includes('data-legal-draft="true"')) fail(`${label} missing draft flag`);
     const heading = decode(result.text.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] ?? "");
     if (heading !== page.titles[locale]) fail(`${label} heading "${heading}"`);
     const canonical = result.text.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
@@ -444,6 +472,7 @@ if (!homeIt.text.includes("© 2026 Casino Show")) fail("copyright missing");
 if (!homeIt.text.includes('data-legal-publication="unpublished"')) {
   fail("legal links published before approval");
 }
+if (homeIt.text.includes("[DA CONFERMARE]")) fail("home shows unapproved legal marker");
 if (!homeIt.text.includes("mailto:info@casinoshow.ch")) fail("footer email missing");
 if (!homeIt.text.includes("tel:+41765277178")) fail("footer phone missing");
 for (const anchor of ["#corporate", "#team", "#weddings", "#private", "#roulette", "#blackjack", "#poker", "#other-games", "#extras"]) {
@@ -470,5 +499,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Verified 28 commercial URLs, 12 unpublished legal URLs, root redirect, 404s, and sitemap against ${origin}`,
+  `Verified 32 commercial URLs, 12 unpublished legal URLs, root redirect, 404s, and sitemap against ${origin}`,
 );

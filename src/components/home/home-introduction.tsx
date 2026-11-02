@@ -1,10 +1,7 @@
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import mainPhoto from "../../../public/home-page/sezione servizi/foto-1-croupier-al-tavolo.png";
-import roulettePhoto from "../../../public/home-page/sezione servizi/foto-2-roulette.png";
-import tablePhoto from "../../../public/home-page/sezione servizi/foto-3-tavolo.png";
-import luganoPhoto from "../../../public/home-page/sezione servizi/foto-4- lugano.png";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -91,30 +88,38 @@ function StarIcon() {
 
 const stepIcons = [CalendarIcon, GuestsIcon, WelcomeIcon, StarIcon] as const;
 
+const roulettePhoto = "/giochi-e-servizi/noleggio-tavoli-da-roulette/tavolo-da-roulette.PNG";
+const blackjackPhoto = "/giochi-e-servizi/noleggio-tavoli-da-blck-jack/tavolo-da-black-jack.PNG";
+const pokerPhoto = "/giochi-e-servizi/noleggio-tavoli-da-poker/tavolo-da-poker.PNG";
+
 function FloatPhoto({
   src,
   alt,
+  width,
+  height,
   className,
-  imageClassName,
   sizes,
 }: {
-  src: StaticImageData;
+  src: string;
   alt: string;
+  width: number;
+  height: number;
   className: string;
-  imageClassName: string;
   sizes: string;
 }) {
   return (
     <div
-      className={`group relative overflow-hidden rounded-[0.4rem] border border-brand-gold/80 bg-graphite shadow-[0_18px_42px_rgb(16_17_20/0.22)] transition duration-300 ease-[var(--ease-standard)] hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgb(16_17_20/0.3)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${className}`}
+      className={`overflow-hidden rounded-[0.4rem] border border-brand-gold/80 shadow-[0_18px_42px_rgb(16_17_20/0.22)] transition duration-300 ease-[var(--ease-standard)] hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgb(16_17_20/0.3)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${className}`}
     >
       <Image
         src={src}
         alt={alt}
-        fill
+        width={width}
+        height={height}
         sizes={sizes}
         quality={85}
-        className={`object-cover transition duration-300 ease-[var(--ease-standard)] group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100 ${imageClassName}`}
+        className="block h-auto w-full"
+        style={{ width: "100%", height: "auto" }}
       />
     </div>
   );
@@ -156,25 +161,28 @@ export async function HomeIntroduction() {
         />
         <div className="relative z-20 mt-4 grid grid-cols-2 items-end gap-2.5 px-4 sm:grid-cols-3 sm:gap-3 sm:px-6 lg:px-8 xl:absolute xl:right-[3%] xl:bottom-8 xl:mt-0 xl:flex xl:w-[min(44rem,48%)] xl:items-end xl:justify-end xl:gap-0 xl:px-0 min-[1680px]:right-[max(1.25rem,calc((100%-80rem)/2))]">
           <FloatPhoto
+            src={blackjackPhoto}
+            alt={t("intro.images.table")}
+            width={1448}
+            height={1086}
+            sizes="(min-width: 1280px) 220px, (min-width: 640px) 30vw, 46vw"
+            className="z-10 xl:mb-14 xl:w-[34%]"
+          />
+          <FloatPhoto
             src={roulettePhoto}
             alt={t("intro.images.roulette")}
-            sizes="(min-width: 1280px) 220px, (min-width: 640px) 30vw, 46vw"
-            imageClassName="object-[76%_center]"
-            className="z-10 aspect-[4/3] xl:mb-14 xl:aspect-[5/4] xl:w-[34%]"
-          />
-          <FloatPhoto
-            src={tablePhoto}
-            alt={t("intro.images.table")}
+            width={1575}
+            height={999}
             sizes="(min-width: 1280px) 250px, (min-width: 640px) 30vw, 46vw"
-            imageClassName="object-[center_42%]"
-            className="z-20 aspect-[4/3] xl:-ml-8 xl:mb-1 xl:aspect-[4/3] xl:w-[38%]"
+            className="z-20 xl:-ml-8 xl:mb-1 xl:w-[38%]"
           />
           <FloatPhoto
-            src={luganoPhoto}
+            src={pokerPhoto}
             alt={t("intro.images.lugano")}
+            width={1448}
+            height={1086}
             sizes="(min-width: 1280px) 210px, (min-width: 640px) 30vw, 92vw"
-            imageClassName="object-[center_58%]"
-            className="z-30 col-span-2 aspect-[16/8] sm:col-span-1 sm:aspect-[4/3] xl:-ml-7 xl:mb-9 xl:aspect-[3/4] xl:w-[32%]"
+            className="z-30 col-span-2 sm:col-span-1 xl:-ml-7 xl:mb-9 xl:w-[32%]"
           />
         </div>
       </div>

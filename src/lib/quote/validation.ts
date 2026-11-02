@@ -1,10 +1,10 @@
 import {
   isContactPreferenceId,
-  isDurationId,
   isEventTypeId,
   isExperienceId,
   isGuestRangeId,
   isObjectiveId,
+  isReferralSourceId,
   quoteLimits,
   type QuoteDraft,
   type QuoteStep,
@@ -48,6 +48,20 @@ function fail(errors: QuoteErrors, firstField: string): QuoteValidation {
   return { ok: false, errors, firstField: first };
 }
 
+export function validateQuoteDraft(draft: QuoteDraft, todayIso: string): QuoteValidation {
+  const errors: QuoteErrors = {};
+  for (const step of [1, 2, 3] as const) {
+    const result = validateQuoteStep(draft, step, todayIso);
+    if (!result.ok) {
+      Object.assign(errors, result.errors);
+    }
+  }
+  if (Object.keys(errors).length === 0) {
+    return { ok: true };
+  }
+  return fail(errors, Object.keys(errors)[0]);
+}
+
 export function validateQuoteStep(
   draft: QuoteDraft,
   step: QuoteStep,
@@ -76,9 +90,6 @@ export function validateQuoteStep(
     }
     if (!isGuestRangeId(draft.guestRange)) {
       errors["quote-guests"] = "errors.guests";
-    }
-    if (draft.duration && !isDurationId(draft.duration)) {
-      errors["quote-duration"] = "errors.choice";
     }
   }
 
@@ -120,6 +131,15 @@ export function validateQuoteStep(
     }
     if (!isContactPreferenceId(draft.contactPreference)) {
       errors["quote-preference"] = "errors.preference";
+    }
+    if (draft.referralSource && !isReferralSourceId(draft.referralSource)) {
+      errors["quote-referral"] = "errors.choice";
+    }
+    if (
+      draft.referralSource === "other" &&
+      draft.referralSourceOther.trim().length > quoteLimits.referralOther
+    ) {
+      errors["quote-referral-other"] = "errors.referralMax";
     }
   }
 

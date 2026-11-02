@@ -1,13 +1,16 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { QuoteField } from "@/components/quote/quote-field";
+import { QuoteField, QuoteSelect } from "@/components/quote/quote-field";
+import { Link } from "@/i18n/navigation";
+import { legalPathnames } from "@/i18n/routes";
 import { QuoteOptionCard } from "@/components/quote/quote-option-card";
-import { QuoteSubmissionNotice } from "@/components/quote/quote-submission-notice";
 import { QuoteSummary } from "@/components/quote/quote-summary";
 import {
   contactPreferenceIds,
+  isReferralSourceId,
   quoteLimits,
+  referralSourceIds,
   type ContactPreferenceId,
   type QuoteDraft,
 } from "@/lib/quote/types";
@@ -142,13 +145,58 @@ export function QuoteStepContact({
           </p>
         ) : null}
       </fieldset>
+      <div className="grid gap-6">
+        <QuoteSelect
+          id="quote-referral"
+          label={t("fields.referral.label")}
+          requirement={optional}
+          placeholder={t("fields.referral.placeholder")}
+          value={draft.referralSource}
+          options={referralSourceIds.map((id) => ({
+            value: id,
+            label: t(`options.referral.${id}`),
+          }))}
+          error={errors["quote-referral"] ? t(errors["quote-referral"]) : undefined}
+          errorId="quote-referral-error"
+          onChange={(value) => {
+            const referralSource = isReferralSourceId(value) ? value : "";
+            onChange({
+              referralSource,
+              referralSourceOther: referralSource === "other" ? draft.referralSourceOther : "",
+            });
+          }}
+        />
+        {draft.referralSource === "other" ? (
+          <QuoteField
+            id="quote-referral-other"
+            label={t("fields.referral.otherLabel")}
+            requirement={optional}
+            autoComplete="off"
+            placeholder={t("fields.referral.otherPlaceholder")}
+            value={draft.referralSourceOther}
+            maxLength={quoteLimits.referralOther}
+            error={errors["quote-referral-other"] ? t(errors["quote-referral-other"]) : undefined}
+            errorId="quote-referral-other-error"
+            onChange={(referralSourceOther) => onChange({ referralSourceOther })}
+          />
+        ) : null}
+      </div>
       <section aria-labelledby="quote-privacy-title" className="border border-line-on-light p-6">
         <h3 id="quote-privacy-title" className="type-h4">
           {t("privacy.title")}
         </h3>
         <p className="type-body mt-3 text-text-muted-on-light">{t("privacy.body")}</p>
+        <p className="type-body mt-3 text-text-muted-on-light">
+          {t("privacy.linkLead")}
+          <Link
+            href={legalPathnames.privacy}
+            className="underline decoration-brand-gold/70 underline-offset-4 hover:text-brand-red"
+          >
+            {t("privacy.link")}
+          </Link>
+          .
+        </p>
       </section>
-      <QuoteSubmissionNotice />
     </div>
   );
 }

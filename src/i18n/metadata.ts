@@ -4,6 +4,12 @@ import { hasLocale } from "next-intl";
 import { getPathname } from "./navigation";
 import { routing } from "./routing";
 import {
+  gameLandingPathnames,
+  gameLandings,
+  type GameLandingId,
+  type GameLandingPathname,
+} from "./game-landings";
+import {
   legalPathnames,
   routePathnames,
   type LegalRouteId,
@@ -91,6 +97,63 @@ export async function getLegalMetadata(routeId: LegalRouteId): Promise<Metadata>
   };
 }
 
+export function absoluteGameLandingUrl(pathname: GameLandingPathname, locale: Locale) {
+  return new URL(getPathname({ locale, href: pathname }), CANONICAL_ORIGIN).href;
+}
+
+export function gameLandingLanguageAlternates(pathname: GameLandingPathname) {
+  const localized = gameLandingPathnames[pathname];
+  const languages: Record<string, string> = {};
+
+  for (const locale of Object.keys(localized) as Array<keyof typeof localized>) {
+    languages[locale] = absoluteGameLandingUrl(pathname, locale);
+  }
+
+  const fallback = ("it" in localized ? "it" : Object.keys(localized)[0]) as Locale;
+  languages["x-default"] = absoluteGameLandingUrl(pathname, fallback);
+  return languages;
+}
+
+export async function getGameLandingMetadata(gameId: GameLandingId): Promise<Metadata> {
+  const locale = await getLocale();
+
+  if (!hasLocale(routing.locales, locale)) {
+    return {};
+  }
+
+  const pathname = gameLandings[gameId].internalPath;
+  if (!(pathname in gameLandingPathnames)) {
+    return {};
+  }
+
+  const publicPath = pathname as GameLandingPathname;
+  if (!Object.prototype.hasOwnProperty.call(gameLandingPathnames[publicPath], locale)) {
+    return {};
+  }
+
+  const t = await getTranslations(`GameLandings.${gameId}`);
+  const title = t("seoTitle");
+  const description = t("seoDescription");
+  const url = absoluteGameLandingUrl(publicPath, locale);
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: gameLandingLanguageAlternates(publicPath),
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Casino Show",
+      locale: openGraphLocales[locale],
+      type: "website",
+    },
+  };
+}
+
 export async function getPageMetadata(routeId: RouteId): Promise<Metadata> {
   const locale = await getLocale();
 
@@ -99,7 +162,7 @@ export async function getPageMetadata(routeId: RouteId): Promise<Metadata> {
   }
 
   const t = await getTranslations(`Pages.${routeId}`);
-  const title = t("heading");
+  const title = t.has("title") ? t("title") : t("heading");
   const description = t("description");
   const url = absoluteLocalizedUrl(routeId, locale);
 

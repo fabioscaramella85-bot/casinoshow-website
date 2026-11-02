@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { FloatingSocial } from "@/components/social/floating-social";
 import type { ShellRouteId } from "@/i18n/routes";
 
 type SiteShellProps = {
@@ -22,6 +23,7 @@ export async function SiteShell({ routeId, children }: SiteShellProps) {
         {children}
       </main>
       <SiteFooter />
+      <FloatingSocial />
     </>
   );
 }

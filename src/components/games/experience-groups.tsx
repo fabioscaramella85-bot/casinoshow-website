@@ -3,7 +3,17 @@ import { getTranslations } from "next-intl/server";
 import { gameAnchors, gamePhotos, type GameKey } from "@/components/games/game-photos";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { gameLandingHref } from "@/i18n/game-landings";
+import { Link } from "@/i18n/navigation";
 import { routePathnames } from "@/i18n/routes";
+
+const discoverHref = {
+  roulette: gameLandingHref.roulette,
+  blackjack: gameLandingHref.blackjack,
+  poker: gameLandingHref.poker,
+  wheel: gameLandingHref["wheel-of-fortune"],
+  dice: gameLandingHref["chuck-a-luck"],
+} as const;
 
 const highlightKeys = ["a", "b", "c"] as const;
 
@@ -73,20 +83,35 @@ export async function ExperienceGroups() {
                     <p className={`type-body mt-4 ${dark ? "text-ivory/80" : "text-text-muted-on-light"}`}>
                       {t(`experiences.${key}.occasions`)}
                     </p>
-                    <ul className="mt-6 grid gap-3">
+                    <ul className="gx-facts" data-tone={dark ? "dark" : "light"}>
                       {highlightKeys.map((item) => (
-                        <li
-                          key={item}
-                          className={`border-t pt-3 text-[0.95rem] leading-snug ${
-                            dark ? "border-white/15 text-ivory/90" : "border-midnight/10 text-text-on-light"
-                          }`}
-                        >
-                          {t(`experiences.${key}.highlights.${item}`)}
+                        <li key={item} className="gx-fact">
+                          <span className="gx-fact-mark" aria-hidden="true">
+                            <svg viewBox="0 0 12 12">
+                              <path
+                                d="M2.25 6h7.1M6.4 3.15 9.35 6 6.4 8.85"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </span>
+                          <span className="gx-fact-text">{t(`experiences.${key}.highlights.${item}`)}</span>
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-8">
+                    <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2">
                       <Button href={routePathnames.quote}>{t("experiences.cta")}</Button>
+                      {key in discoverHref ? (
+                        <Link
+                          href={discoverHref[key as keyof typeof discoverHref]}
+                          className="type-button inline-flex min-h-11 items-center text-brand-red transition-colors hover:text-brand-red-hover"
+                        >
+                          {t("experiences.discover")}
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                 </article>

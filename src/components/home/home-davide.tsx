@@ -43,7 +43,7 @@ export async function HomeDavide() {
         <div className="davide-layout">
           <div className="davide-intro davide-rise">
             <Eyebrow>{t("eyebrow")}</Eyebrow>
-            <h2 id="davide-merli-heading" className="type-h1 mt-4 max-w-xl text-balance">
+            <h2 id="davide-merli-heading" className="davide-title type-h1 mt-4 max-w-xl text-balance">
               {t.rich("title", { em: emphasis })}
             </h2>
           </div>
@@ -88,7 +88,7 @@ export async function HomeDavide() {
             <p className="davide-rise font-display text-[clamp(1.75rem,1.3rem+1vw,2.4rem)] leading-none text-midnight">
               {t("name")}
             </p>
-            <div className="davide-rise davide-rise-late mt-5 grid max-w-xl gap-4">
+            <div className="davide-prose davide-rise davide-rise-late mt-5 grid max-w-xl gap-4">
               <p className="type-body text-text-on-light">{t("lead")}</p>
               <p className="type-body text-text-muted-on-light">{t("championship")}</p>
               <p className="type-body text-text-muted-on-light">{t("today")}</p>
@@ -96,26 +96,26 @@ export async function HomeDavide() {
 
             <div className="davide-award davide-rise davide-rise-late mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 border-y border-brand-gold/40 py-5">
               <TrophyIcon />
-              <p className="font-display text-[clamp(3rem,2rem+2vw,4.25rem)] leading-none tracking-[-0.03em] text-midnight">
+              <p className="davide-year font-display text-[clamp(3rem,2rem+2vw,4.25rem)] leading-none tracking-[-0.03em] text-midnight">
                 {t("award.year")}
               </p>
               <span className="davide-award-line hidden h-12 w-px bg-brand-gold sm:block" aria-hidden="true" />
-              <div>
+              <div className="davide-award-text">
                 <p className="text-[0.72rem] tracking-[0.16em] text-gold-ink uppercase">{t("award.label")}</p>
                 <p className="mt-1 text-[0.95rem] text-text-on-light">{t("award.name")}</p>
                 <p className="text-[0.95rem] text-text-muted-on-light">{t("award.place")}</p>
               </div>
             </div>
 
-            <ul className="mt-2">
+            <ul className="davide-values mt-2">
               {values.map(({ key, icon: Icon }) => (
-                <li key={key} className="davide-rise flex gap-4 border-b border-brand-gold/25 py-4">
+                <li key={key} className="davide-value davide-rise flex gap-4 border-b border-brand-gold/25 py-4">
                   <Icon />
                   <div>
-                    <h3 className="font-display text-[1.25rem] leading-tight text-midnight">
+                    <h3 className="davide-value-title font-display text-[1.25rem] leading-tight text-midnight">
                       {t(`values.${key}.title`)}
                     </h3>
-                    <p className="mt-1 text-[0.9375rem] leading-snug text-text-muted-on-light">
+                    <p className="davide-value-body mt-1 text-[0.9375rem] leading-snug text-text-muted-on-light">
                       {t(`values.${key}.body`)}
                     </p>
                   </div>
@@ -123,7 +123,7 @@ export async function HomeDavide() {
               ))}
             </ul>
 
-            <div className="davide-rise mt-8">
+            <div className="davide-cta davide-rise mt-8">
               <Link
                 href={routePathnames.about}
                 className="group type-button inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-sm)] bg-brand-green px-5 text-ivory transition-colors duration-300 ease-standard hover:bg-[#0e6324] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand-green"
@@ -207,12 +207,31 @@ const davideStyles = `
     grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
     grid-template-areas: "photos intro" "photos copy";
     column-gap: 3.5rem;
-    row-gap: 1rem;
+    row-gap: 0.5rem;
     align-items: start;
   }
   .davide-photos { grid-area: photos; }
-  .davide-intro { grid-area: intro; align-self: end; }
+  .davide-intro { grid-area: intro; align-self: start; }
   .davide-copy { grid-area: copy; }
+  .davide-title { margin-top: 0.4rem; line-height: 1.02; }
+  .davide-prose { margin-top: 0.6rem; gap: 0.4rem; }
+  .davide-prose p { line-height: 1.38; }
+  .davide-award {
+    margin-top: 0.7rem;
+    padding-block: 0.35rem;
+    column-gap: 0.85rem;
+    row-gap: 0.35rem;
+    flex-wrap: nowrap;
+  }
+  .davide-year { font-size: clamp(2.15rem, 1.35rem + 1.15vw, 2.7rem); }
+  .davide-award-line { height: 2rem; }
+  .davide-award-text { line-height: 1.25; }
+  .davide-award-text p + p { margin-top: 0; }
+  .davide-values { margin-top: 0.1rem; }
+  .davide-value { gap: 0.65rem; padding-block: 0.3rem; }
+  .davide-value-title { line-height: 1.15; }
+  .davide-value-body { margin-top: 0.1rem; line-height: 1.32; }
+  .davide-cta { margin-top: 0.7rem; }
   .davide-archive {
     position: relative;
     z-index: 2;
