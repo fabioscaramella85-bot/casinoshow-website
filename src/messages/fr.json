@@ -1305,6 +1305,7 @@
       "title": "Entrez dans l'univers de Casino Show.",
       "lead": "Nous recherchons des personnes fiables, professionnelles et capables de mettre les invités à l'aise. Que vous ayez déjà de l'expérience aux tables de casino ou que vous souhaitiez commencer un nouveau parcours, nous avons envie de vous connaître.",
       "cta": "Envoyer votre candidature",
+      "ctaClosed": "Avis sur les candidatures",
       "imageAlt": "Croupier et invités à une table de blackjack pendant un événement."
     },
     "team": {
@@ -1336,6 +1337,10 @@
       "p1": "Casino Show crée des expériences de divertissement pour des événements d'entreprise, des fêtes privées, des mariages et des occasions particulières. Nous cherchons des collaborateurs disponibles pour participer à des événements organisés dans les différentes régions de Suisse.",
       "p2": "Nous examinons aussi les candidatures de personnes résidant dans les zones frontalières de la Suisse, dans le respect des conditions applicables pour travailler dans le pays.",
       "note": "Chaque candidature est évaluée individuellement, selon le profil, l'expérience et la disponibilité."
+    },
+    "closed": {
+      "preview": "Dans cet aperçu, les candidatures ne sont pas envoyées. Aucune donnée n'est enregistrée ni transmise.",
+      "privacy": "Les candidatures ne sont pas actives : la politique de confidentialité n'est pas encore publiée. Le formulaire ne transmet aucune donnée."
     },
     "form": {
       "title": "Candidatez chez Casino Show",
@@ -1485,6 +1490,18 @@
   "Legal": {
     "status": "Brouillon non approuvé",
     "draftNotice": "Brouillon technique du 31 octobre 2026. Ce texte n'est pas approuvé et ne remplace pas la vérification du responsable ou d'un conseil. Le marqueur [DA CONFERMARE] indique une donnée ou une appréciation encore absente.",
+    "unpublished": {
+      "notice": "Ce document n'est pas encore disponible. Le texte de cette page n'est pas un document juridique approuvé.",
+      "privacy": {
+        "title": "Politique de confidentialité pas encore disponible"
+      },
+      "cookies": {
+        "title": "Politique relative aux cookies pas encore disponible"
+      },
+      "legalNotice": {
+        "title": "Mentions légales pas encore disponibles"
+      }
+    },
     "privacy": {
       "title": "Politique de confidentialité",
       "unavailable": "Brouillon non approuvé. Ce n'est pas une politique de confidentialité définitive.",

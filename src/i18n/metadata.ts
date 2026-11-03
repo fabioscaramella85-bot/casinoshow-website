@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { hasLocale } from "next-intl";
+import { isLegalContentPublished } from "@/config/legal";
 import { getPathname } from "./navigation";
 import { routing } from "./routing";
 import {
@@ -70,9 +71,10 @@ export async function getLegalMetadata(routeId: LegalRouteId): Promise<Metadata>
     return {};
   }
 
-  const t = await getTranslations(`Legal.${routeId}`);
-  const title = t("title");
-  const description = t("unavailable");
+  const published = isLegalContentPublished(routeId);
+  const t = await getTranslations(published ? `Legal.${routeId}` : "Legal.unpublished");
+  const title = published ? t("title") : t(`${routeId}.title`);
+  const description = published ? t("unavailable") : t("notice");
   const url = absoluteLegalUrl(routeId, locale);
 
   return {

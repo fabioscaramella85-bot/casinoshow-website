@@ -1305,6 +1305,7 @@
       "title": "Entra nel mondo di Casino Show.",
       "lead": "Cerchiamo persone affidabili, professionali e capaci di coinvolgere gli ospiti. Che tu abbia già esperienza ai tavoli da casinò o voglia iniziare un nuovo percorso, siamo interessati a conoscerti.",
       "cta": "Invia la tua candidatura",
+      "ctaClosed": "Avviso sulle candidature",
       "imageAlt": "Croupier e ospiti a un tavolo di blackjack durante un evento."
     },
     "team": {
@@ -1336,6 +1337,10 @@
       "p1": "Casino Show realizza esperienze di intrattenimento per eventi aziendali, feste private, matrimoni e occasioni speciali. Cerchiamo collaboratori disponibili a partecipare a eventi organizzati nelle diverse regioni della Svizzera.",
       "p2": "Valutiamo anche candidature di persone residenti nelle zone di confine con la Svizzera, compatibilmente con i requisiti applicabili per lavorare nel Paese.",
       "note": "Ogni candidatura viene valutata individualmente in base al profilo, all'esperienza e alla disponibilità."
+    },
+    "closed": {
+      "preview": "In questa anteprima le candidature non vengono inviate. Nessun dato viene salvato o trasmesso.",
+      "privacy": "Le candidature non sono attive: l'informativa sulla privacy non è ancora pubblicata. Il modulo non invia dati."
     },
     "form": {
       "title": "Candidati a Casino Show",
@@ -1485,6 +1490,18 @@
   "Legal": {
     "status": "Bozza non approvata",
     "draftNotice": "Bozza tecnica del 31 ottobre 2026. Questo testo non è approvato e non sostituisce la verifica del titolare o di un consulente. Il marcatore [DA CONFERMARE] indica un dato o una valutazione ancora assente.",
+    "unpublished": {
+      "notice": "Questo documento non è ancora disponibile. Il testo di questa pagina non è un'informativa legale approvata.",
+      "privacy": {
+        "title": "Informativa sulla privacy non ancora disponibile"
+      },
+      "cookies": {
+        "title": "Informativa sui cookie non ancora disponibile"
+      },
+      "legalNotice": {
+        "title": "Note legali non ancora disponibili"
+      }
+    },
     "privacy": {
       "title": "Informativa sulla privacy",
       "unavailable": "Bozza non approvata. Non è un'informativa sulla privacy definitiva.",

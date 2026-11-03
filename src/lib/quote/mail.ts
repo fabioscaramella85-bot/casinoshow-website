@@ -1,3 +1,5 @@
+import { isLegalContentPublished } from "../../config/legal";
+import { previewOutboundMailBlocked } from "../preview/protection";
 import { getCareersMailConfig } from "../careers/mail";
 import { postResendMessage } from "../mail/resend";
 import type { QuoteInquiry } from "./inquiry";
@@ -164,6 +166,11 @@ ${htmlLine("Data e ora della richiesta", inquiry.submittedAt)}
 }
 
 export async function sendQuoteEmail(inquiry: QuoteInquiry): Promise<"sent" | "error"> {
+  if (previewOutboundMailBlocked() || !isLegalContentPublished("privacy")) {
+    console.error("[quote] delivery blocked");
+    return "error";
+  }
+
   const config = getCareersMailConfig();
   if (!config.ready) {
     console.error(`[quote] delivery not configured: ${config.missing.join(", ")}`);

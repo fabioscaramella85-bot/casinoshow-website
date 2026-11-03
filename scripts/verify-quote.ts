@@ -321,12 +321,9 @@ process.env.RESEND_API_KEY = "test-key";
 process.env.CASINO_SHOW_EMAIL_FROM = "Casino Show <jobs@casinoshow.ch>";
 process.env.CASINO_SHOW_EMAIL_TO = "info@casinoshow.ch";
 const originalFetch = globalThis.fetch;
-globalThis.fetch = async (_input, init) => {
-  const body = JSON.parse(String(init?.body));
-  assert.equal(body.reply_to, "ada@example.test");
-  assert.equal(body.to[0], "info@casinoshow.ch");
-  assert.equal(JSON.stringify(body).includes("test-key"), false);
-  assert.equal(init?.headers && JSON.stringify(init.headers).includes("test-key"), true);
+let quoteFetches = 0;
+globalThis.fetch = async () => {
+  quoteFetches += 1;
   return new Response(JSON.stringify({ id: "email_test" }), { status: 200 });
 };
 const sentMail = await sendQuoteEmail({
@@ -349,7 +346,8 @@ const sentMail = await sendQuoteEmail({
   referralSourceOther: "",
   submittedAt: "2026-10-12T10:00:00.000Z",
 });
-assert.equal(sentMail, "sent");
+assert.equal(sentMail, "error");
+assert.equal(quoteFetches, 0);
 globalThis.fetch = async () => new Response(JSON.stringify({}), { status: 500 });
 assert.equal(
   await sendQuoteEmail({
@@ -385,6 +383,15 @@ else process.env.CASINO_SHOW_EMAIL_TO = savedTo;
 assert.equal(quoteSendingEnabled({} as NodeJS.ProcessEnv), false);
 assert.equal(
   canTransmitQuote({ CASINO_SHOW_QUOTE_DELIVERY: "enabled" } as NodeJS.ProcessEnv),
+  false,
+);
+assert.equal(
+  canTransmitQuote({
+    CASINO_SHOW_QUOTE_DELIVERY: "enabled",
+    RESEND_API_KEY: "test-key",
+    CASINO_SHOW_EMAIL_FROM: "Casino Show <jobs@casinoshow.ch>",
+    CASINO_SHOW_EMAIL_TO: "info@casinoshow.ch",
+  } as unknown as NodeJS.ProcessEnv),
   false,
 );
 assert.equal(messages[0].Quote.nav.submit, "Invia la richiesta");

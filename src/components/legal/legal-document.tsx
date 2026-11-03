@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { SiteShell } from "@/components/site-shell";
 import { Container } from "@/components/ui/container";
+import { isLegalContentPublished } from "@/config/legal";
 import type { LegalRouteId } from "@/i18n/routes";
 
 type LegalSection = {
@@ -38,6 +39,25 @@ function MarkedText({ text }: { text: string }) {
 }
 
 export async function LegalDocument({ routeId }: LegalDocumentProps) {
+  if (!isLegalContentPublished(routeId)) {
+    const unpublished = await getTranslations("Legal.unpublished");
+
+    return (
+      <SiteShell routeId={routeId}>
+        <article className="py-16 md:py-24" data-legal-status="unpublished">
+          <Container>
+            <div className="max-w-3xl">
+              <h1 className="type-h1 text-balance">{unpublished(`${routeId}.title`)}</h1>
+              <p className="type-body mt-6 border border-line-on-light bg-ivory px-4 py-4 text-text-on-light">
+                {unpublished("notice")}
+              </p>
+            </div>
+          </Container>
+        </article>
+      </SiteShell>
+    );
+  }
+
   const legal = await getTranslations("Legal");
   const copy = await getTranslations(`Legal.${routeId}`);
   const sections = copy.raw("sections");

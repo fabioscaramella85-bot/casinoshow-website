@@ -9,3 +9,7 @@ export const legalContentPublished: Record<LegalRouteId, boolean> = {
   cookies: false,
   legalNotice: false,
 };
+
+export function isLegalContentPublished(routeId: LegalRouteId): boolean {
+  return legalContentPublished[routeId] === true;
+}

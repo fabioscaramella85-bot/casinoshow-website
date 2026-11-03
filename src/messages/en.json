@@ -1305,6 +1305,7 @@
       "title": "Step into the world of Casino Show.",
       "lead": "We are looking for reliable, professional people who can engage guests. Whether you already have experience at casino tables or want to start a new path, we would like to meet you.",
       "cta": "Send your application",
+      "ctaClosed": "Application notice",
       "imageAlt": "A croupier and guests at a blackjack table during an event."
     },
     "team": {
@@ -1336,6 +1337,10 @@
       "p1": "Casino Show creates entertainment for corporate events, private parties, weddings and special occasions. We are looking for collaborators available to take part in events organised across the regions of Switzerland.",
       "p2": "We also consider applications from people living in areas bordering Switzerland, subject to the requirements that apply to working in the country.",
       "note": "Every application is assessed individually, based on profile, experience and availability."
+    },
+    "closed": {
+      "preview": "In this preview, applications are not sent. No details are stored or transmitted.",
+      "privacy": "Applications are not open: the privacy policy is not published yet. The form does not send any details."
     },
     "form": {
       "title": "Apply to Casino Show",
@@ -1485,6 +1490,18 @@
   "Legal": {
     "status": "Unapproved draft",
     "draftNotice": "Technical draft of 31 October 2026. This text is not approved and does not replace a review by the controller or by counsel. The marker [DA CONFERMARE] means a fact or an assessment is still missing.",
+    "unpublished": {
+      "notice": "This document is not available yet. The text on this page is not an approved legal notice.",
+      "privacy": {
+        "title": "Privacy policy not available yet"
+      },
+      "cookies": {
+        "title": "Cookie policy not available yet"
+      },
+      "legalNotice": {
+        "title": "Legal notice not available yet"
+      }
+    },
     "privacy": {
       "title": "Privacy Policy",
       "unavailable": "Unapproved draft. This is not a final privacy policy.",

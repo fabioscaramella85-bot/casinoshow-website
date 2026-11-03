@@ -392,10 +392,10 @@ const legalPages = [
       en: "/en/privacy-policy",
     },
     titles: {
-      it: "Informativa sulla privacy",
-      de: "Datenschutzerklärung",
-      fr: "Politique de confidentialité",
-      en: "Privacy Policy",
+      it: "Informativa sulla privacy non ancora disponibile",
+      de: "Datenschutzerklärung noch nicht verfügbar",
+      fr: "Politique de confidentialité pas encore disponible",
+      en: "Privacy policy not available yet",
     },
   },
   {
@@ -407,10 +407,10 @@ const legalPages = [
       en: "/en/cookie-policy",
     },
     titles: {
-      it: "Informativa sui cookie",
-      de: "Cookie-Richtlinie",
-      fr: "Politique relative aux cookies",
-      en: "Cookie Policy",
+      it: "Informativa sui cookie non ancora disponibile",
+      de: "Cookie-Richtlinie noch nicht verfügbar",
+      fr: "Politique relative aux cookies pas encore disponible",
+      en: "Cookie policy not available yet",
     },
   },
   {
@@ -422,19 +422,19 @@ const legalPages = [
       en: "/en/legal-notice",
     },
     titles: {
-      it: "Note legali",
-      de: "Impressum",
-      fr: "Mentions légales",
-      en: "Legal Notice",
+      it: "Note legali non ancora disponibili",
+      de: "Impressum noch nicht verfügbar",
+      fr: "Mentions légales pas encore disponibles",
+      en: "Legal notice not available yet",
     },
   },
 ];
 
-const legalMarkers = {
-  it: "Bozza non approvata",
-  de: "Nicht genehmigter Entwurf",
-  fr: "Brouillon non approuvé",
-  en: "Unapproved draft",
+const legalNotices = {
+  it: "Questo documento non è ancora disponibile. Il testo di questa pagina non è un'informativa legale approvata.",
+  de: "Dieses Dokument ist noch nicht verfügbar. Der Text dieser Seite ist kein genehmigter Rechtstext.",
+  fr: "Ce document n'est pas encore disponible. Le texte de cette page n'est pas un document juridique approuvé.",
+  en: "This document is not available yet. The text on this page is not an approved legal notice.",
 };
 
 for (const page of legalPages) {
@@ -447,9 +447,12 @@ for (const page of legalPages) {
       continue;
     }
     if (!/noindex/i.test(result.text)) fail(`${label} missing noindex`);
-    if (!result.text.includes(legalMarkers[locale])) fail(`${label} missing preparation notice`);
-    if (!result.text.includes("[DA CONFERMARE]")) fail(`${label} missing confirmation marker`);
-    if (!result.text.includes('data-legal-draft="true"')) fail(`${label} missing draft flag`);
+    if (!result.text.includes(legalNotices[locale])) fail(`${label} missing unpublished notice`);
+    if (result.text.includes("[DA CONFERMARE]")) fail(`${label} published a draft marker`);
+    if (result.text.includes("Immoevents360")) fail(`${label} published an unverified company name`);
+    if (result.text.includes("CH-501.4.029.022-5")) fail(`${label} published an unverified register number`);
+    if (result.text.includes('data-legal-draft="true"')) fail(`${label} still renders the draft document`);
+    if (!result.text.includes('data-legal-status="unpublished"')) fail(`${label} missing unpublished status`);
     const heading = decode(result.text.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] ?? "");
     if (heading !== page.titles[locale]) fail(`${label} heading "${heading}"`);
     const canonical = result.text.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
@@ -457,6 +460,11 @@ for (const page of legalPages) {
     if (locs.includes(`${canonicalOrigin}${path}`)) fail(`${label} is in the sitemap`);
     const route = result.text.match(/data-route="([^"]+)"/)?.[1];
     if (route !== page.id) fail(`${label} data-route ${route}`);
+    if (locale === "it" && page.id === "privacy") {
+      for (const alternate of ["/de/datenschutz", "/fr/politique-de-confidentialite", "/en/privacy-policy"]) {
+        if (!result.text.includes(alternate)) fail(`${label} missing language link ${alternate}`);
+      }
+    }
   }
 }
 
@@ -484,6 +492,16 @@ for (const page of legalPages) {
 const quoteIt = await request("/it/preventivo");
 if (!quoteIt.text.includes("non vengono trasmessi")) {
   fail("quote submission notice missing");
+}
+const careersIt = await request("/it/lavora-con-noi");
+if (!careersIt.text.includes('data-careers-intake="unpublished"')) {
+  fail("careers form still open without a published privacy policy");
+}
+if (!careersIt.text.includes("Le candidature non sono attive")) {
+  fail("careers closed notice missing");
+}
+if (careersIt.text.includes('id="careers-privacy"')) {
+  fail("careers still asks for a privacy declaration");
 }
 const headerLogo = await request("/loghi/logo-header.png");
 if (headerLogo.status !== 200) fail(`header logo asset ${headerLogo.status}`);

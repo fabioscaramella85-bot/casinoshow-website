@@ -2,7 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { QuoteSubmissionNotice } from "@/components/quote/quote-submission-notice";
 import { QuoteWizard } from "@/components/quote/quote-wizard";
 import { previewOutboundMailBlocked } from "@/lib/preview/protection";
-import { quoteSendingEnabled } from "@/lib/quote/submission";
+import { canTransmitQuote } from "@/lib/quote/submission";
 import { SiteShell } from "@/components/site-shell";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -12,7 +12,7 @@ export async function QuotePageView() {
   const page = await getTranslations("Pages.quote");
   const t = await getTranslations("Quote");
   const locale = await getLocale();
-  const deliveryEnabled = quoteSendingEnabled() && !previewOutboundMailBlocked();
+  const deliveryEnabled = canTransmitQuote() && !previewOutboundMailBlocked();
 
   return (
     <SiteShell routeId="quote">

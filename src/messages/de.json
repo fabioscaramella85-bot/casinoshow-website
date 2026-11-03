@@ -1305,6 +1305,7 @@
       "title": "Werden Sie Teil von Casino Show.",
       "lead": "Wir suchen zuverlässige, professionelle Menschen, die Gäste begeistern können. Ob Sie bereits Erfahrung an Casinotischen haben oder einen neuen Weg beginnen möchten: wir lernen Sie gerne kennen.",
       "cta": "Bewerbung senden",
+      "ctaClosed": "Hinweis zu Bewerbungen",
       "imageAlt": "Croupier und Gäste an einem Blackjack-Tisch während eines Anlasses."
     },
     "team": {
@@ -1336,6 +1337,10 @@
       "p1": "Casino Show gestaltet Unterhaltung für Firmenanlässe, private Feste, Hochzeiten und besondere Gelegenheiten. Wir suchen Mitarbeitende, die an Anlässen in den verschiedenen Regionen der Schweiz teilnehmen können.",
       "p2": "Wir prüfen auch Bewerbungen von Personen mit Wohnsitz in den Grenzregionen zur Schweiz, sofern die Voraussetzungen für eine Tätigkeit im Land erfüllt sind.",
       "note": "Jede Bewerbung wird einzeln beurteilt, nach Profil, Erfahrung und Verfügbarkeit."
+    },
+    "closed": {
+      "preview": "In dieser Vorschau werden Bewerbungen nicht gesendet. Es werden keine Angaben gespeichert oder übermittelt.",
+      "privacy": "Bewerbungen sind nicht aktiv: die Datenschutzerklärung ist noch nicht veröffentlicht. Das Formular übermittelt keine Angaben."
     },
     "form": {
       "title": "Bewerben Sie sich bei Casino Show",
@@ -1485,6 +1490,18 @@
   "Legal": {
     "status": "Nicht genehmigter Entwurf",
     "draftNotice": "Technischer Entwurf vom 31. Oktober 2026. Dieser Text ist nicht genehmigt und ersetzt keine Prüfung durch die verantwortliche Stelle oder eine Beratung. Die Markierung [DA CONFERMARE] steht für eine Angabe oder eine Bewertung, die noch fehlt.",
+    "unpublished": {
+      "notice": "Dieses Dokument ist noch nicht verfügbar. Der Text dieser Seite ist kein genehmigter Rechtstext.",
+      "privacy": {
+        "title": "Datenschutzerklärung noch nicht verfügbar"
+      },
+      "cookies": {
+        "title": "Cookie-Richtlinie noch nicht verfügbar"
+      },
+      "legalNotice": {
+        "title": "Impressum noch nicht verfügbar"
+      }
+    },
     "privacy": {
       "title": "Datenschutzerklärung",
       "unavailable": "Nicht genehmigter Entwurf. Dies ist keine definitive Datenschutzerklärung.",

@@ -3,6 +3,7 @@ import fs from "node:fs";
 import { inspectCv, safeCvFilename } from "../src/lib/careers/cv.ts";
 import { buildCareersEmail, getCareersMailConfig, sendCareersEmail } from "../src/lib/careers/mail.ts";
 import type { CareersInquiry } from "../src/lib/careers/inquiry.ts";
+import { careersDeliveryAllowed, careersIntake } from "../src/lib/careers/intake.ts";
 import { processCareersSubmission } from "../src/lib/careers/process.ts";
 import { allowCareersSubmission, careersRateLimitHasKey } from "../src/lib/careers/rate-limit.ts";
 import { careerLimits } from "../src/lib/careers/schema.ts";
@@ -265,16 +266,13 @@ if (sentInquiry) {
   globalThis.fetch = async () => new Response(JSON.stringify({}), { status: 200 });
   assert.equal(await sendCareersEmail(inquiry), "error");
 
-  globalThis.fetch = async (_input, init) => {
-    const body = JSON.parse(String(init?.body));
-    assert.equal(body.reply_to, "ada@example.test");
-    assert.equal(body.to[0], "info@casinoshow.ch");
-    assert.equal(body.attachments[0].filename, "Mario-Rossi.pdf");
-    assert.equal(typeof body.attachments[0].content, "string");
-    assert.equal(body.attachments[0].content.includes("Mario"), false);
+  let careerFetches = 0;
+  globalThis.fetch = async () => {
+    careerFetches += 1;
     return new Response(JSON.stringify({ id: "email_test" }), { status: 200 });
   };
-  assert.equal(await sendCareersEmail(inquiry), "sent");
+  assert.equal(await sendCareersEmail(inquiry), "error");
+  assert.equal(careerFetches, 0);
   globalThis.fetch = originalFetch;
 }
 
@@ -284,5 +282,16 @@ if (savedEnv.from === undefined) delete process.env.CASINO_SHOW_EMAIL_FROM;
 else process.env.CASINO_SHOW_EMAIL_FROM = savedEnv.from;
 if (savedEnv.to === undefined) delete process.env.CASINO_SHOW_EMAIL_TO;
 else process.env.CASINO_SHOW_EMAIL_TO = savedEnv.to;
+
+const previewEnv = { CASINO_SHOW_PREVIEW_MODE: "enabled" } as unknown as NodeJS.ProcessEnv;
+const readyMail = {
+  RESEND_API_KEY: "test-key",
+  CASINO_SHOW_EMAIL_FROM: "Casino Show <jobs@casinoshow.ch>",
+  CASINO_SHOW_EMAIL_TO: "info@casinoshow.ch",
+} as unknown as NodeJS.ProcessEnv;
+assert.equal(careersIntake({} as NodeJS.ProcessEnv), "unpublished");
+assert.equal(careersIntake(previewEnv), "preview");
+assert.equal(careersDeliveryAllowed(readyMail), false);
+assert.equal(careersDeliveryAllowed({ ...readyMail, CASINO_SHOW_PREVIEW_MODE: "enabled" }), false);
 
 console.log("verify:careers ok");

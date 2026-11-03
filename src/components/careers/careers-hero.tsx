@@ -2,12 +2,14 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { careersIntake } from "@/lib/careers/intake";
 
 const heroSrc = "/images/gallery/fc-blackjack-croupier-guests-006.webp";
 
 export async function CareersHero() {
   const page = await getTranslations("Pages.careers");
   const t = await getTranslations("Careers.hero");
+  const intake = careersIntake();
 
   if (t("title") !== page("heading")) {
     throw new Error("Careers hero title must match Pages.careers.heading.");
@@ -43,7 +45,7 @@ export async function CareersHero() {
               href="#candidatura"
               className="type-button mt-8 inline-flex min-h-12 w-full items-center justify-center bg-brand-red px-5 text-white transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:bg-brand-red-hover md:min-h-11 md:w-auto"
             >
-              {t("cta")}
+              {intake === "open" ? t("cta") : t("ctaClosed")}
             </a>
           </div>
         </Container>

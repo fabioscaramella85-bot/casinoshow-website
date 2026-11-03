@@ -12,6 +12,7 @@ import {
 export type CareersSubmitResult =
   | { status: "invalid"; fields: CareersFieldErrors }
   | { status: "sent" }
+  | { status: "unavailable" }
   | { status: "error" };
 
 export type CareersDelivery = {

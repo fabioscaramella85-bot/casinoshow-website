@@ -6,7 +6,7 @@ import { sendQuoteEmail } from "@/lib/quote/mail";
 import { processQuoteSubmission, type QuoteSubmitResult } from "@/lib/quote/process";
 import { allowQuoteSubmission } from "@/lib/quote/rate-limit";
 import { previewOutboundMailBlocked } from "@/lib/preview/protection";
-import { quoteSendingEnabled } from "@/lib/quote/submission";
+import { canTransmitQuote } from "@/lib/quote/submission";
 
 function clientKey(headerList: Headers): string {
   const forwarded = headerList.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
@@ -15,7 +15,7 @@ function clientKey(headerList: Headers): string {
 }
 
 export async function submitQuoteRequest(formData: FormData): Promise<QuoteSubmitResult> {
-  if (previewOutboundMailBlocked() || !quoteSendingEnabled()) {
+  if (previewOutboundMailBlocked() || !canTransmitQuote()) {
     return { status: "unavailable" };
   }
 
@@ -23,11 +23,12 @@ export async function submitQuoteRequest(formData: FormData): Promise<QuoteSubmi
   const config = getCareersMailConfig();
   if (!config.ready) {
     console.error(`[quote] delivery not configured: ${config.missing.join(", ")}`);
+    return { status: "unavailable" };
   }
 
   return processQuoteSubmission(formData, {
     enabled: true,
-    configured: config.ready,
+    configured: true,
     allow: () => allowQuoteSubmission(clientKey(headerList)),
     send: sendQuoteEmail,
   });

@@ -1,3 +1,5 @@
+import { isLegalContentPublished } from "../../config/legal";
+import { previewOutboundMailBlocked } from "../preview/protection";
 import { postResendMessage } from "../mail/resend";
 import type { CareersInquiry } from "./inquiry";
 import type { CareerExperience, CareerLocale } from "./schema";
@@ -239,6 +241,11 @@ ${htmlLine("Curriculum", `${inquiry.cv.filename} (${inquiry.cv.contentType})`)}
 }
 
 export async function sendCareersEmail(inquiry: CareersInquiry): Promise<"sent" | "error"> {
+  if (previewOutboundMailBlocked() || !isLegalContentPublished("privacy")) {
+    console.error("[careers] delivery blocked");
+    return "error";
+  }
+
   const config = getCareersMailConfig();
   if (!config.ready) {
     console.error(`[careers] delivery not configured: ${config.missing.join(", ")}`);

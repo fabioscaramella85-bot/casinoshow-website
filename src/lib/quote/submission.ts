@@ -1,3 +1,4 @@
+import { isLegalContentPublished } from "../../config/legal";
 import { getCareersMailConfig } from "../careers/mail";
 
 /**
@@ -11,7 +12,7 @@ export function quoteSendingEnabled(env: NodeJS.ProcessEnv = process.env): boole
 }
 
 export function canTransmitQuote(env: NodeJS.ProcessEnv = process.env): boolean {
-  return quoteSendingEnabled(env) && getCareersMailConfig(env).ready;
+  return quoteSendingEnabled(env) && isLegalContentPublished("privacy") && getCareersMailConfig(env).ready;
 }
 
 export function quoteSubmissionStatus(env: NodeJS.ProcessEnv = process.env): QuoteSubmissionStatus {
