@@ -47,7 +47,7 @@ export default async function LocaleLayout({
   const messages = messagesForClient(await getMessages());
 
   return (
-    <html lang={locale} className={`${fontVariables} h-full`}>
+    <html lang={locale} data-scroll-behavior="smooth" className={`${fontVariables} h-full`}>
       <body className="flex min-h-full flex-col antialiased">
         <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
