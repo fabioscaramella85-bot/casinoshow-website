@@ -5,6 +5,33 @@ import { aboutMedia } from "@/components/about/about-media";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
+const shots = [
+  {
+    key: "lead",
+    src: aboutMedia.hero.lead,
+    className: "about-hero-shot-lead",
+    imageClassName: "about-hero-image-lead",
+    sizes: "(max-width: 767px) calc(100vw - 2rem), (max-width: 1023px) calc(100vw - 3rem), 42vw",
+    priority: true,
+  },
+  {
+    key: "side",
+    src: aboutMedia.hero.side,
+    className: "about-hero-shot-side",
+    imageClassName: "about-hero-image-side",
+    sizes: "(min-width: 768px) 22vw, 1px",
+    priority: false,
+  },
+  {
+    key: "wide",
+    src: aboutMedia.hero.wide,
+    className: "about-hero-shot-wide",
+    imageClassName: "about-hero-image-wide",
+    sizes: "(min-width: 768px) 28vw, 1px",
+    priority: false,
+  },
+] as const;
+
 export async function AboutHero() {
   const page = await getTranslations("Pages.about");
   const t = await getTranslations("About");
@@ -12,6 +39,27 @@ export async function AboutHero() {
   return (
     <section className="about-hero" aria-labelledby="about-hero-title">
       <Container className="about-hero-content">
+        <div className="about-hero-media">
+          <div className="about-hero-mosaic">
+            {shots.map((shot) => (
+              <div
+                key={shot.key}
+                className={`about-hero-shot ${shot.className}`}
+                aria-hidden={shot.key === "lead" ? undefined : true}
+              >
+                <Image
+                  src={shot.src}
+                  alt={shot.key === "lead" ? t("hero.imageAlt") : ""}
+                  fill
+                  priority={shot.priority}
+                  sizes={shot.sizes}
+                  quality={85}
+                  className={`about-hero-image ${shot.imageClassName}`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="about-hero-copy">
           <div className="about-hero-rise">
             <Eyebrow tone="dark">{t("hero.eyebrow")}</Eyebrow>
@@ -27,24 +75,6 @@ export async function AboutHero() {
           </div>
         </div>
       </Container>
-      <div
-        className="about-hero-media"
-        style={
-          {
-            "--about-hero-ratio": `${aboutMedia.hero.width} / ${aboutMedia.hero.height}`,
-          } as React.CSSProperties
-        }
-      >
-        <Image
-          src={aboutMedia.hero}
-          alt={t("hero.imageAlt")}
-          fill
-          priority
-          sizes="100vw"
-          quality={85}
-          className="about-hero-image"
-        />
-      </div>
     </section>
   );
 }

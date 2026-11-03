@@ -1,5 +1,7 @@
 import davidePortrait from "../../../public/home-page/davide-merli/Davide con coppa.png";
-import heroImage from "../../../public/chi-siamo/hero.png";
+import heroLead from "../../../public/chi-siamo/staff/staff 3.jpg";
+import heroSide from "../../../public/chi-siamo/staff/staff 5.jpg";
+import heroWide from "../../../public/chi-siamo/staff/staff 9.jpg";
 import italyImage from "../../../public/chi-siamo/sfondo-funcasino.png";
 
 /**
@@ -10,7 +12,11 @@ import italyImage from "../../../public/chi-siamo/sfondo-funcasino.png";
  * /chi-siamo/davide-merli-casino-show.webp once that file is supplied.
  */
 export const aboutMedia = {
-  hero: heroImage,
+  hero: {
+    lead: heroLead,
+    side: heroSide,
+    wide: heroWide,
+  },
   italy: italyImage,
   story: "/images/gallery/fc-croupier-roulette-001.webp",
   davide: davidePortrait,
