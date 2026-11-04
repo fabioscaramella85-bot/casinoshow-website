@@ -90,7 +90,7 @@ const stepIcons = [CalendarIcon, GuestsIcon, WelcomeIcon, StarIcon] as const;
 
 const roulettePhoto = "/giochi-e-servizi/noleggio-tavoli-da-roulette/tavolo-da-roulette.PNG";
 const blackjackPhoto = "/giochi-e-servizi/noleggio-tavoli-da-blck-jack/tavolo-da-black-jack.PNG";
-const pokerPhoto = "/giochi-e-servizi/noleggio-tavoli-da-poker/tavolo-da-poker.PNG";
+const pokerPhoto = "/giochi-e-servizi/noleggio-tavoli-da-poker/tavolo-da-poker-2.jpg";
 
 function FloatPhoto({
   src,
@@ -118,8 +118,8 @@ function FloatPhoto({
         height={height}
         sizes={sizes}
         quality={85}
-        className="block h-auto w-full"
-        style={{ width: "100%", height: "auto" }}
+        className="block h-auto w-full object-contain"
+        style={{ width: "100%" }}
       />
     </div>
   );
@@ -159,13 +159,13 @@ export async function HomeIntroduction() {
           className="pointer-events-none absolute inset-0 z-[1] hidden xl:block"
           style={{ background: ivoryFade }}
         />
-        <div className="relative z-20 mt-4 grid grid-cols-2 items-end gap-2.5 px-4 sm:grid-cols-3 sm:gap-3 sm:px-6 lg:px-8 xl:absolute xl:right-[3%] xl:bottom-8 xl:mt-0 xl:flex xl:w-[min(44rem,48%)] xl:items-end xl:justify-end xl:gap-0 xl:px-0 min-[1680px]:right-[max(1.25rem,calc((100%-80rem)/2))]">
+        <div className="relative z-20 mt-4 grid grid-cols-1 items-end gap-3 px-4 sm:grid-cols-3 sm:gap-3 sm:px-6 lg:px-8 xl:absolute xl:right-[3%] xl:bottom-8 xl:mt-0 xl:flex xl:w-[min(44rem,48%)] xl:items-end xl:justify-end xl:gap-0 xl:px-0 min-[1680px]:right-[max(1.25rem,calc((100%-80rem)/2))]">
           <FloatPhoto
             src={blackjackPhoto}
             alt={t("intro.images.table")}
             width={1448}
             height={1086}
-            sizes="(min-width: 1280px) 220px, (min-width: 640px) 30vw, 46vw"
+            sizes="(min-width: 1280px) 220px, (min-width: 640px) 30vw, 100vw"
             className="z-10 xl:mb-14 xl:w-[34%]"
           />
           <FloatPhoto
@@ -173,16 +173,16 @@ export async function HomeIntroduction() {
             alt={t("intro.images.roulette")}
             width={1575}
             height={999}
-            sizes="(min-width: 1280px) 250px, (min-width: 640px) 30vw, 46vw"
+            sizes="(min-width: 1280px) 250px, (min-width: 640px) 30vw, 100vw"
             className="z-20 xl:-ml-8 xl:mb-1 xl:w-[38%]"
           />
           <FloatPhoto
             src={pokerPhoto}
             alt={t("intro.images.lugano")}
-            width={1448}
-            height={1086}
-            sizes="(min-width: 1280px) 210px, (min-width: 640px) 30vw, 92vw"
-            className="z-30 col-span-2 sm:col-span-1 xl:-ml-7 xl:mb-9 xl:w-[32%]"
+            width={1280}
+            height={853}
+            sizes="(min-width: 1280px) 210px, (min-width: 640px) 30vw, 100vw"
+            className="z-30 xl:-ml-7 xl:mb-9 xl:w-[32%]"
           />
         </div>
       </div>

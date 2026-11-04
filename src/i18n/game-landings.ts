@@ -179,9 +179,9 @@ export const gameLandings: Record<GameLandingId, GameLandingDefinition> = {
       en: "/poker-table-hire",
     },
     image: {
-      src: "/giochi-e-servizi/noleggio-tavoli-da-poker/tavolo-da-poker.PNG",
-      width: 1448,
-      height: 1086,
+      src: "/giochi-e-servizi/noleggio-tavoli-da-poker/tavolo-da-poker-2.jpg",
+      width: 1280,
+      height: 853,
     },
     gallery: pokerGallery,
   },
