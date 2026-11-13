@@ -64,7 +64,7 @@
     },
     "gallery": {
       "heading": "Our casino experience in pictures",
-      "description": "Photographs of tables, croupiers and guests during Casino Show casino-themed events."
+      "description": "Real photographs of tables, croupiers and guests from Casino Show evenings. Filter the selection by game or by the kind of occasion."
     },
     "about": {
       "title": "About us | Casino Show Switzerland · Experience since 2007",
@@ -74,7 +74,8 @@
     "careers": {
       "title": "Work with us | Croupiers and events in Switzerland | Casino Show",
       "heading": "Step into the world of Casino Show.",
-      "description": "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Send your CV."
+      "description": "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Applications are not sent from this page.",
+      "descriptionOpen": "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Send your CV."
     },
     "contact": {
       "heading": "Let's talk about your next event",

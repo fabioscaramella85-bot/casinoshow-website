@@ -1,6 +1,15 @@
 "use client";
 
-import { createContext, useContext, useEffect, useId, useRef, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { usePathname } from "@/i18n/navigation";
 
 const MobileMenuContext = createContext({ open: false });
@@ -31,6 +40,106 @@ export function MobileNav({ openLabel, closeLabel, children }: MobileNavProps) {
 
     setOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setOpen(false);
+    };
+
+    desktop.addEventListener("change", closeOnDesktop);
+    window.addEventListener("resize", closeOnDesktop);
+    return () => {
+      desktop.removeEventListener("change", closeOnDesktop);
+      window.removeEventListener("resize", closeOnDesktop);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    const header = buttonRef.current?.closest("header");
+    const panel = panelRef.current;
+    const root = document.documentElement;
+    const body = document.body;
+    const headerHeight = header?.getBoundingClientRect().height ?? 0;
+    const lockedScroll = window.scrollY;
+    const previousAnchor = body.style.overflowAnchor;
+    body.style.overflowAnchor = "none";
+    const previousHeaderStyle = header
+      ? {
+          position: header.style.position,
+          top: header.style.top,
+          left: header.style.left,
+          right: header.style.right,
+          width: header.style.width,
+        }
+      : null;
+    const previousBodyPadding = body.style.paddingTop;
+
+    if (header instanceof HTMLElement) {
+      body.style.paddingTop = `${headerHeight}px`;
+      header.style.position = "fixed";
+      header.style.top = "0px";
+      header.style.left = "0px";
+      header.style.right = "0px";
+      header.style.width = "100%";
+    }
+
+    const place = () => {
+      const top = header?.getBoundingClientRect().bottom ?? 0;
+      panel?.style.setProperty("top", `${Math.max(0, Math.round(top))}px`);
+    };
+
+    place();
+    window.scrollTo(0, lockedScroll);
+    window.addEventListener("resize", place);
+
+    const previousRootOverflow = root.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+    root.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    const freezeScroll = () => {
+      if (window.scrollY !== lockedScroll) {
+        window.scrollTo(0, lockedScroll);
+      }
+    };
+    window.addEventListener("scroll", freezeScroll);
+
+    const inerted: HTMLElement[] = [];
+    for (const child of body.children) {
+      if (!(child instanceof HTMLElement) || child === header || (header && child.contains(header))) {
+        continue;
+      }
+      if (child.hasAttribute("inert")) {
+        continue;
+      }
+      child.setAttribute("inert", "");
+      inerted.push(child);
+    }
+
+    return () => {
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", freezeScroll);
+      root.style.overflow = previousRootOverflow;
+      body.style.overflow = previousBodyOverflow;
+      body.style.paddingTop = previousBodyPadding;
+      body.style.overflowAnchor = previousAnchor;
+      if (header instanceof HTMLElement && previousHeaderStyle) {
+        header.style.position = previousHeaderStyle.position;
+        header.style.top = previousHeaderStyle.top;
+        header.style.left = previousHeaderStyle.left;
+        header.style.right = previousHeaderStyle.right;
+        header.style.width = previousHeaderStyle.width;
+      }
+      window.scrollTo(0, lockedScroll);
+      for (const element of inerted) {
+        element.removeAttribute("inert");
+      }
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) {
@@ -101,7 +210,7 @@ export function MobileNav({ openLabel, closeLabel, children }: MobileNavProps) {
         ref={panelRef}
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full z-40 max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-line-on-light bg-white"
+        className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-line-on-light bg-white"
       >
         {children}
       </div>

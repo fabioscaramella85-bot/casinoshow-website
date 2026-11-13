@@ -64,7 +64,7 @@
     },
     "gallery": {
       "heading": "La nostra casino experience in immagini",
-      "description": "Fotografie di tavoli, croupier e ospiti durante gli eventi a tema casinò di Casino Show."
+      "description": "Fotografie reali di tavoli, croupier e ospiti durante le serate Casino Show. La selezione si può filtrare per gioco o per tipo di occasione."
     },
     "about": {
       "title": "Chi siamo | Casino Show Svizzera · Esperienza dal 2007",
@@ -74,7 +74,8 @@
     "careers": {
       "title": "Lavora con noi | Croupier ed eventi in Svizzera | Casino Show",
       "heading": "Entra nel mondo di Casino Show.",
-      "description": "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza. Invia il tuo CV."
+      "description": "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza. Le candidature non vengono inviate da questa pagina.",
+      "descriptionOpen": "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza. Invia il tuo CV."
     },
     "contact": {
       "heading": "Parliamo del tuo prossimo evento",
@@ -1474,7 +1475,7 @@
       "home": "Home",
       "events": "Eventi",
       "games": "Giochi & Servizi",
-      "gallery": "Gallery",
+      "gallery": "Galleria",
       "about": "Chi siamo",
       "careers": "Lavora con noi",
       "contact": "Contatti",

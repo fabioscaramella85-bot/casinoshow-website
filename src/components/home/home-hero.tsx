@@ -237,6 +237,7 @@ function layerVisibility(active: boolean, reduced: boolean) {
 
 export function HomeHero() {
   const t = useTranslations("Home");
+  const page = useTranslations("Pages.home");
   const nav = useTranslations("Nav");
   const rootRef = useRef<HTMLElement>(null);
   const barsRef = useRef<(HTMLSpanElement | null)[]>([]);
@@ -353,6 +354,7 @@ export function HomeHero() {
       }}
       onBlurCapture={onBlur}
     >
+      <h1 className="sr-only">{page("heading")}</h1>
       <div className="relative h-[clamp(14.375rem,56vw,18.125rem)] overflow-hidden md:hidden" aria-hidden="true">
         {SLIDES.map((slide, slideIndex) => {
           const active = slideIndex === index;
@@ -565,7 +567,6 @@ function SlideCopy({
   stacked?: boolean;
 }) {
   const t = useTranslations("Home");
-  const page = useTranslations("Pages.home");
   const Title = "p";
   const Subtitle = decorative ? "p" : "h2";
   const actionsClass = stacked
@@ -580,7 +581,6 @@ function SlideCopy({
     return (
       <>
         <Eyebrow tone="dark">{t("hero.slides.experience.eyebrow")}</Eyebrow>
-        {decorative ? null : <h1 className="sr-only">{page("heading")}</h1>}
         <Title className="mt-4">
           <span className="inline-flex items-baseline gap-x-[0.28em] font-sans text-[clamp(2.05rem,1rem+2.6vw,3.9rem)] font-bold leading-none tracking-[-0.03em] text-ivory">
             <span>CASINO</span>

@@ -75,10 +75,10 @@ const pages = [
       en: "Our casino experience in pictures",
     },
     descriptions: {
-      it: "Fotografie di tavoli, croupier e ospiti durante gli eventi a tema casinò di Casino Show.",
-      de: "Fotografien von Tischen, Croupiers und Gästen bei den Casino-Anlässen von Casino Show.",
-      fr: "Photographies de tables, de croupiers et d'invités pendant les événements à thème casino de Casino Show.",
-      en: "Photographs of tables, croupiers and guests during Casino Show casino-themed events.",
+      it: "Fotografie reali di tavoli, croupier e ospiti durante le serate Casino Show. La selezione si può filtrare per gioco o per tipo di occasione.",
+      de: "Echte Fotografien von Tischen, Croupiers und Gästen bei den Abenden von Casino Show. Die Auswahl lässt sich nach Spiel oder Art des Anlasses filtern.",
+      fr: "Photographies réelles de tables, de croupiers et d'invités pendant les soirées Casino Show. La sélection se filtre par jeu ou par type d'occasion.",
+      en: "Real photographs of tables, croupiers and guests from Casino Show evenings. Filter the selection by game or by the kind of occasion.",
     },
   },
   {
@@ -90,16 +90,16 @@ const pages = [
       en: "/en/about-us",
     },
     headings: {
-      it: "Non solo giochi. Esperienze da vivere.",
-      de: "Nicht nur Spiele. Erlebnisse zum Teilen.",
-      fr: "Pas seulement des jeux. Des expériences à vivre.",
-      en: "Not only games. Experiences to live.",
+      it: "Una storia di passione, persone e grandi eventi.",
+      de: "Eine Geschichte aus Leidenschaft, Menschen und grossen Anlässen.",
+      fr: "Une histoire de passion, de personnes et de grands événements.",
+      en: "A story of passion, people and great events.",
     },
     descriptions: {
-      it: "Casino Show propone intrattenimento a tema casinò per eventi aziendali e privati in Svizzera. È un'esperienza in sala, non un gioco con denaro.",
-      de: "Casino Show bietet Casino-Unterhaltung für Firmenanlässe und private Feste in der Schweiz. Es ist ein Erlebnis im Saal, kein Spiel um Geld.",
-      fr: "Casino Show propose une animation de casino pour des événements d'entreprise et privés en Suisse. C'est une expérience en salle, pas un jeu d'argent.",
-      en: "Casino Show offers casino-themed entertainment for corporate and private events in Switzerland. It is an experience in the room, not a game for money.",
+      it: "Scopri Casino Show, l'esperienza Fun Casinò in Svizzera. Dal 2007 intrattenimento per eventi, con Davide Merli e uno staff di croupier professionisti.",
+      de: "Casino Show bringt die Erfahrung von Fun Casinò in die Schweiz. Seit 2007 Unterhaltung für Anlässe, mit Davide Merli und einem Team professioneller Croupiers.",
+      fr: "Découvrez Casino Show, l'expérience Fun Casinò en Suisse. Depuis 2007, une animation pour événements, avec Davide Merli et une équipe de croupiers professionnels.",
+      en: "Discover Casino Show, the Fun Casinò experience in Switzerland. Entertainment for events since 2007, with Davide Merli and a team of professional croupiers.",
     },
   },
   {
@@ -111,10 +111,10 @@ const pages = [
       en: "/en/contact",
     },
     headings: {
-      it: "Parliamo del tuo prossimo evento",
-      de: "Sprechen wir über Ihren nächsten Anlass",
-      fr: "Parlons de votre prochain événement",
-      en: "Let's talk about your next event",
+      it: "Parliamo del tuo prossimo evento.",
+      de: "Sprechen wir über Ihren nächsten Anlass.",
+      fr: "Parlons de votre prochain événement.",
+      en: "Let's talk about your next event.",
     },
     descriptions: {
       it: "Per una domanda o un'idea su Casino Show, questa pagina indica il percorso. Il modulo di contatto non è ancora attivo.",
@@ -159,10 +159,10 @@ const pages = [
       en: "Step into the world of Casino Show.",
     },
     descriptions: {
-      it: "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza. Invia il tuo CV.",
-      de: "Arbeiten Sie mit Casino Show in der Schweiz. Wir prüfen Bewerbungen von erfahrenen Croupiers und motivierten Menschen, auch ohne Erfahrung. Senden Sie Ihren Lebenslauf.",
-      fr: "Travaillez avec Casino Show en Suisse. Nous examinons les candidatures de croupiers expérimentés et de personnes motivées, même sans expérience. Envoyez votre CV.",
-      en: "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Send your CV.",
+      it: "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza. Le candidature non vengono inviate da questa pagina.",
+      de: "Arbeiten Sie mit Casino Show in der Schweiz. Wir prüfen Bewerbungen von erfahrenen Croupiers und motivierten Menschen, auch ohne Erfahrung. Bewerbungen werden von dieser Seite nicht gesendet.",
+      fr: "Travaillez avec Casino Show en Suisse. Nous examinons les candidatures de croupiers expérimentés et de personnes motivées, même sans expérience. Les candidatures ne sont pas envoyées depuis cette page.",
+      en: "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Applications are not sent from this page.",
     },
   },
 ];
@@ -368,11 +368,56 @@ if (sitemap.status !== 200) fail(`sitemap status ${sitemap.status}`);
 const locs = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
   (match) => match[1],
 );
-if (locs.length !== 32) fail(`sitemap loc count ${locs.length}`);
+const gameLandingPaths = [
+  "/it/noleggio-tavolo-roulette",
+  "/de/roulette-tisch-mieten",
+  "/fr/location-table-roulette",
+  "/en/roulette-table-hire",
+  "/it/noleggio-tavolo-blackjack",
+  "/de/blackjack-tisch-mieten",
+  "/fr/location-table-blackjack",
+  "/en/blackjack-table-hire",
+  "/it/noleggio-tavolo-casino-war",
+  "/de/casino-war-tisch-mieten",
+  "/fr/location-table-casino-war",
+  "/en/casino-war-table-hire",
+  "/it/noleggio-tavolo-chuck-a-luck",
+  "/de/chuck-a-luck-wuerfelspiel-mieten",
+  "/fr/location-table-chuck-a-luck",
+  "/en/chuck-a-luck-dice-game-hire",
+  "/it/noleggio-ruota-della-fortuna",
+  "/de/gluecksrad-mieten",
+  "/fr/location-roue-de-la-fortune",
+  "/en/wheel-of-fortune-hire",
+  "/it/noleggio-tavolo-poker",
+  "/de/poker-tisch-mieten",
+  "/fr/location-table-poker",
+  "/en/poker-table-hire",
+];
+const expectedSitemapCount = pages.length * locales.length + gameLandingPaths.length;
+if (locs.length !== expectedSitemapCount) {
+  fail(`sitemap loc count ${locs.length}, expected ${expectedSitemapCount}`);
+}
 for (const page of pages) {
   for (const locale of locales) {
     const url = `${canonicalOrigin}${page.paths[locale]}`;
     if (!locs.includes(url)) fail(`sitemap missing ${url}`);
+  }
+}
+for (const path of gameLandingPaths) {
+  const url = `${canonicalOrigin}${path}`;
+  if (!locs.includes(url)) fail(`sitemap missing game landing ${url}`);
+}
+for (const loc of locs) {
+  if (
+    /\/(informativa-privacy|datenschutz|politique-de-confidentialite|privacy-policy|informativa-cookie|cookie-richtlinie|politique-cookies|cookie-policy|note-legali|impressum|mentions-legales|legal-notice)(?:$|\?)/.test(
+      loc,
+    )
+  ) {
+    fail(`sitemap includes unpublished legal URL ${loc}`);
+  }
+  if (/\/(_not-found|sitemap\.xml|robots\.txt)/.test(loc)) {
+    fail(`sitemap includes technical URL ${loc}`);
   }
 }
 if (sitemap.text.includes("www.casinoshow.ch")) {
