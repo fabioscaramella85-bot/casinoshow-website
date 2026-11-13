@@ -8,7 +8,8 @@
     "start": "node scripts/build-webpack.mjs start",
     "lint": "eslint",
     "verify:routes": "node scripts/verify-routes.mjs",
-    "verify:careers": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-careers.ts"
+    "verify:careers": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-careers.ts",
+    "verify:social-observer": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-social-observer.ts"
   },
   "dependencies": {
     "next": "16.4.2",

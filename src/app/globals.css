@@ -196,6 +196,14 @@ header :focus-visible {
   }
 }
 
+/* Hide the floating actions only while the mobile navigation panel is open. */
+@media (max-width: 1279px) {
+  html:has([data-mobile-nav][aria-expanded="true"]) .floating-social {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -37,7 +37,7 @@ function focusField(id: string) {
   node.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
 }
 
-export function CareersForm() {
+export function CareersForm({ submissionBlocked = false }: { submissionBlocked?: boolean }) {
   const t = useTranslations("Careers");
   const locale = useLocale();
   const startedRef = useRef<HTMLInputElement>(null);
@@ -91,7 +91,7 @@ export function CareersForm() {
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (submitting) {
+    if (submissionBlocked || submitting) {
       return;
     }
 
@@ -142,11 +142,25 @@ export function CareersForm() {
   }
 
   return (
-    <section id="candidatura" aria-labelledby="careers-form-title" className="scroll-mt-28 py-[var(--spacing-section)]">
+    <section
+      id="candidatura"
+      aria-labelledby="careers-form-title"
+      data-careers-intake={submissionBlocked ? "preview" : "open"}
+      className="scroll-mt-28 py-[var(--spacing-section)]"
+    >
       <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
         <h2 id="careers-form-title" className="type-h2 text-balance">
           {t("form.title")}
         </h2>
+        {submissionBlocked ? (
+          <p
+            id="careers-preview-notice"
+            className="type-body mt-6 border border-brand-gold bg-white px-4 py-4 text-text-on-light"
+            role="status"
+          >
+            {t("closed.preview")}
+          </p>
+        ) : null}
         <p className="type-body mt-4 max-w-2xl text-text-muted-on-light">{t("form.description")}</p>
         <p className="type-small mt-3 text-text-muted-on-light">{t("form.requiredNote")}</p>
 
@@ -164,6 +178,7 @@ export function CareersForm() {
             className="mt-8 border border-line-on-light bg-white px-4 py-6 sm:px-8 sm:py-8"
             noValidate
             aria-busy={submitting}
+            aria-describedby={submissionBlocked ? "careers-preview-notice" : undefined}
             onSubmit={onSubmit}
           >
             <p className="sr-only" aria-live="polite">
@@ -419,7 +434,8 @@ export function CareersForm() {
 
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || submissionBlocked}
+              aria-disabled={submissionBlocked || submitting ? true : undefined}
               className="type-button mt-8 inline-flex min-h-11 w-full items-center justify-center bg-brand-red px-5 text-white transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:bg-brand-red-hover disabled:opacity-45 sm:w-auto"
             >
               {submitting ? t("submitting") : t("submit")}

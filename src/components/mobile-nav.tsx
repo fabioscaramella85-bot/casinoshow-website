@@ -89,6 +89,7 @@ export function MobileNav({ openLabel, closeLabel, children }: MobileNavProps) {
         ref={buttonRef}
         type="button"
         className="inline-flex size-11 items-center justify-center"
+        data-mobile-nav=""
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? closeLabel : openLabel}

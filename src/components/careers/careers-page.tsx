@@ -15,20 +15,24 @@ export function CareersPageView() {
         <CareersHero />
         <CareersQualities />
         <CareersOpportunity />
-        {intake === "open" ? <CareersForm /> : <CareersClosed reason={intake} />}
+        {intake === "unpublished" ? (
+          <CareersClosed />
+        ) : (
+          <CareersForm submissionBlocked={intake === "preview"} />
+        )}
       </div>
     </SiteShell>
   );
 }
 
-async function CareersClosed({ reason }: { reason: "preview" | "unpublished" }) {
+async function CareersClosed() {
   const t = await getTranslations("Careers");
 
   return (
     <section
       id="candidatura"
       aria-labelledby="careers-form-title"
-      data-careers-intake={reason}
+      data-careers-intake="unpublished"
       className="scroll-mt-28 py-[var(--spacing-section)]"
     >
       <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
@@ -36,7 +40,7 @@ async function CareersClosed({ reason }: { reason: "preview" | "unpublished" }) 
           {t("form.title")}
         </h2>
         <p className="type-body mt-6 border border-brand-gold bg-white px-4 py-4 text-text-on-light" role="status">
-          {reason === "preview" ? t("closed.preview") : t("closed.privacy")}
+          {t("closed.privacy")}
         </p>
       </div>
     </section>

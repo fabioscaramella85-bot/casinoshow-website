@@ -45,7 +45,7 @@ export async function CareersHero() {
               href="#candidatura"
               className="type-button mt-8 inline-flex min-h-12 w-full items-center justify-center bg-brand-red px-5 text-white transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:bg-brand-red-hover md:min-h-11 md:w-auto"
             >
-              {intake === "open" ? t("cta") : t("ctaClosed")}
+              {intake === "unpublished" ? t("ctaClosed") : t("cta")}
             </a>
           </div>
         </Container>
