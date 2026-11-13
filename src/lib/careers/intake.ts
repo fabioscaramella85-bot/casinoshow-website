@@ -1,20 +1,25 @@
-import { isLegalContentPublished } from "../../config/legal";
 import { previewOutboundMailBlocked } from "../preview/protection";
+import { careersSendAuthorized } from "./authorization";
 import { getCareersMailConfig } from "./mail";
 
 export type CareersIntake = "open" | "preview" | "unpublished";
 
 /**
- * Preview never accepts an application.
- * Production stays closed until the privacy document is published.
- * Mail configuration is required as well, and is enforced again before delivery.
+ * Preview shows the form and never accepts an application.
+ * Production shows the form only when every send condition is already true.
  */
-export function careersIntake(env: NodeJS.ProcessEnv = process.env): CareersIntake {
-  if (previewOutboundMailBlocked(env)) return "preview";
-  if (!isLegalContentPublished("privacy")) return "unpublished";
-  return "open";
+export function careersDeliveryAllowed(
+  env: NodeJS.ProcessEnv = process.env,
+  privacyPublished?: boolean,
+): boolean {
+  return careersSendAuthorized(env, privacyPublished) && getCareersMailConfig(env).ready;
 }
 
-export function careersDeliveryAllowed(env: NodeJS.ProcessEnv = process.env): boolean {
-  return careersIntake(env) === "open" && getCareersMailConfig(env).ready;
+export function careersIntake(
+  env: NodeJS.ProcessEnv = process.env,
+  privacyPublished?: boolean,
+): CareersIntake {
+  if (previewOutboundMailBlocked(env)) return "preview";
+  if (careersDeliveryAllowed(env, privacyPublished)) return "open";
+  return "unpublished";
 }

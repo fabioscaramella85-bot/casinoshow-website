@@ -1,8 +1,9 @@
 import type { LegalRouteId } from "@/i18n/routes";
 
 /**
- * Publication gate for legal pages.
- * A route may be linked from the footer only after its text is approved.
+ * Necessary switch for one legal page.
+ * The page stays unpublished until approved public copy exists in every locale.
+ * Turning a flag on does not show a form and does not send email.
  */
 export const legalContentPublished: Record<LegalRouteId, boolean> = {
   privacy: false,

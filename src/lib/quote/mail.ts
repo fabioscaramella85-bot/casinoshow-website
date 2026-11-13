@@ -1,8 +1,7 @@
-import { isLegalContentPublished } from "../../config/legal";
-import { previewOutboundMailBlocked } from "../preview/protection";
 import { getCareersMailConfig } from "../careers/mail";
 import { postResendMessage } from "../mail/resend";
 import type { QuoteInquiry } from "./inquiry";
+import { canTransmitQuote } from "./submission";
 
 const eventLabels = {
   corporate: "Evento aziendale",
@@ -165,13 +164,17 @@ ${htmlLine("Data e ora della richiesta", inquiry.submittedAt)}
   };
 }
 
-export async function sendQuoteEmail(inquiry: QuoteInquiry): Promise<"sent" | "error"> {
-  if (previewOutboundMailBlocked() || !isLegalContentPublished("privacy")) {
+export async function sendQuoteEmail(
+  inquiry: QuoteInquiry,
+  env: NodeJS.ProcessEnv = process.env,
+  privacyPublished?: boolean,
+): Promise<"sent" | "error"> {
+  if (!canTransmitQuote(env, privacyPublished)) {
     console.error("[quote] delivery blocked");
     return "error";
   }
 
-  const config = getCareersMailConfig();
+  const config = getCareersMailConfig(env);
   if (!config.ready) {
     console.error(`[quote] delivery not configured: ${config.missing.join(", ")}`);
     return "error";

@@ -273,6 +273,28 @@ if (sentInquiry) {
   };
   assert.equal(await sendCareersEmail(inquiry), "error");
   assert.equal(careerFetches, 0);
+
+  const authorized = {
+    RESEND_API_KEY: "test-key",
+    CASINO_SHOW_EMAIL_FROM: "Casino Show <jobs@casinoshow.ch>",
+    CASINO_SHOW_EMAIL_TO: "info@casinoshow.ch",
+    CASINO_SHOW_CAREERS_FORM: "enabled",
+    CASINO_SHOW_CAREERS_DELIVERY: "enabled",
+  } as unknown as NodeJS.ProcessEnv;
+  assert.equal(await sendCareersEmail(inquiry, authorized, false), "error");
+  assert.equal(await sendCareersEmail(inquiry, { ...authorized, CASINO_SHOW_CAREERS_DELIVERY: "" }, true), "error");
+  assert.equal(
+    await sendCareersEmail(inquiry, { ...authorized, CASINO_SHOW_PREVIEW_MODE: "enabled" }, true),
+    "error",
+  );
+  assert.equal(careerFetches, 0);
+
+  const savedPreview = process.env.CASINO_SHOW_PREVIEW_MODE;
+  delete process.env.CASINO_SHOW_PREVIEW_MODE;
+  assert.equal(await sendCareersEmail(inquiry, authorized, true), "sent");
+  assert.equal(careerFetches, 1);
+  if (savedPreview === undefined) delete process.env.CASINO_SHOW_PREVIEW_MODE;
+  else process.env.CASINO_SHOW_PREVIEW_MODE = savedPreview;
   globalThis.fetch = originalFetch;
 }
 
@@ -289,9 +311,22 @@ const readyMail = {
   CASINO_SHOW_EMAIL_FROM: "Casino Show <jobs@casinoshow.ch>",
   CASINO_SHOW_EMAIL_TO: "info@casinoshow.ch",
 } as unknown as NodeJS.ProcessEnv;
+const authorized = {
+  ...readyMail,
+  CASINO_SHOW_CAREERS_FORM: "enabled",
+  CASINO_SHOW_CAREERS_DELIVERY: "enabled",
+} as unknown as NodeJS.ProcessEnv;
 assert.equal(careersIntake({} as NodeJS.ProcessEnv), "unpublished");
 assert.equal(careersIntake(previewEnv), "preview");
+assert.equal(careersIntake(authorized), "unpublished");
+assert.equal(careersIntake(authorized, true), "open");
+assert.equal(careersIntake({ ...authorized, CASINO_SHOW_PREVIEW_MODE: "enabled" }, true), "preview");
 assert.equal(careersDeliveryAllowed(readyMail), false);
-assert.equal(careersDeliveryAllowed({ ...readyMail, CASINO_SHOW_PREVIEW_MODE: "enabled" }), false);
+assert.equal(careersDeliveryAllowed(readyMail, true), false);
+assert.equal(careersDeliveryAllowed(authorized), false);
+assert.equal(careersDeliveryAllowed(authorized, true), true);
+assert.equal(careersDeliveryAllowed({ ...authorized, CASINO_SHOW_CAREERS_FORM: "" }, true), false);
+assert.equal(careersDeliveryAllowed({ ...authorized, CASINO_SHOW_CAREERS_DELIVERY: "" }, true), false);
+assert.equal(careersDeliveryAllowed({ ...authorized, CASINO_SHOW_PREVIEW_MODE: "enabled" }, true), false);
 
 console.log("verify:careers ok");

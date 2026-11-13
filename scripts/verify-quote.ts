@@ -348,6 +348,47 @@ const sentMail = await sendQuoteEmail({
 });
 assert.equal(sentMail, "error");
 assert.equal(quoteFetches, 0);
+
+const quoteInquiry = {
+  locale: "it" as const,
+  eventType: "wedding" as const,
+  eventLocation: "Lugano",
+  eventDate: "2026-11-02",
+  dateUndecided: false,
+  guestRange: "30-60" as const,
+  experiences: ["roulette" as const],
+  eventObjective: "celebration" as const,
+  additionalNotes: "",
+  firstName: "Ada",
+  lastName: "Lovelace",
+  email: "ada@example.test",
+  phone: "+41 79 000 00 00",
+  company: "",
+  contactPreference: "email" as const,
+  referralSource: "" as const,
+  referralSourceOther: "",
+  submittedAt: "2026-10-12T10:00:00.000Z",
+};
+const quoteMail = {
+  RESEND_API_KEY: "test-key",
+  CASINO_SHOW_EMAIL_FROM: "Casino Show <jobs@casinoshow.ch>",
+  CASINO_SHOW_EMAIL_TO: "info@casinoshow.ch",
+  CASINO_SHOW_QUOTE_DELIVERY: "enabled",
+} as NodeJS.ProcessEnv;
+assert.equal(await sendQuoteEmail(quoteInquiry, quoteMail, false), "error");
+assert.equal(await sendQuoteEmail(quoteInquiry, { ...quoteMail, CASINO_SHOW_QUOTE_DELIVERY: "" }, true), "error");
+assert.equal(
+  await sendQuoteEmail(quoteInquiry, { ...quoteMail, CASINO_SHOW_PREVIEW_MODE: "enabled" }, true),
+  "error",
+);
+assert.equal(quoteFetches, 0);
+const savedPreview = process.env.CASINO_SHOW_PREVIEW_MODE;
+delete process.env.CASINO_SHOW_PREVIEW_MODE;
+assert.equal(await sendQuoteEmail(quoteInquiry, quoteMail, true), "sent");
+assert.equal(quoteFetches, 1);
+if (savedPreview === undefined) delete process.env.CASINO_SHOW_PREVIEW_MODE;
+else process.env.CASINO_SHOW_PREVIEW_MODE = savedPreview;
+
 globalThis.fetch = async () => new Response(JSON.stringify({}), { status: 500 });
 assert.equal(
   await sendQuoteEmail({
@@ -394,6 +435,17 @@ assert.equal(
   } as unknown as NodeJS.ProcessEnv),
   false,
 );
+const readyQuote = {
+  CASINO_SHOW_QUOTE_DELIVERY: "enabled",
+  RESEND_API_KEY: "test-key",
+  CASINO_SHOW_EMAIL_FROM: "Casino Show <jobs@casinoshow.ch>",
+  CASINO_SHOW_EMAIL_TO: "info@casinoshow.ch",
+} as NodeJS.ProcessEnv;
+assert.equal(canTransmitQuote(readyQuote, true), true);
+assert.equal(canTransmitQuote(readyQuote, false), false);
+assert.equal(canTransmitQuote({ ...readyQuote, CASINO_SHOW_QUOTE_DELIVERY: "" }, true), false);
+assert.equal(canTransmitQuote({ ...readyQuote, CASINO_SHOW_PREVIEW_MODE: "enabled" }, true), false);
+assert.equal(canTransmitQuote({ ...readyQuote, RESEND_API_KEY: "" }, true), false);
 assert.equal(messages[0].Quote.nav.submit, "Invia la richiesta");
 assert.equal(messages[1].Quote.submission.unavailable.includes("noch nicht aktiv"), true);
 assert.equal(messages[2].Quote.privacy.link, "politique de confidentialité");

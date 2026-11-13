@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { hasLocale } from "next-intl";
-import { isLegalContentPublished } from "@/config/legal";
+import { isLegalRoutePublic } from "@/lib/legal/publication";
+import { previewModeEnabled } from "@/lib/preview/protection";
 import { getPathname } from "./navigation";
 import { routing } from "./routing";
 import {
@@ -71,18 +72,20 @@ export async function getLegalMetadata(routeId: LegalRouteId): Promise<Metadata>
     return {};
   }
 
-  const published = isLegalContentPublished(routeId);
-  const t = await getTranslations(published ? `Legal.${routeId}` : "Legal.unpublished");
-  const title = published ? t("title") : t(`${routeId}.title`);
-  const description = published ? t("unavailable") : t("notice");
+  const released = isLegalRoutePublic(routeId);
+  const indexable = released && !previewModeEnabled();
+  const unpublished = await getTranslations("Legal.unpublished");
+  const publishedCopy = released ? await getTranslations(`Legal.public.${routeId}`) : null;
+  const title = publishedCopy ? publishedCopy("title") : unpublished(`${routeId}.title`);
+  const description = publishedCopy ? publishedCopy("summary") : unpublished("notice");
   const url = absoluteLegalUrl(routeId, locale);
 
   return {
     title,
     description,
     robots: {
-      index: false,
-      follow: false,
+      index: indexable,
+      follow: indexable,
     },
     alternates: {
       canonical: url,

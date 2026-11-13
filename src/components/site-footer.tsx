@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { BrandLogo } from "@/components/brand-logo";
 import { Container } from "@/components/ui/container";
 import { enabledContactChannels } from "@/config/contact";
-import { legalContentPublished } from "@/config/legal";
+import { isLegalRoutePublic } from "@/lib/legal/publication";
 import { facebookUrl, instagramUrl, whatsappUrl } from "@/config/social";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/social/icons";
 import { Link } from "@/i18n/navigation";
@@ -35,7 +35,7 @@ export async function SiteFooter() {
   const games = await getTranslations("Games");
   const landings = await getTranslations("GameLandings");
   const channels = enabledContactChannels();
-  const published = legalRouteIds.filter((id) => legalContentPublished[id]);
+  const published = legalRouteIds.filter((id) => isLegalRoutePublic(id));
 
   return (
     <footer className="mt-auto bg-midnight text-ivory">
