@@ -1,14 +1,14 @@
 import type { LegalRouteId } from "@/i18n/routes";
 
 /**
- * Necessary switch for one legal page.
- * The page stays unpublished until approved public copy exists in every locale.
+ * Publication switch for one legal page.
+ * The public copy is shown when the flag is on and every locale is publishable.
  * Turning a flag on does not show a form and does not send email.
  */
 export const legalContentPublished: Record<LegalRouteId, boolean> = {
-  privacy: false,
-  cookies: false,
-  legalNotice: false,
+  privacy: true,
+  cookies: true,
+  legalNotice: true,
 };
 
 export function isLegalContentPublished(routeId: LegalRouteId): boolean {

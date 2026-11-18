@@ -51,7 +51,10 @@
   "Pages": {
     "home": {
       "heading": "Always a winning event",
-      "description": "Casino Show brings casino-themed entertainment to events in Switzerland, with an atmosphere shaped around the occasion."
+      "description": "Casino Show brings casino-themed entertainment to events in Switzerland, with an atmosphere shaped around the occasion.",
+      "socialTitle": "CasinoShow | Always a winning event",
+      "socialDescription": "The allure of the casino, centre stage at your event. Casino tables, croupiers and entertainment for corporate events, weddings and private parties in Switzerland.",
+      "socialImageAlt": "Casino Show: a casino table, guests and Lake Lugano at sunset."
     },
     "events": {
       "title": "Casino entertainment for events in Switzerland",
@@ -74,7 +77,7 @@
     "careers": {
       "title": "Work with us | Croupiers and events in Switzerland | Casino Show",
       "heading": "Step into the world of Casino Show.",
-      "description": "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Applications are not sent from this page.",
+      "description": "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience.",
       "descriptionOpen": "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Send your CV."
     },
     "contact": {
@@ -83,7 +86,7 @@
     },
     "quote": {
       "heading": "Tell us about your event",
-      "description": "Prepare a quote request for a Casino Show event. Sending is not active yet."
+      "description": "Prepare a quote request for a Casino Show event."
     }
   },
   "Scaffold": {
@@ -1341,7 +1344,7 @@
     },
     "closed": {
       "preview": "In this preview, applications are not sent. No details are stored or transmitted.",
-      "privacy": "Applications are not open: the privacy policy is not published yet. The form does not send any details."
+      "privacy": "Applications are not open. The form does not send any details."
     },
     "form": {
       "title": "Apply to Casino Show",
@@ -1719,6 +1722,168 @@
           ]
         }
       ]
+    },
+    "public": {
+      "privacy": {
+        "title": "Privacy notice",
+        "summary": "Information about personal data on casinoshow.ch, based on the company's public registers and how the website works.",
+        "sections": [
+          {
+            "title": "Scope",
+            "paragraphs": [
+              "This page describes processing connected with the website casinoshow.ch and its forms. It does not describe other websites or what happens after a social network is opened."
+            ]
+          },
+          {
+            "title": "Named controller",
+            "paragraphs": [
+              "Immoevents360 Sagl, a limited-liability company, Via Carona 47, 6815 Melide, Switzerland. UID CHE-139.225.071. Commercial register number CH-501.4.029.022-5.",
+              "The Swiss Official Gazette of Commerce of 24 April 2024 publishes the new registration: articles of 18 April 2024, share capital of CHF 20,000, twenty shares of CHF 1,000. Davide Merli, in Melide, is entered as shareholder and manager with sole signing authority. Daily register no. 5267 of 19 April 2024.",
+              "The UID register, at its last validation on 29 October 2026, shows the same seat and active status. The registered purpose includes organising, promoting and arranging cultural, musical, sports and leisure events and entertainment shows.",
+              "Requests about this notice go to info@casinoshow.ch or to +41 76 527 71 78. Those are the contacts published by the website."
+            ]
+          },
+          {
+            "title": "Applicable framework",
+            "paragraphs": [
+              "For this website, aimed at Switzerland and published by a Swiss company, the framework described is the Federal Act on Data Protection. The page does not add a separate notice under the European Union General Data Protection Regulation, because that applicability is not determined here."
+            ]
+          },
+          {
+            "title": "Quote form data",
+            "paragraphs": [
+              "The form collects the event type, place, date or the statement that the date is undecided, guest range, experiences, objective, notes, first name, last name, email, telephone, company if given, preferred way to reply, and how the person heard about the service.",
+              "Until sending is enabled, these details stay in the browser and are not transmitted. When sending is enabled, the message is delivered through Resend to info@casinoshow.ch and is not written to a database of the website. The success message appears only after Resend accepts it."
+            ]
+          },
+          {
+            "title": "Application data",
+            "paragraphs": [
+              "The form collects first name, last name, email, telephone, locality, country, date of birth, experience, games, hospitality experience, regions, availability, languages, a presentation, confirmation that the notice was read, and a CV as PDF, DOC, or DOCX up to 5 MB.",
+              "The form is available when application sending is enabled. The CV is checked, kept in memory only for that request, and attached to the email. It is not saved on the website."
+            ]
+          },
+          {
+            "title": "Technical data",
+            "paragraphs": [
+              "The website is hosted on Vercel, in region iad1, in the United States. It does not set a language cookie and does not include analytics or advertising tools. A response from the public homepage did not return a cookie.",
+              "Logs of the hosting platform, including any IP addresses, are not kept by the website in its own archive."
+            ]
+          },
+          {
+            "title": "Purposes and legal bases",
+            "paragraphs": [
+              "Quote details are used to answer a request for an event. Application details are used to consider a collaboration. Technical data are used to serve the website.",
+              "Quote data are processed to handle the request and the negotiations that may precede a contract. The Federal Act on Data Protection treats processing directly connected with the conclusion or the performance of a contract, where the data concern the person in question, as an overriding private interest. Application data, including the CV, are processed for staff selection with a view to a possible collaboration. Technical data are processed to serve the website and, to the extent required, for the security of the service and the prevention of abuse."
+            ]
+          },
+          {
+            "title": "Recipients and providers",
+            "paragraphs": [
+              "When sending is enabled, the message arrives at info@casinoshow.ch. A copy may be forwarded to infofuncasino@gmail.com. Both mailboxes follow the same deletion periods.",
+              "Transport is handled by Resend, a service of Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, United States, through api.resend.com. No processing agreement is shown as already concluded: Resend's public documentation describes this role when the service is active."
+            ]
+          },
+          {
+            "title": "Transfers",
+            "paragraphs": [
+              "Hosting and, according to Resend's public documentation, storage of the messages are in the United States. That documentation describes standard contractual clauses for transfers from Switzerland when the processing agreement is in force. It is not shown that the agreement has already been concluded."
+            ]
+          },
+          {
+            "title": "Retention",
+            "paragraphs": [
+              "The website does not store quotes, applications, or CVs in a database and does not schedule their deletion. When sending is enabled, the message is delivered to info@casinoshow.ch. A copy may be forwarded to infofuncasino@gmail.com.",
+              "The company deletes quote emails from info@casinoshow.ch and from infofuncasino@gmail.com twelve months after the last contact on the same request, unless a legal duty or a contractual relationship requires them to be kept. It deletes application emails and CVs six months after the selection has ended, unless a legal duty requires otherwise.",
+              "Resend's public documentation states that messages and sending logs remain for thirty days on the Free, Pro, and Scale plans while the account is active. The account plan is not stated on this page. The website does not ask Resend to delete an individual message before that period ends.",
+              "For runtime logs, Vercel's public documentation states one day of retention on the Pro plan and thirty days if Observability Plus is enabled. The project is on the Pro plan. This page does not state which of the two periods is in use. The website does not forward these logs elsewhere and does not keep its own copy."
+            ]
+          },
+          {
+            "title": "People's rights",
+            "paragraphs": [
+              "The federal act provides for access to one's data, rectification, erasure, and, where the act provides for it, delivery or transmission of the data. The information is in principle given within 30 days. A complaint may be made to the Federal Data Protection and Information Commissioner.",
+              "Requests go to info@casinoshow.ch."
+            ]
+          },
+          {
+            "title": "Automated decisions and minors",
+            "paragraphs": [
+              "The website does not make automated decisions that produce legal effects. The application form asks for a date of birth and does not apply an age threshold."
+            ]
+          }
+        ]
+      },
+      "cookies": {
+        "title": "Cookie policy",
+        "summary": "The website does not set analytics or marketing cookies and does not show a consent banner.",
+        "sections": [
+          {
+            "title": "Technical, analytics, and marketing cookies",
+            "paragraphs": [
+              "The website does not set a language cookie and does not load analytics or advertising tools. A response from the public homepage did not return a Set-Cookie header.",
+              "Cookies added by the hosting platform, beyond what the website itself sets, are not described on this page."
+            ]
+          },
+          {
+            "title": "Consent banner",
+            "paragraphs": [
+              "There is no banner. No non-essential cookie appears that would need to be blocked before consent. If analytics, advertising, or other cookies are added later, this page must be updated before they are turned on."
+            ]
+          },
+          {
+            "title": "Links to other websites",
+            "paragraphs": [
+              "Instagram and Facebook point to the Fun Casinò Italia accounts configured in the site, instagram.com/funcasinoitalia and facebook.com/funcasino1. WhatsApp uses the published number +41 76 527 71 78. Opening those services leaves the website, and their rules apply."
+            ]
+          }
+        ]
+      },
+      "legalNotice": {
+        "title": "Legal notice",
+        "summary": "Company, seat, and published contacts for casinoshow.ch, according to the commercial register.",
+        "sections": [
+          {
+            "title": "Named company",
+            "paragraphs": [
+              "Immoevents360 Sagl, a limited-liability company, Via Carona 47, 6815 Melide, Switzerland. UID CHE-139.225.071. Commercial register number CH-501.4.029.022-5.",
+              "The Swiss Official Gazette of Commerce of 24 April 2024 publishes the new registration: articles of 18 April 2024, share capital of CHF 20,000, twenty shares of CHF 1,000. Davide Merli, in Melide, is entered as shareholder and manager with sole signing authority. Daily register no. 5267 of 19 April 2024.",
+              "The UID register, at its last validation on 29 October 2026, shows the same seat and active status. The registered purpose includes organising, promoting and arranging cultural, musical, sports and leisure events and entertainment shows."
+            ]
+          },
+          {
+            "title": "Contacts",
+            "paragraphs": [
+              "Registered seat: Via Carona 47, 6815 Melide. The website also publishes info@casinoshow.ch and +41 76 527 71 78."
+            ]
+          },
+          {
+            "title": "Hosting",
+            "paragraphs": [
+              "The website is hosted on Vercel, in region iad1 in the United States. The canonical address of the website is https://casinoshow.ch."
+            ]
+          },
+          {
+            "title": "Intellectual property",
+            "paragraphs": [
+              "Texts, photographs, and signs remain with their respective owners. No registration of the CasinoShow trademark is shown.",
+              "Some images and the Instagram and Facebook profiles point to materials or accounts of Fun Casinò Italia, as configured in the site. This page does not add a licence."
+            ]
+          },
+          {
+            "title": "Limits",
+            "paragraphs": [
+              "The information on the website describes the activity and is not a binding offer. This page does not exclude liability in cases where the law does not allow that exclusion."
+            ]
+          },
+          {
+            "title": "Links and applicable law",
+            "paragraphs": [
+              "The company is governed by Swiss law and has its seat in Melide. The website does not designate a special court or contract terms beyond what is published on its pages."
+            ]
+          }
+        ]
+      }
     }
   },
   "NotFound": {

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { legalContentPublished } from "../src/config/legal.ts";
+import { messagesForClient } from "../src/i18n/public-messages.ts";
 import type { LegalRouteId } from "../src/i18n/routes.ts";
 import {
   DRAFT_MARKER,
@@ -22,22 +23,60 @@ function markerCount(doc: { sections?: { paragraphs?: string[]; items?: string[]
   }, 0);
 }
 
-const expectedMarkers = { privacy: 15, cookies: 3, legalNotice: 8 } as const;
+const expectedDraftMarkers = { privacy: 15, cookies: 3, legalNotice: 8 } as const;
+const expectedPublicSections = { privacy: 12, cookies: 3, legalNotice: 6 } as const;
 
 for (const routeId of routeIds) {
-  assert.equal(legalContentPublished[routeId], false);
-  assert.equal(isLegalRoutePublic(routeId), false);
+  assert.equal(legalContentPublished[routeId], true);
+  assert.equal(isLegalRoutePublic(routeId), true);
   const counts = locales.map((locale) => {
     const legal = messages[locale].Legal;
-    assert.equal(legal.public, undefined);
     assert.equal(typeof legal.draftNotice, "string");
     assert.equal(legal.draftNotice.includes(DRAFT_MARKER), true);
     const doc = legal[routeId];
     assert.equal(Array.isArray(doc.sections), true);
+    const prepared = legal.public[routeId];
+    assert.equal(prepared.sections.length, expectedPublicSections[routeId]);
+    assert.equal(prepared.title.includes(DRAFT_MARKER), false);
+    assert.equal(prepared.summary.includes(DRAFT_MARKER), false);
+    const serialized = JSON.stringify(prepared);
+    assert.equal(serialized.includes("CHE-139.225.071"), routeId !== "cookies");
+    assert.equal(serialized.includes("Via Carona 47"), routeId !== "cookies");
     return markerCount(doc);
   });
-  assert.equal(counts[0], expectedMarkers[routeId]);
+  assert.equal(counts[0], expectedDraftMarkers[routeId]);
   assert.deepEqual(counts, [counts[0], counts[0], counts[0], counts[0]]);
+}
+
+for (const locale of locales) {
+  const prepared = messages[locale].Legal.public;
+  assert.equal(markerCount(prepared.privacy), 0);
+  assert.equal(markerCount(prepared.cookies), 0);
+  assert.equal(markerCount(prepared.legalNotice), 0);
+  assert.equal(legalCopyIsPublishable(prepared.privacy), true);
+  assert.equal(legalCopyIsPublishable(prepared.cookies), true);
+  assert.equal(legalCopyIsPublishable(prepared.legalNotice), true);
+  const client = JSON.stringify(messagesForClient(messages[locale]));
+  assert.equal(client.includes("Via Carona 47"), false);
+  assert.equal(client.includes("CHE-139.225.071"), false);
+  assert.equal(client.includes(DRAFT_MARKER), false);
+}
+assert.equal(JSON.stringify(messages.de.Legal.public).includes("ß"), false);
+const internalPublicLanguage = [
+  /repository/i,
+  /dépôt/,
+  /\bcodice\b/i,
+  /\bDer Code\b/,
+  /im Code/,
+  /\bthe code\b/i,
+  /CLI/,
+];
+for (const locale of locales) {
+  const prepared = JSON.stringify(messages[locale].Legal.public);
+  for (const pattern of internalPublicLanguage) {
+    assert.equal(pattern.test(prepared), false, `${locale} public copy matches ${pattern}`);
+  }
+  assert.equal(prepared.includes("infofuncasino@gmail.com"), true);
 }
 
 assert.equal(

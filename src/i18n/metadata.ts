@@ -27,6 +27,26 @@ const openGraphLocales: Record<Locale, string> = {
   en: "en_GB",
 };
 
+const socialPreviewImage = {
+  url: "/social/social-preview.png",
+  width: 1733,
+  height: 907,
+  type: "image/png",
+} as const;
+
+function socialPreview(alt: string) {
+  return [{ ...socialPreviewImage, alt }];
+}
+
+function twitterCard(title: string, description: string) {
+  return {
+    card: "summary_large_image" as const,
+    title,
+    description,
+    images: [socialPreviewImage.url],
+  };
+}
+
 export function localizedPathname(routeId: RouteId, locale: Locale) {
   return getPathname({
     locale,
@@ -74,11 +94,13 @@ export async function getLegalMetadata(routeId: LegalRouteId): Promise<Metadata>
 
   const released = isLegalRoutePublic(routeId);
   const indexable = released && !previewModeEnabled();
+  const home = await getTranslations("Pages.home");
   const unpublished = await getTranslations("Legal.unpublished");
   const publishedCopy = released ? await getTranslations(`Legal.public.${routeId}`) : null;
   const title = publishedCopy ? publishedCopy("title") : unpublished(`${routeId}.title`);
   const description = publishedCopy ? publishedCopy("summary") : unpublished("notice");
   const url = absoluteLegalUrl(routeId, locale);
+  const imageAlt = home("socialImageAlt");
 
   return {
     title,
@@ -98,7 +120,9 @@ export async function getLegalMetadata(routeId: LegalRouteId): Promise<Metadata>
       siteName: "Casino Show",
       locale: openGraphLocales[locale],
       type: "website",
+      images: socialPreview(imageAlt),
     },
+    twitter: twitterCard(title, description),
   };
 }
 
@@ -137,9 +161,11 @@ export async function getGameLandingMetadata(gameId: GameLandingId): Promise<Met
   }
 
   const t = await getTranslations(`GameLandings.${gameId}`);
+  const home = await getTranslations("Pages.home");
   const title = t("seoTitle");
   const description = t("seoDescription");
   const url = absoluteGameLandingUrl(publicPath, locale);
+  const imageAlt = home("socialImageAlt");
 
   return {
     title,
@@ -155,7 +181,9 @@ export async function getGameLandingMetadata(gameId: GameLandingId): Promise<Met
       siteName: "Casino Show",
       locale: openGraphLocales[locale],
       type: "website",
+      images: socialPreview(imageAlt),
     },
+    twitter: twitterCard(title, description),
   };
 }
 
@@ -167,8 +195,12 @@ export async function getPageMetadata(routeId: RouteId): Promise<Metadata> {
   }
 
   const t = await getTranslations(`Pages.${routeId}`);
+  const home = routeId === "home" ? t : await getTranslations("Pages.home");
   const title = t.has("title") ? t("title") : t("heading");
   const description = t("description");
+  const socialTitle = routeId === "home" ? home("socialTitle") : title;
+  const socialDescription = routeId === "home" ? home("socialDescription") : description;
+  const imageAlt = home("socialImageAlt");
   const url = absoluteLocalizedUrl(routeId, locale);
 
   return {
@@ -179,12 +211,14 @@ export async function getPageMetadata(routeId: RouteId): Promise<Metadata> {
       languages: languageAlternates(routeId),
     },
     openGraph: {
-      title,
-      description,
+      title: socialTitle,
+      description: socialDescription,
       url,
       siteName: "Casino Show",
       locale: openGraphLocales[locale],
       type: "website",
+      images: socialPreview(imageAlt),
     },
+    twitter: twitterCard(socialTitle, socialDescription),
   };
 }

@@ -433,7 +433,7 @@ assert.equal(
     CASINO_SHOW_EMAIL_FROM: "Casino Show <jobs@casinoshow.ch>",
     CASINO_SHOW_EMAIL_TO: "info@casinoshow.ch",
   } as unknown as NodeJS.ProcessEnv),
-  false,
+  true,
 );
 const readyQuote = {
   CASINO_SHOW_QUOTE_DELIVERY: "enabled",

@@ -318,12 +318,14 @@ const authorized = {
 } as unknown as NodeJS.ProcessEnv;
 assert.equal(careersIntake({} as NodeJS.ProcessEnv), "unpublished");
 assert.equal(careersIntake(previewEnv), "preview");
-assert.equal(careersIntake(authorized), "unpublished");
+assert.equal(careersIntake(authorized), "open");
+assert.equal(careersIntake(authorized, false), "unpublished");
 assert.equal(careersIntake(authorized, true), "open");
 assert.equal(careersIntake({ ...authorized, CASINO_SHOW_PREVIEW_MODE: "enabled" }, true), "preview");
 assert.equal(careersDeliveryAllowed(readyMail), false);
 assert.equal(careersDeliveryAllowed(readyMail, true), false);
-assert.equal(careersDeliveryAllowed(authorized), false);
+assert.equal(careersDeliveryAllowed(authorized), true);
+assert.equal(careersDeliveryAllowed(authorized, false), false);
 assert.equal(careersDeliveryAllowed(authorized, true), true);
 assert.equal(careersDeliveryAllowed({ ...authorized, CASINO_SHOW_CAREERS_FORM: "" }, true), false);
 assert.equal(careersDeliveryAllowed({ ...authorized, CASINO_SHOW_CAREERS_DELIVERY: "" }, true), false);

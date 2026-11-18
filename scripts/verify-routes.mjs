@@ -138,10 +138,10 @@ const pages = [
       en: "Tell us about your event",
     },
     descriptions: {
-      it: "Prepara una richiesta di preventivo per un evento Casino Show. L'invio non è ancora attivo.",
-      de: "Bereiten Sie eine Angebotsanfrage für einen Casino-Show-Anlass vor. Das Senden ist noch nicht aktiv.",
-      fr: "Préparez une demande de devis pour un événement Casino Show. L'envoi n'est pas encore actif.",
-      en: "Prepare a quote request for a Casino Show event. Sending is not active yet.",
+      it: "Prepara una richiesta di preventivo per un evento Casino Show.",
+      de: "Bereiten Sie eine Angebotsanfrage für einen Casino-Show-Anlass vor.",
+      fr: "Préparez une demande de devis pour un événement Casino Show.",
+      en: "Prepare a quote request for a Casino Show event.",
     },
   },
   {
@@ -159,10 +159,10 @@ const pages = [
       en: "Step into the world of Casino Show.",
     },
     descriptions: {
-      it: "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza. Le candidature non vengono inviate da questa pagina.",
-      de: "Arbeiten Sie mit Casino Show in der Schweiz. Wir prüfen Bewerbungen von erfahrenen Croupiers und motivierten Menschen, auch ohne Erfahrung. Bewerbungen werden von dieser Seite nicht gesendet.",
-      fr: "Travaillez avec Casino Show en Suisse. Nous examinons les candidatures de croupiers expérimentés et de personnes motivées, même sans expérience. Les candidatures ne sont pas envoyées depuis cette page.",
-      en: "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Applications are not sent from this page.",
+      it: "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza.",
+      de: "Arbeiten Sie mit Casino Show in der Schweiz. Wir prüfen Bewerbungen von erfahrenen Croupiers und motivierten Menschen, auch ohne Erfahrung.",
+      fr: "Travaillez avec Casino Show en Suisse. Nous examinons les candidatures de croupiers expérimentés et de personnes motivées, même sans expérience.",
+      en: "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience.",
     },
   },
 ];
@@ -414,7 +414,7 @@ for (const loc of locs) {
       loc,
     )
   ) {
-    fail(`sitemap includes unpublished legal URL ${loc}`);
+    fail(`sitemap includes a legal URL ${loc}`);
   }
   if (/\/(_not-found|sitemap\.xml|robots\.txt)/.test(loc)) {
     fail(`sitemap includes technical URL ${loc}`);
@@ -437,10 +437,10 @@ const legalPages = [
       en: "/en/privacy-policy",
     },
     titles: {
-      it: "Informativa sulla privacy non ancora disponibile",
-      de: "Datenschutzerklärung noch nicht verfügbar",
-      fr: "Politique de confidentialité pas encore disponible",
-      en: "Privacy policy not available yet",
+      it: "Informativa sulla privacy",
+      de: "Datenschutzerklärung",
+      fr: "Politique de confidentialité",
+      en: "Privacy notice",
     },
   },
   {
@@ -452,10 +452,10 @@ const legalPages = [
       en: "/en/cookie-policy",
     },
     titles: {
-      it: "Informativa sui cookie non ancora disponibile",
-      de: "Cookie-Richtlinie noch nicht verfügbar",
-      fr: "Politique relative aux cookies pas encore disponible",
-      en: "Cookie policy not available yet",
+      it: "Informativa sui cookie",
+      de: "Cookie-Richtlinie",
+      fr: "Politique relative aux cookies",
+      en: "Cookie policy",
     },
   },
   {
@@ -467,15 +467,15 @@ const legalPages = [
       en: "/en/legal-notice",
     },
     titles: {
-      it: "Note legali non ancora disponibili",
-      de: "Impressum noch nicht verfügbar",
-      fr: "Mentions légales pas encore disponibles",
-      en: "Legal notice not available yet",
+      it: "Note legali",
+      de: "Impressum",
+      fr: "Mentions légales",
+      en: "Legal notice",
     },
   },
 ];
 
-const legalNotices = {
+const unpublishedNotices = {
   it: "Questo documento non è ancora disponibile. Il testo di questa pagina non è un'informativa legale approvata.",
   de: "Dieses Dokument ist noch nicht verfügbar. Der Text dieser Seite ist kein genehmigter Rechtstext.",
   fr: "Ce document n'est pas encore disponible. Le texte de cette page n'est pas un document juridique approuvé.",
@@ -491,13 +491,16 @@ for (const page of legalPages) {
       fail(`${label} status ${result.status}`);
       continue;
     }
-    if (!/noindex/i.test(result.text)) fail(`${label} missing noindex`);
-    if (!result.text.includes(legalNotices[locale])) fail(`${label} missing unpublished notice`);
+    if (/noindex/i.test(result.text)) fail(`${label} still noindex`);
+    if (result.text.includes(unpublishedNotices[locale])) fail(`${label} still shows the unpublished notice`);
     if (result.text.includes("[DA CONFERMARE]")) fail(`${label} published a draft marker`);
-    if (result.text.includes("Immoevents360")) fail(`${label} published an unverified company name`);
-    if (result.text.includes("CH-501.4.029.022-5")) fail(`${label} published an unverified register number`);
+    if (page.id === "cookies") {
+      if (result.text.includes("Immoevents360")) fail(`${label} published the company name`);
+    } else if (!result.text.includes("Immoevents360") || !result.text.includes("CH-501.4.029.022-5")) {
+      fail(`${label} missing the company identification`);
+    }
     if (result.text.includes('data-legal-draft="true"')) fail(`${label} still renders the draft document`);
-    if (!result.text.includes('data-legal-status="unpublished"')) fail(`${label} missing unpublished status`);
+    if (!result.text.includes('data-legal-status="published"')) fail(`${label} missing published status`);
     const heading = decode(result.text.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] ?? "");
     if (heading !== page.titles[locale]) fail(`${label} heading "${heading}"`);
     const canonical = result.text.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
@@ -506,6 +509,7 @@ for (const page of legalPages) {
     const route = result.text.match(/data-route="([^"]+)"/)?.[1];
     if (route !== page.id) fail(`${label} data-route ${route}`);
     if (locale === "it" && page.id === "privacy") {
+      if (!result.text.includes("infofuncasino@gmail.com")) fail(`${label} missing the forwarded mailbox`);
       for (const alternate of ["/de/datenschutz", "/fr/politique-de-confidentialite", "/en/privacy-policy"]) {
         if (!result.text.includes(alternate)) fail(`${label} missing language link ${alternate}`);
       }
@@ -522,8 +526,8 @@ if (!homeIt.text.includes("https://www.linkedin.com/in/fabio-scaramella")) {
 }
 if (!homeIt.text.includes('rel="noopener noreferrer"')) fail("credit rel missing");
 if (!homeIt.text.includes("© 2026 Casino Show")) fail("copyright missing");
-if (!homeIt.text.includes('data-legal-publication="unpublished"')) {
-  fail("legal links published before approval");
+if (!homeIt.text.includes('data-legal-publication="published"')) {
+  fail("legal links are not published");
 }
 if (homeIt.text.includes("[DA CONFERMARE]")) fail("home shows unapproved legal marker");
 if (!homeIt.text.includes("mailto:info@casinoshow.ch")) fail("footer email missing");
@@ -532,7 +536,7 @@ for (const anchor of ["#corporate", "#team", "#weddings", "#private", "#roulette
   if (!homeIt.text.includes(anchor)) fail(`footer missing ${anchor}`);
 }
 for (const page of legalPages) {
-  if (homeIt.text.includes(page.paths.it)) fail(`home published ${page.paths.it}`);
+  if (!homeIt.text.includes(page.paths.it)) fail(`home missing ${page.paths.it}`);
 }
 const quoteIt = await request("/it/preventivo");
 if (!quoteIt.text.includes("non vengono trasmessi")) {
@@ -540,7 +544,7 @@ if (!quoteIt.text.includes("non vengono trasmessi")) {
 }
 const careersIt = await request("/it/lavora-con-noi");
 if (!careersIt.text.includes('data-careers-intake="unpublished"')) {
-  fail("careers form still open without a published privacy policy");
+  fail("careers form open without the delivery flags");
 }
 if (!careersIt.text.includes("Le candidature non sono attive")) {
   fail("careers closed notice missing");
@@ -562,5 +566,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Verified 32 commercial URLs, 12 unpublished legal URLs, root redirect, 404s, and sitemap against ${origin}`,
+  `Verified 32 commercial URLs, 12 published legal URLs, root redirect, 404s, and sitemap against ${origin}`,
 );
