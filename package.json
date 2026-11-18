@@ -11,6 +11,7 @@
     "verify:careers": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-careers.ts",
     "verify:quote": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-quote.ts",
     "verify:legal-publication": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-legal-publication.ts",
+    "verify:consent": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-consent.ts",
     "verify:social-observer": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-social-observer.ts"
   },
   "dependencies": {

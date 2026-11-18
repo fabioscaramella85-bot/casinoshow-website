@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { submitCareersApplication } from "@/app/[locale]/careers/actions";
+import { trackAllowedEvent } from "@/lib/analytics/ga4";
 import { Link } from "@/i18n/navigation";
 import { legalPathnames } from "@/i18n/routes";
 import {
@@ -121,6 +122,7 @@ export function CareersForm({ submissionBlocked = false }: { submissionBlocked?:
     try {
       const result = await submitCareersApplication(formData);
       if (result.status === "sent") {
+        trackAllowedEvent("job_application_submit");
         setStatus("sent");
         return;
       }

@@ -1486,11 +1486,27 @@
       "quote": "Request a Quote"
     },
     "legalNav": "Legal documents",
+    "cookiePreferences": "Cookie preferences",
     "legal": {
       "privacy": "Privacy Policy",
       "cookies": "Cookie Policy",
       "legalNotice": "Legal Notice"
     }
+  },
+  "Consent": {
+    "title": "Cookies and statistics",
+    "body": "A technical cookie remembers this choice for six months. Google Analytics 4 is optional and stays off until you accept statistics. Without a measurement ID, no Google script is loaded.",
+    "accept": "Accept analytics",
+    "reject": "Reject analytics",
+    "customize": "Customize",
+    "policy": "Cookie policy",
+    "dialogLabel": "Cookie preferences",
+    "analytics": "Statistics",
+    "analyticsHelp": "Google Analytics 4, only when a measurement ID is configured. No name, email, phone, or form text.",
+    "necessary": "The technical cookie cs_consent stores only the version, the statistics choice, and the time of the choice. It lasts six months.",
+    "save": "Save preferences",
+    "close": "Close",
+    "blocked": "The browser is blocking cookies. The choice was not saved and statistics stay off."
   },
   "Legal": {
     "status": "Unapproved draft",
@@ -1767,7 +1783,7 @@
           {
             "title": "Technical data",
             "paragraphs": [
-              "The website is hosted on Vercel, in region iad1, in the United States. It does not set a language cookie and does not include analytics or advertising tools. A response from the public homepage did not return a cookie.",
+              "The website is hosted on Vercel, in region iad1, in the United States. It does not set a language cookie. The technical cookie cs_consent is set only after a person makes a choice, as described in the cookie policy. Google Analytics 4 is an optional statistics tool and is not in use without consent and without configuration.",
               "Logs of the hosting platform, including any IP addresses, are not kept by the website in its own archive."
             ]
           },
@@ -1775,14 +1791,16 @@
             "title": "Purposes and legal bases",
             "paragraphs": [
               "Quote details are used to answer a request for an event. Application details are used to consider a collaboration. Technical data are used to serve the website.",
-              "Quote data are processed to handle the request and the negotiations that may precede a contract. The Federal Act on Data Protection treats processing directly connected with the conclusion or the performance of a contract, where the data concern the person in question, as an overriding private interest. Application data, including the CV, are processed for staff selection with a view to a possible collaboration. Technical data are processed to serve the website and, to the extent required, for the security of the service and the prevention of abuse."
+              "Quote data are processed to handle the request and the negotiations that may precede a contract. The Federal Act on Data Protection treats processing directly connected with the conclusion or the performance of a contract, where the data concern the person in question, as an overriding private interest. Application data, including the CV, are processed for staff selection with a view to a possible collaboration. Technical data are processed to serve the website and, to the extent required, for the security of the service and the prevention of abuse.",
+              "Visit statistics with Google Analytics 4, if activated, rely on consent. Without consent they are not collected."
             ]
           },
           {
             "title": "Recipients and providers",
             "paragraphs": [
               "When sending is enabled, the message arrives at info@casinoshow.ch. A copy may be forwarded to infofuncasino@gmail.com. Both mailboxes follow the same deletion periods.",
-              "Transport is handled by Resend, a service of Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, United States, through api.resend.com. No processing agreement is shown as already concluded: Resend's public documentation describes this role when the service is active."
+              "Transport is handled by Resend, a service of Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, United States, through api.resend.com. No processing agreement is shown as already concluded: Resend's public documentation describes this role when the service is active.",
+              "If Google Analytics 4 is activated after consent, Google processes technical visit data. Without consent or without configuration, that transmission does not take place. Name, email, phone, address, CV, and form text are not transmitted."
             ]
           },
           {
@@ -1817,19 +1835,22 @@
       },
       "cookies": {
         "title": "Cookie policy",
-        "summary": "The website does not set analytics or marketing cookies and does not show a consent banner.",
+        "summary": "The website remembers the choice with a technical cookie. Google Analytics 4 is optional and stays off without consent or without configuration. There are no marketing cookies.",
         "sections": [
           {
             "title": "Technical, analytics, and marketing cookies",
             "paragraphs": [
-              "The website does not set a language cookie and does not load analytics or advertising tools. A response from the public homepage did not return a Set-Cookie header.",
+              "The website does not set a language cookie and does not use marketing cookies. The first-party technical cookie cs_consent stores only the version of this notice, the statistics choice (yes or no), and the time of the choice. It contains no name, email, or other data that identifies a person. It lasts six months. The attributes are SameSite=Lax, path /, and Secure on HTTPS pages.",
+              "Google Analytics 4 is prepared as optional statistics. The program is loaded only if the person accepts statistics and a measurement ID is configured. Without consent or without configuration, Analytics stays off and no Google script is loaded. If the service were active, Google could set its own statistics cookies. While the ID is missing, Analytics is not in use.",
               "Cookies added by the hosting platform, beyond what the website itself sets, are not described on this page."
             ]
           },
           {
             "title": "Consent banner",
             "paragraphs": [
-              "There is no banner. No non-essential cookie appears that would need to be blocked before consent. If analytics, advertising, or other cookies are added later, this page must be updated before they are turned on."
+              "A banner offers three actions: accept statistics, reject them, or customize. No choice is preselected. Rejection takes a single step, the same as acceptance.",
+              "The choice can be changed in every language from the Cookie preferences link in the footer. A new choice replaces the previous one. After six months the banner appears again and statistics stay off until there is a new consent.",
+              "If the browser blocks cookies, the choice is not saved and statistics stay off."
             ]
           },
           {

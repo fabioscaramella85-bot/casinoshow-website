@@ -2,6 +2,7 @@ import createMiddleware from "next-intl/middleware";
 import { NextResponse, type NextRequest } from "next/server";
 import { isKnownUnprefixedPath, locales } from "./i18n/routes";
 import { routing } from "./i18n/routing";
+import { deploymentNoindexTag } from "./lib/seo/deployment-host";
 import {
   PREVIEW_PROTECTION_HEADER,
   PREVIEW_ROBOTS_TAG,
@@ -51,11 +52,20 @@ function markPreview(response: NextResponse, request: NextRequest): NextResponse
   return response;
 }
 
+function seal(response: NextResponse, request: NextRequest): NextResponse {
+  const marked = markPreview(response, request);
+  if (previewModeEnabled()) return marked;
+
+  const tag = deploymentNoindexTag(request.headers.get("host"));
+  if (tag) marked.headers.set(PREVIEW_PROTECTION_HEADER, tag);
+  return marked;
+}
+
 export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (previewModeEnabled() && pathname === "/robots.txt") {
-    return markPreview(
+    return seal(
       new NextResponse(PREVIEW_ROBOTS_BODY, {
         headers: { "Content-Type": "text/plain; charset=utf-8" },
       }),
@@ -64,7 +74,7 @@ export default function proxy(request: NextRequest) {
   }
 
   if (previewModeEnabled() && pathname === "/sitemap.xml") {
-    return markPreview(
+    return seal(
       new NextResponse(PREVIEW_SITEMAP_BODY, {
         headers: { "Content-Type": "application/xml; charset=utf-8" },
       }),
@@ -73,7 +83,7 @@ export default function proxy(request: NextRequest) {
   }
 
   if (isFileRequest(pathname)) {
-    return markPreview(NextResponse.next(), request);
+    return seal(NextResponse.next(), request);
   }
 
   const [firstSegment] = pathname.split("/").filter(Boolean);
@@ -82,9 +92,9 @@ export default function proxy(request: NextRequest) {
     if (!isKnownUnprefixedPath(pathname)) {
       const url = request.nextUrl.clone();
       url.pathname = "/__unmatched";
-      return markPreview(NextResponse.rewrite(url), request);
+      return seal(NextResponse.rewrite(url), request);
     }
   }
 
-  return markPreview(handleI18nRouting(request), request);
+  return seal(handleI18nRouting(request), request);
 }

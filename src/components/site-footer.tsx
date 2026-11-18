@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import { BrandLogo } from "@/components/brand-logo";
+import { ConsentPreferencesButton } from "@/components/consent/consent-preferences-button";
 import { Container } from "@/components/ui/container";
 import { enabledContactChannels } from "@/config/contact";
 import { isLegalRoutePublic } from "@/lib/legal/publication";
@@ -154,27 +155,33 @@ export async function SiteFooter() {
           <p className="text-sm text-text-muted-on-dark xl:min-w-0 xl:flex-1">
             {shell("copyright", { year: copyrightYear })}
           </p>
-          {published.length > 0 ? (
-            <nav aria-label={footer("legalNav")} className="max-w-full xl:shrink">
-              <ul className="flex flex-wrap items-center justify-center">
-                {published.map((id, index) => (
-                  <li key={id} className="inline-flex items-center">
-                    {index > 0 ? (
-                      <span aria-hidden="true" className="px-2 text-sm text-text-muted-on-dark">
-                        ·
-                      </span>
-                    ) : null}
-                    <Link
-                      href={legalPathnames[id]}
-                      className="inline-flex min-h-11 items-center px-1 text-sm text-ivory transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:text-brand-gold"
-                    >
-                      {footer(`legal.${id}`)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ) : null}
+          <nav aria-label={footer("legalNav")} className="max-w-full xl:shrink">
+            <ul className="flex flex-wrap items-center justify-center">
+              {published.map((id, index) => (
+                <li key={id} className="inline-flex items-center">
+                  {index > 0 ? (
+                    <span aria-hidden="true" className="px-2 text-sm text-text-muted-on-dark">
+                      ·
+                    </span>
+                  ) : null}
+                  <Link
+                    href={legalPathnames[id]}
+                    className="inline-flex min-h-11 items-center px-1 text-sm text-ivory transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:text-brand-gold"
+                  >
+                    {footer(`legal.${id}`)}
+                  </Link>
+                </li>
+              ))}
+              <li className="inline-flex items-center">
+                {published.length > 0 ? (
+                  <span aria-hidden="true" className="px-2 text-sm text-text-muted-on-dark">
+                    ·
+                  </span>
+                ) : null}
+                <ConsentPreferencesButton label={footer("cookiePreferences")} />
+              </li>
+            </ul>
+          </nav>
           <p className="text-sm text-text-muted-on-dark xl:min-w-0 xl:flex-1 xl:text-right">
             {shell("creditLead")}{" "}
             <a

@@ -1486,11 +1486,27 @@
       "quote": "Demander un devis"
     },
     "legalNav": "Documents légaux",
+    "cookiePreferences": "Préférences cookies",
     "legal": {
       "privacy": "Politique de confidentialité",
       "cookies": "Politique relative aux cookies",
       "legalNotice": "Mentions légales"
     }
+  },
+  "Consent": {
+    "title": "Cookies et statistiques",
+    "body": "Un cookie technique mémorise ce choix pendant six mois. Google Analytics 4 est facultatif et reste arrêté tant que vous n'acceptez pas les statistiques. Sans identifiant de mesure, aucun script Google n'est chargé.",
+    "accept": "Accepter les analytics",
+    "reject": "Refuser les analytics",
+    "customize": "Personnaliser",
+    "policy": "Politique relative aux cookies",
+    "dialogLabel": "Préférences cookies",
+    "analytics": "Statistiques",
+    "analyticsHelp": "Google Analytics 4, seulement si un identifiant de mesure est configuré. Aucun nom, e-mail, téléphone ou texte de formulaire.",
+    "necessary": "Le cookie technique cs_consent mémorise seulement la version, le choix sur les statistiques et le moment du choix. Il dure six mois.",
+    "save": "Enregistrer les préférences",
+    "close": "Fermer",
+    "blocked": "Le navigateur bloque les cookies. Le choix n'a pas été enregistré et les statistiques restent arrêtées."
   },
   "Legal": {
     "status": "Brouillon non approuvé",
@@ -1767,7 +1783,7 @@
           {
             "title": "Données techniques",
             "paragraphs": [
-              "Le site est hébergé sur Vercel, dans la région iad1, aux États-Unis. Il ne place pas de cookie de langue et n'inclut pas d'outils de statistique ou de publicité. Une réponse de la page d'accueil publique n'a pas renvoyé de cookie.",
+              "Le site est hébergé sur Vercel, dans la région iad1, aux États-Unis. Il ne place pas de cookie de langue. Le cookie technique cs_consent n'est placé qu'après un choix de la personne, comme décrit dans la politique relative aux cookies. Google Analytics 4 est une statistique facultative et n'est pas en service sans consentement et sans configuration.",
               "Les journaux de la plateforme d'hébergement, adresses IP éventuelles comprises, ne sont pas conservés par le site dans une archive propre."
             ]
           },
@@ -1775,14 +1791,16 @@
             "title": "Finalités et bases juridiques",
             "paragraphs": [
               "Les données du devis servent à répondre à une demande d'événement. Les données de candidature servent à examiner une collaboration. Les données techniques servent à fournir le site.",
-              "Le traitement des données du devis sert à gérer la demande et les négociations qui peuvent précéder un contrat. La loi fédérale sur la protection des données tient pour un intérêt privé prépondérant le traitement en relation directe avec la conclusion ou l'exécution d'un contrat, lorsque les données concernent la personne intéressée. Les données de candidature, curriculum compris, sont traitées pour la sélection du personnel en vue d'une éventuelle collaboration. Les données techniques sont traitées pour fournir le site et, dans la mesure nécessaire, pour la sécurité du service et la prévention des abus."
+              "Le traitement des données du devis sert à gérer la demande et les négociations qui peuvent précéder un contrat. La loi fédérale sur la protection des données tient pour un intérêt privé prépondérant le traitement en relation directe avec la conclusion ou l'exécution d'un contrat, lorsque les données concernent la personne intéressée. Les données de candidature, curriculum compris, sont traitées pour la sélection du personnel en vue d'une éventuelle collaboration. Les données techniques sont traitées pour fournir le site et, dans la mesure nécessaire, pour la sécurité du service et la prévention des abus.",
+              "La statistique de visite avec Google Analytics 4, si elle est activée, repose sur le consentement. Sans consentement, elle n'est pas collectée."
             ]
           },
           {
             "title": "Destinataires et prestataires",
             "paragraphs": [
               "Lorsque l'envoi est activé, le message arrive à info@casinoshow.ch. Une copie peut être transférée à infofuncasino@gmail.com. Les deux boîtes suivent les mêmes délais d'effacement.",
-              "Le transport est confié à Resend, service de Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, États-Unis, via api.resend.com. Il n'apparaît pas de contrat de traitement déjà conclu : la documentation publique de Resend décrit ce rôle lorsque le service est actif."
+              "Le transport est confié à Resend, service de Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, États-Unis, via api.resend.com. Il n'apparaît pas de contrat de traitement déjà conclu : la documentation publique de Resend décrit ce rôle lorsque le service est actif.",
+              "Si Google Analytics 4 est activé après le consentement, Google traite les données techniques de la visite. Sans consentement ou sans configuration, cet envoi n'a pas lieu. Le nom, l'e-mail, le téléphone, l'adresse, le curriculum et les textes des formulaires ne sont pas transmis."
             ]
           },
           {
@@ -1817,19 +1835,22 @@
       },
       "cookies": {
         "title": "Politique relative aux cookies",
-        "summary": "Le site ne place pas de cookies de statistique ou de marketing et n'affiche pas de bandeau de consentement.",
+        "summary": "Le site mémorise le choix avec un cookie technique. Google Analytics 4 est facultatif et reste désactivé sans consentement ou sans configuration. Il n'y a pas de cookies de marketing.",
         "sections": [
           {
             "title": "Cookies techniques, de statistique et de marketing",
             "paragraphs": [
-              "Le site ne place pas de cookie de langue et ne charge pas d'outils de statistique ou de publicité. Une réponse de la page d'accueil publique n'a pas renvoyé l'en-tête Set-Cookie.",
+              "Le site ne place pas de cookie de langue et n'utilise pas de cookies de marketing. Le cookie technique de première partie cs_consent mémorise seulement la version de cette information, le choix sur les statistiques (oui ou non) et le moment du choix. Il ne contient ni nom, ni e-mail, ni d'autres données identifiant la personne. Il dure six mois. Les attributs sont SameSite=Lax, chemin / et Secure sur les pages HTTPS.",
+              "Google Analytics 4 est préparé comme statistique facultative. Le programme n'est chargé que si la personne accepte les statistiques et si l'identifiant de mesure est configuré. Sans consentement ou sans configuration, Analytics reste désactivé et aucun script Google n'est chargé. Si le service était actif, Google pourrait placer ses propres cookies de statistique. Tant que l'identifiant manque, Analytics n'est pas en service.",
               "Les cookies ajoutés par la plateforme d'hébergement, en dehors de ce que le site règle lui-même, ne sont pas décrits sur cette page."
             ]
           },
           {
             "title": "Bandeau de consentement",
             "paragraphs": [
-              "Aucun bandeau n'est présent. Il n'apparaît pas de cookie non nécessaire à bloquer avant un consentement. Si une statistique, de la publicité ou d'autres cookies sont ajoutés ensuite, cette page doit être mise à jour avant de les activer."
+              "Un bandeau propose trois actions : accepter les statistiques, les refuser ou personnaliser. Aucun choix n'est présélectionné. Le refus demande une seule étape, comme l'acceptation.",
+              "Le choix se modifie dans chaque langue depuis le lien Préférences cookies en pied de page. Un nouveau choix remplace le précédent. Au bout de six mois, le bandeau réapparaît et les statistiques restent désactivées jusqu'à un nouveau consentement.",
+              "Si le navigateur bloque les cookies, le choix n'est pas enregistré et les statistiques restent désactivées."
             ]
           },
           {

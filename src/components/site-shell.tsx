@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
+import { ConsentManager } from "@/components/consent/consent-manager";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { FloatingSocial } from "@/components/social/floating-social";
@@ -18,6 +19,7 @@ export async function SiteShell({ routeId, children }: SiteShellProps) {
       <a className="skip-link" href="#main">
         {shell("skip")}
       </a>
+      <ConsentManager />
       <SiteHeader routeId={routeId} />
       <main id="main" data-route={routeId ?? "not-found"} className="flex-1">
         {children}

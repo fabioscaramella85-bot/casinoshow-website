@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { submitQuoteRequest } from "@/app/[locale]/quote/actions";
+import { trackAllowedEvent } from "@/lib/analytics/ga4";
 import { Button } from "@/components/ui/button";
 import { QuoteProgress } from "@/components/quote/quote-progress";
 import { QuoteStepContact } from "@/components/quote/quote-step-contact";
@@ -155,6 +156,7 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
     try {
       const response = await submitQuoteRequest(quoteFormData());
       if (response.status === "sent") {
+        trackAllowedEvent("generate_lead");
         setPhase("sent");
         return;
       }
