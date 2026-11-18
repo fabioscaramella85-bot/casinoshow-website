@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     qualities: [75, 80, 85],
   },
   experimental: {
+    agentUpgrade: "security",
     globalNotFound: true,
     serverActions: {
       bodySizeLimit: "6mb",

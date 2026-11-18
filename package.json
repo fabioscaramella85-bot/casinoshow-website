@@ -14,20 +14,20 @@
     "verify:social-observer": "node --experimental-strip-types --import ./scripts/quote-node-loader.mjs scripts/verify-social-observer.ts"
   },
   "dependencies": {
-    "next": "16.4.2",
+    "next": "16.4.6",
     "next-intl": "^4.14.9",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "@next/swc-wasm-nodejs": "16.4.2",
+    "@next/swc-wasm-nodejs": "16.4.6",
     "@tailwindcss/postcss": "4.3.3",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.4.2",
+    "eslint-config-next": "16.4.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
