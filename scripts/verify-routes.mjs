@@ -363,6 +363,14 @@ expectRedirect("/events", "/it/eventi", unprefixedEvents, "unprefixed path");
 const foreignSlug = await request("/fr/about-us");
 expectRedirect("/fr/about-us", "/fr/a-propos", foreignSlug, "foreign slug");
 
+const robots = await request("/robots.txt");
+if (robots.status !== 200) fail(`robots status ${robots.status}`);
+if (!/Allow: \//.test(robots.text)) fail("robots.txt does not allow public pages");
+if (!robots.text.includes("Sitemap: https://casinoshow.ch/sitemap.xml")) {
+  fail("robots.txt does not point at the official sitemap");
+}
+if (/Disallow:\s*\//.test(robots.text)) fail("robots.txt disallows the public site");
+
 const sitemap = await request("/sitemap.xml");
 if (sitemap.status !== 200) fail(`sitemap status ${sitemap.status}`);
 const locs = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map(

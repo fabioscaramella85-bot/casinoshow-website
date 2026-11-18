@@ -36,7 +36,10 @@ if (mode === "production") {
   assert.equal(home.text.includes("https://casinoshow.ch"), true);
   assert.equal(home.text.includes("noindex"), false);
   assert.notEqual(action.status, 401);
-  assert.equal(robots.status, 404, "production has no robots.txt");
+  assert.equal(robots.status, 200, "production robots.txt");
+  assert.match(robots.text, /Allow: \//);
+  assert.match(robots.text, /Sitemap: https:\/\/casinoshow\.ch\/sitemap\.xml/);
+  assert.equal(/Disallow:\s*\//.test(robots.text), false);
   assert.equal(sitemap.status, 200);
   assert.equal(sitemap.text.includes("https://casinoshow.ch/"), true);
   assert.equal(sitemap.text.includes("preview.casinoshow.ch"), false);
