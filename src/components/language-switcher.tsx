@@ -36,8 +36,28 @@ export function LanguageSwitcher({
   }
   const rootRef = useRef<HTMLElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const closeTimer = useRef<number | null>(null);
+  const pointerSelecting = useRef(false);
   const menuId = useId();
   const currentName = languages(locale);
+
+  const cancelClose = () => {
+    if (closeTimer.current !== null) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const closeIfFocusLeft = () => {
+    cancelClose();
+    closeTimer.current = window.setTimeout(() => {
+      closeTimer.current = null;
+      if (pointerSelecting.current) return;
+      if (!rootRef.current?.contains(document.activeElement)) {
+        setOpen(false);
+      }
+    }, 0);
+  };
 
   useEffect(() => {
     const readHash = () => setHash(window.location.hash.replace(/^#/, ""));
@@ -52,7 +72,7 @@ export function LanguageSwitcher({
     }
 
     const active = rootRef.current?.querySelector<HTMLAnchorElement>('[aria-current="true"]');
-    active?.focus();
+    active?.focus({ preventScroll: true });
   }, [open]);
 
   useEffect(() => {
@@ -95,11 +115,22 @@ export function LanguageSwitcher({
       }
     };
 
+    const releasePointer = () => {
+      window.setTimeout(() => {
+        pointerSelecting.current = false;
+      }, 500);
+    };
+
     document.addEventListener("keydown", onKeyDown, true);
     document.addEventListener("mousedown", onPointerDown);
+    window.addEventListener("pointerup", releasePointer);
+    window.addEventListener("pointercancel", releasePointer);
     return () => {
       document.removeEventListener("keydown", onKeyDown, true);
       document.removeEventListener("mousedown", onPointerDown);
+      window.removeEventListener("pointerup", releasePointer);
+      window.removeEventListener("pointercancel", releasePointer);
+      cancelClose();
     };
   }, [open]);
 
@@ -110,9 +141,10 @@ export function LanguageSwitcher({
       data-language-switcher="true"
       className="relative"
       onBlur={(event) => {
-        if (!rootRef.current?.contains(event.relatedTarget as Node | null)) {
-          setOpen(false);
-        }
+        if (pointerSelecting.current) return;
+        const next = event.relatedTarget as Node | null;
+        if (next && rootRef.current?.contains(next)) return;
+        closeIfFocusLeft();
       }}
     >
       <button
@@ -140,6 +172,10 @@ export function LanguageSwitcher({
         role="menu"
         aria-label={shell("languageNav")}
         hidden={!open}
+        onPointerDown={() => {
+          pointerSelecting.current = true;
+          cancelClose();
+        }}
         className={`z-50 min-w-44 border border-line-on-light bg-white py-1 text-midnight shadow-[0_12px_32px_rgb(16_17_20/0.12)] ${
           placement === "flow"
             ? "relative mt-2 w-full"
