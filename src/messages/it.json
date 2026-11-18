@@ -1292,8 +1292,9 @@
     },
     "privacy": {
       "title": "Nota privacy",
-      "body": "La nota privacy di questa richiesta è in revisione. Non è ancora un testo legale approvato e non attiva l'invio. Il consenso non è presentato come unica base giuridica: la base va definita in una revisione legale.",
-      "linkLead": "Il testo in revisione si trova nell'",
+      "body": "I dati di questa richiesta sono trattati come descritto nell'informativa sulla privacy pubblicata. Servono a gestire la richiesta e le trattative che possono precedere un contratto. Il consenso non è presentato come unica base giuridica.",
+      "inactiveBody": "L'informativa sulla privacy è pubblicata. Finché l'invio non è attivo, i dati restano in questa pagina e non vengono trasmessi.",
+      "linkLead": "I dettagli sono nell'",
       "link": "informativa sulla privacy"
     },
     "submission": {

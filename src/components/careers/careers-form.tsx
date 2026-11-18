@@ -23,6 +23,7 @@ import {
   type CareerRegion,
   type CareersFieldErrors,
 } from "@/lib/careers/schema";
+import { applySessionStamp, openFormSession } from "@/lib/careers/session";
 
 const controlClass =
   "type-body mt-2 box-border block min-h-11 w-full min-w-0 max-w-full border border-line-on-light bg-white px-3 text-midnight aria-invalid:border-brand-red disabled:opacity-50";
@@ -40,7 +41,6 @@ function focusField(id: string) {
 export function CareersForm({ submissionBlocked = false }: { submissionBlocked?: boolean }) {
   const t = useTranslations("Careers");
   const locale = useLocale();
-  const startedRef = useRef<HTMLInputElement>(null);
   const successRef = useRef<HTMLParagraphElement>(null);
   const alertRef = useRef<HTMLDivElement>(null);
   const [regions, setRegions] = useState<CareerRegion[]>([]);
@@ -51,13 +51,8 @@ export function CareersForm({ submissionBlocked = false }: { submissionBlocked?:
   const [errors, setErrors] = useState<CareersFieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [focusId, setFocusId] = useState<string | null>(null);
+  const [session] = useState(() => openFormSession());
   const submitting = status === "submitting";
-
-  useEffect(() => {
-    if (startedRef.current && !startedRef.current.value) {
-      startedRef.current.value = String(Date.now());
-    }
-  }, []);
 
   useEffect(() => {
     if (status === "sent") {
@@ -95,7 +90,7 @@ export function CareersForm({ submissionBlocked = false }: { submissionBlocked?:
       return;
     }
 
-    const formData = new FormData(event.currentTarget);
+    const formData = applySessionStamp(new FormData(event.currentTarget), session);
     const read = readCareersValues(formData);
     if (read === "spam") {
       setErrors({});
@@ -203,7 +198,7 @@ export function CareersForm({ submissionBlocked = false }: { submissionBlocked?:
                 <input name="company_website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
               </label>
             </div>
-            <input ref={startedRef} type="hidden" name="startedAt" defaultValue="" />
+            <input type="hidden" name="startedAt" value={String(session.startedAt)} readOnly />
             <input type="hidden" name="locale" defaultValue={locale} />
 
             <div className="grid gap-8">

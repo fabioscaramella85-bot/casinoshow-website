@@ -1292,8 +1292,9 @@
     },
     "privacy": {
       "title": "Hinweis zum Datenschutz",
-      "body": "Der Datenschutzhinweis zu dieser Anfrage wird geprüft. Er ist noch kein genehmigter Rechtstext und aktiviert den Versand nicht. Die Einwilligung wird nicht als einzige Rechtsgrundlage dargestellt, weil die Grundlage in einer rechtlichen Prüfung zu klären ist.",
-      "linkLead": "Der Text in Prüfung steht in der ",
+      "body": "Die Angaben dieser Anfrage werden so bearbeitet, wie es die veröffentlichte Datenschutzerklärung beschreibt. Sie dienen der Bearbeitung der Anfrage und der Verhandlungen, die einem Vertrag vorausgehen können. Die Einwilligung wird nicht als einzige Rechtsgrundlage dargestellt.",
+      "inactiveBody": "Die Datenschutzerklärung ist veröffentlicht. Solange der Versand nicht aktiv ist, bleiben die Angaben auf dieser Seite und werden nicht übermittelt.",
+      "linkLead": "Die Einzelheiten stehen in der ",
       "link": "Datenschutzerklärung"
     },
     "submission": {

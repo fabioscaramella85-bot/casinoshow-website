@@ -6,7 +6,8 @@ import type { CareersInquiry } from "../src/lib/careers/inquiry.ts";
 import { careersDeliveryAllowed, careersIntake } from "../src/lib/careers/intake.ts";
 import { processCareersSubmission } from "../src/lib/careers/process.ts";
 import { allowCareersSubmission, careersRateLimitHasKey } from "../src/lib/careers/rate-limit.ts";
-import { careerLimits } from "../src/lib/careers/schema.ts";
+import { careerLimits, careersTimingError } from "../src/lib/careers/schema.ts";
+import { applySessionStamp, openFormSession } from "../src/lib/careers/session.ts";
 
 const encoder = new TextEncoder();
 
@@ -330,5 +331,88 @@ assert.equal(careersDeliveryAllowed(authorized, true), true);
 assert.equal(careersDeliveryAllowed({ ...authorized, CASINO_SHOW_CAREERS_FORM: "" }, true), false);
 assert.equal(careersDeliveryAllowed({ ...authorized, CASINO_SHOW_CAREERS_DELIVERY: "" }, true), false);
 assert.equal(careersDeliveryAllowed({ ...authorized, CASINO_SHOW_PREVIEW_MODE: "enabled" }, true), false);
+
+const formSource = fs.readFileSync("src/components/careers/careers-form.tsx", "utf8");
+assert.equal(formSource.includes("applySessionStamp"), true);
+assert.equal(formSource.includes('name="startedAt" defaultValue=""'), false);
+assert.equal(formSource.includes('name="cv"'), true);
+assert.equal(/id="careers-cv"[\s\S]{0,120}key=/.test(formSource), false);
+
+const openedAt = 1_795_000_000_000;
+const session = openFormSession(openedAt);
+const curriculum = pdf("TEST-curriculum.pdf", "%PDF-1.4\nTEST collaudo\n");
+const normal = new FormData();
+normal.set("locale", "it");
+normal.set("firstName", "TEST");
+normal.set("lastName", "CANDIDATURA");
+normal.set("email", "test.candidatura@example.com");
+normal.set("phone", "+41000000002");
+normal.set("locality", "TEST");
+normal.set("country", "ch");
+normal.set("birthDate", "1990-01-01");
+normal.set("experience", "none");
+normal.append("regions", "ticino");
+normal.set("presentation", "TEST sintetico di collaudo. Nessuna candidatura reale.");
+normal.set("privacy", "yes");
+normal.set("company_website", "");
+normal.set("cv", curriculum);
+normal.set("startedAt", String(session.startedAt));
+
+for (let render = 0; render < 3; render += 1) {
+  normal.append("regions", "ticino");
+  normal.set("startedAt", "");
+  assert.equal(session.startedAt, openedAt);
+  assert.equal((normal.get("cv") as File).name, "TEST-curriculum.pdf");
+  assert.equal((normal.get("cv") as File).size, curriculum.size);
+  assert.equal(normal.get("firstName"), "TEST");
+  assert.equal(normal.get("email"), "test.candidatura@example.com");
+}
+assert.deepEqual(normal.getAll("regions"), ["ticino", "ticino", "ticino", "ticino"]);
+normal.delete("regions");
+normal.append("regions", "ticino");
+
+const submittedAt = openedAt + 4_000;
+assert.equal(careersTimingError(normal, submittedAt), true);
+let normalSends = 0;
+const cleared = await processCareersSubmission(normal, {
+  configured: true,
+  allow: () => true,
+  now: submittedAt,
+  send: async () => {
+    normalSends += 1;
+    return "sent";
+  },
+});
+assert.equal(cleared.status, "error");
+assert.equal(normalSends, 0);
+
+applySessionStamp(normal, session);
+assert.equal(normal.get("startedAt"), String(openedAt));
+assert.equal((normal.get("cv") as File).name, "TEST-curriculum.pdf");
+assert.equal((normal.get("cv") as File).size, curriculum.size);
+assert.equal(normal.get("lastName"), "CANDIDATURA");
+assert.deepEqual(normal.getAll("regions"), ["ticino"]);
+assert.equal(careersTimingError(normal, submittedAt), false);
+
+const accepted = await processCareersSubmission(normal, {
+  configured: true,
+  allow: () => true,
+  now: submittedAt,
+  send: async (inquiry) => {
+    normalSends += 1;
+    assert.equal(inquiry.firstName, "TEST");
+    assert.equal(inquiry.lastName, "CANDIDATURA");
+    assert.equal(inquiry.cv.filename, "TEST-curriculum.pdf");
+    assert.equal(inquiry.cv.size, curriculum.size);
+    return "sent";
+  },
+});
+assert.equal(accepted.status, "sent");
+assert.equal(normalSends, 1);
+assert.equal(session.startedAt, openedAt);
+
+const nextSession = openFormSession(submittedAt);
+assert.equal(nextSession.startedAt, submittedAt);
+assert.notEqual(nextSession.startedAt, session.startedAt);
 
 console.log("verify:careers ok");

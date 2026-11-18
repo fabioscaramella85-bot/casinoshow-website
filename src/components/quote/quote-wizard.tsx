@@ -238,6 +238,7 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
             draft={draft}
             errors={errors}
             locale={locale}
+            deliveryEnabled={deliveryEnabled}
             onChange={patch}
             onEditEvent={() => goTo(1)}
             onEditExperience={() => goTo(2)}

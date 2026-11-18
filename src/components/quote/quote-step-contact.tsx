@@ -20,6 +20,7 @@ type QuoteStepContactProps = {
   draft: QuoteDraft;
   errors: QuoteErrors;
   locale: string;
+  deliveryEnabled: boolean;
   onChange: (patch: Partial<QuoteDraft>) => void;
   onEditEvent: () => void;
   onEditExperience: () => void;
@@ -29,6 +30,7 @@ export function QuoteStepContact({
   draft,
   errors,
   locale,
+  deliveryEnabled,
   onChange,
   onEditEvent,
   onEditExperience,
@@ -185,7 +187,9 @@ export function QuoteStepContact({
         <h3 id="quote-privacy-title" className="type-h4">
           {t("privacy.title")}
         </h3>
-        <p className="type-body mt-3 text-text-muted-on-light">{t("privacy.body")}</p>
+        <p className="type-body mt-3 text-text-muted-on-light">
+          {t(deliveryEnabled ? "privacy.body" : "privacy.inactiveBody")}
+        </p>
         <p className="type-body mt-3 text-text-muted-on-light">
           {t("privacy.linkLead")}
           <Link

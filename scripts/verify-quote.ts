@@ -185,6 +185,7 @@ const contactStep = fs.readFileSync("src/components/quote/quote-step-contact.tsx
 assert.equal(contactStep.includes("quote-referral"), true);
 assert.equal(contactStep.includes("legalPathnames.privacy"), true);
 assert.equal(contactStep.includes("privacyConsent"), false);
+assert.equal(contactStep.includes('deliveryEnabled ? "privacy.body" : "privacy.inactiveBody"'), true);
 
 function quoteForm(value: QuoteDraft, now: number, patch?: (data: FormData) => void) {
   const data = new FormData();
@@ -450,5 +451,16 @@ assert.equal(messages[0].Quote.nav.submit, "Invia la richiesta");
 assert.equal(messages[1].Quote.submission.unavailable.includes("noch nicht aktiv"), true);
 assert.equal(messages[2].Quote.privacy.link, "politique de confidentialité");
 assert.equal(messages[3].Quote.submission.success.includes("has been sent"), true);
+const stalePrivacy = /revisione|under review|en révision|Prüfung/;
+for (const pack of messages) {
+  const privacy = pack.Quote.privacy;
+  assert.equal(stalePrivacy.test(`${privacy.body} ${privacy.inactiveBody} ${privacy.linkLead}`), false);
+  assert.match(privacy.body, /consens|Einwilligung|consentement|Consent/);
+  assert.doesNotMatch(privacy.body, /trasmess|transmitted|transmises|übermittelt|non attiva l'invio|does not activate|n'active pas/);
+}
+assert.match(messages[0].Quote.privacy.inactiveBody, /non vengono trasmessi/);
+assert.match(messages[1].Quote.privacy.inactiveBody, /nicht übermittelt/);
+assert.match(messages[2].Quote.privacy.inactiveBody, /ne sont pas transmises/);
+assert.match(messages[3].Quote.privacy.inactiveBody, /are not transmitted/);
 
 console.log("verify:quote ok");

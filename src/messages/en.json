@@ -1292,8 +1292,9 @@
     },
     "privacy": {
       "title": "Privacy note",
-      "body": "The privacy note for this request is under review. It is not an approved legal text yet and it does not activate sending. Consent is not presented as the only legal basis: the basis has to be defined in a legal review.",
-      "linkLead": "The text under review is in the ",
+      "body": "The details in this request are handled as described in the published privacy policy. They are used to manage the request and any discussions that may lead to a contract. Consent is not presented as the only legal basis.",
+      "inactiveBody": "The privacy policy is published. While sending is not active, the details stay on this page and are not transmitted.",
+      "linkLead": "The details are in the ",
       "link": "privacy policy"
     },
     "submission": {

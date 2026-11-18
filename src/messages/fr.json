@@ -1292,8 +1292,9 @@
     },
     "privacy": {
       "title": "Note de confidentialité",
-      "body": "La note de confidentialité de cette demande est en révision. Ce n'est pas encore un texte juridique approuvé et elle n'active pas l'envoi. Le consentement n'est pas présenté comme la seule base juridique : la base doit être définie lors d'une révision juridique.",
-      "linkLead": "Le texte en cours de révision se trouve dans la ",
+      "body": "Les données de cette demande sont traitées comme le décrit la politique de confidentialité publiée. Elles servent à gérer la demande et les échanges qui peuvent précéder un contrat. Le consentement n'est pas présenté comme la seule base juridique.",
+      "inactiveBody": "La politique de confidentialité est publiée. Tant que l'envoi n'est pas actif, les données restent sur cette page et ne sont pas transmises.",
+      "linkLead": "Les détails se trouvent dans la ",
       "link": "politique de confidentialité"
     },
     "submission": {
