@@ -450,7 +450,18 @@ assert.equal(canTransmitQuote({ ...readyQuote, RESEND_API_KEY: "" }, true), fals
 assert.equal(messages[0].Quote.nav.submit, "Invia la richiesta");
 assert.equal(messages[1].Quote.submission.unavailable.includes("noch nicht aktiv"), true);
 assert.equal(messages[2].Quote.privacy.link, "politique de confidentialité");
-assert.equal(messages[3].Quote.submission.success.includes("has been sent"), true);
+assert.equal(messages[0].Quote.submission.successTitle, "Richiesta inviata con successo!");
+assert.match(messages[0].Quote.submission.success, /Grazie per aver contattato Casino Show/);
+assert.equal(messages[0].Quote.submission.home, "Torna alla homepage");
+assert.equal(messages[1].Quote.submission.home, "Zur Startseite");
+assert.equal(messages[2].Quote.submission.home, "Retour à l'accueil");
+assert.equal(messages[3].Quote.submission.successTitle, "Request sent successfully!");
+assert.match(messages[3].Quote.submission.success, /received your quote request/);
+assert.equal(messages[3].Quote.submission.home, "Back to the homepage");
+assert.match(wizard, /if \(phase === "sent"\)/);
+assert.match(wizard, /id="quote-confirmation-title"/);
+assert.match(wizard, /href="\/"/);
+assert.match(wizard, /response\.status === "sent"\) \{\s*trackAllowedEvent\("generate_lead"\);/);
 const stalePrivacy = /revisione|under review|en révision|Prüfung/;
 for (const pack of messages) {
   const privacy = pack.Quote.privacy;

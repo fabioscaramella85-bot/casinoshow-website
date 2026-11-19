@@ -1299,7 +1299,9 @@
     },
     "submission": {
       "notice": "Der Versand von Anfragen wird in Kürze verfügbar sein. Die Angaben bleiben auf dieser Seite und werden nicht übermittelt.",
-      "success": "Die Anfrage wurde gesendet. Wir antworten an die angegebenen Kontaktdaten.",
+      "successTitle": "Anfrage erfolgreich gesendet!",
+      "success": "Danke, dass Sie Casino Show kontaktiert haben. Wir haben Ihre Angebotsanfrage erhalten und antworten so bald wie möglich an die angegebenen Kontaktdaten.",
+      "home": "Zur Startseite",
       "unavailable": "Der Versand ist noch nicht aktiv. Die Angaben bleiben auf dieser Seite und werden nicht übermittelt.",
       "error": "Die Anfrage konnte nicht gesendet werden. Die Angaben bleiben auf dieser Seite: Sie können es erneut versuchen."
     }

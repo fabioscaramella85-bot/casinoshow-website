@@ -1299,7 +1299,9 @@
     },
     "submission": {
       "notice": "The request sending service will be available soon. The details stay on this page and are not transmitted.",
-      "success": "The request has been sent. We will reply to the contact details you gave.",
+      "successTitle": "Request sent successfully!",
+      "success": "Thank you for contacting Casino Show. We have received your quote request and will reply as soon as possible to the contact details you gave.",
+      "home": "Back to the homepage",
       "unavailable": "Sending is not active yet. The details stay on this page and are not transmitted.",
       "error": "The request could not be sent. The details stay on this page: you can try again."
     }

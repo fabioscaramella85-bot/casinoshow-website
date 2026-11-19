@@ -1299,7 +1299,9 @@
     },
     "submission": {
       "notice": "Le service d'envoi des demandes sera bientôt disponible. Les données restent sur cette page et ne sont pas transmises.",
-      "success": "La demande a été envoyée. Nous répondrons aux coordonnées indiquées.",
+      "successTitle": "Demande envoyée avec succès !",
+      "success": "Merci d'avoir contacté Casino Show. Nous avons reçu votre demande de devis et nous vous répondrons dès que possible aux coordonnées indiquées.",
+      "home": "Retour à l'accueil",
       "unavailable": "L'envoi n'est pas encore actif. Les données restent sur cette page et ne sont pas transmises.",
       "error": "La demande n'a pas pu être envoyée. Les données restent sur cette page : vous pouvez réessayer."
     }

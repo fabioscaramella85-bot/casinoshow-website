@@ -47,10 +47,18 @@ function focusTarget(id: string) {
   node.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
 }
 
+function reveal(node: HTMLElement) {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  node.focus({ preventScroll: true });
+  node.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+}
+
 export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
   const t = useTranslations("Quote");
   const locale = useLocale();
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const confirmationRef = useRef<HTMLHeadingElement>(null);
+  const noticeRef = useRef<HTMLParagraphElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
   const startedAt = useRef(0);
   const sending = useRef(false);
@@ -73,14 +81,34 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
     }
     const field = pendingFocus.current;
     pendingFocus.current = null;
+    if (phase === "submitting" || phase === "sent") {
+      return;
+    }
     if (field) {
       focusTarget(field);
       return;
     }
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    headingRef.current?.focus();
-    headingRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-  }, [step, errors]);
+    if (phase === "error" || phase === "unavailable") {
+      return;
+    }
+    if (headingRef.current) {
+      reveal(headingRef.current);
+    }
+  }, [step, errors, phase]);
+
+  useEffect(() => {
+    if (phase !== "sent" || !confirmationRef.current) {
+      return;
+    }
+    reveal(confirmationRef.current);
+  }, [phase]);
+
+  useEffect(() => {
+    if ((phase !== "error" && phase !== "unavailable") || !noticeRef.current) {
+      return;
+    }
+    reveal(noticeRef.current);
+  }, [phase]);
 
   function patch(next: Partial<QuoteDraft>) {
     setDraft((current) => ({ ...current, ...next }));
@@ -139,7 +167,7 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
   }
 
   async function sendRequest() {
-    if (sending.current) return;
+    if (sending.current || phase === "sent" || phase === "submitting") return;
     const result = validateQuoteStep(draft, 3, localTodayIso());
     if (!result.ok) {
       fail(3, result.errors, result.firstField);
@@ -171,6 +199,8 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
         return;
       }
       setPhase("error");
+    } catch {
+      setPhase("error");
     } finally {
       sending.current = false;
     }
@@ -187,8 +217,48 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
 
   const errorEntries = Object.entries(errors);
 
+  if (phase === "sent") {
+    return (
+      <section aria-labelledby="quote-confirmation-title" className="min-w-0 scroll-mt-28">
+        <div className="flex size-12 items-center justify-center rounded-full border border-brand-gold text-brand-gold">
+          <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6">
+            <path
+              d="M6 12.5 10 16.5 18 8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+        <h2
+          id="quote-confirmation-title"
+          ref={confirmationRef}
+          tabIndex={-1}
+          className="type-h2 mt-6 scroll-mt-28 text-balance focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-midnight"
+        >
+          {t("submission.successTitle")}
+        </h2>
+        <p className="type-body mt-4 max-w-2xl text-text-muted-on-light">{t("submission.success")}</p>
+        <div className="mt-8">
+          <Button href="/">{t("submission.home")}</Button>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <form noValidate onSubmit={onSubmit} aria-labelledby="quote-step-title" className="relative min-w-0">
+    <form
+      noValidate
+      onSubmit={onSubmit}
+      aria-labelledby="quote-step-title"
+      aria-busy={phase === "submitting"}
+      className="relative min-w-0"
+    >
+      <p className="sr-only" aria-live="polite">
+        {phase === "submitting" ? t("nav.submitting") : ""}
+      </p>
       <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
         <label>
           Website
@@ -223,7 +293,7 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
         id="quote-step-title"
         ref={headingRef}
         tabIndex={-1}
-        className="type-h2 mt-10 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-midnight"
+        className="type-h2 mt-10 scroll-mt-28 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-midnight"
       >
         {t(`steps.${stepKeys[step]}.title`)}
       </h2>
@@ -252,6 +322,7 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
           <Button
             variant="secondary"
             className="w-full sm:w-auto"
+            disabled={phase === "submitting"}
             onClick={() => goTo((step - 1) as QuoteStep)}
           >
             {t("nav.back")}
@@ -265,20 +336,16 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
           </Button>
         ) : (
           <div className="grid w-full gap-3 sm:w-auto">
-            {phase === "sent" || phase === "unavailable" || phase === "error" ? (
+            {phase === "unavailable" || phase === "error" ? (
               <p
+                ref={noticeRef}
+                tabIndex={-1}
                 role={phase === "error" ? "alert" : "status"}
-                className={`type-body border px-4 py-4 ${
+                className={`type-body scroll-mt-28 border px-4 py-4 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-midnight ${
                   phase === "error" ? "border-brand-red text-brand-red" : "border-brand-gold text-text-on-light"
                 }`}
               >
-                {t(
-                  phase === "sent"
-                    ? "submission.success"
-                    : phase === "unavailable"
-                      ? "submission.unavailable"
-                      : "submission.error",
-                )}
+                {t(phase === "unavailable" ? "submission.unavailable" : "submission.error")}
               </p>
             ) : null}
             <Button className="w-full sm:w-auto" disabled={phase === "submitting"} onClick={() => void sendRequest()}>
