@@ -1495,15 +1495,15 @@
   },
   "Consent": {
     "title": "Cookies und Statistiken",
-    "body": "Ein technisches Cookie merkt sich diese Wahl für sechs Monate. Google Analytics 4 ist freiwillig und bleibt aus, bis Sie die Statistiken akzeptieren. Ohne Mess-ID wird kein Google-Script geladen.",
+    "body": "Ein technisches Cookie merkt sich diese Wahl für sechs Monate. Google Analytics 4 ist freiwillig und kann nur geladen werden, wenn eine gültige Einwilligung und eine konfigurierte Mess-ID zusammen vorliegen.",
     "accept": "Analytics akzeptieren",
     "reject": "Analytics ablehnen",
     "customize": "Anpassen",
     "policy": "Cookie-Richtlinie",
     "dialogLabel": "Cookie-Einstellungen",
     "analytics": "Statistiken",
-    "analyticsHelp": "Google Analytics 4, nur wenn eine Mess-ID konfiguriert ist. Kein Name, keine E-Mail, kein Telefon und kein Formulartext.",
-    "necessary": "Das technische Cookie cs_consent speichert nur die Version, die Wahl zu den Statistiken und den Zeitpunkt der Wahl. Es gilt sechs Monate.",
+    "analyticsHelp": "Google Analytics 4 wird nur geladen, wenn diese Wahl eine gültige Einwilligung ist und eine Mess-ID konfiguriert ist. Kein Name, keine E-Mail, kein Telefon und kein Formulartext.",
+    "necessary": "Das technische Cookie cs_consent speichert nur die technische Versionsnummer des Formats der Wahl, die Wahl zu den Statistiken und den Zeitpunkt der Wahl. Sie ist nicht das Datum dieser Information. Es gilt sechs Monate.",
     "save": "Einstellungen speichern",
     "close": "Schliessen",
     "blocked": "Der Browser blockiert Cookies. Die Wahl wurde nicht gespeichert und die Statistiken bleiben aus."
@@ -1783,7 +1783,7 @@
           {
             "title": "Technische Daten",
             "paragraphs": [
-              "Die Website wird auf Vercel betrieben, in der Region iad1 in den Vereinigten Staaten. Sie setzt kein Sprach-Cookie. Das technische Cookie cs_consent wird nur nach einer Wahl der Person gesetzt, wie in der Cookie-Richtlinie beschrieben. Google Analytics 4 ist eine freiwillige Statistik und ist ohne Einwilligung und ohne Konfiguration nicht im Einsatz.",
+              "Die Website wird auf Vercel betrieben, in der Region iad1 in den Vereinigten Staaten. Sie setzt kein Sprach-Cookie. Das technische Cookie cs_consent wird nur nach einer Wahl der Person gesetzt, wie in der Cookie-Richtlinie beschrieben. Google Analytics 4 ist eine freiwillige Statistik. Das Programm kann nur geladen werden, wenn eine gültige Einwilligung zu den Statistiken und eine konfigurierte Mess-ID zusammen vorliegen. Fehlt eine der beiden Bedingungen, wird es nicht geladen.",
               "Protokolle der Hosting-Plattform, einschliesslich allfälliger IP-Adressen, werden von der Website nicht in einem eigenen Archiv aufbewahrt."
             ]
           },
@@ -1792,7 +1792,7 @@
             "paragraphs": [
               "Die Offertangaben dienen der Antwort auf eine Anfrage für einen Anlass. Die Bewerbungsangaben dienen der Prüfung einer Zusammenarbeit. Die technischen Daten dienen dem Betrieb der Website.",
               "Die Bearbeitung der Offertdaten dient der Verwaltung der Anfrage und der Verhandlungen, die einem Vertrag vorausgehen können. Das Bundesgesetz über den Datenschutz nennt als überwiegendes privates Interesse eine Bearbeitung in direktem Zusammenhang mit dem Abschluss oder der Erfüllung eines Vertrags, wenn die Daten die betroffene Person betreffen. Bewerbungsdaten, einschliesslich des Lebenslaufs, werden für die Personalauswahl im Hinblick auf eine mögliche Zusammenarbeit bearbeitet. Technische Daten werden bearbeitet, um die Website bereitzustellen und, soweit erforderlich, die Sicherheit des Dienstes zu gewährleisten und Missbrauch zu verhindern.",
-              "Die Besuchsstatistik mit Google Analytics 4 stützt sich, wenn sie aktiviert wird, auf die Einwilligung. Ohne Einwilligung wird sie nicht erhoben."
+              "Die Besuchsstatistik mit Google Analytics 4 stützt sich, wenn sie aktiviert wird, auf die Einwilligung. Sie wird nur erhoben, wenn eine gültige Einwilligung und eine konfigurierte Mess-ID zusammen vorliegen. Fehlt eine der beiden Bedingungen, wird sie nicht erhoben."
             ]
           },
           {
@@ -1800,13 +1800,13 @@
             "paragraphs": [
               "Wenn der Versand aktiviert ist, kommt die Nachricht bei info@casinoshow.ch an. Eine Kopie kann an infofuncasino@gmail.com weitergeleitet werden. Beide Postfächer folgen denselben Löschfristen.",
               "Der Transport erfolgt über Resend, einen Dienst von Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, Vereinigte Staaten, über api.resend.com. Ein bereits abgeschlossener Vertrag über die Bearbeitung liegt nicht vor: die öffentliche Dokumentation von Resend beschreibt diese Rolle, wenn der Dienst aktiv ist.",
-              "Wenn Google Analytics 4 nach der Einwilligung aktiviert ist, bearbeitet Google die technischen Besuchsdaten. Ohne Einwilligung oder ohne Konfiguration findet diese Übermittlung nicht statt. Name, E-Mail, Telefon, Adresse, Lebenslauf und Formulartexte werden nicht übermittelt."
+              "Google ist ein möglicher Empfänger nur der technischen Besuchsdaten, und nur wenn Google Analytics 4 geladen wird. Das Laden erfolgt nur, wenn eine gültige Einwilligung und eine konfigurierte Mess-ID zusammen vorliegen. In diesem Fall ruft die Website das öffentliche Google-Script unter googletagmanager.com für Google Analytics 4 auf, nicht als Container für andere Dienste, und kann Google technische Besuchsdaten senden, etwa die Adresse der Seite. Name, E-Mail, Telefon, Adresse, Lebenslauf und Formulartexte werden nicht übermittelt. Diese Seite nennt keine bestimmte Gesellschaft der Google-Gruppe und keinen bereits abgeschlossenen Bearbeitungsvertrag mit Google, weil beides nicht festgestellt ist."
             ]
           },
           {
             "title": "Übermittlungen",
             "paragraphs": [
-              "Das Hosting und, nach der öffentlichen Dokumentation von Resend, die Speicherung der Nachrichten liegen in den Vereinigten Staaten. Diese Dokumentation nennt Standardvertragsklauseln für Übermittlungen aus der Schweiz, wenn die Vereinbarung über die Bearbeitung in Kraft ist. Es liegt nicht vor, dass die Vereinbarung bereits abgeschlossen wurde."
+              "Das Hosting und, nach der öffentlichen Dokumentation von Resend, die Speicherung der Nachrichten liegen in den Vereinigten Staaten. Diese Dokumentation nennt Standardvertragsklauseln für Übermittlungen aus der Schweiz, wenn die Vereinbarung über die Bearbeitung in Kraft ist. Es liegt nicht vor, dass die Vereinbarung bereits abgeschlossen wurde. Wenn Google Analytics 4 geladen wird, können dieselben technischen Besuchsdaten von Google auch ausserhalb der Schweiz bearbeitet werden, einschliesslich in den Vereinigten Staaten. Diese Seite behauptet nicht, dass für diese Übermittlung bereits eine Vertragsklausel oder ein Angemessenheitsbeschluss gilt: das ist nicht festgestellt."
             ]
           },
           {
@@ -1835,14 +1835,14 @@
       },
       "cookies": {
         "title": "Cookie-Richtlinie",
-        "summary": "Die Website merkt sich die Wahl mit einem technischen Cookie. Google Analytics 4 ist freiwillig und bleibt ohne Einwilligung oder ohne Konfiguration aus. Es gibt keine Marketing-Cookies.",
+        "summary": "Die Website merkt sich die Wahl mit einem technischen Cookie. Google Analytics 4 ist freiwillig und kann nur geladen werden, wenn eine gültige Einwilligung und eine konfigurierte Mess-ID zusammen vorliegen. Es gibt keine Marketing-Cookies.",
         "sections": [
           {
             "title": "Technische, Statistik- und Marketing-Cookies",
             "paragraphs": [
-              "Die Website setzt kein Sprach-Cookie und keine Marketing-Cookies. Das technische Erstanbieter-Cookie cs_consent speichert nur die Version dieser Information, die Wahl zu den Statistiken (ja oder nein) und den Zeitpunkt der Wahl. Es enthält keinen Namen, keine E-Mail und keine anderen Daten, die eine Person identifizieren. Es gilt sechs Monate. Die Attribute sind SameSite=Lax, Pfad / und Secure auf HTTPS-Seiten.",
-              "Google Analytics 4 ist als freiwillige Statistik vorbereitet. Das Programm wird nur geladen, wenn die Person die Statistiken akzeptiert und eine Mess-ID konfiguriert ist. Ohne Einwilligung oder ohne Konfiguration bleibt Analytics aus und es wird kein Google-Script geladen. Wäre der Dienst aktiv, könnte Google eigene Statistik-Cookies setzen. Solange die Mess-ID fehlt, ist Analytics nicht im Einsatz.",
-              "Cookies der Hosting-Plattform, die ausserhalb der Einstellungen der Website hinzukommen, sind auf dieser Seite nicht beschrieben."
+              "Die Website setzt kein Sprach-Cookie und keine Marketing-Cookies. Das technische Erstanbieter-Cookie cs_consent speichert nur eine technische Versionsnummer des Formats der Wahl, die Wahl zu den Statistiken (ja oder nein) und den Zeitpunkt der Wahl. Diese Nummer ist weder das Datum noch die Ausgabe dieser Information. Wird die Nummer erhöht, weil eine wesentliche Änderung eine neue Wahl verlangt, ist eine bereits gespeicherte Wahl mit einer anderen Nummer nicht mehr gültig und der Banner erscheint wieder. Es enthält keinen Namen, keine E-Mail und keine anderen Daten, die eine Person identifizieren. Es gilt sechs Monate. Die Attribute sind SameSite=Lax, Pfad / und Secure auf HTTPS-Seiten.",
+              "Google Analytics 4 ist als freiwillige Statistik vorbereitet. Das Programm wird nur geladen, wenn eine gültige Einwilligung zu den Statistiken und eine konfigurierte Mess-ID zusammen vorliegen. Fehlt die Einwilligung oder fehlt die Mess-ID, bleibt Analytics aus und es wird kein Google-Script geladen. Wäre der Dienst aktiv, könnte Google eigene Statistik-Cookies setzen. Solange die Mess-ID fehlt, ist Analytics nicht im Einsatz.",
+              "Die Seiten der Website setzen nur das Erstanbieter-Cookie cs_consent. Eine Abfrage der öffentlichen Antworten von https://casinoshow.ch, einschliesslich der italienischen Startseite, hat kein von Vercel gesetztes Cookie gezeigt. Diese Seite schliesst nicht aus, dass die Plattform in einer anderen Situation eines setzen kann: in den verfügbaren Prüfungen ist keines festgestellt."
             ]
           },
           {

@@ -1495,15 +1495,15 @@
   },
   "Consent": {
     "title": "Cookie e statistiche",
-    "body": "Un cookie tecnico ricorda questa scelta per sei mesi. Google Analytics 4 è facoltativo e resta spento finché non accetti le statistiche. Senza identificativo di misurazione non viene caricato alcuno script di Google.",
+    "body": "Un cookie tecnico ricorda questa scelta per sei mesi. Google Analytics 4 è facoltativo e può essere caricato solo quando un consenso valido e un identificativo di misurazione configurato sono presenti insieme.",
     "accept": "Accetta analytics",
     "reject": "Rifiuta analytics",
     "customize": "Personalizza",
     "policy": "Informativa sui cookie",
     "dialogLabel": "Preferenze cookie",
     "analytics": "Statistiche",
-    "analyticsHelp": "Google Analytics 4, solo se è configurato un identificativo di misurazione. Nessun nome, e-mail, telefono o testo del modulo.",
-    "necessary": "Il cookie tecnico cs_consent memorizza solo la versione, la scelta sulle statistiche e il momento della scelta. Dura sei mesi.",
+    "analyticsHelp": "Google Analytics 4 è caricato solo se questa scelta è un consenso valido e se un identificativo di misurazione è configurato. Nessun nome, e-mail, telefono o testo del modulo.",
+    "necessary": "Il cookie tecnico cs_consent memorizza solo il numero di versione tecnica del formato della scelta, la scelta sulle statistiche e il momento della scelta. Non è la data di questa informativa. Dura sei mesi.",
     "save": "Salva le preferenze",
     "close": "Chiudi",
     "blocked": "Il browser blocca i cookie. La scelta non è stata salvata e le statistiche restano spente."
@@ -1783,7 +1783,7 @@
           {
             "title": "Dati tecnici",
             "paragraphs": [
-              "Il sito è ospitato su Vercel, nella regione iad1, negli Stati Uniti. Non imposta un cookie di lingua. Il cookie tecnico cs_consent è impostato solo dopo una scelta della persona, come descritto nell'informativa sui cookie. Google Analytics 4 è una statistica facoltativa e non è in uso senza consenso e senza configurazione.",
+              "Il sito è ospitato su Vercel, nella regione iad1, negli Stati Uniti. Non imposta un cookie di lingua. Il cookie tecnico cs_consent è impostato solo dopo una scelta della persona, come descritto nell'informativa sui cookie. Google Analytics 4 è una statistica facoltativa. Il programma può essere caricato solo quando un consenso valido alle statistiche e un identificativo di misurazione configurato sono presenti insieme. Se manca una delle due condizioni, non viene caricato.",
               "I log della piattaforma di hosting, compresi eventuali indirizzi IP, non sono conservati dal sito in un archivio proprio."
             ]
           },
@@ -1792,7 +1792,7 @@
             "paragraphs": [
               "I dati del preventivo servono a rispondere a una richiesta di evento. I dati della candidatura servono a valutare una collaborazione. I dati tecnici servono a erogare il sito.",
               "Il trattamento dei dati del preventivo serve a gestire la richiesta e le trattative che possono precedere un contratto. La legge federale sulla protezione dei dati considera un interesse privato preponderante il trattamento in relazione diretta con la conclusione o l'esecuzione di un contratto, quando i dati riguardano la persona interessata. I dati della candidatura, curriculum compreso, sono trattati per la selezione del personale in vista di un'eventuale collaborazione. I dati tecnici sono trattati per erogare il sito e, nella misura necessaria, per la sicurezza del servizio e la prevenzione di abusi.",
-              "La statistica di visita con Google Analytics 4, se attivata, si basa sul consenso. Senza consenso non viene raccolta."
+              "La statistica di visita con Google Analytics 4, se attivata, si basa sul consenso. È raccolta solo quando un consenso valido e un identificativo di misurazione configurato sono presenti insieme. Se manca una delle due condizioni, non è raccolta."
             ]
           },
           {
@@ -1800,13 +1800,13 @@
             "paragraphs": [
               "Quando l'invio è abilitato, il messaggio arriva a info@casinoshow.ch. Una copia può essere inoltrata a infofuncasino@gmail.com. Entrambe le caselle seguono gli stessi termini di cancellazione.",
               "Il trasporto è affidato a Resend, servizio di Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, Stati Uniti, tramite api.resend.com. Non risulta un contratto di trattamento già concluso: la documentazione pubblica di Resend descrive questo ruolo quando il servizio è attivo.",
-              "Se Google Analytics 4 è attivato dopo il consenso, Google tratta i dati tecnici della visita. Senza consenso o senza configurazione questo invio non avviene. Non sono trasmessi nome, e-mail, telefono, indirizzo, curriculum o testi dei moduli."
+              "Google è un destinatario eventuale dei soli dati tecnici della visita, e soltanto se Google Analytics 4 è caricato. Il caricamento avviene solo quando un consenso valido e un identificativo di misurazione configurato sono presenti insieme. In quel caso il sito chiama lo script pubblico di Google all'indirizzo googletagmanager.com per Google Analytics 4, non come contenitore di altri strumenti, e può inviare a Google dati tecnici della visita, come l'indirizzo della pagina. Non sono trasmessi nome, e-mail, telefono, indirizzo, curriculum o testi dei moduli. Questa pagina non indica una società del gruppo Google né un contratto di trattamento già concluso con Google, perché non risultano verificati."
             ]
           },
           {
             "title": "Trasferimenti",
             "paragraphs": [
-              "L'hosting e, secondo la documentazione pubblica di Resend, la conservazione dei messaggi si trovano negli Stati Uniti. Quella documentazione indica clausole contrattuali tipo per i trasferimenti dalla Svizzera quando l'accordo di trattamento è in vigore. Non risulta che l'accordo sia già stato concluso."
+              "L'hosting e, secondo la documentazione pubblica di Resend, la conservazione dei messaggi si trovano negli Stati Uniti. Quella documentazione indica clausole contrattuali tipo per i trasferimenti dalla Svizzera quando l'accordo di trattamento è in vigore. Non risulta che l'accordo sia già stato concluso. Se Google Analytics 4 è caricato, gli stessi dati tecnici della visita possono essere trattati da Google anche fuori dalla Svizzera, compresi gli Stati Uniti. Questa pagina non afferma che per quel trasferimento sia già in vigore una clausola contrattuale o una decisione di adeguatezza: non risulta verificata."
             ]
           },
           {
@@ -1835,14 +1835,14 @@
       },
       "cookies": {
         "title": "Informativa sui cookie",
-        "summary": "Il sito ricorda la scelta con un cookie tecnico. Google Analytics 4 è facoltativo e resta disattivato senza consenso o senza configurazione. Non ci sono cookie di marketing.",
+        "summary": "Il sito ricorda la scelta con un cookie tecnico. Google Analytics 4 è facoltativo e può essere caricato solo quando un consenso valido e un identificativo di misurazione configurato sono presenti insieme. Non ci sono cookie di marketing.",
         "sections": [
           {
             "title": "Cookie tecnici, di statistica e di marketing",
             "paragraphs": [
-              "Il sito non imposta un cookie di lingua e non usa cookie di marketing. Il cookie tecnico di prima parte cs_consent memorizza solo la versione di questa informativa, la scelta sulle statistiche (sì o no) e il momento della scelta. Non contiene nome, e-mail o altri dati che identifichino la persona. Dura sei mesi. Gli attributi sono SameSite=Lax, percorso / e Secure sulle pagine HTTPS.",
-              "Google Analytics 4 è predisposto come statistica facoltativa. Il programma è caricato solo se la persona accetta le statistiche e se l'identificativo di misurazione è configurato. Senza consenso o senza configurazione Analytics resta disattivato e nessuno script di Google viene caricato. Se il servizio fosse attivo, Google potrebbe impostare i propri cookie di statistica. Finché l'identificativo manca, Analytics non è in uso.",
-              "Cookie aggiunti dalla piattaforma di hosting, al di fuori di quanto impostato dal sito, non sono descritti in questa pagina."
+              "Il sito non imposta un cookie di lingua e non usa cookie di marketing. Il cookie tecnico di prima parte cs_consent memorizza solo un numero di versione tecnica del formato della scelta, la scelta sulle statistiche (sì o no) e il momento della scelta. Quel numero non è la data né l'edizione di questa informativa. Se il numero viene aumentato, perché una modifica sostanziale richiede una nuova scelta, una scelta già salvata con un numero diverso non è più valida e il banner compare di nuovo. Non contiene nome, e-mail o altri dati che identifichino la persona. Dura sei mesi. Gli attributi sono SameSite=Lax, percorso / e Secure sulle pagine HTTPS.",
+              "Google Analytics 4 è predisposto come statistica facoltativa. Il programma è caricato soltanto quando un consenso valido alle statistiche e un identificativo di misurazione configurato sono presenti insieme. Se manca il consenso oppure manca l'identificativo, Analytics resta disattivato e nessuno script di Google viene caricato. Se il servizio fosse attivo, Google potrebbe impostare i propri cookie di statistica. Finché l'identificativo manca, Analytics non è in uso.",
+              "Le pagine del sito impostano solo il cookie di prima parte cs_consent. Una lettura delle risposte pubbliche di https://casinoshow.ch, compresa la home in italiano, non ha mostrato un cookie impostato da Vercel. Questa pagina non esclude che la piattaforma possa impostarne uno in un'altra situazione: nelle verifiche disponibili non ne risulta uno."
             ]
           },
           {

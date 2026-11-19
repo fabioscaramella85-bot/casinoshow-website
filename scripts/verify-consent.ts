@@ -60,7 +60,7 @@ assert.equal(serializeConsent(accepted).includes("email"), false);
 
 assert.deepEqual(parseConsent(null, now), { state: "missing" });
 assert.equal(parseConsent("not-a-cookie", now).state, "invalid");
-assert.equal(parseConsent("v2.a1.t" + now, now).state, "invalid");
+assert.equal(parseConsent(`v${CONSENT_VERSION + 1}.a1.t${now}`, now).state, "invalid");
 assert.equal(parseConsent(serializeConsent(accepted), now).state, "current");
 assert.equal(parseConsent(serializeConsent(rejected), now).state, "current");
 assert.equal(
@@ -156,6 +156,25 @@ assert.equal(responseRobotsTag(false, "localhost:3481"), null);
 assert.equal(responseRobotsTag(true, "casinoshow.ch"), "noindex, nofollow");
 assert.equal(responseRobotsTag(true, "casinoshow-website.vercel.app"), "noindex, nofollow");
 
+const consentGate = {
+  it: "sono presenti insieme",
+  de: "zusammen vorliegen",
+  fr: "sont réunis",
+  en: "are both present",
+} as const;
+const formatVersion = {
+  it: "versione tecnica del formato",
+  de: "technische Versionsnummer des Formats",
+  fr: "version technique du format",
+  en: "technical version number of the choice format",
+} as const;
+const oldHostingGap = {
+  it: "non sono descritti in questa pagina",
+  de: "sind auf dieser Seite nicht beschrieben",
+  fr: "ne sont pas décrits sur cette page",
+  en: "are not described on this page",
+} as const;
+
 for (const locale of locales) {
   const messages = JSON.parse(fs.readFileSync(`src/messages/${locale}.json`, "utf8"));
   const cookies = JSON.stringify(messages.Legal.public.cookies);
@@ -163,6 +182,13 @@ for (const locale of locales) {
   assert.equal(cookies.includes("cs_consent"), true, locale);
   assert.equal(cookies.includes("Google Analytics 4"), true, locale);
   assert.equal(cookies.includes("SameSite=Lax"), true, locale);
+  assert.equal(cookies.includes(consentGate[locale]), true, locale);
+  assert.equal(privacy.includes(consentGate[locale]), true, locale);
+  assert.equal(cookies.includes(formatVersion[locale]), true, locale);
+  assert.equal(cookies.includes("googletagmanager.com") || privacy.includes("googletagmanager.com"), true, locale);
+  assert.equal(privacy.includes("googletagmanager.com"), true, locale);
+  assert.equal(cookies.includes(oldHostingGap[locale]), false, locale);
+  assert.equal(cookies.includes("Vercel"), true, locale);
   assert.equal(/non mostra un banner|kein Einwilligungsbanner|n'affiche pas de bandeau|does not show a consent banner/.test(cookies), false, locale);
   assert.equal(privacy.includes("cs_consent"), true, locale);
   assert.equal(messages.Consent.accept.length > 0, true, locale);

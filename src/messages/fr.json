@@ -1495,15 +1495,15 @@
   },
   "Consent": {
     "title": "Cookies et statistiques",
-    "body": "Un cookie technique mémorise ce choix pendant six mois. Google Analytics 4 est facultatif et reste arrêté tant que vous n'acceptez pas les statistiques. Sans identifiant de mesure, aucun script Google n'est chargé.",
+    "body": "Un cookie technique mémorise ce choix pendant six mois. Google Analytics 4 est facultatif et ne peut être chargé que lorsqu'un consentement valide et un identifiant de mesure configuré sont réunis.",
     "accept": "Accepter les analytics",
     "reject": "Refuser les analytics",
     "customize": "Personnaliser",
     "policy": "Politique relative aux cookies",
     "dialogLabel": "Préférences cookies",
     "analytics": "Statistiques",
-    "analyticsHelp": "Google Analytics 4, seulement si un identifiant de mesure est configuré. Aucun nom, e-mail, téléphone ou texte de formulaire.",
-    "necessary": "Le cookie technique cs_consent mémorise seulement la version, le choix sur les statistiques et le moment du choix. Il dure six mois.",
+    "analyticsHelp": "Google Analytics 4 n'est chargé que si ce choix est un consentement valide et si un identifiant de mesure est configuré. Aucun nom, e-mail, téléphone ou texte de formulaire.",
+    "necessary": "Le cookie technique cs_consent mémorise seulement le numéro de version technique du format du choix, le choix sur les statistiques et le moment du choix. Ce n'est pas la date de cette information. Il dure six mois.",
     "save": "Enregistrer les préférences",
     "close": "Fermer",
     "blocked": "Le navigateur bloque les cookies. Le choix n'a pas été enregistré et les statistiques restent arrêtées."
@@ -1783,7 +1783,7 @@
           {
             "title": "Données techniques",
             "paragraphs": [
-              "Le site est hébergé sur Vercel, dans la région iad1, aux États-Unis. Il ne place pas de cookie de langue. Le cookie technique cs_consent n'est placé qu'après un choix de la personne, comme décrit dans la politique relative aux cookies. Google Analytics 4 est une statistique facultative et n'est pas en service sans consentement et sans configuration.",
+              "Le site est hébergé sur Vercel, dans la région iad1, aux États-Unis. Il ne place pas de cookie de langue. Le cookie technique cs_consent n'est placé qu'après un choix de la personne, comme décrit dans la politique relative aux cookies. Google Analytics 4 est une statistique facultative. Le programme ne peut être chargé que lorsqu'un consentement valide aux statistiques et un identifiant de mesure configuré sont réunis. Si l'une des deux conditions manque, il n'est pas chargé.",
               "Les journaux de la plateforme d'hébergement, adresses IP éventuelles comprises, ne sont pas conservés par le site dans une archive propre."
             ]
           },
@@ -1792,7 +1792,7 @@
             "paragraphs": [
               "Les données du devis servent à répondre à une demande d'événement. Les données de candidature servent à examiner une collaboration. Les données techniques servent à fournir le site.",
               "Le traitement des données du devis sert à gérer la demande et les négociations qui peuvent précéder un contrat. La loi fédérale sur la protection des données tient pour un intérêt privé prépondérant le traitement en relation directe avec la conclusion ou l'exécution d'un contrat, lorsque les données concernent la personne intéressée. Les données de candidature, curriculum compris, sont traitées pour la sélection du personnel en vue d'une éventuelle collaboration. Les données techniques sont traitées pour fournir le site et, dans la mesure nécessaire, pour la sécurité du service et la prévention des abus.",
-              "La statistique de visite avec Google Analytics 4, si elle est activée, repose sur le consentement. Sans consentement, elle n'est pas collectée."
+              "La statistique de visite avec Google Analytics 4, si elle est activée, repose sur le consentement. Elle n'est collectée que lorsqu'un consentement valide et un identifiant de mesure configuré sont réunis. Si l'une des deux conditions manque, elle n'est pas collectée."
             ]
           },
           {
@@ -1800,13 +1800,13 @@
             "paragraphs": [
               "Lorsque l'envoi est activé, le message arrive à info@casinoshow.ch. Une copie peut être transférée à infofuncasino@gmail.com. Les deux boîtes suivent les mêmes délais d'effacement.",
               "Le transport est confié à Resend, service de Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, États-Unis, via api.resend.com. Il n'apparaît pas de contrat de traitement déjà conclu : la documentation publique de Resend décrit ce rôle lorsque le service est actif.",
-              "Si Google Analytics 4 est activé après le consentement, Google traite les données techniques de la visite. Sans consentement ou sans configuration, cet envoi n'a pas lieu. Le nom, l'e-mail, le téléphone, l'adresse, le curriculum et les textes des formulaires ne sont pas transmis."
+              "Google est un destinataire éventuel des seules données techniques de la visite, et seulement si Google Analytics 4 est chargé. Le chargement a lieu seulement lorsqu'un consentement valide et un identifiant de mesure configuré sont réunis. Dans ce cas, le site appelle le script public de Google à l'adresse googletagmanager.com pour Google Analytics 4, et non comme conteneur d'autres outils, et peut envoyer à Google des données techniques de la visite, comme l'adresse de la page. Le nom, l'e-mail, le téléphone, l'adresse, le curriculum et les textes des formulaires ne sont pas transmis. Cette page n'indique pas une société du groupe Google ni un contrat de traitement déjà conclu avec Google, parce qu'ils ne sont pas établis."
             ]
           },
           {
             "title": "Transferts",
             "paragraphs": [
-              "L'hébergement et, selon la documentation publique de Resend, la conservation des messages se trouvent aux États-Unis. Cette documentation indique des clauses contractuelles types pour les transferts depuis la Suisse lorsque l'accord de traitement est en vigueur. Il n'apparaît pas que l'accord ait déjà été conclu."
+              "L'hébergement et, selon la documentation publique de Resend, la conservation des messages se trouvent aux États-Unis. Cette documentation indique des clauses contractuelles types pour les transferts depuis la Suisse lorsque l'accord de traitement est en vigueur. Il n'apparaît pas que l'accord ait déjà été conclu. Si Google Analytics 4 est chargé, les mêmes données techniques de la visite peuvent être traitées par Google aussi hors de Suisse, y compris aux États-Unis. Cette page n'affirme pas qu'une clause contractuelle ou une décision d'adéquation soit déjà en vigueur pour ce transfert : cela n'est pas établi."
             ]
           },
           {
@@ -1835,14 +1835,14 @@
       },
       "cookies": {
         "title": "Politique relative aux cookies",
-        "summary": "Le site mémorise le choix avec un cookie technique. Google Analytics 4 est facultatif et reste désactivé sans consentement ou sans configuration. Il n'y a pas de cookies de marketing.",
+        "summary": "Le site mémorise le choix avec un cookie technique. Google Analytics 4 est facultatif et ne peut être chargé que lorsqu'un consentement valide et un identifiant de mesure configuré sont réunis. Il n'y a pas de cookies de marketing.",
         "sections": [
           {
             "title": "Cookies techniques, de statistique et de marketing",
             "paragraphs": [
-              "Le site ne place pas de cookie de langue et n'utilise pas de cookies de marketing. Le cookie technique de première partie cs_consent mémorise seulement la version de cette information, le choix sur les statistiques (oui ou non) et le moment du choix. Il ne contient ni nom, ni e-mail, ni d'autres données identifiant la personne. Il dure six mois. Les attributs sont SameSite=Lax, chemin / et Secure sur les pages HTTPS.",
-              "Google Analytics 4 est préparé comme statistique facultative. Le programme n'est chargé que si la personne accepte les statistiques et si l'identifiant de mesure est configuré. Sans consentement ou sans configuration, Analytics reste désactivé et aucun script Google n'est chargé. Si le service était actif, Google pourrait placer ses propres cookies de statistique. Tant que l'identifiant manque, Analytics n'est pas en service.",
-              "Les cookies ajoutés par la plateforme d'hébergement, en dehors de ce que le site règle lui-même, ne sont pas décrits sur cette page."
+              "Le site ne place pas de cookie de langue et n'utilise pas de cookies de marketing. Le cookie technique de première partie cs_consent mémorise seulement un numéro de version technique du format du choix, le choix sur les statistiques (oui ou non) et le moment du choix. Ce numéro n'est ni la date ni l'édition de cette information. Si le numéro est augmenté, parce qu'une modification substantielle exige un nouveau choix, un choix déjà enregistré avec un numéro différent n'est plus valable et le bandeau réapparaît. Il ne contient ni nom, ni e-mail, ni d'autres données identifiant la personne. Il dure six mois. Les attributs sont SameSite=Lax, chemin / et Secure sur les pages HTTPS.",
+              "Google Analytics 4 est préparé comme statistique facultative. Le programme n'est chargé que lorsqu'un consentement valide aux statistiques et un identifiant de mesure configuré sont réunis. Si le consentement manque ou si l'identifiant manque, Analytics reste désactivé et aucun script Google n'est chargé. Si le service était actif, Google pourrait placer ses propres cookies de statistique. Tant que l'identifiant manque, Analytics n'est pas en service.",
+              "Les pages du site ne placent que le cookie de première partie cs_consent. Une lecture des réponses publiques de https://casinoshow.ch, y compris la page d'accueil en italien, n'a pas montré de cookie placé par Vercel. Cette page n'exclut pas que la plateforme puisse en placer un dans une autre situation : les vérifications disponibles n'en ont pas établi."
             ]
           },
           {

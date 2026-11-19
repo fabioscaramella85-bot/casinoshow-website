@@ -1,4 +1,9 @@
 export const CONSENT_COOKIE_NAME = "cs_consent";
+/**
+ * Technical format version stored in cs_consent. This is not the edition of the legal notice.
+ * Increase it when a stored choice must be asked again, including after a substantial change
+ * to the statistics consent. A cookie with any other number is invalid.
+ */
 export const CONSENT_VERSION = 1;
 /** Six months, counted as 183 days. */
 export const CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 183;

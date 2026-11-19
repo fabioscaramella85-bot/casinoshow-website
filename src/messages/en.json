@@ -1495,15 +1495,15 @@
   },
   "Consent": {
     "title": "Cookies and statistics",
-    "body": "A technical cookie remembers this choice for six months. Google Analytics 4 is optional and stays off until you accept statistics. Without a measurement ID, no Google script is loaded.",
+    "body": "A technical cookie remembers this choice for six months. Google Analytics 4 is optional and can be loaded only when a valid consent and a configured measurement ID are both present.",
     "accept": "Accept analytics",
     "reject": "Reject analytics",
     "customize": "Customize",
     "policy": "Cookie policy",
     "dialogLabel": "Cookie preferences",
     "analytics": "Statistics",
-    "analyticsHelp": "Google Analytics 4, only when a measurement ID is configured. No name, email, phone, or form text.",
-    "necessary": "The technical cookie cs_consent stores only the version, the statistics choice, and the time of the choice. It lasts six months.",
+    "analyticsHelp": "Google Analytics 4 is loaded only if this choice is a valid consent and a measurement ID is configured. No name, email, phone, or form text.",
+    "necessary": "The technical cookie cs_consent stores only the technical version number of the choice format, the statistics choice, and the time of the choice. It is not the date of this notice. It lasts six months.",
     "save": "Save preferences",
     "close": "Close",
     "blocked": "The browser is blocking cookies. The choice was not saved and statistics stay off."
@@ -1783,7 +1783,7 @@
           {
             "title": "Technical data",
             "paragraphs": [
-              "The website is hosted on Vercel, in region iad1, in the United States. It does not set a language cookie. The technical cookie cs_consent is set only after a person makes a choice, as described in the cookie policy. Google Analytics 4 is an optional statistics tool and is not in use without consent and without configuration.",
+              "The website is hosted on Vercel, in region iad1, in the United States. It does not set a language cookie. The technical cookie cs_consent is set only after a person makes a choice, as described in the cookie policy. Google Analytics 4 is an optional statistics tool. The program can be loaded only when a valid consent to statistics and a configured measurement ID are both present. If either condition is missing, it is not loaded.",
               "Logs of the hosting platform, including any IP addresses, are not kept by the website in its own archive."
             ]
           },
@@ -1792,7 +1792,7 @@
             "paragraphs": [
               "Quote details are used to answer a request for an event. Application details are used to consider a collaboration. Technical data are used to serve the website.",
               "Quote data are processed to handle the request and the negotiations that may precede a contract. The Federal Act on Data Protection treats processing directly connected with the conclusion or the performance of a contract, where the data concern the person in question, as an overriding private interest. Application data, including the CV, are processed for staff selection with a view to a possible collaboration. Technical data are processed to serve the website and, to the extent required, for the security of the service and the prevention of abuse.",
-              "Visit statistics with Google Analytics 4, if activated, rely on consent. Without consent they are not collected."
+              "Visit statistics with Google Analytics 4, if activated, rely on consent. They are collected only when a valid consent and a configured measurement ID are both present. If either condition is missing, they are not collected."
             ]
           },
           {
@@ -1800,13 +1800,13 @@
             "paragraphs": [
               "When sending is enabled, the message arrives at info@casinoshow.ch. A copy may be forwarded to infofuncasino@gmail.com. Both mailboxes follow the same deletion periods.",
               "Transport is handled by Resend, a service of Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, United States, through api.resend.com. No processing agreement is shown as already concluded: Resend's public documentation describes this role when the service is active.",
-              "If Google Analytics 4 is activated after consent, Google processes technical visit data. Without consent or without configuration, that transmission does not take place. Name, email, phone, address, CV, and form text are not transmitted."
+              "Google is a possible recipient of technical visit data only, and only if Google Analytics 4 is loaded. Loading happens only when a valid consent and a configured measurement ID are both present. In that case the website calls Google's public script at googletagmanager.com for Google Analytics 4, not as a container for other tools, and may send Google technical visit data, such as the page address. Name, email, phone, address, CV, and form text are not transmitted. This page does not name a specific Google group company or a processing agreement already concluded with Google, because neither has been verified."
             ]
           },
           {
             "title": "Transfers",
             "paragraphs": [
-              "Hosting and, according to Resend's public documentation, storage of the messages are in the United States. That documentation describes standard contractual clauses for transfers from Switzerland when the processing agreement is in force. It is not shown that the agreement has already been concluded."
+              "Hosting and, according to Resend's public documentation, storage of the messages are in the United States. That documentation describes standard contractual clauses for transfers from Switzerland when the processing agreement is in force. It is not shown that the agreement has already been concluded. If Google Analytics 4 is loaded, the same technical visit data may also be processed by Google outside Switzerland, including in the United States. This page does not state that a contractual clause or an adequacy decision is already in force for that transfer: that has not been verified."
             ]
           },
           {
@@ -1835,14 +1835,14 @@
       },
       "cookies": {
         "title": "Cookie policy",
-        "summary": "The website remembers the choice with a technical cookie. Google Analytics 4 is optional and stays off without consent or without configuration. There are no marketing cookies.",
+        "summary": "The website remembers the choice with a technical cookie. Google Analytics 4 is optional and can be loaded only when a valid consent and a configured measurement ID are both present. There are no marketing cookies.",
         "sections": [
           {
             "title": "Technical, analytics, and marketing cookies",
             "paragraphs": [
-              "The website does not set a language cookie and does not use marketing cookies. The first-party technical cookie cs_consent stores only the version of this notice, the statistics choice (yes or no), and the time of the choice. It contains no name, email, or other data that identifies a person. It lasts six months. The attributes are SameSite=Lax, path /, and Secure on HTTPS pages.",
-              "Google Analytics 4 is prepared as optional statistics. The program is loaded only if the person accepts statistics and a measurement ID is configured. Without consent or without configuration, Analytics stays off and no Google script is loaded. If the service were active, Google could set its own statistics cookies. While the ID is missing, Analytics is not in use.",
-              "Cookies added by the hosting platform, beyond what the website itself sets, are not described on this page."
+              "The website does not set a language cookie and does not use marketing cookies. The first-party technical cookie cs_consent stores only a technical version number of the choice format, the statistics choice (yes or no), and the time of the choice. That number is neither the date nor the edition of this notice. If the number is increased, because a substantial change requires a new choice, a choice already stored with a different number is no longer valid and the banner appears again. It contains no name, email, or other data that identifies a person. It lasts six months. The attributes are SameSite=Lax, path /, and Secure on HTTPS pages.",
+              "Google Analytics 4 is prepared as optional statistics. The program is loaded only when a valid consent to statistics and a configured measurement ID are both present. If consent is missing or the ID is missing, Analytics stays off and no Google script is loaded. If the service were active, Google could set its own statistics cookies. While the ID is missing, Analytics is not in use.",
+              "The pages of the website set only the first-party cookie cs_consent. A check of the public responses from https://casinoshow.ch, including the Italian homepage, showed no cookie set by Vercel. This page does not rule out that the platform could set one in another situation: the available checks did not identify one."
             ]
           },
           {
