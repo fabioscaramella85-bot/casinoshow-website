@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { HomePage } from "@/components/home/home-page";
+import { HomeStructuredData } from "@/components/home/home-structured-data";
 import { getPageMetadata } from "@/i18n/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,5 +15,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-  return <HomePage />;
+  return (
+    <>
+      <HomeStructuredData />
+      <HomePage />
+    </>
+  );
 }

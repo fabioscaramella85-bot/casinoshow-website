@@ -22,7 +22,10 @@ export async function QuotePageView() {
         className="!pt-6 !pb-12 sm:!pt-8 sm:!pb-16 lg:!pt-10 lg:!pb-20"
       >
         <Container>
-          <div className="mx-auto w-full min-w-0 max-w-[60rem] rounded-[0.625rem] border border-line-on-light bg-white px-4 py-6 shadow-[0_10px_36px_rgb(16_17_20/0.05)] sm:px-8 sm:py-8 lg:px-12 lg:py-12">
+          <div
+              data-quote-delivery={deliveryEnabled ? "open" : "closed"}
+              className="mx-auto w-full min-w-0 max-w-[60rem] rounded-[0.625rem] border border-line-on-light bg-white px-4 py-6 shadow-[0_10px_36px_rgb(16_17_20/0.05)] sm:px-8 sm:py-8 lg:px-12 lg:py-12"
+            >
             <header>
               <Eyebrow>{t("intro.eyebrow")}</Eyebrow>
               <h1 id="quote-page-title" className="type-h1 mt-3 max-w-2xl text-balance">

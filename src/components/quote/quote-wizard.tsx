@@ -259,10 +259,18 @@ export function QuoteWizard({ deliveryEnabled = false }: QuoteWizardProps) {
       <p className="sr-only" aria-live="polite">
         {phase === "submitting" ? t("nav.submitting") : ""}
       </p>
-      <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
+      <div inert aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
         <label>
           Website
-          <input ref={honeypotRef} name="company_website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+          <input
+            ref={honeypotRef}
+            name="company_website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            defaultValue=""
+          />
         </label>
       </div>
       <p className="type-small text-text-muted-on-light">{t("wizard.localeNote")}</p>

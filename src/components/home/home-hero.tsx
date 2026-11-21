@@ -403,26 +403,30 @@ export function HomeHero() {
         return (
           <div key={slide.id} className={`absolute inset-0 ${layerVisibility(active, reduced)}`}>
             {showImage && slide.id === "experience" ? (
-              <Image
-                src={slide.src}
-                alt=""
-                fill
-                sizes="100vw"
-                quality={85}
-                preload
-                className={`object-cover ${slide.imageClassName}`}
-              />
+              <div aria-hidden="true" className="absolute inset-0">
+                <Image
+                  src={slide.src}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  quality={85}
+                  preload
+                  className={`object-cover ${slide.imageClassName}`}
+                />
+              </div>
             ) : null}
             {showImage && slide.id === "switzerland" ? (
-              <Image
-                src={slide.src}
-                alt=""
-                fill
-                sizes="100vw"
-                quality={85}
-                loading="lazy"
-                className={`object-cover ${slide.imageClassName}`}
-              />
+              <div aria-hidden="true" className="absolute inset-0">
+                <Image
+                  src={slide.src}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  quality={85}
+                  loading="lazy"
+                  className={`object-cover ${slide.imageClassName}`}
+                />
+              </div>
             ) : null}
             {showImage && slide.id === "staff" ? <StaffBackdrop /> : null}
             {slide.id === "staff" ? null : (

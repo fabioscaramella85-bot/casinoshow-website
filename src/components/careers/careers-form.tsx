@@ -172,7 +172,7 @@ export function CareersForm({ submissionBlocked = false }: { submissionBlocked?:
           </p>
         ) : (
           <form
-            className="mt-8 border border-line-on-light bg-white px-4 py-6 sm:px-8 sm:py-8"
+            className="relative mt-8 border border-line-on-light bg-white px-4 py-6 sm:px-8 sm:py-8"
             noValidate
             aria-busy={submitting}
             aria-describedby={submissionBlocked ? "careers-preview-notice" : undefined}
@@ -194,10 +194,17 @@ export function CareersForm({ submissionBlocked = false }: { submissionBlocked?:
               </div>
             ) : null}
 
-            <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
+            <div inert aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
               <label>
                 Website
-                <input name="company_website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+                <input
+                  name="company_website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  defaultValue=""
+                />
               </label>
             </div>
             <input type="hidden" name="startedAt" value={String(session.startedAt)} readOnly />

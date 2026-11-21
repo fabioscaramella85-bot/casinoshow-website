@@ -117,10 +117,10 @@ const pages = [
       en: "Let's talk about your next event.",
     },
     descriptions: {
-      it: "Per una domanda o un'idea su Casino Show, questa pagina indica il percorso. Il modulo di contatto non è ancora attivo.",
-      de: "Für eine Frage oder eine Idee zu Casino Show zeigt diese Seite den Weg. Das Kontaktformular ist noch nicht aktiv.",
-      fr: "Pour une question ou une idée sur Casino Show, cette page indique le chemin. Le formulaire de contact n'est pas encore actif.",
-      en: "For a question or an idea about Casino Show, this page shows the way. The contact form is not active yet.",
+      it: "Contatta Casino Show per un evento in Svizzera: email, telefono, WhatsApp o richiesta di preventivo.",
+      de: "Kontaktieren Sie Casino Show für einen Anlass in der Schweiz: E-Mail, Telefon, WhatsApp oder Angebotsanfrage.",
+      fr: "Contactez Casino Show pour un événement en Suisse : e-mail, téléphone, WhatsApp ou demande de devis.",
+      en: "Contact Casino Show about an event in Switzerland: email, phone, WhatsApp or a quote request.",
     },
   },
   {
@@ -159,10 +159,10 @@ const pages = [
       en: "Step into the world of Casino Show.",
     },
     descriptions: {
-      it: "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza.",
-      de: "Arbeiten Sie mit Casino Show in der Schweiz. Wir prüfen Bewerbungen von erfahrenen Croupiers und motivierten Menschen, auch ohne Erfahrung.",
-      fr: "Travaillez avec Casino Show en Suisse. Nous examinons les candidatures de croupiers expérimentés et de personnes motivées, même sans expérience.",
-      en: "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience.",
+      it: "Lavora con Casino Show in Svizzera. Valutiamo candidature di croupier esperti e persone motivate, anche senza esperienza. Invia il tuo CV.",
+      de: "Arbeiten Sie mit Casino Show in der Schweiz. Wir prüfen Bewerbungen von erfahrenen Croupiers und motivierten Menschen, auch ohne Erfahrung. Senden Sie Ihren Lebenslauf.",
+      fr: "Travaillez avec Casino Show en Suisse. Nous examinons les candidatures de croupiers expérimentés et de personnes motivées, même sans expérience. Envoyez votre CV.",
+      en: "Work with Casino Show in Switzerland. We review applications from experienced croupiers and motivated people, including those without experience. Send your CV.",
     },
   },
 ];
@@ -206,8 +206,13 @@ async function request(path, headers) {
   return {
     status: response.status,
     location: response.headers.get("location"),
+    headers: response.headers,
     text: await response.text(),
   };
+}
+
+function visibleText(html) {
+  return html.replace(/<script\b[\s\S]*?<\/script>/gi, "");
 }
 
 function attribute(tag, name) {
@@ -546,20 +551,53 @@ for (const anchor of ["#corporate", "#team", "#weddings", "#private", "#roulette
 for (const page of legalPages) {
   if (!homeIt.text.includes(page.paths.it)) fail(`home missing ${page.paths.it}`);
 }
+if (!homeIt.text.includes('"@type":"Organization"')) fail("home missing organization schema");
+if (!homeIt.text.includes('"legalName":"Immoevents360 Sagl"')) {
+  fail("home schema missing the legal entity");
+}
+if (!homeIt.text.includes('"name":"Casino Show"')) fail("home schema missing the brand");
+if (!homeIt.text.includes("CHE-139.225.071")) fail("home schema missing the UID");
+if (!homeIt.text.includes("Via Carona 47")) fail("home schema missing the registered address");
+if (homeIt.text.includes('"@type":"LocalBusiness"')) {
+  fail("home schema presents the registered office as a public premises");
+}
+if (homeIt.text.includes("aggregateRating")) fail("home schema invented a rating");
+
+const nosniff = homeIt.headers.get("x-content-type-options");
+if (nosniff !== "nosniff") fail(`home X-Content-Type-Options ${nosniff}`);
+const referrer = homeIt.headers.get("referrer-policy");
+if (referrer !== "strict-origin-when-cross-origin") fail(`home Referrer-Policy ${referrer}`);
+const frame = homeIt.headers.get("x-frame-options");
+if (frame !== "DENY") fail(`home X-Frame-Options ${frame}`);
+const csp = homeIt.headers.get("content-security-policy") ?? "";
+if (!csp.includes("frame-ancestors 'none'")) fail(`home CSP framing ${csp}`);
+
 const quoteIt = await request("/it/preventivo");
-if (!quoteIt.text.includes("non vengono trasmessi")) {
-  fail("quote submission notice missing");
+const quoteVisible = visibleText(quoteIt.text);
+if (!quoteIt.text.includes('data-quote-delivery="open"')) {
+  fail("quote delivery is not open");
 }
+if (quoteVisible.includes("Il servizio di invio delle richieste sarà disponibile a breve")) {
+  fail("quote still shows the disabled delivery notice");
+}
+if (!quoteIt.text.includes('name="company_website"')) fail("quote honeypot missing");
+if (!quoteIt.text.includes("inert")) fail("quote honeypot is exposed to assistive tech");
+
 const careersIt = await request("/it/lavora-con-noi");
-if (!careersIt.text.includes('data-careers-intake="unpublished"')) {
-  fail("careers form open without the delivery flags");
+const careersVisible = visibleText(careersIt.text);
+if (!careersIt.text.includes('data-careers-intake="open"')) {
+  fail("careers intake is not open");
 }
-if (!careersIt.text.includes("Le candidature non sono attive")) {
-  fail("careers closed notice missing");
+if (careersVisible.includes("Le candidature non sono attive")) {
+  fail("careers still shows the closed notice");
 }
-if (careersIt.text.includes('id="careers-privacy"')) {
-  fail("careers still asks for a privacy declaration");
+if (!careersIt.text.includes('id="careers-privacy"')) {
+  fail("careers privacy consent is missing");
 }
+if (!careersVisible.includes("PDF, DOC o DOCX. Massimo 5 MB.")) {
+  fail("careers CV limits missing");
+}
+if (!careersIt.text.includes('name="company_website"')) fail("careers honeypot missing");
 const headerLogo = await request("/loghi/logo-header.png");
 if (headerLogo.status !== 200) fail(`header logo asset ${headerLogo.status}`);
 const footerLogo = await request("/loghi/logo-footer.png");
