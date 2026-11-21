@@ -4,6 +4,7 @@ import {
   GA_EVENT_APPLICATION,
   GA_EVENT_LEAD,
   allowedEventCall,
+  analyticsCookieResetDirectives,
   ga4ScriptUrl,
   pageViewCall,
   publicPagePath,
@@ -117,6 +118,19 @@ assert.equal(shouldLoadGa4({ state: "expired", choice: accepted }, "G-ABC123"), 
 assert.equal(shouldLoadGa4(granted, "G-ABC123"), true);
 assert.equal(ga4ScriptUrl("GTM-ABC123"), null);
 assert.equal(ga4ScriptUrl("G-ABC123"), "https://www.googletagmanager.com/gtag/js?id=G-ABC123");
+assert.deepEqual(analyticsCookieResetDirectives("casinoshow.ch"), [
+  "Path=/; Max-Age=0; SameSite=Lax",
+  "Path=/; Max-Age=0; SameSite=Lax; Domain=casinoshow.ch",
+]);
+assert.deepEqual(analyticsCookieResetDirectives("www.casinoshow.ch"), [
+  "Path=/; Max-Age=0; SameSite=Lax",
+  "Path=/; Max-Age=0; SameSite=Lax; Domain=casinoshow.ch",
+]);
+assert.deepEqual(analyticsCookieResetDirectives("localhost"), ["Path=/; Max-Age=0; SameSite=Lax"]);
+assert.equal(
+  analyticsCookieResetDirectives("casinoshow-website.vercel.app").some((directive) => directive.includes("Domain=")),
+  false,
+);
 
 assert.equal(publicPagePath("/it/preventivo?email=ada@example.test"), "/it/preventivo");
 assert.equal(pageViewCall("/it?x=1", null, granted, null), null);
