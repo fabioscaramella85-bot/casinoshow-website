@@ -100,8 +100,10 @@ export function loadGa4(measurementId: string): void {
     setCollectionDisabled(view, id, false);
     view.dataLayer = view.dataLayer ?? [];
     if (!view.gtag) {
-      view.gtag = function gtag(...args: unknown[]) {
-        view.dataLayer?.push(args);
+      view.gtag = function gtag() {
+        // A rest parameter would queue an Array, which gtag.js does not dispatch.
+        // eslint-disable-next-line prefer-rest-params
+        view.dataLayer?.push(arguments);
       };
     }
     if (loadedId === id) return;
