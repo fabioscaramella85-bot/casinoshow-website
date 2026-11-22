@@ -4,10 +4,13 @@ import {
   GA_EVENT_APPLICATION,
   GA_EVENT_LEAD,
   allowedEventCall,
+  analyticsCookieResetDirectives,
   ga4ScriptUrl,
+  loadGa4,
   pageViewCall,
   publicPagePath,
   shouldLoadGa4,
+  trackPageView,
   validMeasurementId,
 } from "../src/lib/analytics/ga4.ts";
 import {
@@ -117,6 +120,19 @@ assert.equal(shouldLoadGa4({ state: "expired", choice: accepted }, "G-ABC123"), 
 assert.equal(shouldLoadGa4(granted, "G-ABC123"), true);
 assert.equal(ga4ScriptUrl("GTM-ABC123"), null);
 assert.equal(ga4ScriptUrl("G-ABC123"), "https://www.googletagmanager.com/gtag/js?id=G-ABC123");
+assert.deepEqual(analyticsCookieResetDirectives("casinoshow.ch"), [
+  "Path=/; Max-Age=0; SameSite=Lax",
+  "Path=/; Max-Age=0; SameSite=Lax; Domain=casinoshow.ch",
+]);
+assert.deepEqual(analyticsCookieResetDirectives("www.casinoshow.ch"), [
+  "Path=/; Max-Age=0; SameSite=Lax",
+  "Path=/; Max-Age=0; SameSite=Lax; Domain=casinoshow.ch",
+]);
+assert.deepEqual(analyticsCookieResetDirectives("localhost"), ["Path=/; Max-Age=0; SameSite=Lax"]);
+assert.equal(
+  analyticsCookieResetDirectives("casinoshow-website.vercel.app").some((directive) => directive.includes("Domain=")),
+  false,
+);
 
 assert.equal(publicPagePath("/it/preventivo?email=ada@example.test"), "/it/preventivo");
 assert.equal(pageViewCall("/it?x=1", null, granted, null), null);
@@ -139,6 +155,47 @@ assert.equal(analyticsSource.includes("GTM-"), false);
 assert.equal(/facebook|fbq|fbevents|hotjar|clarity|meta pixel/i.test(analyticsSource), false);
 assert.equal(analyticsSource.includes("googletagmanager.com/gtag/js"), true);
 assert.equal(analyticsSource.includes("send_page_view: false"), true);
+assert.match(analyticsSource, /function gtag\(\) \{[\s\S]*?view\.dataLayer\?\.push\(arguments\);/);
+assert.equal(/function gtag\(\.\.\.args/.test(analyticsSource), false);
+assert.equal(analyticsSource.includes(".push(args)"), false);
+
+const queued: unknown[] = [];
+const browser = {
+  dataLayer: queued,
+  location: { hostname: "127.0.0.1" },
+  gtag: undefined as ((...args: unknown[]) => void) | undefined,
+};
+const documentStub = {
+  cookie: `cs_consent=v${CONSENT_VERSION}.a0.t${Math.floor(Date.now() / 1000)}`,
+  getElementById: () => null,
+  createElement: () => ({ id: "", async: false, src: "" }),
+  head: { appendChild: () => undefined },
+};
+Object.defineProperty(globalThis, "window", { configurable: true, value: browser });
+Object.defineProperty(globalThis, "document", { configurable: true, value: documentStub });
+loadGa4("G-ABC123");
+assert.equal(queued.length, 0);
+documentStub.cookie = `cs_consent=v${CONSENT_VERSION}.a1.t${Math.floor(Date.now() / 1000)}`;
+loadGa4("G-ABC123");
+trackPageView("G-ABC123", "/it");
+trackPageView("G-ABC123", "/it?email=ada@example.test");
+trackPageView("G-ABC123", "/de");
+const commands = queued.filter(
+  (item): item is IArguments => Object.prototype.toString.call(item) === "[object Arguments]",
+);
+assert.equal(commands.length, queued.length);
+assert.equal(commands.length, 4);
+for (const command of commands) {
+  assert.equal(Array.isArray(command), false);
+  assert.equal(Object.prototype.hasOwnProperty.call(command, "callee"), true);
+}
+assert.equal(commands[1][0], "config");
+assert.equal(commands[1][1], "G-ABC123");
+assert.equal(commands[1][2].send_page_view, false);
+assert.deepEqual(
+  commands.slice(2).map((command) => command[2].page_path),
+  ["/it", "/de"],
+);
 
 const quoteSource = fs.readFileSync("src/components/quote/quote-wizard.tsx", "utf8");
 const careersSource = fs.readFileSync("src/components/careers/careers-form.tsx", "utf8");

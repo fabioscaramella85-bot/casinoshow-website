@@ -71,6 +71,16 @@ export function ga4ScriptUrl(measurementId: string): string | null {
   return `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
 }
 
+/** Host-only clear, plus the registrable domain GA4 uses on casinoshow.ch. */
+export function analyticsCookieResetDirectives(hostname: string): string[] {
+  const host = hostname.trim().toLowerCase().replace(/:\d+$/, "").replace(/\.$/, "");
+  const base = "Path=/; Max-Age=0; SameSite=Lax";
+  if (host === "casinoshow.ch" || host.endsWith(".casinoshow.ch")) {
+    return [base, `${base}; Domain=casinoshow.ch`];
+  }
+  return [base];
+}
+
 function analyticsWindow(): AnalyticsWindow | null {
   if (typeof window === "undefined") return null;
   return window as AnalyticsWindow;
@@ -90,8 +100,10 @@ export function loadGa4(measurementId: string): void {
     setCollectionDisabled(view, id, false);
     view.dataLayer = view.dataLayer ?? [];
     if (!view.gtag) {
-      view.gtag = function gtag(...args: unknown[]) {
-        view.dataLayer?.push(args);
+      view.gtag = function gtag() {
+        // A rest parameter would queue an Array, which gtag.js does not dispatch.
+        // eslint-disable-next-line prefer-rest-params
+        view.dataLayer?.push(arguments);
       };
     }
     if (loadedId === id) return;
@@ -158,7 +170,10 @@ function expireAnalyticsCookies(): void {
     .split(";")
     .map((part) => part.slice(0, part.indexOf("=")).trim())
     .filter((name) => name === "_ga" || name === "_gid" || name === "_gat" || name.startsWith("_ga_"));
+  const directives = analyticsCookieResetDirectives(window.location.hostname);
   for (const name of names) {
-    document.cookie = `${name}=; Path=/; Max-Age=0; SameSite=Lax`;
+    for (const directive of directives) {
+      document.cookie = `${name}=; ${directive}`;
+    }
   }
 }
